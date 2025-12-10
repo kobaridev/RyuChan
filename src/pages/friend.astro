@@ -94,6 +94,16 @@ const sites = [{ name: "Ryuchan Demo", url: "https://demo.131714.xyz/" }];
             <div class="flex flex-wrap items-center gap-3">
               {sites.map((site) => <Showcase name={site.name} url={site.url} />)}
             </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+              <FriendCard
+                name="Kael"
+                avatar="/goat.png"
+                description="一个技能树越点越歪的个人博主😜"
+                url="https://zayck.pages.dev"
+                type="friend"
+              />
+
           </section>
         </div>
       </div>
