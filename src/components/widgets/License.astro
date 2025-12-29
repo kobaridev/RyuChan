@@ -123,11 +123,18 @@ const socialLinks = [
                 CC BY-NC-SA 4.0  
               </a>  
             </div>  
-            <!-- Share Button -->  
-            <button class="btn btn-primary btn-outline" onclick="share_modal.showModal()">  
-              {t("label.share")}  
-              <Icon name="ri:share-line" class="w-5 h-5" />  
-            </button>  
+            <div class="flex gap-2">
+              <!-- Reward Button -->
+              <button class="btn btn-secondary btn-outline" onclick="reward_modal.showModal()">
+                赞赏
+                <Icon name="ri:hand-heart-line" class="w-5 h-5" />
+              </button>
+              <!-- Share Button -->  
+              <button class="btn btn-primary btn-outline" onclick="share_modal.showModal()">  
+                {t("label.share")}  
+                <Icon name="ri:share-line" class="w-5 h-5" />  
+              </button>
+            </div>  
           </div>  
         </div>  
       </div>  
@@ -198,6 +205,50 @@ const socialLinks = [
     <form method="dialog" class="modal-backdrop">  
       <button>{t("label.close")}</button>  
     </form>  
+  </dialog>
+
+  <!-- Reward Modal -->
+  <dialog id="reward_modal" class="modal modal-middle">
+    <div class="modal-box w-11/12 max-w-4xl rounded-xl relative overflow-x-hidden">
+      <h3 class="font-bold text-lg sm:text-xl mb-6 text-center">
+        赞赏支持
+      </h3>
+      
+      <div class="flex flex-row justify-center items-center gap-4 md:gap-8 p-4">
+        <!-- WeChat -->
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-28 h-28 md:w-44 md:h-44 bg-white rounded-xl overflow-hidden shadow-lg border border-base-300 flex items-center justify-center">
+            <img src="/weixin.jpg" alt="微信收款码" class="w-full h-full object-contain" />
+          </div>
+          <div class="flex items-center gap-1 md:gap-2 text-success font-bold text-xs md:text-base">
+            <Icon name="ri:wechat-pay-line" class="w-4 h-4 md:w-6 md:h-6" />
+            <span>微信支付</span>
+          </div>
+        </div>
+
+        <!-- Alipay -->
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-28 h-28 md:w-44 md:h-44 bg-white rounded-xl overflow-hidden shadow-lg border border-base-300 flex items-center justify-center">
+            <img src="/zhifubao.jpg" alt="支付宝收款码" class="w-full h-full object-contain" />
+          </div>
+          <div class="flex items-center gap-1 md:gap-2 text-[#1677ff] font-bold text-xs md:text-base">
+            <Icon name="ri:alipay-line" class="w-4 h-4 md:w-6 md:h-6" />
+            <span>支付宝</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn btn-ghost hover:scale-105 transition-transform">
+            {t("label.close")}
+          </button>
+        </form>
+      </div>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+      <button>{t("label.close")}</button>
+    </form>
   </dialog>
 </div>  
   

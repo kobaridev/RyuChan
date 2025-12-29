@@ -176,8 +176,11 @@ const getCategoryDisplayName = (category: string): string => {
   {categoryEntries.length > 3 && (  
     <div class="expand-btn px-2 -mb-2">  
       <button class="btn btn-ghost rounded-lg w-full h-9" id="expand-categories">  
-        <div class="text-primary flex items-center justify-center">  
-          ... 更多  
+        <div class="text-primary flex items-center justify-center" id="categories-more">  
+          <Icon name="lucide:chevron-down" class="w-5 h-5 mr-1" /> 更多  
+        </div>
+        <div class="text-primary flex items-center justify-center hidden" id="categories-collapse" style="display: none;">  
+          <Icon name="lucide:chevron-up" class="w-5 h-5 mr-1" /> 收起  
         </div>  
       </button>  
     </div>  
@@ -215,8 +218,11 @@ const getCategoryDisplayName = (category: string): string => {
   {tagEntries.length > 8 && (  
     <div class="expand-btn px-2 -mb-2">  
       <button class="btn btn-ghost rounded-lg w-full h-9" id="expand-tags">  
-        <div class="text-primary flex items-center justify-center">  
-          ... 更多  
+        <div class="text-primary flex items-center justify-center" id="tags-more">  
+          <Icon name="lucide:chevron-down" class="w-5 h-5 mr-1" /> 更多  
+        </div>
+        <div class="text-primary flex items-center justify-center hidden" id="tags-collapse" style="display: none;">  
+          <Icon name="lucide:chevron-up" class="w-5 h-5 mr-1" /> 收起  
         </div>  
       </button>  
     </div>  
@@ -300,17 +306,18 @@ function initCategoriesToggle() {
           
   if (expandBtn && hiddenCategories) {      
     let isExpanded = false;      
+    const moreDiv = expandBtn.querySelector('#categories-more');
+    const collapseDiv = expandBtn.querySelector('#categories-collapse');
             
     expandBtn.addEventListener('click', () => {      
-      const btnDiv = expandBtn.querySelector('div');    
       if (isExpanded) {      
         hiddenCategories.style.display = 'none';  
-        btnDiv.className = 'text-primary flex items-center justify-center';  
-        btnDiv.textContent = '... 更多';      
+        moreDiv.style.display = 'flex';
+        collapseDiv.style.display = 'none';
       } else {      
         hiddenCategories.style.display = 'block';  
-        btnDiv.className = 'text-primary flex items-center justify-center';  
-        btnDiv.textContent = '⮝ 收起';      
+        moreDiv.style.display = 'none';
+        collapseDiv.style.display = 'flex';
       }      
       isExpanded = !isExpanded;      
     });      
@@ -324,17 +331,18 @@ function initTagsToggle() {
   
   if (expandBtn && hiddenTags) {      
     let isExpanded = false;      
+    const moreDiv = expandBtn.querySelector('#tags-more');
+    const collapseDiv = expandBtn.querySelector('#tags-collapse');
     
     expandBtn.addEventListener('click', () => {      
-      const btnDiv = expandBtn.querySelector('div');    
       if (isExpanded) {      
         hiddenTags.style.display = 'none';  
-        btnDiv.className = 'text-primary flex items-center justify-center';  
-        btnDiv.textContent = '... 更多';      
+        moreDiv.style.display = 'flex';
+        collapseDiv.style.display = 'none';
       } else {      
         hiddenTags.style.display = 'block';  
-        btnDiv.className = 'text-primary flex items-center justify-center';  
-        btnDiv.textContent = '⮝ 收起';      
+        moreDiv.style.display = 'none';
+        collapseDiv.style.display = 'flex';
       }      
       isExpanded = !isExpanded;      
     });      

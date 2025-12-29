@@ -211,7 +211,7 @@ comments:
     pageview: false
 # Umami 统计配置
 umami:
-  enable: true # 是否启用 Umami 统计
+  enable: false # 是否启用 Umami 统计
   baseUrl: "https://um.131714.xyz"
   shareId: "a3FQfFJqDvjTVbVh"
   websiteId: "42d2e65e-b7b5-4cf0-b73d-9058a90ee2eb"

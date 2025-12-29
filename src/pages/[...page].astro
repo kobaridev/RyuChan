@@ -22,61 +22,53 @@ const pageLinks = generatePageLinks(totalPages);
   <!-- Blog Navigation Cards -->
   <CardGroup cols="2" class="grid-cols-2">
     <!-- Archives Card -->
-    <a href="/blog/archives" class="card bg-base-100 shadow-lg">
-      <div class="card-body p-3 sm:p-4">
-        <div class="flex items-center gap-2 sm:gap-3">
-          <div class="rounded-full bg-accent/10 p-2 sm:p-3 flex-shrink-0">
-            <Icon name="lucide:archive" class="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
-          </div>
-          <div class="min-w-0 flex-1 pr-1">
-            <h2 class="card-title text-sm sm:text-lg whitespace-nowrap">{t("label.archivePage")}</h2>
-            <p class="text-[10px] sm:text-sm opacity-75 truncate">{t("label.archivesPageDescription")}</p>
-          </div>
+    <a href="/blog/archives" class="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 w-full rounded-xl">
+      <div class="card-body p-2 sm:p-4 flex flex-row items-center gap-2 sm:gap-3">
+        <div class="rounded-full bg-accent/10 p-2 sm:p-3 flex-shrink-0">
+          <Icon name="lucide:archive" class="w-4 h-4 sm:w-6 sm:h-6 text-accent" />
+        </div>
+        <div class="min-w-0 flex-1">
+          <h2 class="card-title text-xs sm:text-lg leading-tight mb-0.5">{t("label.archivePage")}</h2>
+          <p class="text-[10px] sm:text-sm opacity-75 truncate">{t("label.archivesPageDescription")}</p>
         </div>
       </div>
     </a>
 
     <!-- Categories Card -->
-    <a href="/blog/categories" class="card bg-base-100 shadow-lg">
-      <div class="card-body p-3 sm:p-4">
-        <div class="flex items-center gap-2 sm:gap-3">
-          <div class="rounded-full bg-primary/10 p-2 sm:p-3 flex-shrink-0">
-            <Icon name="lucide:folder" class="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-          </div>
-          <div class="min-w-0 flex-1 pr-1">
-            <h2 class="card-title text-sm sm:text-lg whitespace-nowrap">{t("label.categoryPage")}</h2>
-            <p class="text-[10px] sm:text-sm opacity-75 truncate">{t("label.categoriesPageDescription")}</p>
-          </div>
+    <a href="/blog/categories" class="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 w-full rounded-xl">
+      <div class="card-body p-2 sm:p-4 flex flex-row items-center gap-2 sm:gap-3">
+        <div class="rounded-full bg-primary/10 p-2 sm:p-3 flex-shrink-0">
+          <Icon name="lucide:folder" class="w-4 h-4 sm:w-6 sm:h-6 text-primary" />
+        </div>
+        <div class="min-w-0 flex-1">
+          <h2 class="card-title text-xs sm:text-lg leading-tight mb-0.5">{t("label.categoryPage")}</h2>
+          <p class="text-[10px] sm:text-sm opacity-75 truncate">{t("label.categoriesPageDescription")}</p>
         </div>
       </div>
     </a>
 
     <!-- Tags Card -->
-    <a href="/blog/tags" class="card bg-base-100 shadow-lg">
-      <div class="card-body p-3 sm:p-4">
-        <div class="flex items-center gap-2 sm:gap-3">
-          <div class="rounded-full bg-secondary/10 p-2 sm:p-3 flex-shrink-0">
-            <Icon name="lucide:tag" class="w-5 h-5 sm:w-6 sm:h-6 text-secondary" />
-          </div>
-          <div class="min-w-0 flex-1 pr-1">
-            <h2 class="card-title text-sm sm:text-lg whitespace-nowrap">{t("label.tagPage")}</h2>
-            <p class="text-[10px] sm:text-sm opacity-75 truncate">{t("label.tagsPageDescription")}</p>
-          </div>
+    <a href="/blog/tags" class="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 w-full rounded-xl">
+      <div class="card-body p-2 sm:p-4 flex flex-row items-center gap-2 sm:gap-3">
+        <div class="rounded-full bg-secondary/10 p-2 sm:p-3 flex-shrink-0">
+          <Icon name="lucide:tag" class="w-4 h-4 sm:w-6 sm:h-6 text-secondary" />
+        </div>
+        <div class="min-w-0 flex-1">
+          <h2 class="card-title text-xs sm:text-lg leading-tight mb-0.5">{t("label.tagPage")}</h2>
+          <p class="text-[10px] sm:text-sm opacity-75 truncate">{t("label.tagsPageDescription")}</p>
         </div>
       </div>
     </a>
 
     <!-- Search Card -->
-    <a href="/blog/search" class="card bg-base-100 shadow-lg">
-      <div class="card-body p-3 sm:p-4">
-        <div class="flex items-center gap-2 sm:gap-3">
-          <div class="rounded-full bg-info/10 p-2 sm:p-3 flex-shrink-0">
-            <Icon name="lucide:search" class="w-5 h-5 sm:w-6 sm:h-6 text-info" />
-          </div>
-          <div class="min-w-0 flex-1 pr-1">
-            <h2 class="card-title text-sm sm:text-lg whitespace-nowrap">{t("label.searchPage")}</h2>
-            <p class="text-[10px] sm:text-sm opacity-75 truncate">{t("label.searchPageDescription")}</p>
-          </div>
+    <a href="/blog/search" class="card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 w-full rounded-xl">
+      <div class="card-body p-2 sm:p-4 flex flex-row items-center gap-2 sm:gap-3">
+        <div class="rounded-full bg-info/10 p-2 sm:p-3 flex-shrink-0">
+          <Icon name="lucide:search" class="w-4 h-4 sm:w-6 sm:h-6 text-info" />
+        </div>
+        <div class="min-w-0 flex-1">
+          <h2 class="card-title text-xs sm:text-lg leading-tight mb-0.5">{t("label.searchPage")}</h2>
+          <p class="text-[10px] sm:text-sm opacity-75 truncate">{t("label.searchPageDescription")}</p>
         </div>
       </div>
     </a>

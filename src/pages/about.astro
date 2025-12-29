@@ -1,18 +1,12 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Icon } from "astro-icon/components";
-import MainCard from "@/components/MainCard.astro";
+import Card from "@/components/temple/Card.astro";
 import GitHubStats from "@/components/mdx/GitHubStats.astro";
 ---
 
 <BaseLayout title="About">
-  <MainCard
-    title="About Xiaozhang"
-    description="Developer"
-    textOverlay="ABOUT"
-    image="https://img.xiaozhangya.xin/file/1753261567796_bg1.jpg"
-    infoIcon="lucide:user"
-  >
+  <Card class="p-4 md:p-8">
     <div class="space-y-10 mb-8">
       <!-- Profile Section -->
       <section class="flex flex-col md:flex-row gap-8 items-center md:items-start">
@@ -20,7 +14,7 @@ import GitHubStats from "@/components/mdx/GitHubStats.astro";
           <div
             class="w-32 h-32 md:w-40 md:h-40 rounded-xl ring ring-primary ring-offset-base-100 ring-offset-2 overflow-hidden"
           >
-            <img src="https://img.xiaozhangya.xin/file/1753185126703_avatar.jpg" alt="XZ" width="160" height="160" loading="eager" />
+            <img src="/profile.png" alt="XZ" width="160" height="160" loading="eager" />
           </div>
         </div>
 
@@ -47,7 +41,7 @@ import GitHubStats from "@/components/mdx/GitHubStats.astro";
               <Icon name="lucide:twitter" class="w-4 h-4" />
               <span>Twitter</span>
             </a>
-            <a href="mailto:zwl2247103169@outlook.com" class="btn btn-sm btn-outline gap-2">
+            <a href="mailto:xzzya03@outlook.com" class="btn btn-sm btn-outline gap-2">
               <Icon name="lucide:mail" class="w-4 h-4" />
               <span>Email</span>
             </a>
@@ -69,6 +63,30 @@ import GitHubStats from "@/components/mdx/GitHubStats.astro";
         </h2>
 
         <GitHubStats username="kobaridev" showLanguages={false} showCommitGraph={true} />
+      </section>
+
+      <!-- About This Site -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+          <Icon name="lucide:info" class="w-6 h-6 text-primary" />
+          <span>关于本站</span>
+        </h2>
+        
+        <div class="prose prose-base dark:prose-invert max-w-none">
+          <p>
+            本站是一个简洁、优雅、快速的静态博客，基于 Astro 5.0+ & Tailwind CSS 开发。
+          </p>
+          
+          <h3 class="text-xl font-bold mt-4 mb-2">✨ 核心特点</h3>
+          <ul class="list-disc list-inside space-y-1">
+            <li>🚀 <strong>极速体验</strong>：基于 Astro 构建，提供极速的访问速度与优秀的 SEO 表现。</li>
+            <li>🎨 <strong>优雅设计</strong>：使用 Tailwind CSS 与 daisyUI 构建，支持白天/黑夜模式切换。</li>
+            <li>📱 <strong>多端适配</strong>：移动端优先的响应式设计，优化卡片布局与网格导航。</li>
+            <li>🔍 <strong>全文搜索</strong>：集成 Pagefind，支持毫秒级的文章全文搜索。</li>
+            <li>⚡ <strong>平滑过渡</strong>：使用 ClientRouter 实现丝滑的视图过渡动画。</li>
+            <li>📡 <strong>RSS 订阅</strong>：内置 RSS 支持，方便读者订阅更新。</li>
+          </ul>
+        </div>
       </section>
 
       <!-- Tech Stack -->
@@ -105,5 +123,5 @@ import GitHubStats from "@/components/mdx/GitHubStats.astro";
         </div>
       </section>
     </div>
-  </MainCard>
+  </Card>
 </BaseLayout>
