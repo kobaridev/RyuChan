@@ -84,7 +84,7 @@
         <header>
           <h1><xsl:value-of select="/rss/channel/title"/></h1>
           <p><xsl:value-of select="/rss/channel/description"/></p>
-          <a class="visit-btn" href="{/rss/channel/link}">Visit Website</a>
+          <a class="visit-btn" href="/">Visit Website</a>
         </header>
         <main>
           <xsl:for-each select="/rss/channel/item">
@@ -103,6 +103,19 @@
             </div>
           </xsl:for-each>
         </main>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.item h2 a');
+            links.forEach(link => {
+              try {
+                const url = new URL(link.href);
+                link.href = url.pathname + url.search + url.hash;
+              } catch (e) {
+                // Ignore invalid URLs
+              }
+            });
+          });
+        </script>
       </body>
     </html>
   </xsl:template>

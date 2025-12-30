@@ -166,7 +166,7 @@ const socialLinks = [
         <button
           class="btn btn-circle btn-lg transition-transform hover:scale-110 bg-neutral hover:bg-neutral-focus"
           title="Copy Link"
-          onclick={`navigator.clipboard.writeText('${url}').then(() => {
+          onclick={`navigator.clipboard.writeText(window.location.href).then(() => {
             const btn = this;
             const toast = document.getElementById('copy-toast');
             btn.classList.add('btn-success');
