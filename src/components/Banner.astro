@@ -244,8 +244,9 @@ const initialRandomImage = `${RANDOM_API_URL}?t=${Date.now()}`;
       if (document.hidden) return;
 
       // 检查元素是否在视口内
+      const isBackgroundMode = document.documentElement.getAttribute("data-banner-mode") === "background";
       const rect = banner.getBoundingClientRect();
-      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+      if (!isBackgroundMode && (rect.bottom < 0 || rect.top > window.innerHeight)) return;
 
       try {
         const nextUrl = getRandomUrl();
@@ -268,6 +269,7 @@ const initialRandomImage = `${RANDOM_API_URL}?t=${Date.now()}`;
         setTimeout(() => {
           // 5. 将当前图更新为新图，并重置状态
           bgCurrent.style.backgroundImage = `url(${nextUrl})`;
+          document.documentElement.style.setProperty('--banner-image-url', `url(${nextUrl})`);
           
           // 6. 瞬间隐藏 next 层，为下一次做准备
           // 需要先移除 transition 以避免闪烁，重置后再加回来
@@ -296,6 +298,11 @@ const initialRandomImage = `${RANDOM_API_URL}?t=${Date.now()}`;
       timer = setInterval(switchImage, INTERVAL_TIME);
     };
 
+    // 初始化 CSS 变量
+    if (bgCurrent.style.backgroundImage) {
+      document.documentElement.style.setProperty('--banner-image-url', bgCurrent.style.backgroundImage);
+    }
+
     // 停止轮播
     const stopCarousel = () => {
       if (timer) {
@@ -307,7 +314,8 @@ const initialRandomImage = `${RANDOM_API_URL}?t=${Date.now()}`;
     // 监听可见性变化
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        const isBackgroundMode = document.documentElement.getAttribute("data-banner-mode") === "background";
+        if (entry.isIntersecting || isBackgroundMode) {
           startCarousel();
         } else {
           stopCarousel();
@@ -317,10 +325,38 @@ const initialRandomImage = `${RANDOM_API_URL}?t=${Date.now()}`;
     
     observer.observe(banner);
 
+    // 监听 Banner 模式变化
+    const modeObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === "attributes" && mutation.attributeName === "data-banner-mode") {
+          const isBackgroundMode = document.documentElement.getAttribute("data-banner-mode") === "background";
+          // 如果切换到 background 模式，强制启动轮播
+          if (isBackgroundMode) {
+            startCarousel();
+          } else {
+            // 如果切换出 background 模式，重新检查可见性
+            // 这里简单处理：如果不在视口内（例如页面滚动到底部），IntersectionObserver 会处理
+            // 但如果 Banner 变为可见，IntersectionObserver 也会触发
+            // 所以这里主要处理从 background -> hidden 的情况
+             const isHidden = document.documentElement.getAttribute("data-banner-mode") === "hidden";
+             if (isHidden) {
+               stopCarousel();
+             }
+          }
+        }
+      });
+    });
+
+    modeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-banner-mode"]
+    });
+
     // 页面卸载时清理
     document.addEventListener("astro:before-swap", () => {
       stopCarousel();
       observer.disconnect();
+      modeObserver.disconnect();
     }, { once: true });
   });
 </script>

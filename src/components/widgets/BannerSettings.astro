@@ -1,0 +1,65 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="dropdown dropdown-end">
+  <div tabindex="0" role="button" class="btn btn-ghost btn-circle hover:bg-white/10 text-primary" title="Banner Settings">
+    <Icon name="material-symbols:image-outline" class="w-5 h-5" />
+  </div>
+  <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow-2xl bg-base-200 rounded-box w-52">
+    <li>
+      <button data-set-banner="normal" class="flex gap-2 active">
+        <Icon name="material-symbols:panorama-outline" class="w-5 h-5" />
+        Banner Mode
+      </button>
+    </li>
+    <li>
+      <button data-set-banner="fullscreen" class="flex gap-2">
+        <Icon name="material-symbols:fullscreen" class="w-5 h-5" />
+        Fullscreen Mode
+      </button>
+    </li>
+    <li>
+      <button data-set-banner="background" class="flex gap-2">
+        <Icon name="material-symbols:wallpaper" class="w-5 h-5" />
+        Background Mode
+      </button>
+    </li>
+    <li>
+      <button data-set-banner="hidden" class="flex gap-2">
+        <Icon name="material-symbols:hide-image-outline" class="w-5 h-5" />
+        Hide Wallpaper
+      </button>
+    </li>
+  </ul>
+</div>
+
+<script is:inline>
+  document.addEventListener("astro:page-load", () => {
+    const buttons = document.querySelectorAll("[data-set-banner]");
+    
+    // Update active state in menu
+    const updateActiveButton = (mode) => {
+      buttons.forEach(btn => {
+        if (btn.getAttribute("data-set-banner") === mode) {
+          btn.classList.add("active", "bg-primary/10", "text-primary");
+        } else {
+          btn.classList.remove("active", "bg-primary/10", "text-primary");
+        }
+      });
+    };
+
+    // Initialize state
+    const currentMode = localStorage.getItem("banner-mode") || "normal";
+    updateActiveButton(currentMode);
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const mode = btn.getAttribute("data-set-banner");
+        document.documentElement.setAttribute("data-banner-mode", mode);
+        localStorage.setItem("banner-mode", mode);
+        updateActiveButton(mode);
+      });
+    });
+  });
+</script>

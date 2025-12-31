@@ -41,6 +41,93 @@
   color-scheme: dark;
 }
 
+/* Banner Modes */
+[data-banner-mode="fullscreen"] {
+  .banner {
+    height: 100vh !important;
+  }
+}
+
+[data-banner-mode="hidden"] {
+  .banner {
+    display: none !important;
+  }
+  
+  .page-content-animate {
+    margin-top: 6rem !important;
+    min-height: calc(100vh - 6rem - 100px); /* Ensure footer is pushed down */
+  }
+
+  /* Remove navbar shadow in hidden mode */
+  #navbar-bg,
+  #navbar-mobile > div {
+    box-shadow: none !important;
+  }
+}
+
+[data-banner-mode="background"] {
+  .banner {
+    display: none !important;
+  }
+  
+  body {
+    background-image: var(--banner-image-url);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  /* Add a semi-transparent overlay to body to improve readability */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1); /* Light overlay */
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  [data-theme-type="dark"] body::before {
+    background-color: rgba(0, 0, 0, 0.5); /* Darker overlay for dark mode */
+  }
+
+  .page-content-animate {
+    margin-top: 6rem !important;
+    min-height: calc(100vh - 6rem - 100px);
+  }
+
+  /* Make components semi-transparent in background mode */
+  .bg-base-100, .card-base, .card {
+    background-color: oklch(var(--b1) / 0.7) !important;
+    backdrop-filter: blur(10px);
+  }
+  
+  .bg-base-200 {
+    background-color: oklch(var(--b2) / 0.7) !important;
+    backdrop-filter: blur(10px);
+  }
+
+  .bg-base-300 {
+    background-color: oklch(var(--b3) / 0.7) !important;
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Navbar specific */
+  #navbar-bg {
+    background-color: oklch(var(--b1) / 0.6) !important;
+    backdrop-filter: blur(12px);
+  }
+
+  /* Navigation page container specific */
+  .nav-container {
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+  }
+}
+
 /* Global styles with nesting support */
 html {
   @apply scroll-smooth font-sans;
@@ -777,4 +864,12 @@ code {
 
 .animate-fade-in-up {
   animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* 强制统一所有主题的圆角设置，防止某些主题（如 retro, cyberpunk）修改圆角 */
+:root,
+[data-theme] {
+  --rounded-box: 1rem !important;
+  --rounded-btn: 0.5rem !important;
+  --rounded-badge: 1.9rem !important;
 }

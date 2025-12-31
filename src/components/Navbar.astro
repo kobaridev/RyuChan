@@ -2,6 +2,7 @@
 import { Icon } from "astro-icon/components";      
 import ThemeToggle from "./widgets/ThemeToggle.astro";      
 import ThemeSelector from "./widgets/ThemeSelector.astro";
+import BannerSettings from "./widgets/BannerSettings.astro";
 import { SITE_TITLE, SITE_MENU, USER_AVATAR } from "../config";      
       
 // Get current path to determine active link      
@@ -81,9 +82,10 @@ const typedMenu = SITE_MENU as MenuItem[];
               
         <!-- 右侧工具栏 -->      
         <div class="flex items-center space-x-2">      
+          <ThemeSelector />
+          <BannerSettings />
           <!-- 主题切换 -->      
           <ThemeToggle className="btn btn-ghost btn-circle hover:bg-white/10 text-primary" />      
-          <ThemeSelector />
         </div>      
       </div>      
     </div>      
