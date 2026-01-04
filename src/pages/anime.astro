@@ -137,7 +137,8 @@ let animeList = animeData.flatMap((group) => group.items || []).map(anime => {
     rating: anime.vote_average || 0,
     date: date,
     overview: anime.overview,
-    link: `https://www.themoviedb.org/${type}/${anime.id}`
+    link: `https://www.themoviedb.org/${type}/${anime.id}`,
+    epStatus: undefined
   };
 });
 
