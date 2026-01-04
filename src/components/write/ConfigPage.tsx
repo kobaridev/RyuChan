@@ -182,7 +182,7 @@ export function ConfigPage() {
     }
 
 	return (
-		<div className="w-full max-w-4xl mx-auto my-12">
+		<div className="w-full max-w-4xl mx-auto my-12 font-sans">
             <Toaster richColors position="top-center" />
             
             <input
@@ -197,77 +197,92 @@ export function ConfigPage() {
 				}}
 			/>
 
-			<div className="rounded-2xl bg-white shadow-xl dark:bg-zinc-900 flex flex-col overflow-hidden border border-zinc-100 dark:border-zinc-800 min-h-[600px]">
+			<div className="rounded-3xl bg-base-100 shadow-2xl flex flex-col overflow-hidden border border-base-200 min-h-[600px]">
 				{/* Header */}
-                <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900">
-                    <h2 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">站点配置</h2>
+                <div className="flex items-center justify-between px-8 py-5 border-b border-base-200 bg-base-100/50 backdrop-blur-sm sticky top-0 z-10">
+                    <div className="flex items-center gap-3">
+                        <div className="w-1 h-6 bg-primary rounded-full"></div>
+                        <h2 className="text-xl font-bold text-primary">站点配置</h2>
+                    </div>
                     
                     <div className="flex items-center gap-3">
-                        {!isAuth && (
-                            <button onClick={handleImportKey} className="btn btn-sm btn-outline">
-                                导入密钥
+                        <div className="join bg-base-200 p-1 rounded-lg">
+                            <button 
+                                className={`join-item btn btn-sm border-none ${mode === 'visual' ? 'btn-primary shadow-md' : 'btn-ghost text-base-content/60'}`}
+                                onClick={() => setMode('visual')}
+                                disabled={!isAuth}
+                            >
+                                可视化
                             </button>
-                        )}
-                        <button 
-                            className={`btn btn-sm ${mode === 'visual' ? 'btn-ghost text-zinc-500' : 'btn-primary'}`}
-                            onClick={() => setMode(mode === 'visual' ? 'code' : 'visual')}
-                            disabled={!isAuth}
-                        >
-                            {mode === 'visual' ? '预览' : '可视化'}
-                        </button>
-                        <button onClick={handleSave} disabled={saving || loading || !isAuth} className="btn btn-sm bg-red-500 hover:bg-red-600 text-white border-none px-6">
+                            <button 
+                                className={`join-item btn btn-sm border-none ${mode === 'code' ? 'btn-primary shadow-md' : 'btn-ghost text-base-content/60'}`}
+                                onClick={() => setMode('code')}
+                                disabled={!isAuth}
+                            >
+                                代码
+                            </button>
+                        </div>
+                        <button onClick={handleSave} disabled={saving || loading || !isAuth} className="btn btn-sm btn-primary px-6 shadow-lg shadow-primary/20">
                             {saving ? '保存中...' : '保存配置'}
                         </button>
                     </div>
 				</div>
 
 				{loading ? (
-					<div className="flex h-64 items-center justify-center">加载中...</div>
+					<div className="flex h-64 items-center justify-center text-base-content/50">
+                        <span className="loading loading-spinner loading-lg text-primary"></span>
+                    </div>
 				) : !isAuth ? (
-                    <div className="flex flex-col items-center justify-center h-full flex-1 p-12 text-center space-y-4">
-                        <div className="text-zinc-400 text-lg">请先导入密钥以编辑配置</div>
-                        <button onClick={handleImportKey} className="btn btn-primary">
+                    <div className="flex flex-col items-center justify-center h-full flex-1 p-12 text-center space-y-6">
+                        <div className="w-24 h-24 bg-base-200 rounded-full flex items-center justify-center mb-4">
+                            <span className="text-4xl">🔒</span>
+                        </div>
+                        <div className="space-y-2">
+                            <h3 className="text-xl font-bold">需要身份验证</h3>
+                            <p className="text-base-content/60">请导入您的私钥以开始编辑配置</p>
+                        </div>
+                        <button onClick={handleImportKey} className="btn btn-primary btn-wide shadow-lg shadow-primary/20">
                             导入密钥 (.pem)
                         </button>
                     </div>
                 ) : (
-                    <div className="flex-1 overflow-y-auto bg-zinc-50/50 dark:bg-zinc-950/50 p-6">
+                    <div className="flex-1 overflow-y-auto bg-base-200/30 p-8">
                         {mode === 'code' ? (
                             <textarea
-                                className="h-[600px] w-full rounded-xl border border-zinc-200 bg-white p-4 font-mono text-sm text-zinc-900 focus:border-red-500 focus:outline-none dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 resize-none shadow-sm"
+                                className="h-[600px] w-full rounded-xl border border-base-300 bg-base-100 p-6 font-mono text-sm focus:border-primary focus:outline-none resize-none shadow-inner"
                                 value={configContent}
                                 onChange={(e) => setConfigContent(e.target.value)}
                                 spellCheck={false}
                             />
                         ) : (
-                            <div className="max-w-3xl mx-auto space-y-8">
+                            <div className="max-w-3xl mx-auto space-y-10">
                                 {/* Icons */}
                                 <div className="grid grid-cols-2 gap-12">
-                                    <div className="space-y-3">
-                                        <div className="text-sm text-zinc-500">网站图标</div>
-                                        <div className="flex justify-center p-6 bg-white rounded-2xl border border-zinc-100 shadow-sm">
-                                            <div className="w-24 h-24 rounded-2xl overflow-hidden bg-zinc-100 ring-4 ring-white shadow-lg">
+                                    <div className="space-y-4">
+                                        <div className="text-sm font-medium text-base-content/70 ml-1">网站图标</div>
+                                        <div className="group relative flex justify-center p-8 bg-base-100 rounded-3xl border border-base-200 shadow-sm hover:shadow-md transition-all duration-300">
+                                            <div className="w-24 h-24 rounded-2xl overflow-hidden bg-base-200 ring-4 ring-base-100 shadow-xl group-hover:scale-105 transition-transform duration-300">
                                                 <img src={parsedConfig?.site?.favicon || '/favicon.ico'} alt="Favicon" className="w-full h-full object-cover" />
                                             </div>
                                         </div>
                                         <input 
                                             type="text" 
-                                            className="input input-sm input-bordered w-full text-center text-xs" 
+                                            className="input input-sm input-bordered w-full text-center text-xs rounded-full bg-base-100 shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/20" 
                                             value={parsedConfig?.site?.favicon || ''}
                                             onChange={e => updateConfigValue('site.favicon', e.target.value)}
                                             placeholder="图标 URL"
                                         />
                                     </div>
-                                    <div className="space-y-3">
-                                        <div className="text-sm text-zinc-500">阿凡达 (Avatar)</div>
-                                        <div className="flex justify-center p-6 bg-white rounded-2xl border border-zinc-100 shadow-sm">
-                                            <div className="w-24 h-24 rounded-2xl overflow-hidden bg-zinc-100 ring-4 ring-white shadow-lg">
+                                    <div className="space-y-4">
+                                        <div className="text-sm font-medium text-base-content/70 ml-1">阿凡达 (Avatar)</div>
+                                        <div className="group relative flex justify-center p-8 bg-base-100 rounded-3xl border border-base-200 shadow-sm hover:shadow-md transition-all duration-300">
+                                            <div className="w-24 h-24 rounded-2xl overflow-hidden bg-base-200 ring-4 ring-base-100 shadow-xl group-hover:scale-105 transition-transform duration-300">
                                                 <img src={parsedConfig?.user?.avatar || '/avatar.png'} alt="Avatar" className="w-full h-full object-cover" />
                                             </div>
                                         </div>
                                         <input 
                                             type="text" 
-                                            className="input input-sm input-bordered w-full text-center text-xs" 
+                                            className="input input-sm input-bordered w-full text-center text-xs rounded-full bg-base-100 shadow-sm focus:border-primary focus:ring-2 focus:ring-primary/20" 
                                             value={parsedConfig?.user?.avatar || ''}
                                             onChange={e => updateConfigValue('user.avatar', e.target.value)}
                                             placeholder="头像 URL"
@@ -276,139 +291,153 @@ export function ConfigPage() {
                                 </div>
 
                                 {/* Basic Info */}
-                                <div className="grid grid-cols-2 gap-6">
-                                    <div className="form-control w-full">
-                                        <label className="label"><span className="label-text text-zinc-500">站点标题</span></label>
-                                        <input type="text" className="input input-bordered w-full bg-zinc-100/50 border-transparent focus:bg-white focus:border-red-500 transition-all" 
-                                            value={parsedConfig?.site?.title || ''} 
-                                            onChange={e => updateConfigValue('site.title', e.target.value)} />
-                                    </div>
-                                    <div className="form-control w-full">
-                                        <label className="label"><span className="label-text text-zinc-500">浏览器标签</span></label>
-                                        <input type="text" className="input input-bordered w-full bg-zinc-100/50 border-transparent focus:bg-white focus:border-red-500 transition-all" 
-                                            value={parsedConfig?.site?.tab || ''} 
-                                            onChange={e => updateConfigValue('site.tab', e.target.value)} />
-                                    </div>
-                                </div>
-
-                                <div className="form-control w-full">
-                                    <label className="label"><span className="label-text text-zinc-500">站点描述</span></label>
-                                    <textarea className="textarea textarea-bordered w-full h-24 bg-zinc-100/50 border-transparent focus:bg-white focus:border-red-500 transition-all resize-none" 
-                                        value={parsedConfig?.site?.description || ''} 
-                                        onChange={e => updateConfigValue('site.description', e.target.value)} />
-                                </div>
-
-                                {/* ICP Info */}
-                                <div className="space-y-3">
-                                    <div className="text-sm text-zinc-500">备案信息</div>
+                                <div className="card bg-base-100 shadow-sm border border-base-200 p-6 rounded-2xl space-y-6">
                                     <div className="grid grid-cols-2 gap-6">
-                                        <input type="text" className="input input-bordered w-full bg-zinc-100/50 border-transparent focus:bg-white focus:border-red-500 transition-all" 
-                                            placeholder="例如：京ICP备12345678号"
-                                            value={parsedConfig?.site?.beian?.number || ''} 
-                                            onChange={e => updateConfigValue('site.beian.number', e.target.value)} />
-                                        <input type="text" className="input input-bordered w-full bg-zinc-100/50 border-transparent focus:bg-white focus:border-red-500 transition-all" 
-                                            placeholder="https://beian.miit.gov.cn/"
-                                            value={parsedConfig?.site?.beian?.link || ''} 
-                                            onChange={e => updateConfigValue('site.beian.link', e.target.value)} />
+                                        <div className="form-control w-full">
+                                            <label className="label"><span className="label-text font-medium">站点标题</span></label>
+                                            <input type="text" className="input input-bordered w-full bg-base-100 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" 
+                                                value={parsedConfig?.site?.title || ''} 
+                                                onChange={e => updateConfigValue('site.title', e.target.value)} />
+                                        </div>
+                                        <div className="form-control w-full">
+                                            <label className="label"><span className="label-text font-medium">浏览器标签</span></label>
+                                            <input type="text" className="input input-bordered w-full bg-base-100 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" 
+                                                value={parsedConfig?.site?.tab || ''} 
+                                                onChange={e => updateConfigValue('site.tab', e.target.value)} />
+                                        </div>
+                                    </div>
+
+                                    <div className="form-control w-full">
+                                        <label className="label"><span className="label-text font-medium">站点描述</span></label>
+                                        <textarea className="textarea textarea-bordered w-full h-24 bg-base-100 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all resize-none" 
+                                            value={parsedConfig?.site?.description || ''} 
+                                            onChange={e => updateConfigValue('site.description', e.target.value)} />
+                                    </div>
+
+                                    {/* ICP Info */}
+                                    <div className="space-y-3">
+                                        <div className="text-sm font-medium text-base-content/70">备案信息</div>
+                                        <div className="grid grid-cols-2 gap-6">
+                                            <input type="text" className="input input-bordered w-full bg-base-100 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" 
+                                                placeholder="例如：京ICP备12345678号"
+                                                value={parsedConfig?.site?.beian?.number || ''} 
+                                                onChange={e => updateConfigValue('site.beian.number', e.target.value)} />
+                                            <input type="text" className="input input-bordered w-full bg-base-100 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" 
+                                                placeholder="https://beian.miit.gov.cn/"
+                                                value={parsedConfig?.site?.beian?.link || ''} 
+                                                onChange={e => updateConfigValue('site.beian.link', e.target.value)} />
+                                        </div>
                                     </div>
                                 </div>
 
                                 {/* Social Links */}
-                                <div className="space-y-3">
-                                    <div className="text-sm text-zinc-500">社交按钮</div>
-                                    <div className="space-y-2">
-                                        {(parsedConfig?.user?.sidebar?.social || []).map((item: any, index: number) => (
-                                            <div key={index} className="flex items-center gap-3 group">
-                                                <select 
-                                                    className="select select-bordered select-sm w-32 bg-white"
-                                                    value={SOCIAL_PRESETS.find(p => p.value === item.svg)?.value || 'custom'}
-                                                    onChange={e => {
-                                                        if (e.target.value !== 'custom') {
-                                                            handleSocialChange(index, 'svg', e.target.value)
-                                                        }
-                                                    }}
-                                                >
-                                                    {SOCIAL_PRESETS.map(p => (
-                                                        <option key={p.value} value={p.value}>{p.label}</option>
-                                                    ))}
-                                                    <option value="custom">Custom</option>
-                                                </select>
-                                                
-                                                <input 
-                                                    type="text" 
-                                                    className="input input-sm input-bordered flex-1 bg-zinc-100/50 focus:bg-white transition-all"
-                                                    placeholder="链接地址"
-                                                    value={item.href}
-                                                    onChange={e => handleSocialChange(index, 'href', e.target.value)}
-                                                />
+                                <div className="space-y-4">
+                                    <div className="text-sm font-medium text-base-content/70 ml-1">社交按钮</div>
+                                    <div className="card bg-base-100 shadow-sm border border-base-200 p-2 rounded-2xl">
+                                        <div className="space-y-2 p-2">
+                                            {(parsedConfig?.user?.sidebar?.social || []).map((item: any, index: number) => (
+                                                <div key={index} className="flex items-center gap-3 group p-2 hover:bg-base-200/50 rounded-xl transition-colors">
+                                                    <select 
+                                                        className="select select-bordered select-sm w-32 bg-base-100"
+                                                        value={SOCIAL_PRESETS.find(p => p.value === item.svg)?.value || 'custom'}
+                                                        onChange={e => {
+                                                            if (e.target.value !== 'custom') {
+                                                                handleSocialChange(index, 'svg', e.target.value)
+                                                            }
+                                                        }}
+                                                    >
+                                                        {SOCIAL_PRESETS.map(p => (
+                                                            <option key={p.value} value={p.value}>{p.label}</option>
+                                                        ))}
+                                                        <option value="custom">Custom</option>
+                                                    </select>
+                                                    
+                                                    <input 
+                                                        type="text" 
+                                                        className="input input-sm input-bordered flex-1 bg-base-100 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
+                                                        placeholder="链接地址"
+                                                        value={item.href}
+                                                        onChange={e => handleSocialChange(index, 'href', e.target.value)}
+                                                    />
 
-                                                <div className="join bg-zinc-100 rounded-lg p-1">
-                                                    <div className="w-8 h-6 flex items-center justify-center text-xs font-mono text-zinc-500">
-                                                        {index + 1}
+                                                    <div className="join bg-base-200 rounded-lg p-1">
+                                                        <div className="w-8 h-6 flex items-center justify-center text-xs font-mono text-base-content/50">
+                                                            {index + 1}
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                        <button onClick={() => moveSocial(index, 'up')} className="btn btn-xs btn-ghost btn-square" disabled={index === 0}>↑</button>
+                                                        <button onClick={() => moveSocial(index, 'down')} className="btn btn-xs btn-ghost btn-square" disabled={index === (parsedConfig?.user?.sidebar?.social?.length || 0) - 1}>↓</button>
+                                                        <button onClick={() => removeSocial(index)} className="btn btn-xs btn-ghost btn-square text-error bg-error/10 hover:bg-error hover:text-white">✕</button>
                                                     </div>
                                                 </div>
-
-                                                <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                    <button onClick={() => moveSocial(index, 'up')} className="btn btn-xs btn-ghost btn-square" disabled={index === 0}>↑</button>
-                                                    <button onClick={() => moveSocial(index, 'down')} className="btn btn-xs btn-ghost btn-square" disabled={index === (parsedConfig?.user?.sidebar?.social?.length || 0) - 1}>↓</button>
-                                                    <button onClick={() => removeSocial(index)} className="btn btn-xs btn-ghost btn-square text-red-500">✕</button>
-                                                </div>
-                                            </div>
-                                        ))}
+                                            ))}
+                                        </div>
+                                        <div className="p-2">
+                                            <button onClick={addSocial} className="btn btn-outline btn-sm w-full border-dashed border-2 text-base-content/50 hover:text-primary hover:border-primary hover:bg-primary/5">
+                                                + 添加按钮
+                                            </button>
+                                        </div>
                                     </div>
-                                    <button onClick={addSocial} className="btn btn-ghost btn-sm w-full text-zinc-400 hover:text-zinc-600 hover:bg-zinc-100">
-                                        + 添加按钮
-                                    </button>
                                 </div>
-
-                                <div className="divider"></div>
 
                                 {/* Features: Bangumi & TMDB */}
                                 <div className="space-y-6">
-                                    <h3 className="font-bold text-zinc-900 dark:text-zinc-100">功能配置</h3>
+                                    <div className="flex items-center gap-2 pb-2 border-b border-base-200">
+                                        <h3 className="font-bold text-lg text-primary">功能配置</h3>
+                                    </div>
                                     
-                                    {/* Bilibili Bangumi */}
-                                    <div className="space-y-3">
-                                        <div className="text-sm text-zinc-500">追番 (Bilibili)</div>
-                                        <div className="grid grid-cols-1 gap-6">
-                                            <div className="form-control w-full">
-                                                <label className="label"><span className="label-text text-xs text-zinc-400">Bilibili UID</span></label>
-                                                <input type="text" className="input input-bordered w-full bg-zinc-100/50 border-transparent focus:bg-white focus:border-red-500 transition-all" 
-                                                    placeholder="例如：1536411565"
-                                                    value={parsedConfig?.site?.bilibili?.uid || ''} 
-                                                    onChange={e => updateConfigValue('site.bilibili.uid', e.target.value)} />
+                                    <div className="card bg-base-100 shadow-sm border border-base-200 p-6 rounded-2xl space-y-8">
+                                        {/* Bilibili Bangumi */}
+                                        <div className="space-y-3">
+                                            <div className="flex items-center gap-2">
+                                                <div className="badge badge-primary badge-outline">Bilibili</div>
+                                                <span className="text-sm font-medium">追番列表</span>
+                                            </div>
+                                            <div className="grid grid-cols-1 gap-6">
+                                                <div className="form-control w-full">
+                                                    <label className="label"><span className="label-text text-xs text-base-content/60">Bilibili UID</span></label>
+                                                    <input type="text" className="input input-bordered w-full bg-base-100 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" 
+                                                        placeholder="例如：1536411565"
+                                                        value={parsedConfig?.site?.bilibili?.uid || ''} 
+                                                        onChange={e => updateConfigValue('site.bilibili.uid', e.target.value)} />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    {/* TMDB */}
-                                    <div className="space-y-3">
-                                        <div className="text-sm text-zinc-500">片单 (TMDB)</div>
-                                        <div className="grid grid-cols-2 gap-6">
-                                            <div className="form-control w-full">
-                                                <label className="label"><span className="label-text text-xs text-zinc-400">API Key</span></label>
-                                                <input type="text" className="input input-bordered w-full bg-zinc-100/50 border-transparent focus:bg-white focus:border-red-500 transition-all" 
-                                                    value={parsedConfig?.site?.tmdb?.apiKey || ''} 
-                                                    onChange={e => updateConfigValue('site.tmdb.apiKey', e.target.value)} />
+                                        <div className="divider my-0"></div>
+
+                                        {/* TMDB */}
+                                        <div className="space-y-3">
+                                            <div className="flex items-center gap-2">
+                                                <div className="badge badge-secondary badge-outline">TMDB</div>
+                                                <span className="text-sm font-medium">电影/剧集</span>
                                             </div>
-                                            <div className="form-control w-full">
-                                                <label className="label"><span className="label-text text-xs text-zinc-400">List ID</span></label>
-                                                <input type="text" className="input input-bordered w-full bg-zinc-100/50 border-transparent focus:bg-white focus:border-red-500 transition-all" 
-                                                    value={parsedConfig?.site?.tmdb?.listId || ''} 
-                                                    onChange={e => updateConfigValue('site.tmdb.listId', e.target.value)} />
+                                            <div className="grid grid-cols-2 gap-6">
+                                                <div className="form-control w-full">
+                                                    <label className="label"><span className="label-text text-xs text-base-content/60">API Key</span></label>
+                                                    <input type="text" className="input input-bordered w-full bg-base-100 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" 
+                                                        value={parsedConfig?.site?.tmdb?.apiKey || ''} 
+                                                        onChange={e => updateConfigValue('site.tmdb.apiKey', e.target.value)} />
+                                                </div>
+                                                <div className="form-control w-full">
+                                                    <label className="label"><span className="label-text text-xs text-base-content/60">List ID</span></label>
+                                                    <input type="text" className="input input-bordered w-full bg-base-100 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" 
+                                                        value={parsedConfig?.site?.tmdb?.listId || ''} 
+                                                        onChange={e => updateConfigValue('site.tmdb.listId', e.target.value)} />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="divider"></div>
-
                                 {/* Comments */}
                                 <div className="space-y-6">
-                                    <div className="flex items-center justify-between">
-                                        <h3 className="font-bold text-zinc-900 dark:text-zinc-100">评论系统</h3>
+                                    <div className="flex items-center justify-between pb-2 border-b border-base-200">
+                                        <h3 className="font-bold text-lg text-primary">评论系统</h3>
                                         <div className="flex items-center gap-2">
-                                            <span className="text-sm text-zinc-500">启用</span>
+                                            <span className="text-sm text-base-content/60">启用</span>
                                             <input type="checkbox" className="toggle toggle-sm toggle-primary" 
                                                 checked={parsedConfig?.comments?.enable || false}
                                                 onChange={e => updateConfigValue('comments.enable', e.target.checked)} />
@@ -416,10 +445,10 @@ export function ConfigPage() {
                                     </div>
 
                                     {parsedConfig?.comments?.enable && (
-                                        <div className="space-y-4 p-4 bg-zinc-50 dark:bg-zinc-900/50 rounded-xl border border-zinc-100 dark:border-zinc-800">
+                                        <div className="card bg-base-100 shadow-sm border border-base-200 p-6 rounded-2xl space-y-4">
                                             <div className="form-control w-full">
-                                                <label className="label"><span className="label-text text-zinc-500">评论插件</span></label>
-                                                <select className="select select-bordered w-full bg-white"
+                                                <label className="label"><span className="label-text font-medium">评论插件</span></label>
+                                                <select className="select select-bordered w-full bg-base-100"
                                                     value={parsedConfig?.comments?.type || 'giscus'}
                                                     onChange={e => updateConfigValue('comments.type', e.target.value)}>
                                                     <option value="giscus">Giscus</option>
@@ -430,27 +459,27 @@ export function ConfigPage() {
                                             {parsedConfig?.comments?.type === 'giscus' && (
                                                 <div className="grid grid-cols-2 gap-4">
                                                     <div className="form-control w-full">
-                                                        <label className="label"><span className="label-text text-xs text-zinc-400">Repo</span></label>
-                                                        <input type="text" className="input input-sm input-bordered w-full" 
+                                                        <label className="label"><span className="label-text text-xs text-base-content/60">Repo</span></label>
+                                                        <input type="text" className="input input-sm input-bordered w-full bg-base-100 focus:border-primary focus:ring-2 focus:ring-primary/20" 
                                                             placeholder="owner/repo"
                                                             value={parsedConfig?.comments?.giscus?.repo || ''} 
                                                             onChange={e => updateConfigValue('comments.giscus.repo', e.target.value)} />
                                                     </div>
                                                     <div className="form-control w-full">
-                                                        <label className="label"><span className="label-text text-xs text-zinc-400">Repo ID</span></label>
-                                                        <input type="text" className="input input-sm input-bordered w-full" 
+                                                        <label className="label"><span className="label-text text-xs text-base-content/60">Repo ID</span></label>
+                                                        <input type="text" className="input input-sm input-bordered w-full bg-base-100 focus:border-primary focus:ring-2 focus:ring-primary/20" 
                                                             value={parsedConfig?.comments?.giscus?.repoId || ''} 
                                                             onChange={e => updateConfigValue('comments.giscus.repoId', e.target.value)} />
                                                     </div>
                                                     <div className="form-control w-full">
-                                                        <label className="label"><span className="label-text text-xs text-zinc-400">Category</span></label>
-                                                        <input type="text" className="input input-sm input-bordered w-full" 
+                                                        <label className="label"><span className="label-text text-xs text-base-content/60">Category</span></label>
+                                                        <input type="text" className="input input-sm input-bordered w-full bg-base-100 focus:border-primary focus:ring-2 focus:ring-primary/20" 
                                                             value={parsedConfig?.comments?.giscus?.category || ''} 
                                                             onChange={e => updateConfigValue('comments.giscus.category', e.target.value)} />
                                                     </div>
                                                     <div className="form-control w-full">
-                                                        <label className="label"><span className="label-text text-xs text-zinc-400">Category ID</span></label>
-                                                        <input type="text" className="input input-sm input-bordered w-full" 
+                                                        <label className="label"><span className="label-text text-xs text-base-content/60">Category ID</span></label>
+                                                        <input type="text" className="input input-sm input-bordered w-full bg-base-100 focus:border-primary focus:ring-2 focus:ring-primary/20" 
                                                             value={parsedConfig?.comments?.giscus?.categoryId || ''} 
                                                             onChange={e => updateConfigValue('comments.giscus.categoryId', e.target.value)} />
                                                     </div>
@@ -459,8 +488,8 @@ export function ConfigPage() {
 
                                             {parsedConfig?.comments?.type === 'waline' && (
                                                 <div className="form-control w-full">
-                                                    <label className="label"><span className="label-text text-xs text-zinc-400">Server URL</span></label>
-                                                    <input type="text" className="input input-bordered w-full" 
+                                                    <label className="label"><span className="label-text text-xs text-base-content/60">Server URL</span></label>
+                                                    <input type="text" className="input input-bordered w-full bg-base-100 focus:border-primary focus:ring-2 focus:ring-primary/20" 
                                                         placeholder="https://your-waline-server.vercel.app"
                                                         value={parsedConfig?.comments?.waline?.serverURL || ''} 
                                                         onChange={e => updateConfigValue('comments.waline.serverURL', e.target.value)} />
@@ -470,14 +499,12 @@ export function ConfigPage() {
                                     )}
                                 </div>
 
-                                <div className="divider"></div>
-
                                 {/* Umami Analytics */}
                                 <div className="space-y-6">
-                                    <div className="flex items-center justify-between">
-                                        <h3 className="font-bold text-zinc-900 dark:text-zinc-100">Umami 统计</h3>
+                                    <div className="flex items-center justify-between pb-2 border-b border-base-200">
+                                        <h3 className="font-bold text-lg text-primary">Umami 统计</h3>
                                         <div className="flex items-center gap-2">
-                                            <span className="text-sm text-zinc-500">启用</span>
+                                            <span className="text-sm text-base-content/60">启用</span>
                                             <input type="checkbox" className="toggle toggle-sm toggle-primary" 
                                                 checked={parsedConfig?.umami?.enable || false}
                                                 onChange={e => updateConfigValue('umami.enable', e.target.checked)} />
@@ -485,24 +512,24 @@ export function ConfigPage() {
                                     </div>
 
                                     {parsedConfig?.umami?.enable && (
-                                        <div className="space-y-4 p-4 bg-zinc-50 dark:bg-zinc-900/50 rounded-xl border border-zinc-100 dark:border-zinc-800">
+                                        <div className="card bg-base-100 shadow-sm border border-base-200 p-6 rounded-2xl space-y-4">
                                             <div className="form-control w-full">
-                                                <label className="label"><span className="label-text text-xs text-zinc-400">Base URL</span></label>
-                                                <input type="text" className="input input-bordered w-full bg-white" 
+                                                <label className="label"><span className="label-text text-xs text-base-content/60">Base URL</span></label>
+                                                <input type="text" className="input input-bordered w-full bg-base-100 focus:border-primary focus:ring-2 focus:ring-primary/20" 
                                                     placeholder="https://cloud.umami.is"
                                                     value={parsedConfig?.umami?.baseUrl || ''} 
                                                     onChange={e => updateConfigValue('umami.baseUrl', e.target.value)} />
                                             </div>
                                             <div className="grid grid-cols-2 gap-6">
                                                 <div className="form-control w-full">
-                                                    <label className="label"><span className="label-text text-xs text-zinc-400">Website ID</span></label>
-                                                    <input type="text" className="input input-bordered w-full bg-white" 
+                                                    <label className="label"><span className="label-text text-xs text-base-content/60">Website ID</span></label>
+                                                    <input type="text" className="input input-bordered w-full bg-base-100 focus:border-primary focus:ring-2 focus:ring-primary/20" 
                                                         value={parsedConfig?.umami?.websiteId || ''} 
                                                         onChange={e => updateConfigValue('umami.websiteId', e.target.value)} />
                                                 </div>
                                                 <div className="form-control w-full">
-                                                    <label className="label"><span className="label-text text-xs text-zinc-400">Share ID</span></label>
-                                                    <input type="text" className="input input-bordered w-full bg-white" 
+                                                    <label className="label"><span className="label-text text-xs text-base-content/60">Share ID</span></label>
+                                                    <input type="text" className="input input-bordered w-full bg-base-100 focus:border-primary focus:ring-2 focus:ring-primary/20" 
                                                         value={parsedConfig?.umami?.shareId || ''} 
                                                         onChange={e => updateConfigValue('umami.shareId', e.target.value)} />
                                                 </div>

@@ -42,7 +42,7 @@ const slug = url ? url.split('/').filter(Boolean).pop() : undefined;
 </div>  
   
 {slug && umamiConfig.enable && (  
-  <script define:vars={{ slug, umamiConfig }}>
+  <script define:vars={{ slug, umamiConfig }} is:inline>
     // 获取文章浏览量统计，支持 websiteId 或 shareId
     async function fetchPostViews() {
       if (!umamiConfig.enable) {

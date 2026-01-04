@@ -208,7 +208,7 @@ const initialRandomImage = `${RANDOM_API_URL}?t=${Date.now()}`;
 </script>
 
 <!-- 随机图轮播脚本 -->
-<script define:vars={{ RANDOM_API_URL }}>
+<script define:vars={{ RANDOM_API_URL }} is:inline>
   document.addEventListener("astro:page-load", () => {
     const bgCurrent = document.getElementById("banner-bg-current");
     const bgNext = document.getElementById("banner-bg-next");

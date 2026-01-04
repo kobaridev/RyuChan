@@ -20,13 +20,13 @@ export function TagInput({ tags, onChange }: TagInputProps) {
 	}
 
 	return (
-		<div className='bg-card w-full rounded-lg border px-3 py-2'>
+		<div className='w-full rounded-lg border border-base-300 bg-base-100 px-3 py-2 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all'>
 			{tags.length > 0 && (
 				<div className='mb-2 flex flex-wrap gap-2'>
 					{tags.map((tag, index) => (
-						<span key={index} className='flex items-center gap-1.5 rounded-md bg-blue-100 px-2 py-1 text-sm text-blue-700'>
+						<span key={index} className='badge badge-primary badge-outline gap-1.5 py-3'>
 							#{tag}
-							<button type='button' onClick={() => handleRemoveTag(index)} className='text-secondary'>
+							<button type='button' onClick={() => handleRemoveTag(index)} className='hover:text-error transition-colors'>
 								×
 							</button>
 						</span>
@@ -36,7 +36,7 @@ export function TagInput({ tags, onChange }: TagInputProps) {
 			<input
 				type='text'
 				placeholder='添加标签（按回车）'
-				className='w-full bg-transparent text-sm outline-none'
+				className='w-full bg-transparent text-sm outline-none placeholder:text-base-content/40'
 				value={tagInput}
 				onChange={e => setTagInput(e.target.value)}
 				onKeyDown={e => {

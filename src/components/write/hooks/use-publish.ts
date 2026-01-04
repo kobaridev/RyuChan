@@ -19,6 +19,15 @@ export function usePublish() {
 	)
 
 	const onPublish = useCallback(async () => {
+		if (!form.title?.trim()) {
+			toast.error('请输入文章标题')
+			return
+		}
+		if (!form.slug?.trim()) {
+			toast.error('请输入文章 Slug')
+			return
+		}
+
 		try {
 			setLoading(true)
 			await pushBlog({

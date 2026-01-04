@@ -253,7 +253,7 @@ const socialLinks = [
 </div>  
   
 {slug && umamiConfig.enable && (  
-  <script define:vars={{ slug, umamiConfig }}>  
+  <script define:vars={{ slug, umamiConfig }} is:inline>  
     // 获取浏览量统计  
     async function fetchLicensePageViews() {  
       if (!umamiConfig.enable) {  

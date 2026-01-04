@@ -2,7 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Card from "@components/temple/Card.astro";
 import { Icon } from "astro-icon/components";
-import { TMDB_CONFIG } from "@config";
+import { TMDB_CONFIG, BILIBILI_CONFIG } from "@config";
 import * as fs from "node:fs";
 import * as path from "node:path";
 
@@ -77,13 +77,48 @@ if (TMDB_API_KEY) {
   }
 }
 
+// 3. 如果配置了 Bilibili UID，尝试获取 Bilibili 追番列表
+const BILIBILI_UID = BILIBILI_CONFIG?.uid;
+let bilibiliItems: any[] = [];
+
+if (BILIBILI_UID) {
+  try {
+    console.log(`Fetching Bilibili list for UID: ${BILIBILI_UID}...`);
+    const ps = 30;
+    let pn = 1;
+    let hasMore = true;
+
+    while (hasMore) {
+      const res = await fetch(`https://api.bilibili.com/x/space/bangumi/follow/list?type=1&vmid=${BILIBILI_UID}&pn=${pn}&ps=${ps}`);
+      const json = await res.json();
+      
+      if (json.code === 0 && json.data && json.data.list && json.data.list.length > 0) {
+        bilibiliItems.push(...json.data.list);
+        if (json.data.total > bilibiliItems.length) {
+            pn++;
+        } else {
+            hasMore = false;
+        }
+      } else {
+        hasMore = false;
+      }
+      
+      // Safety break to prevent infinite loops
+      if (pn > 20) break; 
+    }
+    console.log(`Successfully fetched ${bilibiliItems.length} items from Bilibili.`);
+  } catch (e) {
+    console.error("Error fetching Bilibili list:", e);
+  }
+}
+
 // 确保 animeData 是数组（处理本地文件可能是单个对象的情况）
 if (!Array.isArray(animeData)) {
   animeData = [animeData];
 }
 
 // 展平并标准化数据
-const animeList = animeData.flatMap((group) => group.items || []).map(anime => {
+let animeList = animeData.flatMap((group) => group.items || []).map(anime => {
   // 统一处理 TV 和 Movie 的字段差异
   // Movie: title, original_title, release_date
   // TV: name, original_name, first_air_date
@@ -104,6 +139,22 @@ const animeList = animeData.flatMap((group) => group.items || []).map(anime => {
     link: `https://www.themoviedb.org/${type}/${anime.id}`
   };
 });
+
+// 合并 Bilibili 数据
+if (bilibiliItems.length > 0) {
+  const bilibiliMapped = bilibiliItems.map(item => ({
+    id: item.media_id,
+    title: item.title,
+    originalTitle: item.title,
+    poster: item.cover ? item.cover.replace('http://', 'https://') : null,
+    type: 'tv',
+    rating: 0,
+    date: '', 
+    overview: item.evaluate || item.brief || "暂无简介",
+    link: `https://www.bilibili.com/bangumi/play/ss${item.season_id}`
+  }));
+  animeList = [...animeList, ...bilibiliMapped];
+}
 
 // 统计数据
 const totalCount = animeList.length;

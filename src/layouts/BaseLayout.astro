@@ -59,6 +59,7 @@ const bannerSubtitle = pageConfig?.subtitle || "";
     {
       umamiConfig.enable && (
         <script
+          is:inline
           defer
           src={`${umamiConfig.baseUrl}/script.js`}
           data-website-id={umamiConfig.websiteId}
@@ -67,7 +68,7 @@ const bannerSubtitle = pageConfig?.subtitle || "";
     }
 
     <!-- Microsoft Clarity -->
-    <script type="text/javascript">
+    <script type="text/javascript" is:inline>
       (function (c, l, a, r, i, t, y) {
         c[a] =
           c[a] ||

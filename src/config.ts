@@ -37,6 +37,9 @@ export const BLOG_PAGE_SIZE = config.site.blog.pageSize;
 // TMDB 配置
 export const TMDB_CONFIG = config.site.tmdb;
 
+// Bilibili 配置
+export const BILIBILI_CONFIG = config.site.bilibili;
+
 // 代码块的主题
 export const CODE_THEME = config.site.theme.code;
 

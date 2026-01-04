@@ -39,7 +39,25 @@ export default function WritePage({ categories = [] }: WritePageProps) {
 
 	return (
         <>
-            <Toaster richColors position="top-center" />
+            <Toaster 
+                richColors 
+                position="top-center" 
+                toastOptions={{
+                    className: 'shadow-2xl border-2 border-base-200',
+                    style: {
+                        fontSize: '1.1rem',
+                        padding: '16px 24px',
+                    },
+                    classNames: {
+                        title: 'text-lg font-bold',
+                        description: 'text-base font-medium',
+                        error: 'bg-error text-error-content border-error',
+                        success: 'bg-success text-success-content border-success',
+                        warning: 'bg-warning text-warning-content border-warning',
+                        info: 'bg-info text-info-content border-info',
+                    }
+                }}
+            />
             {isPreview ? (
                 <WritePreview form={form} coverPreviewUrl={coverPreviewUrl} onClose={closePreview} slug={slug || undefined} />
             ) : (
