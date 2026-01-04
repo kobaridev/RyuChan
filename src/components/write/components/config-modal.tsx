@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog' // Assuming you have these or similar
-import { Button } from '@/components/ui/button' // Assuming
-import { Textarea } from '@/components/ui/textarea' // Assuming
 import { getAuthToken } from '@/lib/auth'
 import { GITHUB_CONFIG } from '@/consts'
 import { readTextFileFromRepo, putFile } from '@/lib/github-client'
+import { toBase64Utf8 } from '@/lib/github-client'
 
 // Since we don't have a UI library ready in the context, I'll build a simple modal using Tailwind
 export function ConfigModal({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -51,7 +49,7 @@ export function ConfigModal({ open, onClose }: { open: boolean; onClose: () => v
 				GITHUB_CONFIG.OWNER,
 				GITHUB_CONFIG.REPO,
 				'ryuchan.config.yaml',
-				btoa(unescape(encodeURIComponent(configContent))), // Base64 encode
+				toBase64Utf8(configContent), // Base64 encode
 				'update: ryuchan.config.yaml',
 				GITHUB_CONFIG.BRANCH
 			)
