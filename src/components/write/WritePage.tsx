@@ -33,10 +33,6 @@ export default function WritePage({ categories = [] }: WritePageProps) {
 
 	const coverPreviewUrl = cover ? (cover.type === 'url' ? cover.url : cover.previewUrl) : null
 
-    if (loading) {
-		return <div className='text-secondary flex h-screen items-center justify-center text-sm'>加载中...</div>
-	}
-
 	return (
         <>
             <Toaster 
