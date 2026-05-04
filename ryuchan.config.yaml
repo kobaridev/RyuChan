@@ -113,9 +113,9 @@ github:
   encryptKey: wudishiduomejimo
 umami:
   enable: true
-  baseUrl: https://umami.131714.xyz
-  shareId: jToXL5Z3hnA1gKUw
-  websiteId: 3f9afc6c-f0bd-4734-be15-6d053960d34d
+  baseUrl: https://umami.hdx.dpdns.org
+  shareId: 3ncP9n5KMwZsxpR7
+  websiteId: 3a857d70-91bf-42bb-bf15-3c66406a851c
   timezone: Asia/Shanghai
 user:
   name: KoBariDev
@@ -160,7 +160,7 @@ user:
         title: Telegram
         svg: ri:telegram-line
 comments:
-  enable: true
+  enable: false
   type: giscus
   giscus:
     repo: kobaridev/gsc
