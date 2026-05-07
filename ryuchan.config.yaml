@@ -1,9 +1,12 @@
 site:
-  tab: RyuChan
-  title: RyuChan
-  description: 🌸 轻盈、优雅、纯净 —— 用文字与图片记录生活与创意
+  tab: 樱花院|meigui
+  title: 樱花院|meigui
+  description: |-
+    🌸 你的旅途是一个令人满意的旅途吗？
+    🌸 猫璃儿的假如幻想日记，FFIXIV，最终幻想XIV，记录美好生活
+    🌸 樱花院|为了美好的明天
   language: zh
-  favicon: /favicon.png
+  favicon: /favicon.ico
   theme:
     light: garden
     dark: dracula
@@ -18,8 +21,8 @@ site:
     height: 60vh
     images:
       - https://tc.alcy.cc/q/20250908/b2d656670551cb9ea6eda7b46b6c8ec0.webp
-  icp: 萌ICP备20261117号
-  icp_link: https://icp.gov.moe/?keyword=20261117
+  icp: 萌ICP备20264200号
+  icp_link: https://icp.gov.moe/?keyword=20264200
   pages:
     home:
       title: RyuChan's Blog
@@ -112,35 +115,26 @@ github:
   appId: 在部署端配置环境变量
   encryptKey: wudishiduomejimo
 umami:
-  enable: true
+  enable: false
   baseUrl: https://umami.131714.xyz
   shareId: jToXL5Z3hnA1gKUw
   websiteId: 3f9afc6c-f0bd-4734-be15-6d053960d34d
   timezone: Asia/Shanghai
 user:
-  name: KoBariDev
+  name: Maolier
   description: Ciallo～(∠・ω<)⌒★
-  site: https://hub.131714.xyz
+  site: https://four.pw
   avatar: /profile.png
   sidebar:
     social:
-      - href: https://github.com/kobaridev
+      - href: https://github.com/yingshen-hk
         ariaLabel: Github
         title: Github
         svg: ri:github-line
-      - href: https://space.bilibili.com/1536411565
+      - href: https://space.bilibili.com/30873287
         ariaLabel: BiliBili
         title: BiliBili
         svg: ri:bilibili-line
-      - href: >-
-          https://www.douyin.com/user/MS4wLjABAAAAeO0sqJYUgh1a26GkVPtS2yv_IOODjeqvtl4KSjvsntg?from_tab_name=main
-        ariaLabel: Douyin
-        title: Douyin
-        svg: ri:tiktok-line
-      - href: https://weibo.com/u/7579913510
-        title: Weibo
-        ariaLabel: Weibo
-        svg: ri:weibo-fill
   footer:
     social:
       - href: https://github.com/kobaridev
@@ -163,10 +157,10 @@ comments:
   enable: true
   type: giscus
   giscus:
-    repo: kobaridev/gsc
-    repoId: R_kgDOPTM-mA
-    category: General
-    categoryId: DIC_kwDOPTM-mM4CtcFq
+    repo: blog-Comment
+    repoId: yingshen-hk
+    category: 1b3036a54afb631dfb6c05c0cdb8c1625891ce88
+    categoryId: Ov23li08x9uY2L4XfbIb
     mapping: pathname
     lang: zh-CN
     inputPosition: top
