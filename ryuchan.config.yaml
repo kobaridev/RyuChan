@@ -1,5 +1,5 @@
 site:
-  tab: 樱花院|meigui
+  tab: 樱花院
   title: 樱花院|meigui
   description: |-
     🌸 你的旅途是一个令人满意的旅途吗？
@@ -116,7 +116,7 @@ github:
   encryptKey: wudishiduomejimo
 umami:
   enable: true
-  baseUrl: https://cloud.umami.is
+  baseUrl: https://cloud.umami.is/
   shareId: Jrc2ihWLRYKTKEBY
   websiteId: c39b1bd6-8c12-4306-82d9-25615c8637a8
   timezone: Asia/Shanghai
@@ -137,19 +137,19 @@ user:
         svg: ri:bilibili-line
   footer:
     social:
-      - href: https://github.com/kobaridev
+      - href: https://github.com/yingshen-hk
         ariaLabel: Github
         title: Github
         svg: ri:github-line
-      - href: https://space.bilibili.com/1536411565
+      - href: https://space.bilibili.com/30873287
         ariaLabel: BiliBili
         title: BiliBili
         svg: ri:bilibili-line
-      - href: https://x.com/xzz_ya
+      - href: 
         ariaLabel: X(twitter)
         title: X(twitter)
         svg: ri:twitter-line
-      - href: https://t.me/xzz_ya
+      - href: 
         ariaLabel: Telegram
         title: Telegram
         svg: ri:telegram-line
@@ -178,5 +178,5 @@ comments:
       - mail
       - link
     requiredMeta: []
-    reaction: false
-    pageview: false
+    reaction: true
+    pageview: true
