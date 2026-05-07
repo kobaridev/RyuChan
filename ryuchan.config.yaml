@@ -117,7 +117,7 @@ github:
 umami:
   enable: true
   baseUrl: https://cloud.umami.is
-  shareId: ''
+  shareId: Jrc2ihWLRYKTKEBY
   websiteId: c39b1bd6-8c12-4306-82d9-25615c8637a8
   timezone: Asia/Shanghai
 user:
