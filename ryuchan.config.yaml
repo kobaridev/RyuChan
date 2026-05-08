@@ -115,7 +115,7 @@ github:
   appId: 在部署端配置环境变量
   encryptKey: wudishiduomejimo
 umami:
-  enable: true
+  enable: false
   baseUrl: https://cloud.umami.is/
   shareId: Jrc2ihWLRYKTKEBY
   websiteId: c39b1bd6-8c12-4306-82d9-25615c8637a8
@@ -145,11 +145,11 @@ user:
         ariaLabel: BiliBili
         title: BiliBili
         svg: ri:bilibili-line
-      - href: 
+      - href: null
         ariaLabel: X(twitter)
         title: X(twitter)
         svg: ri:twitter-line
-      - href: 
+      - href: null
         ariaLabel: Telegram
         title: Telegram
         svg: ri:telegram-line
