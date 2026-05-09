@@ -1,275 +1,11 @@
 [
     {
-        "title": "Mr. \"Broken Heart\"",
-        "artist": "松下優也",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166201250148",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=26089264&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=26089264&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "打上花火",
-        "artist": "Daoko/米津玄師",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163009282836",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=496869422&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=496869422&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "唯一",
-        "artist": "G.E.M.邓紫棋",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168919708423",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=2083785152&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2083785152&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "小半",
-        "artist": "陈粒",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=1371091013186741",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=421423806&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=421423806&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "老人と海",
-        "artist": "ヨルシカ",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166295171725",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=1870469768&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1870469768&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "出现又离开 (Live)",
-        "artist": "梁博",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164054054313",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=1363553440&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1363553440&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "知我",
-        "artist": "国风堂/哦漏",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164415301539",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=1394167216&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1394167216&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "炎",
-        "artist": "LiSA",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165349903788",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=1482908655&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1482908655&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "Reze",
-        "artist": "kensuke ushio",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172035133051",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=2747726111&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2747726111&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "フィナーレ。",
-        "artist": "eill",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167783001594",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=1972395036&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1972395036&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "SPECIALZ",
-        "artist": "King Gnu",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168848035270",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=2074163984&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2074163984&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "AIZO",
-        "artist": "King Gnu",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172559097545",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=3337367763&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3337367763&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "in the pool 钢琴版（电锯人蕾塞篇）",
-        "artist": "kazeoshita",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171008164588",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=2753281694&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2753281694&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "IRIS OUT",
-        "artist": "米津玄師",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171998034780",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=2745026895&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2745026895&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "JANE DOE",
-        "artist": "米津玄師/宇多田ヒカル",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172028084335",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=2747166493&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2747166493&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "Departures〜あなたにおくるアイの歌〜",
-        "artist": "EGOIST",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165946393227",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=722928&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=722928&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "轻涟 La vaguelette",
-        "artist": "HOYO-MiX",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169058808374",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=2100334024&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2100334024&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "unravel",
-        "artist": "TK from 凛として時雨",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169033080950",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=29017078&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=29017078&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "Love Story",
-        "artist": "Taylor Swift",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169217536854",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=19292984&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=19292984&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "爱情讯息",
-        "artist": "郭静",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171316025348",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=233888&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=233888&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "遇见",
-        "artist": "孙燕姿",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=17687843556430013",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=454828887&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=454828887&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "我怀念的",
-        "artist": "孙燕姿",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169829283327",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=287063&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=287063&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "Call of Silence",
-        "artist": "澤野弘之/R!N/Gemie",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163597044887",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=482636090&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=482636090&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "可惜没如果",
-        "artist": "林俊杰",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170313536564",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=29814898&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=29814898&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "恋人",
-        "artist": "李荣浩",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170045577565",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=2600493765&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2600493765&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "HIS SMILE",
-        "artist": "麗美",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170456532964",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=22712631&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=22712631&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "特别的人",
-        "artist": "方大同",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172683046522",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=28403111&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=28403111&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "心墙",
-        "artist": "郭静",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168105390425",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=27671269&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=27671269&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "from the edge",
-        "artist": "FictionJunction/LiSA",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171371865924",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=1388181876&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1388181876&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "残酷な夜に輝け - Shine in the Cruel Night",
-        "artist": "LiSA",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171480745508",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=2727103261&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2727103261&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "紅蓮華",
-        "artist": "LiSA",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169169579096",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=1375305989&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1375305989&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "太陽が昇らない世界 - A World Where the Sun Never Rises",
-        "artist": "Aimer",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171480735948",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=2727103300&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2727103300&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "To the Infinity Castle - Muzan vs Hashira Theme (from \"Demon Slayer\") (Cover)",
-        "artist": "Diego Mitre",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169741328857",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=2604036163&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2604036163&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "Style",
-        "artist": "Taylor Swift",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=18771962022688349",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=29572502&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=29572502&format=lrc&trans=true",
-        "duration": ""
+        "title": "3 Strikes",
+        "artist": "Terror Jr",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164000556824",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=409647388&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=409647388&format=lrc&trans=true",
+        "duration": "02:55"
     },
     {
         "title": "Beautiful World (Da Capo Version)",
@@ -277,7 +13,295 @@
         "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165791860501",
         "url": "https://163.hyc.moe?server=netease&type=url&id=1824020873&br=320",
         "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1824020873&format=lrc&trans=true",
-        "duration": ""
+        "duration": "05:58"
+    },
+    {
+        "title": "找自己",
+        "artist": "陶喆",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169389595068",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=150617&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=150617&format=lrc&trans=true",
+        "duration": "05:04"
+    },
+    {
+        "title": "普通朋友",
+        "artist": "陶喆",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169389595068",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=150623&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=150623&format=lrc&trans=true",
+        "duration": "04:15"
+    },
+    {
+        "title": "Mr. \"Broken Heart\"",
+        "artist": "松下優也",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166201250148",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=26089264&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=26089264&format=lrc&trans=true",
+        "duration": "03:38"
+    },
+    {
+        "title": "打上花火",
+        "artist": "Daoko/米津玄師",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163009282836",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=496869422&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=496869422&format=lrc&trans=true",
+        "duration": "04:49"
+    },
+    {
+        "title": "唯一",
+        "artist": "G.E.M.邓紫棋",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168919708423",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=2083785152&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2083785152&format=lrc&trans=true",
+        "duration": "04:13"
+    },
+    {
+        "title": "小半",
+        "artist": "陈粒",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=1371091013186741",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=421423806&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=421423806&format=lrc&trans=true",
+        "duration": "04:57"
+    },
+    {
+        "title": "老人と海",
+        "artist": "ヨルシカ",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166295171725",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=1870469768&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1870469768&format=lrc&trans=true",
+        "duration": "04:15"
+    },
+    {
+        "title": "出现又离开 (Live)",
+        "artist": "梁博",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164054054313",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=1363553440&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1363553440&format=lrc&trans=true",
+        "duration": "06:43"
+    },
+    {
+        "title": "知我",
+        "artist": "国风堂/哦漏",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164415301539",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=1394167216&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1394167216&format=lrc&trans=true",
+        "duration": "04:37"
+    },
+    {
+        "title": "炎",
+        "artist": "LiSA",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165349903788",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=1482908655&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1482908655&format=lrc&trans=true",
+        "duration": "04:34"
+    },
+    {
+        "title": "Reze",
+        "artist": "kensuke ushio",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172035133051",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=2747726111&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2747726111&format=lrc&trans=true",
+        "duration": "01:14"
+    },
+    {
+        "title": "フィナーレ。",
+        "artist": "eill",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167783001594",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=1972395036&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1972395036&format=lrc&trans=true",
+        "duration": "04:02"
+    },
+    {
+        "title": "SPECIALZ",
+        "artist": "King Gnu",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168848035270",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=2074163984&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2074163984&format=lrc&trans=true",
+        "duration": "03:59"
+    },
+    {
+        "title": "AIZO",
+        "artist": "King Gnu",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172559097545",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=3337367763&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3337367763&format=lrc&trans=true",
+        "duration": "03:35"
+    },
+    {
+        "title": "in the pool",
+        "artist": "kensuke ushio",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172035133051",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=2747726104&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2747726104&format=lrc&trans=true",
+        "duration": "04:05"
+    },
+    {
+        "title": "IRIS OUT",
+        "artist": "米津玄師",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171998034780",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=2745026895&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2745026895&format=lrc&trans=true",
+        "duration": "02:31"
+    },
+    {
+        "title": "JANE DOE",
+        "artist": "米津玄師/宇多田ヒカル",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172028084335",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=2747166493&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2747166493&format=lrc&trans=true",
+        "duration": "03:56"
+    },
+    {
+        "title": "Departures〜あなたにおくるアイの歌〜",
+        "artist": "EGOIST",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165946393227",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=722928&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=722928&format=lrc&trans=true",
+        "duration": "04:15"
+    },
+    {
+        "title": "轻涟 La vaguelette",
+        "artist": "HOYO-MiX",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169058808374",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=2100334024&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2100334024&format=lrc&trans=true",
+        "duration": "02:29"
+    },
+    {
+        "title": "unravel",
+        "artist": "TK from 凛として時雨",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169033080950",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=29017078&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=29017078&format=lrc&trans=true",
+        "duration": "04:00"
+    },
+    {
+        "title": "Love Story",
+        "artist": "Taylor Swift",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169217536854",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=19292984&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=19292984&format=lrc&trans=true",
+        "duration": "03:56"
+    },
+    {
+        "title": "爱情讯息",
+        "artist": "郭静",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171316025348",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=233888&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=233888&format=lrc&trans=true",
+        "duration": "04:40"
+    },
+    {
+        "title": "遇见",
+        "artist": "孙燕姿",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=17687843556430013",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=454828887&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=454828887&format=lrc&trans=true",
+        "duration": "03:29"
+    },
+    {
+        "title": "我怀念的",
+        "artist": "孙燕姿",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169829283327",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=287063&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=287063&format=lrc&trans=true",
+        "duration": "04:49"
+    },
+    {
+        "title": "Call of Silence",
+        "artist": "澤野弘之/R!N/Gemie",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163597044887",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=482636090&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=482636090&format=lrc&trans=true",
+        "duration": "02:58"
+    },
+    {
+        "title": "可惜没如果",
+        "artist": "林俊杰",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170313536564",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=29814898&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=29814898&format=lrc&trans=true",
+        "duration": "04:58"
+    },
+    {
+        "title": "恋人",
+        "artist": "李荣浩",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170045577565",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=2600493765&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2600493765&format=lrc&trans=true",
+        "duration": "04:35"
+    },
+    {
+        "title": "HIS SMILE",
+        "artist": "麗美",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170456532964",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=22712631&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=22712631&format=lrc&trans=true",
+        "duration": "04:56"
+    },
+    {
+        "title": "特别的人",
+        "artist": "方大同",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172683046522",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=28403111&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=28403111&format=lrc&trans=true",
+        "duration": "04:19"
+    },
+    {
+        "title": "心墙",
+        "artist": "郭静",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168105390425",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=27671269&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=27671269&format=lrc&trans=true",
+        "duration": "03:47"
+    },
+    {
+        "title": "from the edge",
+        "artist": "FictionJunction/LiSA",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171371865924",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=1388181876&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1388181876&format=lrc&trans=true",
+        "duration": "04:38"
+    },
+    {
+        "title": "残酷な夜に輝け - Shine in the Cruel Night",
+        "artist": "LiSA",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171480745508",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=2727103261&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2727103261&format=lrc&trans=true",
+        "duration": "06:23"
+    },
+    {
+        "title": "紅蓮華",
+        "artist": "LiSA",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169169579096",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=1375305989&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1375305989&format=lrc&trans=true",
+        "duration": "03:56"
+    },
+    {
+        "title": "太陽が昇らない世界 - A World Where the Sun Never Rises",
+        "artist": "Aimer",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171480735948",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=2727103300&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2727103300&format=lrc&trans=true",
+        "duration": "02:50"
+    },
+    {
+        "title": "To the Infinity Castle - Muzan vs Hashira Theme (from \"Demon Slayer\") (Cover)",
+        "artist": "Diego Mitre",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169741328857",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=2604036163&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2604036163&format=lrc&trans=true",
+        "duration": "05:05"
+    },
+    {
+        "title": "Style",
+        "artist": "Taylor Swift",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=18771962022688349",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=29572502&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=29572502&format=lrc&trans=true",
+        "duration": "03:51"
     },
     {
         "title": "One Last Kiss",
@@ -285,7 +309,7 @@
         "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165791860501",
         "url": "https://163.hyc.moe?server=netease&type=url&id=1824020871&br=320",
         "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1824020871&format=lrc&trans=true",
-        "duration": ""
+        "duration": "04:12"
     },
     {
         "title": "鳥の詩",
@@ -293,6 +317,6 @@
         "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170627348480",
         "url": "https://163.hyc.moe?server=netease&type=url&id=28151022&br=320",
         "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=28151022&format=lrc&trans=true",
-        "duration": ""
+        "duration": "06:09"
     }
 ]

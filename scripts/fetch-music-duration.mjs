@@ -97,8 +97,32 @@ async function fetchMusicDuration() {
 
     for (const item of musicList) {
       if (item.url && !item.duration) {
-        // Skip Meting API urls for duration fetch to avoid 429 rate limit
+        // Fetch duration via Netease API for Meting Netease urls
         if (item.url.includes('163.hyc.moe')) {
+            try {
+                const parsedUrl = new URL(item.url);
+                const server = parsedUrl.searchParams.get('server');
+                const id = parsedUrl.searchParams.get('id');
+
+                if (server === 'netease' && id) {
+                    const res = await fetch(`https://music.163.com/api/song/detail/?id=${id}&ids=[${id}]`, {
+                        headers: {
+                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+                        }
+                    });
+                    const data = await res.json();
+                    if (data.songs && data.songs[0] && data.songs[0].duration) {
+                        const durationStr = formatDuration(data.songs[0].duration / 1000);
+                        item.duration = durationStr;
+                        hasChanges = true;
+                        console.log(`  -> API Duration: ${durationStr} (${item.title})`);
+                    } else {
+                        console.warn(`  -> API failed to provide duration for ${item.title}`);
+                    }
+                }
+            } catch (error) {
+                console.error(`  -> Failed to fetch API duration for ${item.title}:`, error.message);
+            }
             continue;
         }
 
