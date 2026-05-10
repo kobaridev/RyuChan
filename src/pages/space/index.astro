@@ -1,0 +1,8 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SpacePage from '@/components/space/SpacePage';
+---
+
+<BaseLayout title="我的空间" showSidebar={false} isIndexed={false}>
+    <SpacePage client:only="react" />
+</BaseLayout>

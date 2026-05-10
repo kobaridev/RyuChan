@@ -35,6 +35,24 @@ site:
     navigation:
       title: 网站导航
       subtitle: 收藏的常用网站和工具链接
+    space:
+      title: 我的空间
+      subtitle: 记录生活点滴
+    anime:
+      title: 追番
+      subtitle: 记录和分享我喜欢的动漫作品
+    project:
+      title: Projects
+      subtitle: 展示一些个人搭建的项目，搬运工！
+    music:
+      title: Cloud Music
+      subtitle: 沉浸式享受音乐时光
+  meting:
+    server: netease
+    id: '17933567326'
+    br: '400'
+    trans: true
+>>>>>>> 128d504 (feat: 预览)
   menu:
     - id: home
       text: 首页
@@ -45,6 +63,11 @@ site:
       text: 写作
       href: /write
       svg: material-symbols:edit-square-outline-rounded
+      target: _self
+    - id: space
+      text: 空间
+      href: /space
+      svg: material-symbols:cloud-outline-rounded
       target: _self
     - id: navigation
       text: 导航
