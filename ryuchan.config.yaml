@@ -41,14 +41,6 @@ site:
     project:
       title: Projects
       subtitle: 展示一些个人搭建的项目，搬运工！
-    music:
-      title: Cloud Music
-      subtitle: 沉浸式享受音乐时光
-  meting:
-    server: netease
-    id: '17933567326'
-    br: '400'
-    trans: true
   menu:
     - id: home
       text: 首页
@@ -65,22 +57,11 @@ site:
       href: /navigation
       svg: material-symbols:explore-outline
       target: _self
-    - id: entertainment
-      text: 娱乐
-      href: '#'
-      svg: material-symbols:play-circle-outline-rounded
+    - id: anime
+      text: 追番
+      href: /anime
+      svg: material-symbols:movie-outline
       target: _self
-      subItems:
-        - id: anime
-          text: 追番
-          href: /anime
-          svg: material-symbols:movie-outline
-          target: _self
-        - id: music
-          text: 音乐
-          href: /music
-          svg: material-symbols:music-note-rounded
-          target: _self
     - id: project
       text: 项目
       href: /project

@@ -17,7 +17,6 @@ import Footer from "@components/Footer.astro";
 import Navbar from "@components/Navbar.astro";
 import Banner from "@components/Banner.astro";
 import MobileTOC from "@components/widgets/MobileTOC.astro";
-import GlobalAudio from "@components/widgets/GlobalAudio.astro";
 
 const {
   title,
@@ -161,7 +160,6 @@ const bannerSubtitle = pageConfig?.subtitle || "";
 
 
     <MobileTOC headings={headings} showTOC={showTOC} />
-    <GlobalAudio />
 
     <!-- 其余脚本保持不变 -->
     <script define:vars={{ SITE_THEME }} is:inline>

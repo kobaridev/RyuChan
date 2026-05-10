@@ -69,14 +69,6 @@ export const TRANSLATIONS = translationsConfig;
 // 评论系统配置
 export const commentsConfig = config.comments;
 
-// Meting 配置
-export const METING_CONFIG = config.site.meting || {
-  server: 'netease',
-  id: '8900628861',
-  br: '320',
-  trans: true
-};
-
 // 创建翻译缓存
 const translationCache: Record<string, string> = {};
 
