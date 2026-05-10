@@ -4,14 +4,19 @@ import { INIT_DELAY } from '@/consts'
 import { lazy, Suspense, useRef, useCallback } from 'react'
 import 'easymde/dist/easymde.min.css'
 
-const SimpleMDE = lazy(() => import('react-simplemde-editor'))
+const SimpleMdeReact = lazy(() => import('react-simplemde-editor'))
 
 export function WriteEditor() {
-	const { form, updateForm, images, addFiles } = useWriteStore()
-	const cmRef = useRef<any>(null)
+	const { form, updateForm, addFiles } = useWriteStore()
+	const simpleMdeRef = useRef<any>(null)
+	const codemirrorRef = useRef<any>(null)
 
-	const getCmInstance = useCallback((editor: any) => {
-		cmRef.current = editor
+	const getMdeInstance = useCallback((instance: any) => {
+		simpleMdeRef.current = instance
+	}, [])
+
+	const getCodemirrorInstance = useCallback((cm: any) => {
+		codemirrorRef.current = cm
 	}, [])
 
 	const handlePaste = async (e: React.ClipboardEvent) => {
@@ -34,7 +39,7 @@ export function WriteEditor() {
 				const markdowns = resultImages.map(item =>
 					item.type === 'url' ? `![](${item.url})` : `![](local-image:${item.id})`
 				).join('\n')
-				const cm = cmRef.current
+				const cm = codemirrorRef.current
 				if (cm) {
 					const doc = cm.getDoc()
 					const cursor = doc.getCursor()
@@ -73,10 +78,11 @@ export function WriteEditor() {
 					<span className="loading loading-spinner loading-lg text-primary"></span>
 				</div>
 			}>
-				<SimpleMDE
+				<SimpleMdeReact
 					value={form.md}
 					onChange={(value: string) => updateForm({ md: value })}
-					getMdeInstance={getCmInstance}
+					getMdeInstance={getMdeInstance}
+					getCodemirrorInstance={getCodemirrorInstance}
 					options={{
 						placeholder: 'Markdown 内容',
 						spellChecker: false,
@@ -88,15 +94,17 @@ export function WriteEditor() {
 						toolbar: [
 							'bold',
 							'italic',
+							'strikethrough',
 							'heading',
 							'|',
 							'quote',
-							'unordered-list',
+							'code',
 							'ordered-list',
+							'unordered-list',
 							'|',
 							'link',
 							'image',
-							'code',
+							'table',
 							'|',
 							'preview',
 							'side-by-side',
@@ -104,8 +112,9 @@ export function WriteEditor() {
 							'|',
 							'guide',
 						],
-						status: false,
+						status: ['lines', 'words'],
 						tabSize: 4,
+						lineWrapping: true,
 					}}
 				/>
 			</Suspense>
