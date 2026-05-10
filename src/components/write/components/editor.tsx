@@ -1,7 +1,7 @@
 import { motion } from 'motion/react'
 import { useWriteStore } from '../stores/write-store'
 import { INIT_DELAY } from '@/consts'
-import { lazy, Suspense, useRef, useCallback } from 'react'
+import { lazy, Suspense, useRef, useCallback, useEffect } from 'react'
 import 'easymde/dist/easymde.min.css'
 
 const SimpleMdeReact = lazy(() => import('react-simplemde-editor'))
@@ -10,6 +10,7 @@ export function WriteEditor() {
 	const { form, updateForm, addFiles } = useWriteStore()
 	const simpleMdeRef = useRef<any>(null)
 	const codemirrorRef = useRef<any>(null)
+	const previewButtonRef = useRef<HTMLElement | null>(null)
 
 	const getMdeInstance = useCallback((instance: any) => {
 		simpleMdeRef.current = instance
@@ -17,6 +18,37 @@ export function WriteEditor() {
 
 	const getCodemirrorInstance = useCallback((cm: any) => {
 		codemirrorRef.current = cm
+	}, [])
+
+	useEffect(() => {
+		const instance = simpleMdeRef.current
+		if (!instance) return
+
+		const toolbarElements = (instance as any).toolbarElements
+		if (toolbarElements && toolbarElements.preview) {
+			previewButtonRef.current = toolbarElements.preview
+		}
+
+		const updatePreviewIcon = () => {
+			const btn = previewButtonRef.current
+			if (!btn) return
+			const icon = btn.querySelector('i') || btn.querySelector('span')
+			if (icon) {
+				const isActive = instance.isPreviewActive()
+				icon.className = isActive ? 'fa fa-eye-slash' : 'fa fa-eye'
+			}
+		}
+
+		const cm = codemirrorRef.current
+		if (cm) {
+			cm.on('refresh', updatePreviewIcon)
+		}
+
+		return () => {
+			if (cm) {
+				cm.off('refresh', updatePreviewIcon)
+			}
+		}
 	}, [])
 
 	const handlePaste = async (e: React.ClipboardEvent) => {
@@ -98,19 +130,15 @@ export function WriteEditor() {
 							'heading',
 							'|',
 							'quote',
-							'code',
 							'ordered-list',
 							'unordered-list',
 							'|',
 							'link',
 							'image',
-							'table',
 							'|',
 							'preview',
 							'side-by-side',
 							'fullscreen',
-							'|',
-							'guide',
 						],
 						status: ['lines', 'words'],
 						tabSize: 4,
