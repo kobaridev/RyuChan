@@ -29,9 +29,6 @@ site:
         - 🌸 花有重开日，人无再少年！
         - 🌿 记录生活的点滴，分享美好的瞬间！
         - 📚 纸上得来终觉浅，绝知此事要躬行！
-    friend:
-      title: 友人帐
-      subtitle: 记录那些珍贵的友谊，分享彼此的故事
     about:
       title: About Me
       subtitle: 一个热爱生活与技术的普通人！
@@ -88,11 +85,6 @@ site:
       text: 项目
       href: /project
       svg: material-symbols:code-blocks-outline
-      target: _self
-    - id: friend
-      text: 友人帐
-      href: /friend
-      svg: material-symbols:supervisor-account-outline-rounded
       target: _self
     - id: about
       text: 关于

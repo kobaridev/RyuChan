@@ -160,10 +160,4 @@ export interface MainCardProps extends PostData {
   style?: string;
 }
 
-export interface FriendCardProps {
-  name: string;
-  avatar: string;
-  description: string;
-  url: string;
-  type?: string;
-}
+
