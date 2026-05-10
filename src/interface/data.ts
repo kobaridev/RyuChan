@@ -124,13 +124,6 @@ export interface LinkCardProps {
   categories?: string[];
 }
 
-export interface RepositoryCardProps {
-  owner: string;
-  repo: string;
-  description?: string;
-  showStats?: boolean;
-}
-
 export interface FeatureCardProps {
   title: string;
   description: string;

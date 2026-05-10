@@ -35,12 +35,6 @@ site:
     navigation:
       title: 网站导航
       subtitle: 收藏的常用网站和工具链接
-    anime:
-      title: 追番
-      subtitle: 记录和分享我喜欢的动漫作品
-    project:
-      title: Projects
-      subtitle: 展示一些个人搭建的项目，搬运工！
   menu:
     - id: home
       text: 首页
@@ -57,27 +51,11 @@ site:
       href: /navigation
       svg: material-symbols:explore-outline
       target: _self
-    - id: anime
-      text: 追番
-      href: /anime
-      svg: material-symbols:movie-outline
-      target: _self
-    - id: project
-      text: 项目
-      href: /project
-      svg: material-symbols:code-blocks-outline
-      target: _self
     - id: about
       text: 关于
       href: /about
       svg: material-symbols:info-outline-rounded
       target: _self
-anime:
-  bilibili:
-    uid: '1536411565'
-  tmdb:
-    apiKey: 08a6bef260044f70c150251c79f2e476
-    listId: '8556173'
 github:
   owner: kobaridev
   repo: RyuChan

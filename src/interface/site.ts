@@ -62,15 +62,6 @@ export interface BlogConfig {
   pageSize: number;
 }
 
-export interface TmdbConfig {
-  apiKey: string;
-  listId: string;
-}
-
-export interface BilibiliConfig {
-  uid: string;
-}
-
 export interface GithubConfig {
   owner: string;
   repo: string;
@@ -161,17 +152,11 @@ export interface Translations {
   [language: string]: LanguageTranslation;
 }
 
-export interface AnimeConfig {
-  bilibili?: BilibiliConfig;
-  tmdb?: TmdbConfig;
-}
-
 import type { UmamiConfig } from "../config";
 export interface Config {
   site: SiteConfig;
   user: UserConfig;
   umami?: UmamiConfig;
   comments?: CommentsConfig;
-  anime?: AnimeConfig;
   github?: GithubConfig;
 }
