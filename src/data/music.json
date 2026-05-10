@@ -1,5 +1,85 @@
 [
     {
+        "title": "女孩",
+        "artist": "韦礼安",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168079643579",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=32358362&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=32358362&format=lrc&trans=true",
+        "duration": ""
+    },
+    {
+        "title": "我们俩",
+        "artist": "郭顶",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170514277229",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=85571&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=85571&format=lrc&trans=true",
+        "duration": ""
+    },
+    {
+        "title": "海阔天空",
+        "artist": "Beyond",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163984013003",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=1357375695&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1357375695&format=lrc&trans=true",
+        "duration": ""
+    },
+    {
+        "title": "多远都要在一起",
+        "artist": "G.E.M.邓紫棋",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=1364493930777368",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=30612793&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=30612793&format=lrc&trans=true",
+        "duration": ""
+    },
+    {
+        "title": "逆光",
+        "artist": "孙燕姿",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169829283327",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=287057&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=287057&format=lrc&trans=true",
+        "duration": ""
+    },
+    {
+        "title": "又是艳阳天",
+        "artist": "郭静/韦礼安",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167430325186",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=233846&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=233846&format=lrc&trans=true",
+        "duration": ""
+    },
+    {
+        "title": "3 Strikes",
+        "artist": "Terror Jr",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164000556824",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=409647388&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=409647388&format=lrc&trans=true",
+        "duration": ""
+    },
+    {
+        "title": "Beautiful World (Da Capo Version)",
+        "artist": "宇多田ヒカル",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165791860501",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=1824020873&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1824020873&format=lrc&trans=true",
+        "duration": ""
+    },
+    {
+        "title": "找自己",
+        "artist": "陶喆",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169389595068",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=150617&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=150617&format=lrc&trans=true",
+        "duration": ""
+    },
+    {
+        "title": "普通朋友",
+        "artist": "陶喆",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169389595068",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=150623&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=150623&format=lrc&trans=true",
+        "duration": ""
+    },
+    {
         "title": "Mr. \"Broken Heart\"",
         "artist": "松下優也",
         "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166201250148",
@@ -96,11 +176,11 @@
         "duration": ""
     },
     {
-        "title": "in the pool 钢琴版（电锯人蕾塞篇）",
-        "artist": "kazeoshita",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171008164588",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=2753281694&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2753281694&format=lrc&trans=true",
+        "title": "in the pool",
+        "artist": "kensuke ushio",
+        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172035133051",
+        "url": "https://163.hyc.moe?server=netease&type=url&id=2747726104&br=320",
+        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2747726104&format=lrc&trans=true",
         "duration": ""
     },
     {
@@ -269,14 +349,6 @@
         "cover": "https://163.hyc.moe?server=netease&type=pic&id=18771962022688349",
         "url": "https://163.hyc.moe?server=netease&type=url&id=29572502&br=320",
         "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=29572502&format=lrc&trans=true",
-        "duration": ""
-    },
-    {
-        "title": "Beautiful World (Da Capo Version)",
-        "artist": "宇多田ヒカル",
-        "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165791860501",
-        "url": "https://163.hyc.moe?server=netease&type=url&id=1824020873&br=320",
-        "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1824020873&format=lrc&trans=true",
         "duration": ""
     },
     {
