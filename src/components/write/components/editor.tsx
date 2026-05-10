@@ -1,134 +1,21 @@
 import { motion } from 'motion/react'
 import { useWriteStore } from '../stores/write-store'
 import { INIT_DELAY } from '@/consts'
-import { useRef } from 'react'
+import { lazy, Suspense, useRef, useCallback } from 'react'
+import 'easymde/dist/easymde.min.css'
 
-const defaultText = 'text'
+const SimpleMDE = lazy(() => import('react-simplemde-editor'))
 
 export function WriteEditor() {
 	const { form, updateForm, images, addFiles } = useWriteStore()
-	const textareaRef = useRef<HTMLTextAreaElement>(null)
+	const cmRef = useRef<any>(null)
 
-	const insertText = (text: string) => {
-		const textarea = textareaRef.current
-		if (!textarea) return
+	const getCmInstance = useCallback((editor: any) => {
+		cmRef.current = editor
+	}, [])
 
-		textarea.focus()
-		// Use execCommand to preserve undo/redo stack
-		const success = document.execCommand('insertText', false, text)
-
-		if (!success) {
-			// Fallback for browsers that don't support execCommand
-			const { selectionStart, selectionEnd, value } = textarea
-			const before = value.substring(0, selectionStart)
-			const after = value.substring(selectionEnd)
-			updateForm({ md: before + text + after })
-			setTimeout(() => {
-				textarea.setSelectionRange(selectionStart + text.length, selectionStart + text.length)
-				textarea.focus()
-			}, 0)
-		}
-	}
-
-	const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-		const textarea = textareaRef.current
-		if (!textarea) return
-
-		const { selectionStart, selectionEnd, value } = textarea
-		const selectedText = value.substring(selectionStart, selectionEnd)
-
-		// Ctrl/Cmd + B: Toggle Bold
-		if ((e.ctrlKey || e.metaKey) && e.key === 'b') {
-			e.preventDefault()
-			const before = value.substring(0, selectionStart)
-			const after = value.substring(selectionEnd)
-
-			// Check if already bold
-			const isBold = before.endsWith('**') && after.startsWith('**')
-
-			if (isBold && selectedText) {
-				// Remove bold - select including markers and replace
-				textarea.setSelectionRange(selectionStart - 2, selectionEnd + 2)
-				insertText(selectedText)
-			} else {
-				// Add bold
-				const text = selectedText || defaultText
-				insertText(`**${text}**`)
-				if (!selectedText) {
-					setTimeout(() => {
-						textarea.setSelectionRange(selectionStart + 2, selectionStart + 2 + defaultText.length)
-					}, 0)
-				}
-			}
-			return
-		}
-
-		// Ctrl/Cmd + I: Toggle Italic
-		if ((e.ctrlKey || e.metaKey) && e.key === 'i') {
-			e.preventDefault()
-			const before = value.substring(0, selectionStart)
-			const after = value.substring(selectionEnd)
-
-			// Check if already italic
-			const isItalic = before.endsWith('*') && after.startsWith('*') && !(before.endsWith('**') && after.startsWith('**'))
-
-			if (isItalic && selectedText) {
-				// Remove italic and replace
-				textarea.setSelectionRange(selectionStart - 1, selectionEnd + 1)
-				insertText(selectedText)
-			} else {
-				// Add italic
-				const text = selectedText || defaultText
-				insertText(`*${text}*`)
-				if (!selectedText) {
-					// Select the default text
-					setTimeout(() => {
-						textarea.setSelectionRange(selectionStart + 1, selectionStart + 1 + defaultText.length)
-					}, 0)
-				}
-			}
-			return
-		}
-
-		// Ctrl/Cmd + K: Link
-		if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-			e.preventDefault()
-			const text = selectedText || defaultText
-			insertText(`[${text}](url)`)
-			// Select 'url' part
-			setTimeout(() => {
-				const urlStart = selectionStart + text.length + 3
-				textarea.setSelectionRange(urlStart, urlStart + 3)
-			}, 0)
-			return
-		}
-
-		// Tab: Indent
-		if (e.key === 'Tab' && !e.shiftKey) {
-			e.preventDefault()
-			insertText('\t')
-			return
-		}
-
-		// Shift + Tab: Outdent
-		if (e.key === 'Tab' && e.shiftKey) {
-			e.preventDefault()
-			const lineStart = value.lastIndexOf('\n', selectionStart - 1) + 1
-			const line = value.substring(lineStart, value.indexOf('\n', selectionStart))
-
-			if (line.startsWith('\t')) {
-				textarea.setSelectionRange(lineStart, lineStart + 1)
-				insertText('')
-			} else if (line.startsWith('  ')) {
-				textarea.setSelectionRange(lineStart, lineStart + 2)
-				insertText('')
-			}
-			return
-		}
-	}
-
-	const handlePaste = async (e: React.ClipboardEvent<HTMLTextAreaElement>) => {
-		const items = e.clipboardData.items
+	const handlePaste = async (e: React.ClipboardEvent) => {
+		const items = e.clipboardData?.items
 		if (!items) return
 
 		const imageFiles: File[] = []
@@ -136,21 +23,23 @@ export function WriteEditor() {
 			const item = items[i]
 			if (item.type.startsWith('image/')) {
 				const file = item.getAsFile()
-				if (file) {
-					imageFiles.push(file)
-				}
+				if (file) imageFiles.push(file)
 			}
 		}
 
 		if (imageFiles.length > 0) {
 			e.preventDefault()
-
 			const resultImages = await addFiles(imageFiles).catch(() => [])
-
 			if (resultImages && resultImages.length > 0) {
-				// 为所有处理后的图片（包括新添加和已存在的）生成 markdown
-				const markdowns = resultImages.map(item => (item.type === 'url' ? `![](${item.url})` : `![](local-image:${item.id})`)).join('\n')
-				insertText(markdowns)
+				const markdowns = resultImages.map(item =>
+					item.type === 'url' ? `![](${item.url})` : `![](local-image:${item.id})`
+				).join('\n')
+				const cm = cmRef.current
+				if (cm) {
+					const doc = cm.getDoc()
+					const cursor = doc.getCursor()
+					doc.replaceRange(markdowns, cursor)
+				}
 			}
 		}
 	}
@@ -160,7 +49,9 @@ export function WriteEditor() {
 			initial={{ opacity: 0, scale: 0.8 }}
 			animate={{ opacity: 1, scale: 1 }}
 			transition={{ delay: INIT_DELAY }}
-			className='bg-base-100 flex min-h-[800px] w-full max-w-[800px] flex-col rounded-[40px] border border-base-200 p-8 shadow-xl'>
+			className='bg-base-100 flex min-h-[800px] w-full max-w-[800px] flex-col rounded-[40px] border border-base-200 p-8 shadow-xl'
+			onPaste={handlePaste}
+		>
 			<div className='mb-4 flex flex-col md:flex-row gap-4'>
 				<input
 					type='text'
@@ -177,15 +68,47 @@ export function WriteEditor() {
 					onChange={e => updateForm({ slug: e.target.value.toLowerCase() })}
 				/>
 			</div>
-			<textarea
-				ref={textareaRef}
-				placeholder='Markdown 内容'
-				className='textarea textarea-bordered h-[650px] w-full flex-1 resize-none rounded-2xl bg-base-100 p-6 text-base leading-relaxed focus:textarea-primary transition-all'
-				value={form.md}
-				onChange={e => updateForm({ md: e.target.value })}
-				onKeyDown={handleKeyDown}
-				onPaste={handlePaste}
-			/>
+			<Suspense fallback={
+				<div className="h-[600px] w-full flex items-center justify-center bg-base-200 rounded-2xl">
+					<span className="loading loading-spinner loading-lg text-primary"></span>
+				</div>
+			}>
+				<SimpleMDE
+					value={form.md}
+					onChange={(value: string) => updateForm({ md: value })}
+					getMdeInstance={getCmInstance}
+					options={{
+						placeholder: 'Markdown 内容',
+						spellChecker: false,
+						autosave: {
+							enabled: true,
+							uniqueId: 'ryuchan-write-editor',
+							delay: 1000,
+						},
+						toolbar: [
+							'bold',
+							'italic',
+							'heading',
+							'|',
+							'quote',
+							'unordered-list',
+							'ordered-list',
+							'|',
+							'link',
+							'image',
+							'code',
+							'|',
+							'preview',
+							'side-by-side',
+							'fullscreen',
+							'|',
+							'guide',
+						],
+						status: false,
+						tabSize: 4,
+					}}
+				/>
+			</Suspense>
 		</motion.div>
 	)
 }
