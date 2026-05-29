@@ -19,16 +19,6 @@ jobs:
           node-version: 22
           cache: pnpm
 
-      - name: Approve build scripts
-        run: >
-          node -e "
-          const fs = require('fs');
-          const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
-          pkg.pnpm = pkg.pnpm || {};
-          pkg.pnpm.onlyBuiltDependencies = ['esbuild', 'sharp', 'workerd', 'swup', 'unrs-resolver'];
-          fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
-          "
-
       - run: pnpm install
       - run: pnpm run build
 
