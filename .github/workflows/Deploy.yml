@@ -19,7 +19,16 @@ jobs:
         with:                                                  
           node-version: 22                                
           cache: pnpm                                          
-                                                               
+      - name: Approve build scripts for CI                     
+        run: |                                                 
+          cat >> .npmrc << 'EOF'                               
+          onlyBuiltDependencies[]=esbuild                      
+          onlyBuiltDependencies[]=sharp                        
+          onlyBuiltDependencies[]=workerd                      
+          onlyBuiltDependencies[]=swup                         
+          onlyBuiltDependencies[]=unrs-resolver                
+          EOF                                                  
+                                                                 
       - run: pnpm install                                      
       - run: pnpm run build                                    
                                                                
