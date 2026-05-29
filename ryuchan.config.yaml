@@ -101,21 +101,12 @@ anime:
     listId: '8556173'
 music:
   playlists:
-    - id: '17933567326'
-      name: 我的喜欢
-      server: netease
     - id: zhoujielun
       name: 周杰伦
       server: netease
       type: custom
-    - id: '17964946766'
-      name: 陶喆
-      server: netease
     - id: '17957187425'
       name: 方大同
-      server: netease
-    - id: '17956985703'
-      name: G.E.M.邓紫棋
       server: netease
     - id: '17957136689'
       name: 林俊杰
