@@ -1,43 +1,43 @@
-# .github/workflows/deploy.yml                                 
-name: Deploy                                                   
-                                                               
-on:                                                            
-  push:                                                        
-    branches: [main]                                           
-                                                               
-jobs:                                                          
-  deploy:                                                      
-    runs-on: ubuntu-latest                                     
-    steps:                                                     
-      - uses: actions/checkout@v4                              
-                                                               
-      - uses: pnpm/action-setup@v4                             
-        with:                                                  
-          version: latest                                      
-                                                               
-      - uses: actions/setup-node@v4                            
-        with:                                                  
-          node-version: 22                                
-          cache: pnpm                                          
-      - name: Approve build scripts                            
-        run: |                                                 
-            content=$(cat package.json)                          
-            echo "$content" | node -e "                          
-              const fs = require('fs');                          
-              const pkg = JSON.parse(fs.readFileSync('/dev/stdin', 'utf8'));             
-              pkg.pnpm = pkg.pnpm || {};                         
-              pkg.pnpm.onlyBuiltDependencies = ['esbuild', 'sharp', 'workerd', 'swup', 'unrs-resolver'];                  
-              fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');                                                
-                                                                 
-      - run: pnpm install                                      
-      - run: pnpm run build                                    
-                                                               
-      - name: Deploy to server                                 
-        run: |                                                 
-          mkdir -p ~/.ssh                                      
-          echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/deploy_key                                              
-          chmod 600 ~/.ssh/deploy_key                          
-          rsync -avz --delete \                                
-            -e "ssh -p ${{ secrets.SERVER_PORT }} -o StrictHostKeyChecking=no -i ~/.ssh/deploy_key" \               
-            dist/ \                                            
-            ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_DEPLOY_PATH }}    
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Approve build scripts
+        run: >
+          node -e "
+          const fs = require('fs');
+          const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+          pkg.pnpm = pkg.pnpm || {};
+          pkg.pnpm.onlyBuiltDependencies = ['esbuild', 'sharp', 'workerd', 'swup', 'unrs-resolver'];
+          fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');
+          "
+
+      - run: pnpm install
+      - run: pnpm run build
+
+      - name: Deploy to server
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          rsync -avz --delete \
+            -e "ssh -p ${{ secrets.SERVER_PORT }} -o StrictHostKeyChecking=no -i ~/.ssh/deploy_key" \
+            dist/ \
+            ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_DEPLOY_PATH }}
