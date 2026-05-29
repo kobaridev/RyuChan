@@ -19,7 +19,9 @@ jobs:
           node-version: 22
           cache: pnpm
 
-      - run: pnpm install
+      - run: |
+          pnpm config set onlyBuiltDependencies '["esbuild","sharp","workerd","swup","unrs-resolver"]' --location project
+          pnpm install
       - run: pnpm run build
 
       - name: Deploy to server
