@@ -19,15 +19,15 @@ jobs:
         with:                                                  
           node-version: 22                                
           cache: pnpm                                          
-      - name: Approve build scripts for CI                     
+      - name: Approve build scripts                            
         run: |                                                 
-          cat >> .npmrc << 'EOF'                               
-          onlyBuiltDependencies[]=esbuild                      
-          onlyBuiltDependencies[]=sharp                        
-          onlyBuiltDependencies[]=workerd                      
-          onlyBuiltDependencies[]=swup                         
-          onlyBuiltDependencies[]=unrs-resolver                
-          EOF                                                  
+            content=$(cat package.json)                          
+            echo "$content" | node -e "                          
+              const fs = require('fs');                          
+              const pkg = JSON.parse(fs.readFileSync('/dev/stdin', 'utf8'));             
+              pkg.pnpm = pkg.pnpm || {};                         
+              pkg.pnpm.onlyBuiltDependencies = ['esbuild', 'sharp', 'workerd', 'swup', 'unrs-resolver'];                  
+              fs.writeFileSync('package.json', JSON.stringify(pkg, null, 2) + '\n');                                                
                                                                  
       - run: pnpm install                                      
       - run: pnpm run build                                    
