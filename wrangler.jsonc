@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "dev",
+  "name": "ryuchan",
   "compatibility_date": "2026-04-29",
   "observability": {
     "enabled": true
