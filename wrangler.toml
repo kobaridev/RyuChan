@@ -1,5 +1,5 @@
 main = "worker/index.js"
-name = "dev"
+name = "ryuchan"
 compatibility_date = "2026-04-29"
 compatibility_flags = ["nodejs_compat"]
 
