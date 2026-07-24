@@ -2,7 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Card from "@components/temple/Card.astro";
 import { Icon } from "astro-icon/components";
-import { TMDB_CONFIG, BILIBILI_CONFIG } from "@config";
+import { TMDB_CONFIG, BILIBILI_CONFIG, ANIME_CACHE_CONFIG } from "@config";
 import * as fs from "node:fs";
 import * as path from "node:path";
 
@@ -10,6 +10,55 @@ const TMDB_IMG = "https://image.tmdb.org/t/p/w500";
 const TMDB_API_KEY = TMDB_CONFIG?.apiKey || import.meta.env.TMDB_API_KEY;
 const TMDB_LIST_ID = TMDB_CONFIG?.listId || "8556173";
 const BILIBILI_UID = BILIBILI_CONFIG?.uid;
+const CACHE_ENABLE = ANIME_CACHE_CONFIG?.enable !== false;
+const CACHE_TTL = (ANIME_CACHE_CONFIG?.ttl || 60) * 60 * 1000;
+
+const CACHE_DIR = path.resolve("public/anime-cache");
+
+if (!fs.existsSync(CACHE_DIR)) {
+  fs.mkdirSync(CACHE_DIR, { recursive: true });
+}
+
+function getCacheFilePath(source: string): string {
+  return path.resolve(CACHE_DIR, `${source}.json`);
+}
+
+function readCache(source: string): any | null {
+  if (!CACHE_ENABLE) return null;
+  try {
+    const filePath = getCacheFilePath(source);
+    if (!fs.existsSync(filePath)) return null;
+    
+    const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+    if (!data || !data.timestamp) return null;
+    
+    const age = Date.now() - data.timestamp;
+    if (age > CACHE_TTL) {
+      console.log(`Cache for ${source} expired (${Math.floor(age / 60000)} min old), refreshing...`);
+      return null;
+    }
+    
+    console.log(`Using cached ${source} data (${Math.floor(age / 60000)} min old)`);
+    return data.data;
+  } catch (e) {
+    console.warn(`Failed to read ${source} cache:`, e);
+    return null;
+  }
+}
+
+function writeCache(source: string, data: any): void {
+  if (!CACHE_ENABLE) return;
+  try {
+    const filePath = getCacheFilePath(source);
+    fs.writeFileSync(filePath, JSON.stringify({
+      timestamp: Date.now(),
+      data: data
+    }, null, 2), "utf-8");
+    console.log(`Cached ${source} data saved`);
+  } catch (e) {
+    console.warn(`Failed to write ${source} cache:`, e);
+  }
+}
 
 const fetchWithTimeout = async (url: string, options: any = {}, timeout = 10000) => {
   const controller = new AbortController();
@@ -31,7 +80,6 @@ try {
   console.warn("Local anime-list.json not found or invalid.");
 }
 
-// 并行获取 TMDB 和 Bilibili 数据
 let bilibiliItems: any[] = [];
 if (TMDB_API_KEY || BILIBILI_UID) {
   const [tmdbResult, biliResult] = await Promise.all([
@@ -43,6 +91,12 @@ if (TMDB_API_KEY || BILIBILI_UID) {
 }
 
 async function fetchTMDB(): Promise<any[]> {
+  const cached = readCache("tmdb");
+  if (cached) {
+    console.log(`TMDB using cached data: ${cached[0]?.items?.length || 0} items`);
+    return cached;
+  }
+
   console.log(`Fetching TMDB list: ${TMDB_LIST_ID}...`);
   try {
     const res = await fetchWithTimeout(
@@ -76,8 +130,10 @@ async function fetchTMDB(): Promise<any[]> {
       results.forEach(items => allItems.push(...items));
     }
     
+    const result = [{ ...data, items: allItems }];
     console.log(`TMDB fetched: ${allItems.length} items`);
-    return [{ ...data, items: allItems }];
+    writeCache("tmdb", result);
+    return result;
   } catch (e) {
     console.error("TMDB fetch failed:", e);
     return [];
@@ -85,6 +141,12 @@ async function fetchTMDB(): Promise<any[]> {
 }
 
 async function fetchBilibili(): Promise<any[]> {
+  const cached = readCache("bilibili");
+  if (cached) {
+    console.log(`Bilibili using cached data: ${cached.length} items`);
+    return cached;
+  }
+
   console.log(`Fetching Bilibili list for UID: ${BILIBILI_UID}...`);
   const items: any[] = [];
   let page = 1;
@@ -110,6 +172,7 @@ async function fetchBilibili(): Promise<any[]> {
   }
   
   console.log(`Bilibili fetched: ${items.length} items`);
+  writeCache("bilibili", items);
   return items;
 }
 

@@ -26,10 +26,10 @@ site:
       title: RyuChan's Blog
       subtitle: 欲买桂花同载酒，终不似，少年游！
       typewriterTexts:
-        - 🌸 欲买桂花同载酒，终不似，少年游！
-        - 🌸 花有重开日，人无再少年！
-        - 🌿 记录生活的点滴，分享美好的瞬间！
-        - 📚 纸上得来终觉浅，绝知此事要躬行！
+        - 总有人间一两风，填我十万八千梦
+        - 须知少时凌云志，曾许人间第一流
+        - 我凌于山壑万里，一生自由随风起
+        - 你总会迎来那束光，或早或晚
     friend:
       title: 友人帐
       subtitle: 记录那些珍贵的友谊，分享彼此的故事
@@ -53,7 +53,7 @@ site:
       subtitle: 沉浸式享受音乐时光
   meting:
     server: netease
-    id: '17933567326'
+    id: '12798252732'
     br: '400'
     trans: true
   menu:
@@ -95,21 +95,17 @@ site:
   titleType: image
 anime:
   bilibili:
-    uid: '1536411565'
+    uid: '542054505'
   tmdb:
-    apiKey: 08a6bef260044f70c150251c79f2e476
-    listId: '8556173'
+    apiKey: ''
+    listId: ''
+  cache:
+    enable: true
+    ttl: 60
 music:
   playlists:
-    - id: '17933567326'
+    - id: '12798252732'
       name: 我的喜欢
-      server: netease
-    - id: zhoujielun
-      name: 周杰伦
-      server: netease
-      type: custom
-    - id: '17966019560'
-      name: 告五人
       server: netease
 github:
   owner: kobaridev
@@ -124,47 +120,47 @@ umami:
   websiteId: 9c2dab11-97da-492f-aee4-f86c948b83e6
   timezone: Asia/Shanghai
 user:
-  name: KoBariDev
+  name: MACRO
   description: Ciallo～(∠・ω<)⌒★
-  site: https://hub.131714.xyz
+  site: 
   avatar: /profile.png
   title_image: /logo.png
   qr_wechat: /WeChat.jpg
   qr_alipay: /Alipay.jpg
   sidebar:
     social:
-      - href: https://github.com/kobaridev
+      - href: 
         ariaLabel: Github
         title: Github
         svg: ri:github-line
-      - href: https://space.bilibili.com/1536411565
+      - href: 
         ariaLabel: BiliBili
         title: BiliBili
         svg: ri:bilibili-line
       - href: >-
-          https://www.douyin.com/user/MS4wLjABAAAAeO0sqJYUgh1a26GkVPtS2yv_IOODjeqvtl4KSjvsntg?from_tab_name=main
+          
         ariaLabel: Douyin
         title: Douyin
         svg: ri:tiktok-line
-      - href: https://weibo.com/u/7579913510
+      - href: 
         title: Weibo
         ariaLabel: Weibo
         svg: ri:weibo-fill
   footer:
     social:
-      - href: https://github.com/kobaridev
+      - href: 
         ariaLabel: Github
         title: Github
         svg: ri:github-line
-      - href: https://space.bilibili.com/1536411565
+      - href: 
         ariaLabel: BiliBili
         title: BiliBili
         svg: ri:bilibili-line
-      - href: https://x.com/xzz_ya
+      - href: 
         ariaLabel: X(twitter)
         title: X(twitter)
         svg: ri:twitter-line
-      - href: https://t.me/xzz_ya
+      - href: 
         ariaLabel: Telegram
         title: Telegram
         svg: ri:telegram-line
@@ -183,7 +179,7 @@ comments:
     emitMetadata: '0'
     loading: lazy
   waline:
-    serverURL: https://waline.131714.xyz
+    serverURL: https://waline77.macro.wang
     lang: zh
   twikoo:
     envId: https://twikoo.131714.xyz/

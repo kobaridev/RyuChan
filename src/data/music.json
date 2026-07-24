@@ -1,1699 +1,1389 @@
 {
     "songs": [
         {
-            "title": "小半",
-            "artist": "陈粒",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=1371091013186741",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=421423806&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=421423806&format=lrc&trans=true",
-            "duration": "04:57"
-        },
-        {
-            "title": "走马",
-            "artist": "陈粒",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=7721870161993398",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=30431367&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=30431367&format=lrc&trans=true",
-            "duration": "03:55"
-        },
-        {
-            "title": "后来的我们",
-            "artist": "五月天",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=3434874331529456",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=422104138&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=422104138&format=lrc&trans=true",
-            "duration": "05:46"
-        },
-        {
-            "title": "夜车",
-            "artist": "曾轶可",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163105666561",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=340376&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=340376&format=lrc&trans=true",
-            "duration": "03:11"
-        },
-        {
-            "title": "后来",
-            "artist": "刘若英",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163351825356",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=254574&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=254574&format=lrc&trans=true",
-            "duration": "05:41"
-        },
-        {
-            "title": "喜欢",
-            "artist": "阿肆",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951173049150195",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=526464145&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=526464145&format=lrc&trans=true",
-            "duration": "04:10"
-        },
-        {
-            "title": "STYX HELIX",
-            "artist": "MYTH & ROID",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171350916152",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=413961906&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=413961906&format=lrc&trans=true",
-            "duration": "04:51"
-        },
-        {
-            "title": "Brave Shine",
-            "artist": "Aimer",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168080741423",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=32358691&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=32358691&format=lrc&trans=true",
-            "duration": "03:53"
-        },
-        {
-            "title": "最佳损友",
-            "artist": "陈奕迅",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171836582062",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=65800&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=65800&format=lrc&trans=true",
-            "duration": "03:53"
-        },
-        {
-            "title": "女孩",
-            "artist": "韦礼安",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168079643579",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=32358362&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=32358362&format=lrc&trans=true",
-            "duration": "05:06"
-        },
-        {
-            "title": "我们俩",
-            "artist": "郭顶",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170514277229",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=85571&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=85571&format=lrc&trans=true",
-            "duration": "03:13"
-        },
-        {
-            "title": "海阔天空",
-            "artist": "Beyond",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163984013003",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1357375695&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1357375695&format=lrc&trans=true",
-            "duration": "03:59"
-        },
-        {
-            "title": "多远都要在一起",
-            "artist": "G.E.M.邓紫棋",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=1364493930777368",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=30612793&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=30612793&format=lrc&trans=true",
-            "duration": "03:36"
-        },
-        {
-            "title": "逆光",
-            "artist": "孙燕姿",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951173219336672",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=287057&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=287057&format=lrc&trans=true",
-            "duration": "04:54"
-        },
-        {
-            "title": "又是艳阳天",
-            "artist": "郭静/韦礼安",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167430325186",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=233846&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=233846&format=lrc&trans=true",
-            "duration": "04:42"
-        },
-        {
-            "title": "3 Strikes",
-            "artist": "Terror Jr",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164000556824",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=409647388&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=409647388&format=lrc&trans=true",
-            "duration": "02:55"
-        },
-        {
-            "title": "Beautiful World (Da Capo Version)",
-            "artist": "宇多田ヒカル",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165791860501",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1824020873&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1824020873&format=lrc&trans=true",
-            "duration": "05:58"
-        },
-        {
-            "title": "找自己",
-            "artist": "陶喆",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169389595068",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=150617&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=150617&format=lrc&trans=true",
-            "duration": "05:04"
-        },
-        {
-            "title": "普通朋友",
-            "artist": "陶喆",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169389595068",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=150623&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=150623&format=lrc&trans=true",
+            "title": "珊瑚海 (钢琴版) [原唱: 周杰伦 feat. 梁心颐 Lara]",
+            "artist": "纪钧瀚 (Bryan Chi)",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168993471060",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2092217640&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2092217640&format=lrc&trans=true",
             "duration": "04:15"
         },
         {
-            "title": "Mr. \"Broken Heart\"",
-            "artist": "松下優也",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166201250148",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=26089264&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=26089264&format=lrc&trans=true",
-            "duration": "03:38"
+            "title": "枫 (钢琴版) (原唱：周杰伦)",
+            "artist": "酷客音乐",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169504798220",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2146736845&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2146736845&format=lrc&trans=true",
+            "duration": "04:59"
         },
         {
-            "title": "打上花火",
-            "artist": "Daoko/米津玄師",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163009282836",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=496869422&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=496869422&format=lrc&trans=true",
-            "duration": "04:49"
+            "title": "钢琴《那天下雨了》",
+            "artist": "等待夏花",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951173014634190",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=3367756505&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3367756505&format=lrc&trans=true",
+            "duration": "02:20"
         },
         {
-            "title": "唯一",
-            "artist": "G.E.M.邓紫棋",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168919708423",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2083785152&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2083785152&format=lrc&trans=true",
+            "title": "傻笑 (钢琴曲) (原唱: 周杰伦 feat. 袁咏琳)",
+            "artist": "纪钧瀚 (Bryan Chi)",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951173326936928",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=3389396813&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3389396813&format=lrc&trans=true",
             "duration": "04:13"
         },
         {
-            "title": "老人と海",
-            "artist": "ヨルシカ",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166295171725",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1870469768&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1870469768&format=lrc&trans=true",
-            "duration": "04:15"
+            "title": "雨下一整晚 钢琴版",
+            "artist": "Piano Sunset",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169176137094",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2110206184&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2110206184&format=lrc&trans=true",
+            "duration": "02:09"
         },
         {
-            "title": "出现又离开 (Live)",
-            "artist": "梁博",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164054054313",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1363553440&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1363553440&format=lrc&trans=true",
-            "duration": "06:43"
+            "title": "稻香 (钢琴版) (原唱：周杰伦)",
+            "artist": "酷客音乐",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169504798220",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2146737748&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2146737748&format=lrc&trans=true",
+            "duration": "03:25"
         },
         {
-            "title": "知我",
-            "artist": "国风堂/哦漏",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164415301539",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1394167216&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1394167216&format=lrc&trans=true",
-            "duration": "04:37"
+            "title": "青花瓷 (钢琴版) (原唱：周杰伦)",
+            "artist": "酷客音乐",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169504798220",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2146736844&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2146736844&format=lrc&trans=true",
+            "duration": "03:55"
         },
         {
-            "title": "炎",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165349903788",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1482908655&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1482908655&format=lrc&trans=true",
-            "duration": "04:34"
+            "title": "世界末日(原唱：咻比嘟哗)",
+            "artist": "纪钧瀚 (Bryan Chi)",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170051071236",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2637448621&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2637448621&format=lrc&trans=true",
+            "duration": "02:51"
         },
         {
-            "title": "Reze",
-            "artist": "kensuke ushio",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172035133051",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2747726111&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2747726111&format=lrc&trans=true",
-            "duration": "01:14"
-        },
-        {
-            "title": "フィナーレ。",
-            "artist": "eill",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167783001594",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1972395036&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1972395036&format=lrc&trans=true",
-            "duration": "04:02"
-        },
-        {
-            "title": "SPECIALZ",
-            "artist": "King Gnu",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168848035270",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2074163984&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2074163984&format=lrc&trans=true",
-            "duration": "03:59"
-        },
-        {
-            "title": "AIZO",
-            "artist": "King Gnu",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172559097545",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=3337367763&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3337367763&format=lrc&trans=true",
-            "duration": "03:35"
-        },
-        {
-            "title": "in the pool",
-            "artist": "kensuke ushio",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172035133051",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2747726104&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2747726104&format=lrc&trans=true",
-            "duration": "04:05"
-        },
-        {
-            "title": "IRIS OUT",
-            "artist": "米津玄師",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171998034780",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2745026895&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2745026895&format=lrc&trans=true",
-            "duration": "02:31"
-        },
-        {
-            "title": "JANE DOE",
-            "artist": "米津玄師/宇多田ヒカル",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172028084335",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2747166493&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2747166493&format=lrc&trans=true",
-            "duration": "03:56"
-        },
-        {
-            "title": "Departures〜あなたにおくるアイの歌〜",
-            "artist": "EGOIST",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165946393227",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=722928&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=722928&format=lrc&trans=true",
-            "duration": "04:15"
-        },
-        {
-            "title": "轻涟 La vaguelette",
-            "artist": "HOYO-MiX",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169058808374",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2100334024&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2100334024&format=lrc&trans=true",
-            "duration": "02:29"
-        },
-        {
-            "title": "unravel",
-            "artist": "TK from 凛として時雨",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169033080950",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=29017078&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=29017078&format=lrc&trans=true",
-            "duration": "04:00"
-        },
-        {
-            "title": "Love Story",
-            "artist": "Taylor Swift",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169217536854",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=19292984&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=19292984&format=lrc&trans=true",
-            "duration": "03:56"
-        },
-        {
-            "title": "爱情讯息",
-            "artist": "郭静",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171316025348",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=233888&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=233888&format=lrc&trans=true",
-            "duration": "04:40"
-        },
-        {
-            "title": "遇见",
-            "artist": "孙燕姿",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=17687843556430013",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=454828887&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=454828887&format=lrc&trans=true",
+            "title": "听妈妈的话(原唱：周杰伦)",
+            "artist": "纪钧瀚 (Bryan Chi)",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170051071236",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2637448619&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2637448619&format=lrc&trans=true",
             "duration": "03:29"
         },
         {
-            "title": "我怀念的",
-            "artist": "孙燕姿",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951173219336672",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=287063&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=287063&format=lrc&trans=true",
-            "duration": "04:49"
-        },
-        {
-            "title": "Call of Silence",
-            "artist": "澤野弘之/R!N/Gemie",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163597044887",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=482636090&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=482636090&format=lrc&trans=true",
-            "duration": "02:58"
-        },
-        {
-            "title": "可惜没如果",
-            "artist": "林俊杰",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170313536564",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=29814898&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=29814898&format=lrc&trans=true",
-            "duration": "04:58"
-        },
-        {
-            "title": "恋人",
-            "artist": "李荣浩",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170045577565",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2600493765&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2600493765&format=lrc&trans=true",
-            "duration": "04:35"
-        },
-        {
-            "title": "HIS SMILE",
-            "artist": "麗美",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170456532964",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=22712631&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=22712631&format=lrc&trans=true",
-            "duration": "04:56"
-        },
-        {
-            "title": "特别的人",
-            "artist": "方大同",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172683046522",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=28403111&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=28403111&format=lrc&trans=true",
-            "duration": "04:19"
-        },
-        {
-            "title": "心墙",
-            "artist": "郭静",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168105390425",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=27671269&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=27671269&format=lrc&trans=true",
-            "duration": "03:47"
-        },
-        {
-            "title": "from the edge",
-            "artist": "FictionJunction/LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171371865924",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1388181876&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1388181876&format=lrc&trans=true",
-            "duration": "04:38"
-        },
-        {
-            "title": "残酷な夜に輝け - Shine in the Cruel Night",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171480745508",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2727103261&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2727103261&format=lrc&trans=true",
-            "duration": "06:23"
-        },
-        {
-            "title": "紅蓮華",
-            "artist": "LiSA",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169169579096",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1375305989&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1375305989&format=lrc&trans=true",
-            "duration": "03:56"
-        },
-        {
-            "title": "太陽が昇らない世界 - A World Where the Sun Never Rises",
-            "artist": "Aimer",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171480735948",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2727103300&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2727103300&format=lrc&trans=true",
-            "duration": "02:50"
-        },
-        {
-            "title": "To the Infinity Castle - Muzan vs Hashira Theme (from \"Demon Slayer\") (Cover)",
-            "artist": "Diego Mitre",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169741328857",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2604036163&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2604036163&format=lrc&trans=true",
-            "duration": "05:05"
-        },
-        {
-            "title": "Style",
-            "artist": "Taylor Swift",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=18771962022688349",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=29572502&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=29572502&format=lrc&trans=true",
-            "duration": "03:51"
-        },
-        {
-            "title": "One Last Kiss",
-            "artist": "宇多田ヒカル",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165791860501",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1824020871&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1824020871&format=lrc&trans=true",
-            "duration": "04:12"
-        },
-        {
-            "title": "鳥の詩",
-            "artist": "Lia",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170627348480",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=28151022&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=28151022&format=lrc&trans=true",
-            "duration": "06:09"
-        },
-        {
-            "artist": "周杰伦",
-            "cover": "https://y.qq.com/music/photo_new/T002R300x300M000000MkMni19ClKG_5.jpg?max_age=2592000",
-            "duration": "04:29",
-            "lrc": "https://imgbed.904002.xyz/file/music/歌词/周杰伦/晴天.lrc",
-            "title": "晴天",
-            "url": "https://music1.904002.xyz/%E5%91%A8%E6%9D%B0%E4%BC%A6/晴天.flac"
-        },
-        {
-            "title": "我想要占据你",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168306417191",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2022072826&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2022072826&format=lrc&trans=true",
-            "duration": "04:12"
-        },
-        {
-            "title": "给你一瓶魔法药水",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169169063268",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1959667345&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1959667345&format=lrc&trans=true",
-            "duration": "04:18"
-        },
-        {
-            "title": "唯一",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165585701063",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1807799505&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1807799505&format=lrc&trans=true",
-            "duration": "04:30"
-        },
-        {
-            "title": "爱人错过",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172190059964",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1368754688&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1368754688&format=lrc&trans=true",
-            "duration": "04:52"
-        },
-        {
-            "title": "带我去找夜生活",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164567402626",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1410647903&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1410647903&format=lrc&trans=true",
-            "duration": "04:59"
-        },
-        {
-            "title": "温蒂公主的侍卫",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165585701063",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1807796555&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1807796555&format=lrc&trans=true",
-            "duration": "04:17"
-        },
-        {
-            "title": "好不容易",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166713402697",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1902251868&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1902251868&format=lrc&trans=true",
-            "duration": "04:55"
-        },
-        {
-            "title": "愈合",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171415249187",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2723322996&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2723322996&format=lrc&trans=true",
-            "duration": "05:29"
-        },
-        {
-            "title": "披星戴月的想你",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163608032298",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1317457805&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1317457805&format=lrc&trans=true",
-            "duration": "05:49"
-        },
-        {
-            "title": "法兰西多士",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172190059964",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1368753797&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1368753797&format=lrc&trans=true",
-            "duration": "04:14"
-        },
-        {
-            "title": "爱在夏天",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168110827116",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=563563366&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=563563366&format=lrc&trans=true",
-            "duration": "06:20"
-        },
-        {
-            "title": "明天会更好 (Live版)",
-            "artist": "胡德夫/张信哲/那英/莫文蔚/何炅/杨宗纬/阿雅/张韶涵/魏如萱/张杰/华晨宇/马嘉祺/告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168652391588",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2052368104&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2052368104&format=lrc&trans=true",
-            "duration": "05:15"
-        },
-        {
-            "title": "丑人多作怪",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165585701063",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1807796549&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1807796549&format=lrc&trans=true",
-            "duration": "04:17"
-        },
-        {
-            "title": "红",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172190059964",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1368756097&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1368756097&format=lrc&trans=true",
-            "duration": "04:29"
-        },
-        {
-            "title": "一念之间",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168306417191",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2022069284&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2022069284&format=lrc&trans=true",
-            "duration": "04:47"
-        },
-        {
-            "title": "从未见过的海",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170127165426",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2644183063&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2644183063&format=lrc&trans=true",
-            "duration": "05:01"
-        },
-        {
-            "title": "新世界",
-            "artist": "告五人/阿爆",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165247269075",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1472090563&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1472090563&format=lrc&trans=true",
-            "duration": "03:57"
-        },
-        {
-            "title": "与海无关",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165585701063",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1807799506&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1807799506&format=lrc&trans=true",
+            "title": "借口(原唱：周杰伦)",
+            "artist": "纪钧瀚 (Bryan Chi)",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170051071236",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2637446113&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2637446113&format=lrc&trans=true",
             "duration": "04:05"
         },
         {
-            "title": "为爱痴狂 (Live版)",
-            "artist": "张靓颖/告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168680953856",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2056170681&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2056170681&format=lrc&trans=true",
+            "title": "说好不哭(钢琴曲)(原唱：周杰伦 feat. 五月天阿信)",
+            "artist": "酷客音乐",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169632868598",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2160817111&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2160817111&format=lrc&trans=true",
+            "duration": "03:46"
+        },
+        {
+            "title": "告白氣球 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066671165&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671165&format=lrc&trans=true",
+            "duration": "03:33"
+        },
+        {
+            "title": "七里香 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066670541&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670541&format=lrc&trans=true",
+            "duration": "04:38"
+        },
+        {
+            "title": "夜曲 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066670542&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670542&format=lrc&trans=true",
+            "duration": "04:30"
+        },
+        {
+            "title": "稻香 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066670543&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670543&format=lrc&trans=true",
+            "duration": "03:35"
+        },
+        {
+            "title": "說好不哭/泣かないと 約束したから (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066670544&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670544&format=lrc&trans=true",
+            "duration": "03:41"
+        },
+        {
+            "title": "算什麼男人 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066670545&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670545&format=lrc&trans=true",
+            "duration": "04:48"
+        },
+        {
+            "title": "千里之外 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066671168&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671168&format=lrc&trans=true",
+            "duration": "04:07"
+        },
+        {
+            "title": "不愛我就拉倒 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066670546&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670546&format=lrc&trans=true",
+            "duration": "04:28"
+        },
+        {
+            "title": "說好的幸福呢 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066670547&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670547&format=lrc&trans=true",
+            "duration": "04:06"
+        },
+        {
+            "title": "青花瓷 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066671169&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671169&format=lrc&trans=true",
+            "duration": "03:51"
+        },
+        {
+            "title": "聽媽媽的話 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066671170&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671170&format=lrc&trans=true",
+            "duration": "04:34"
+        },
+        {
+            "title": "菊花台 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066671171&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671171&format=lrc&trans=true",
             "duration": "04:49"
         },
         {
-            "title": "爱在夏天-盛夏之约",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166538122376",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1888407050&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1888407050&format=lrc&trans=true",
-            "duration": "06:24"
+            "title": "Mojito (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066671172&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671172&format=lrc&trans=true",
+            "duration": "02:59"
         },
         {
-            "title": "在这座城市遗失了你",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165585701063",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1807799504&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1807799504&format=lrc&trans=true",
-            "duration": "05:57"
+            "title": "Greatest Works of Art (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066670548&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670548&format=lrc&trans=true",
+            "duration": "04:30"
         },
         {
-            "title": "WEWE",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165585701063",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1807796550&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1807796550&format=lrc&trans=true",
-            "duration": "03:48"
+            "title": "Still Wandering (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066671173&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671173&format=lrc&trans=true",
+            "duration": "04:26"
         },
         {
-            "title": "寂寞留白",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170330494512",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1892514735&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1892514735&format=lrc&trans=true",
-            "duration": "04:22"
+            "title": "Cold Hearted (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066671174&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671174&format=lrc&trans=true",
+            "duration": "04:11"
         },
         {
-            "title": "从没去过巴塞隆纳",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172190059964",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1368754724&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1368754724&format=lrc&trans=true",
-            "duration": "04:33"
+            "title": "安靜 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066671176&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671176&format=lrc&trans=true",
+            "duration": "05:31"
         },
         {
-            "title": "在未来的你跟我说声嗨",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167974941367",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1990179959&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1990179959&format=lrc&trans=true",
-            "duration": "04:31"
+            "title": "最長的電影 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066670549&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670549&format=lrc&trans=true",
+            "duration": "03:56"
         },
         {
-            "title": "倒带（Live版）",
-            "artist": "希林娜依高/告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168667081237",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2054190758&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2054190758&format=lrc&trans=true",
-            "duration": "04:08"
+            "title": "東風破 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066671177&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671177&format=lrc&trans=true",
+            "duration": "05:15"
         },
         {
-            "title": "如果我们不曾相遇 (Live版)",
-            "artist": "王源/告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171361951004",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2719648966&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2719648966&format=lrc&trans=true",
-            "duration": "02:47"
+            "title": "蒲公英的約定 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066671178&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671178&format=lrc&trans=true",
+            "duration": "04:09"
         },
         {
-            "title": "又到天黑",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168245195477",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2015647807&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2015647807&format=lrc&trans=true",
-            "duration": "04:50"
+            "title": "黑色幽默 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066671179&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671179&format=lrc&trans=true",
+            "duration": "04:43"
         },
         {
-            "title": "开往早晨的午夜 (Live版)",
-            "artist": "胡彦斌/告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168692047003",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2057718119&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2057718119&format=lrc&trans=true",
-            "duration": "04:50"
+            "title": "給我一首歌的時間 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066670550&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670550&format=lrc&trans=true",
+            "duration": "04:13"
         },
         {
-            "title": "夜里无星",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172190059964",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1368754722&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1368754722&format=lrc&trans=true",
-            "duration": "05:28"
+            "title": "可愛女人 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066670551&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670551&format=lrc&trans=true",
+            "duration": "03:57"
         },
         {
-            "title": "同样一个你",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165585701063",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1807796551&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1807796551&format=lrc&trans=true",
-            "duration": "04:31"
+            "title": "分裂 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066671181&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671181&format=lrc&trans=true",
+            "duration": "04:21"
         },
         {
-            "title": "就说你想说的",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170035412550",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2635596825&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2635596825&format=lrc&trans=true",
-            "duration": "05:50"
+            "title": "上海 一九四三 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066670552&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670552&format=lrc&trans=true",
+            "duration": "03:04"
         },
         {
-            "title": "不具名的花",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172190059964",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1368754746&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1368754746&format=lrc&trans=true",
-            "duration": "05:39"
+            "title": "聽見下雨的聲音 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066671166&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671166&format=lrc&trans=true",
+            "duration": "04:30"
         },
         {
-            "title": "说我爱你的一百种方式",
-            "artist": "与少年他/告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164931040864",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1442773498&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1442773498&format=lrc&trans=true",
-            "duration": "04:31"
+            "title": "說了再見 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066671175&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671175&format=lrc&trans=true",
+            "duration": "04:36"
         },
         {
-            "title": "爱 (Live版)",
-            "artist": "王赫野/告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171331630100",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2717169746&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2717169746&format=lrc&trans=true",
-            "duration": "03:39"
+            "title": "安静(钢琴曲)(原唱：周杰伦)",
+            "artist": "酷客音乐",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169632868598",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2160818133&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2160818133&format=lrc&trans=true",
+            "duration": "04:38"
         },
         {
-            "title": "我以为你不会出现",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167429598505",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1948145018&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1948145018&format=lrc&trans=true",
-            "duration": "05:46"
+            "title": "爱像一阵风",
+            "artist": "稀饭",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167925110790",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1986193170&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1986193170&format=lrc&trans=true",
+            "duration": "01:49"
         },
         {
-            "title": "女孩 (Live版)",
-            "artist": "告五人/吉克隽逸",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168735281965",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2063468929&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2063468929&format=lrc&trans=true",
-            "duration": "05:42"
-        },
-        {
-            "title": "将错就对",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171415249187",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2723327157&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2723327157&format=lrc&trans=true",
-            "duration": "04:29"
-        },
-        {
-            "title": "独角兽",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168110801977",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=511920319&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=511920319&format=lrc&trans=true",
-            "duration": "06:39"
-        },
-        {
-            "title": "鹰",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171415249187",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2723327160&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2723327160&format=lrc&trans=true",
-            "duration": "04:59"
-        },
-        {
-            "title": "温蒂公主的侍卫+爱人错过 (Live版)",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168692019199",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2057712997&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2057712997&format=lrc&trans=true",
-            "duration": "08:54"
-        },
-        {
-            "title": "在凌晨睡着的自己",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168189459708",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2010289317&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2010289317&format=lrc&trans=true",
-            "duration": "04:40"
-        },
-        {
-            "title": "跳海",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172190059964",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1368754689&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1368754689&format=lrc&trans=true",
-            "duration": "04:49"
-        },
-        {
-            "title": "简答题",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172190059964",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1368754754&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1368754754&format=lrc&trans=true",
-            "duration": "02:58"
-        },
-        {
-            "title": "不摇滚 (feat. 告五人)",
-            "artist": "八三夭/告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166459446375",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=1881684470&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1881684470&format=lrc&trans=true",
-            "duration": "04:51"
-        },
-        {
-            "title": "远距离恋爱",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168306417191",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2022072827&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2022072827&format=lrc&trans=true",
-            "duration": "05:12"
-        },
-        {
-            "title": "知足",
-            "artist": "五月天/告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168536167356",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2037926385&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2037926385&format=lrc&trans=true",
-            "duration": "04:10"
-        },
-        {
-            "title": "黑夜狂奔",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171415249187",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2723322998&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2723322998&format=lrc&trans=true",
+            "title": "我会学着放弃你 是因为我太爱你",
+            "artist": "稀饭",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167787984263",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1974522369&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1974522369&format=lrc&trans=true",
             "duration": "05:20"
         },
         {
-            "title": "夏天的海冬天的雪",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171415249187",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2723327162&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2723327162&format=lrc&trans=true",
-            "duration": "03:40"
+            "title": "一路向北 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066671167&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671167&format=lrc&trans=true",
+            "duration": "04:48"
         },
         {
-            "title": "我无法克制自己",
-            "artist": "告五人",
-            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168306417191",
-            "url": "https://163.hyc.moe?server=netease&type=url&id=2022069283&br=320",
-            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2022069283&format=lrc&trans=true",
-            "duration": "05:08"
+            "title": "楓 (Piano Ver.)",
+            "artist": "Piano Echoes",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2066671180&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671180&format=lrc&trans=true",
+            "duration": "04:39"
+        },
+        {
+            "title": "兰亭序（Orchid Pavilion Preface）",
+            "artist": "假面钢琴师Dr.Lemon",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168890321609",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2079100070&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2079100070&format=lrc&trans=true",
+            "duration": "04:36"
+        },
+        {
+            "title": "Flower Sea",
+            "artist": "北/Joke",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166382028305",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1881419273&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1881419273&format=lrc&trans=true",
+            "duration": "05:14"
+        },
+        {
+            "title": "夏天的风伴奏",
+            "artist": "苹果beat",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165630413554",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1812153337&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1812153337&format=lrc&trans=true",
+            "duration": "03:12"
+        },
+        {
+            "title": "jason-220421 藉口 (JAY)",
+            "artist": "Jason Piano",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168244655305",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2015590857&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2015590857&format=lrc&trans=true",
+            "duration": "04:58"
+        },
+        {
+            "title": "jason-220420 花海 (JAY)",
+            "artist": "Jason Piano",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168244655305",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2015590853&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2015590853&format=lrc&trans=true",
+            "duration": "04:21"
+        },
+        {
+            "title": "弦的了断",
+            "artist": "稀饭",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167925110790",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1986021413&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1986021413&format=lrc&trans=true",
+            "duration": "00:31"
+        },
+        {
+            "title": "说好不哭 (钢琴版) [原唱: 周杰伦 feat. 五月天阿信]",
+            "artist": "贵族钢琴轻音乐",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168160512090",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2008024368&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2008024368&format=lrc&trans=true",
+            "duration": "03:33"
+        },
+        {
+            "title": "不能说的秘密 (钢琴版) [原唱: 周杰伦]",
+            "artist": "贵族钢琴轻音乐",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168160512090",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2008026148&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2008026148&format=lrc&trans=true",
+            "duration": "04:35"
+        },
+        {
+            "title": "枫 (钢琴版) [原唱: 周杰伦]",
+            "artist": "贵族钢琴轻音乐",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168160512090",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=2008024367&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2008024367&format=lrc&trans=true",
+            "duration": "04:42"
+        },
+        {
+            "title": "算什麽男人 (鋼琴版)",
+            "artist": "Jesse T",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166593169055",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1892809508&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1892809508&format=lrc&trans=true",
+            "duration": "04:41"
+        },
+        {
+            "title": "无与伦比-γ",
+            "artist": "清醒的歌",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166267562898",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1868169349&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1868169349&format=lrc&trans=true",
+            "duration": "04:29"
+        },
+        {
+            "title": "无与伦比-ν",
+            "artist": "清醒的歌",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166267562898",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1937759200&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1937759200&format=lrc&trans=true",
+            "duration": "05:45"
+        },
+        {
+            "title": "Counter-Clockwise Clock（piano ver.）",
+            "artist": "阿层丶",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166790964032",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1906515508&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1906515508&format=lrc&trans=true",
+            "duration": "03:00"
+        },
+        {
+            "title": "菿景彡（piano ver.）",
+            "artist": "阿层丶",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168037734720",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1996290592&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1996290592&format=lrc&trans=true",
+            "duration": "04:03"
+        },
+        {
+            "title": "晴天 (钢琴版) [原唱: 周杰伦]",
+            "artist": "纪钧瀚 (Bryan Chi)",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167394412301",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1945894789&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1945894789&format=lrc&trans=true",
+            "duration": "03:58"
+        },
+        {
+            "title": "校园旁糖果店，记忆里在微甜（piano ver.）",
+            "artist": "阿层丶",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167317037302",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1939754143&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1939754143&format=lrc&trans=true",
+            "duration": "03:22"
+        },
+        {
+            "title": "木风（piano ver.）",
+            "artist": "阿层丶",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167192216084",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1931546794&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1931546794&format=lrc&trans=true",
+            "duration": "04:48"
+        },
+        {
+            "title": "告白气球 (钢琴版) [原唱: 周杰伦]",
+            "artist": "纪钧瀚 (Bryan Chi)",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167394412301",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1945895726&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1945895726&format=lrc&trans=true",
+            "duration": "03:25"
+        },
+        {
+            "title": "稻香 (钢琴版) [原唱: 周杰伦]",
+            "artist": "纪钧瀚 (Bryan Chi)",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167394412301",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1945895725&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1945895725&format=lrc&trans=true",
+            "duration": "03:16"
+        },
+        {
+            "title": "青花瓷 (钢琴版) [原唱: 周杰伦]",
+            "artist": "纪钧瀚 (Bryan Chi)",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167394412301",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1945895727&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1945895727&format=lrc&trans=true",
+            "duration": "03:42"
+        },
+        {
+            "title": "夜曲 (钢琴版) [原唱: 周杰伦]",
+            "artist": "纪钧瀚 (Bryan Chi)",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167394412301",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1945895728&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1945895728&format=lrc&trans=true",
+            "duration": "03:53"
+        },
+        {
+            "title": "還茬蓅浪（Pv.）",
+            "artist": "阿层丶",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167648295730",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1968993406&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1968993406&format=lrc&trans=true",
+            "duration": "04:36"
+        },
+        {
+            "title": "一点点「Jay」鋼琴曲詮釋",
+            "artist": "张丹青",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164884924790",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1441015490&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1441015490&format=lrc&trans=true",
+            "duration": "02:10"
+        },
+        {
+            "title": "无与伦比-θ",
+            "artist": "清醒的歌",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166267562898",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1868174069&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1868174069&format=lrc&trans=true",
+            "duration": "04:25"
+        },
+        {
+            "title": "拥有你我的世界才能完美（piano ver.）",
+            "artist": "阿层丶",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167033342545",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1919029274&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1919029274&format=lrc&trans=true",
+            "duration": "04:48"
+        },
+        {
+            "title": "熱帶雨林（piano ver.）",
+            "artist": "阿层丶",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167192216084",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1931544186&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1931544186&format=lrc&trans=true",
+            "duration": "04:39"
+        },
+        {
+            "title": "TA的歌",
+            "artist": "阿层丶",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167192216084",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1931544143&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1931544143&format=lrc&trans=true",
+            "duration": "03:26"
+        },
+        {
+            "title": "天臺&月光（piano ver.）",
+            "artist": "阿层丶",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166973482439",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1917827645&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1917827645&format=lrc&trans=true",
+            "duration": "01:31"
+        },
+        {
+            "title": "反正花开了终究会落（piano ver.）",
+            "artist": "阿层丶",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166973482439",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1918027529&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1918027529&format=lrc&trans=true",
+            "duration": "04:37"
+        },
+        {
+            "title": "我爱的人（钢琴版）",
+            "artist": "阿层丶",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166132743394",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1857348664&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1857348664&format=lrc&trans=true",
+            "duration": "04:17"
+        },
+        {
+            "title": "你怎么连话都说不清楚（钢琴版）",
+            "artist": "阿层丶",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166132743394",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1857367467&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1857367467&format=lrc&trans=true",
+            "duration": "04:55"
+        },
+        {
+            "title": "夏天的風（钢琴版）",
+            "artist": "阿层丶",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166132743394",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1857346010&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1857346010&format=lrc&trans=true",
+            "duration": "01:50"
+        },
+        {
+            "title": "无与伦比-ε",
+            "artist": "清醒的歌",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166267562898",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1868174071&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1868174071&format=lrc&trans=true",
+            "duration": "04:45"
+        },
+        {
+            "title": "无与伦比-λ",
+            "artist": "清醒的歌",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166267562898",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1874010146&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1874010146&format=lrc&trans=true",
+            "duration": "04:30"
+        },
+        {
+            "title": "【钢琴】一点点",
+            "artist": "昼夜",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951162971134889",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=518563540&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=518563540&format=lrc&trans=true",
+            "duration": "03:46"
+        },
+        {
+            "title": "廖栋-《E8r钢琴曲》白色的风车 安静的转着（E8r remix）",
+            "artist": "E8r",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165695831157",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1817809103&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1817809103&format=lrc&trans=true",
+            "duration": "02:59"
+        },
+        {
+            "title": "梁盛-《E8r钢琴曲》别人在那看漫画我却对着钢琴说话（E8r remix）",
+            "artist": "E8r",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165556060506",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1805969049&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1805969049&format=lrc&trans=true",
+            "duration": "01:34"
+        },
+        {
+            "title": "“精彩绝伦”Jay歌曲串烧（piano ver.）",
+            "artist": "阿层丶",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166612700373",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1894345415&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1894345415&format=lrc&trans=true",
+            "duration": "09:12"
+        },
+        {
+            "title": "安静 神仙钢琴版",
+            "artist": "张丹青",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164884924790",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1818536816&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1818536816&format=lrc&trans=true",
+            "duration": "03:36"
+        },
+        {
+            "title": "夏天的风 Piano ver.",
+            "artist": "锦鲤少年",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169959351086",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=1462009065&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1462009065&format=lrc&trans=true",
+            "duration": "03:47"
+        },
+        {
+            "title": "默 文武贝钢琴版",
+            "artist": "文武贝",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=18158434533427670",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=41462134&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=41462134&format=lrc&trans=true",
+            "duration": "02:39"
+        },
+        {
+            "title": "流行歌钢琴即兴1",
+            "artist": "Elsee",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951162832161807",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=476205417&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=476205417&format=lrc&trans=true",
+            "duration": "01:52"
+        },
+        {
+            "title": "默 Paul Liu钢琴版（Cover 那英）",
+            "artist": "Paul Liu",
+            "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951162923030775",
+            "url": "https://163.hyc.moe?server=netease&type=url&id=492795794&br=320",
+            "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=492795794&format=lrc&trans=true",
+            "duration": "04:51"
         }
     ],
     "playlistCounts": {
-        "17933567326": 54,
-        "zhoujielun": 1,
-        "17966019560": 50
+        "12798252732": 86
     },
     "playlistSongs": {
-        "17933567326": [
+        "12798252732": [
             {
-                "title": "小半",
-                "artist": "陈粒",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=1371091013186741",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=421423806&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=421423806&format=lrc&trans=true",
-                "duration": "04:57"
-            },
-            {
-                "title": "走马",
-                "artist": "陈粒",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=7721870161993398",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=30431367&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=30431367&format=lrc&trans=true",
-                "duration": "03:55"
-            },
-            {
-                "title": "后来的我们",
-                "artist": "五月天",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=3434874331529456",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=422104138&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=422104138&format=lrc&trans=true",
-                "duration": "05:46"
-            },
-            {
-                "title": "夜车",
-                "artist": "曾轶可",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163105666561",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=340376&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=340376&format=lrc&trans=true",
-                "duration": "03:11"
-            },
-            {
-                "title": "后来",
-                "artist": "刘若英",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163351825356",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=254574&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=254574&format=lrc&trans=true",
-                "duration": "05:41"
-            },
-            {
-                "title": "喜欢",
-                "artist": "阿肆",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951173049150195",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=526464145&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=526464145&format=lrc&trans=true",
-                "duration": "04:10"
-            },
-            {
-                "title": "STYX HELIX",
-                "artist": "MYTH & ROID",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171350916152",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=413961906&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=413961906&format=lrc&trans=true",
-                "duration": "04:51"
-            },
-            {
-                "title": "Brave Shine",
-                "artist": "Aimer",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168080741423",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=32358691&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=32358691&format=lrc&trans=true",
-                "duration": "03:53"
-            },
-            {
-                "title": "最佳损友",
-                "artist": "陈奕迅",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171836582062",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=65800&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=65800&format=lrc&trans=true",
-                "duration": "03:53"
-            },
-            {
-                "title": "女孩",
-                "artist": "韦礼安",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168079643579",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=32358362&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=32358362&format=lrc&trans=true",
-                "duration": "05:06"
-            },
-            {
-                "title": "我们俩",
-                "artist": "郭顶",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170514277229",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=85571&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=85571&format=lrc&trans=true",
-                "duration": "03:13"
-            },
-            {
-                "title": "海阔天空",
-                "artist": "Beyond",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163984013003",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1357375695&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1357375695&format=lrc&trans=true",
-                "duration": "03:59"
-            },
-            {
-                "title": "多远都要在一起",
-                "artist": "G.E.M.邓紫棋",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=1364493930777368",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=30612793&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=30612793&format=lrc&trans=true",
-                "duration": "03:36"
-            },
-            {
-                "title": "逆光",
-                "artist": "孙燕姿",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951173219336672",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=287057&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=287057&format=lrc&trans=true",
-                "duration": "04:54"
-            },
-            {
-                "title": "又是艳阳天",
-                "artist": "郭静/韦礼安",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167430325186",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=233846&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=233846&format=lrc&trans=true",
-                "duration": "04:42"
-            },
-            {
-                "title": "3 Strikes",
-                "artist": "Terror Jr",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164000556824",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=409647388&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=409647388&format=lrc&trans=true",
-                "duration": "02:55"
-            },
-            {
-                "title": "Beautiful World (Da Capo Version)",
-                "artist": "宇多田ヒカル",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165791860501",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1824020873&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1824020873&format=lrc&trans=true",
-                "duration": "05:58"
-            },
-            {
-                "title": "找自己",
-                "artist": "陶喆",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169389595068",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=150617&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=150617&format=lrc&trans=true",
-                "duration": "05:04"
-            },
-            {
-                "title": "普通朋友",
-                "artist": "陶喆",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169389595068",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=150623&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=150623&format=lrc&trans=true",
+                "title": "珊瑚海 (钢琴版) [原唱: 周杰伦 feat. 梁心颐 Lara]",
+                "artist": "纪钧瀚 (Bryan Chi)",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168993471060",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2092217640&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2092217640&format=lrc&trans=true",
                 "duration": "04:15"
             },
             {
-                "title": "Mr. \"Broken Heart\"",
-                "artist": "松下優也",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166201250148",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=26089264&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=26089264&format=lrc&trans=true",
-                "duration": "03:38"
+                "title": "枫 (钢琴版) (原唱：周杰伦)",
+                "artist": "酷客音乐",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169504798220",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2146736845&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2146736845&format=lrc&trans=true",
+                "duration": "04:59"
             },
             {
-                "title": "打上花火",
-                "artist": "Daoko/米津玄師",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163009282836",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=496869422&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=496869422&format=lrc&trans=true",
-                "duration": "04:49"
+                "title": "钢琴《那天下雨了》",
+                "artist": "等待夏花",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951173014634190",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=3367756505&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3367756505&format=lrc&trans=true",
+                "duration": "02:20"
             },
             {
-                "title": "唯一",
-                "artist": "G.E.M.邓紫棋",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168919708423",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2083785152&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2083785152&format=lrc&trans=true",
+                "title": "傻笑 (钢琴曲) (原唱: 周杰伦 feat. 袁咏琳)",
+                "artist": "纪钧瀚 (Bryan Chi)",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951173326936928",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=3389396813&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3389396813&format=lrc&trans=true",
                 "duration": "04:13"
             },
             {
-                "title": "老人と海",
-                "artist": "ヨルシカ",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166295171725",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1870469768&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1870469768&format=lrc&trans=true",
-                "duration": "04:15"
+                "title": "雨下一整晚 钢琴版",
+                "artist": "Piano Sunset",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169176137094",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2110206184&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2110206184&format=lrc&trans=true",
+                "duration": "02:09"
             },
             {
-                "title": "出现又离开 (Live)",
-                "artist": "梁博",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164054054313",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1363553440&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1363553440&format=lrc&trans=true",
-                "duration": "06:43"
+                "title": "稻香 (钢琴版) (原唱：周杰伦)",
+                "artist": "酷客音乐",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169504798220",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2146737748&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2146737748&format=lrc&trans=true",
+                "duration": "03:25"
             },
             {
-                "title": "知我",
-                "artist": "国风堂/哦漏",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164415301539",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1394167216&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1394167216&format=lrc&trans=true",
-                "duration": "04:37"
+                "title": "青花瓷 (钢琴版) (原唱：周杰伦)",
+                "artist": "酷客音乐",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169504798220",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2146736844&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2146736844&format=lrc&trans=true",
+                "duration": "03:55"
             },
             {
-                "title": "炎",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165349903788",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1482908655&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1482908655&format=lrc&trans=true",
-                "duration": "04:34"
+                "title": "世界末日(原唱：咻比嘟哗)",
+                "artist": "纪钧瀚 (Bryan Chi)",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170051071236",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2637448621&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2637448621&format=lrc&trans=true",
+                "duration": "02:51"
             },
             {
-                "title": "Reze",
-                "artist": "kensuke ushio",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172035133051",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2747726111&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2747726111&format=lrc&trans=true",
-                "duration": "01:14"
-            },
-            {
-                "title": "フィナーレ。",
-                "artist": "eill",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167783001594",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1972395036&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1972395036&format=lrc&trans=true",
-                "duration": "04:02"
-            },
-            {
-                "title": "SPECIALZ",
-                "artist": "King Gnu",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168848035270",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2074163984&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2074163984&format=lrc&trans=true",
-                "duration": "03:59"
-            },
-            {
-                "title": "AIZO",
-                "artist": "King Gnu",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172559097545",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=3337367763&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=3337367763&format=lrc&trans=true",
-                "duration": "03:35"
-            },
-            {
-                "title": "in the pool",
-                "artist": "kensuke ushio",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172035133051",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2747726104&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2747726104&format=lrc&trans=true",
-                "duration": "04:05"
-            },
-            {
-                "title": "IRIS OUT",
-                "artist": "米津玄師",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171998034780",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2745026895&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2745026895&format=lrc&trans=true",
-                "duration": "02:31"
-            },
-            {
-                "title": "JANE DOE",
-                "artist": "米津玄師/宇多田ヒカル",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172028084335",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2747166493&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2747166493&format=lrc&trans=true",
-                "duration": "03:56"
-            },
-            {
-                "title": "Departures〜あなたにおくるアイの歌〜",
-                "artist": "EGOIST",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165946393227",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=722928&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=722928&format=lrc&trans=true",
-                "duration": "04:15"
-            },
-            {
-                "title": "轻涟 La vaguelette",
-                "artist": "HOYO-MiX",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169058808374",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2100334024&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2100334024&format=lrc&trans=true",
-                "duration": "02:29"
-            },
-            {
-                "title": "unravel",
-                "artist": "TK from 凛として時雨",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169033080950",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=29017078&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=29017078&format=lrc&trans=true",
-                "duration": "04:00"
-            },
-            {
-                "title": "Love Story",
-                "artist": "Taylor Swift",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169217536854",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=19292984&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=19292984&format=lrc&trans=true",
-                "duration": "03:56"
-            },
-            {
-                "title": "爱情讯息",
-                "artist": "郭静",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171316025348",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=233888&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=233888&format=lrc&trans=true",
-                "duration": "04:40"
-            },
-            {
-                "title": "遇见",
-                "artist": "孙燕姿",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=17687843556430013",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=454828887&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=454828887&format=lrc&trans=true",
+                "title": "听妈妈的话(原唱：周杰伦)",
+                "artist": "纪钧瀚 (Bryan Chi)",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170051071236",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2637448619&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2637448619&format=lrc&trans=true",
                 "duration": "03:29"
             },
             {
-                "title": "我怀念的",
-                "artist": "孙燕姿",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951173219336672",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=287063&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=287063&format=lrc&trans=true",
-                "duration": "04:49"
-            },
-            {
-                "title": "Call of Silence",
-                "artist": "澤野弘之/R!N/Gemie",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163597044887",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=482636090&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=482636090&format=lrc&trans=true",
-                "duration": "02:58"
-            },
-            {
-                "title": "可惜没如果",
-                "artist": "林俊杰",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170313536564",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=29814898&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=29814898&format=lrc&trans=true",
-                "duration": "04:58"
-            },
-            {
-                "title": "恋人",
-                "artist": "李荣浩",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170045577565",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2600493765&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2600493765&format=lrc&trans=true",
-                "duration": "04:35"
-            },
-            {
-                "title": "HIS SMILE",
-                "artist": "麗美",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170456532964",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=22712631&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=22712631&format=lrc&trans=true",
-                "duration": "04:56"
-            },
-            {
-                "title": "特别的人",
-                "artist": "方大同",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172683046522",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=28403111&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=28403111&format=lrc&trans=true",
-                "duration": "04:19"
-            },
-            {
-                "title": "心墙",
-                "artist": "郭静",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168105390425",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=27671269&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=27671269&format=lrc&trans=true",
-                "duration": "03:47"
-            },
-            {
-                "title": "from the edge",
-                "artist": "FictionJunction/LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171371865924",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1388181876&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1388181876&format=lrc&trans=true",
-                "duration": "04:38"
-            },
-            {
-                "title": "残酷な夜に輝け - Shine in the Cruel Night",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171480745508",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2727103261&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2727103261&format=lrc&trans=true",
-                "duration": "06:23"
-            },
-            {
-                "title": "紅蓮華",
-                "artist": "LiSA",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169169579096",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1375305989&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1375305989&format=lrc&trans=true",
-                "duration": "03:56"
-            },
-            {
-                "title": "太陽が昇らない世界 - A World Where the Sun Never Rises",
-                "artist": "Aimer",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171480735948",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2727103300&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2727103300&format=lrc&trans=true",
-                "duration": "02:50"
-            },
-            {
-                "title": "To the Infinity Castle - Muzan vs Hashira Theme (from \"Demon Slayer\") (Cover)",
-                "artist": "Diego Mitre",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169741328857",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2604036163&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2604036163&format=lrc&trans=true",
-                "duration": "05:05"
-            },
-            {
-                "title": "Style",
-                "artist": "Taylor Swift",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=18771962022688349",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=29572502&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=29572502&format=lrc&trans=true",
-                "duration": "03:51"
-            },
-            {
-                "title": "One Last Kiss",
-                "artist": "宇多田ヒカル",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165791860501",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1824020871&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1824020871&format=lrc&trans=true",
-                "duration": "04:12"
-            },
-            {
-                "title": "鳥の詩",
-                "artist": "Lia",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170627348480",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=28151022&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=28151022&format=lrc&trans=true",
-                "duration": "06:09"
-            }
-        ],
-        "zhoujielun": [
-            {
-                "artist": "周杰伦",
-                "cover": "https://y.qq.com/music/photo_new/T002R300x300M000000MkMni19ClKG_5.jpg?max_age=2592000",
-                "duration": "04:29",
-                "lrc": "https://imgbed.904002.xyz/file/music/歌词/周杰伦/晴天.lrc",
-                "title": "晴天",
-                "url": "https://music1.904002.xyz/%E5%91%A8%E6%9D%B0%E4%BC%A6/晴天.flac"
-            }
-        ],
-        "17966019560": [
-            {
-                "title": "我想要占据你",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168306417191",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2022072826&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2022072826&format=lrc&trans=true",
-                "duration": "04:12"
-            },
-            {
-                "title": "给你一瓶魔法药水",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169169063268",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1959667345&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1959667345&format=lrc&trans=true",
-                "duration": "04:18"
-            },
-            {
-                "title": "唯一",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165585701063",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1807799505&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1807799505&format=lrc&trans=true",
-                "duration": "04:30"
-            },
-            {
-                "title": "爱人错过",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172190059964",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1368754688&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1368754688&format=lrc&trans=true",
-                "duration": "04:52"
-            },
-            {
-                "title": "带我去找夜生活",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164567402626",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1410647903&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1410647903&format=lrc&trans=true",
-                "duration": "04:59"
-            },
-            {
-                "title": "温蒂公主的侍卫",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165585701063",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1807796555&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1807796555&format=lrc&trans=true",
-                "duration": "04:17"
-            },
-            {
-                "title": "好不容易",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166713402697",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1902251868&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1902251868&format=lrc&trans=true",
-                "duration": "04:55"
-            },
-            {
-                "title": "愈合",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171415249187",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2723322996&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2723322996&format=lrc&trans=true",
-                "duration": "05:29"
-            },
-            {
-                "title": "披星戴月的想你",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951163608032298",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1317457805&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1317457805&format=lrc&trans=true",
-                "duration": "05:49"
-            },
-            {
-                "title": "法兰西多士",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172190059964",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1368753797&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1368753797&format=lrc&trans=true",
-                "duration": "04:14"
-            },
-            {
-                "title": "爱在夏天",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168110827116",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=563563366&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=563563366&format=lrc&trans=true",
-                "duration": "06:20"
-            },
-            {
-                "title": "明天会更好 (Live版)",
-                "artist": "胡德夫/张信哲/那英/莫文蔚/何炅/杨宗纬/阿雅/张韶涵/魏如萱/张杰/华晨宇/马嘉祺/告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168652391588",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2052368104&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2052368104&format=lrc&trans=true",
-                "duration": "05:15"
-            },
-            {
-                "title": "丑人多作怪",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165585701063",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1807796549&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1807796549&format=lrc&trans=true",
-                "duration": "04:17"
-            },
-            {
-                "title": "红",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172190059964",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1368756097&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1368756097&format=lrc&trans=true",
-                "duration": "04:29"
-            },
-            {
-                "title": "一念之间",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168306417191",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2022069284&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2022069284&format=lrc&trans=true",
-                "duration": "04:47"
-            },
-            {
-                "title": "从未见过的海",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170127165426",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2644183063&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2644183063&format=lrc&trans=true",
-                "duration": "05:01"
-            },
-            {
-                "title": "新世界",
-                "artist": "告五人/阿爆",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165247269075",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1472090563&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1472090563&format=lrc&trans=true",
-                "duration": "03:57"
-            },
-            {
-                "title": "与海无关",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165585701063",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1807799506&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1807799506&format=lrc&trans=true",
+                "title": "借口(原唱：周杰伦)",
+                "artist": "纪钧瀚 (Bryan Chi)",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170051071236",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2637446113&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2637446113&format=lrc&trans=true",
                 "duration": "04:05"
             },
             {
-                "title": "为爱痴狂 (Live版)",
-                "artist": "张靓颖/告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168680953856",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2056170681&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2056170681&format=lrc&trans=true",
+                "title": "说好不哭(钢琴曲)(原唱：周杰伦 feat. 五月天阿信)",
+                "artist": "酷客音乐",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169632868598",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2160817111&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2160817111&format=lrc&trans=true",
+                "duration": "03:46"
+            },
+            {
+                "title": "告白氣球 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066671165&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671165&format=lrc&trans=true",
+                "duration": "03:33"
+            },
+            {
+                "title": "七里香 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066670541&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670541&format=lrc&trans=true",
+                "duration": "04:38"
+            },
+            {
+                "title": "夜曲 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066670542&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670542&format=lrc&trans=true",
+                "duration": "04:30"
+            },
+            {
+                "title": "稻香 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066670543&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670543&format=lrc&trans=true",
+                "duration": "03:35"
+            },
+            {
+                "title": "說好不哭/泣かないと 約束したから (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066670544&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670544&format=lrc&trans=true",
+                "duration": "03:41"
+            },
+            {
+                "title": "算什麼男人 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066670545&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670545&format=lrc&trans=true",
+                "duration": "04:48"
+            },
+            {
+                "title": "千里之外 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066671168&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671168&format=lrc&trans=true",
+                "duration": "04:07"
+            },
+            {
+                "title": "不愛我就拉倒 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066670546&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670546&format=lrc&trans=true",
+                "duration": "04:28"
+            },
+            {
+                "title": "說好的幸福呢 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066670547&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670547&format=lrc&trans=true",
+                "duration": "04:06"
+            },
+            {
+                "title": "青花瓷 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066671169&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671169&format=lrc&trans=true",
+                "duration": "03:51"
+            },
+            {
+                "title": "聽媽媽的話 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066671170&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671170&format=lrc&trans=true",
+                "duration": "04:34"
+            },
+            {
+                "title": "菊花台 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066671171&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671171&format=lrc&trans=true",
                 "duration": "04:49"
             },
             {
-                "title": "爱在夏天-盛夏之约",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166538122376",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1888407050&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1888407050&format=lrc&trans=true",
-                "duration": "06:24"
+                "title": "Mojito (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066671172&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671172&format=lrc&trans=true",
+                "duration": "02:59"
             },
             {
-                "title": "在这座城市遗失了你",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165585701063",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1807799504&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1807799504&format=lrc&trans=true",
-                "duration": "05:57"
+                "title": "Greatest Works of Art (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066670548&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670548&format=lrc&trans=true",
+                "duration": "04:30"
             },
             {
-                "title": "WEWE",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165585701063",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1807796550&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1807796550&format=lrc&trans=true",
-                "duration": "03:48"
+                "title": "Still Wandering (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066671173&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671173&format=lrc&trans=true",
+                "duration": "04:26"
             },
             {
-                "title": "寂寞留白",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170330494512",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1892514735&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1892514735&format=lrc&trans=true",
-                "duration": "04:22"
+                "title": "Cold Hearted (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066671174&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671174&format=lrc&trans=true",
+                "duration": "04:11"
             },
             {
-                "title": "从没去过巴塞隆纳",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172190059964",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1368754724&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1368754724&format=lrc&trans=true",
-                "duration": "04:33"
+                "title": "安靜 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066671176&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671176&format=lrc&trans=true",
+                "duration": "05:31"
             },
             {
-                "title": "在未来的你跟我说声嗨",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167974941367",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1990179959&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1990179959&format=lrc&trans=true",
-                "duration": "04:31"
+                "title": "最長的電影 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066670549&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670549&format=lrc&trans=true",
+                "duration": "03:56"
             },
             {
-                "title": "倒带（Live版）",
-                "artist": "希林娜依高/告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168667081237",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2054190758&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2054190758&format=lrc&trans=true",
-                "duration": "04:08"
+                "title": "東風破 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066671177&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671177&format=lrc&trans=true",
+                "duration": "05:15"
             },
             {
-                "title": "如果我们不曾相遇 (Live版)",
-                "artist": "王源/告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171361951004",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2719648966&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2719648966&format=lrc&trans=true",
-                "duration": "02:47"
+                "title": "蒲公英的約定 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066671178&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671178&format=lrc&trans=true",
+                "duration": "04:09"
             },
             {
-                "title": "又到天黑",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168245195477",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2015647807&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2015647807&format=lrc&trans=true",
-                "duration": "04:50"
+                "title": "黑色幽默 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066671179&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671179&format=lrc&trans=true",
+                "duration": "04:43"
             },
             {
-                "title": "开往早晨的午夜 (Live版)",
-                "artist": "胡彦斌/告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168692047003",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2057718119&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2057718119&format=lrc&trans=true",
-                "duration": "04:50"
+                "title": "給我一首歌的時間 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066670550&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670550&format=lrc&trans=true",
+                "duration": "04:13"
             },
             {
-                "title": "夜里无星",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172190059964",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1368754722&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1368754722&format=lrc&trans=true",
-                "duration": "05:28"
+                "title": "可愛女人 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066670551&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670551&format=lrc&trans=true",
+                "duration": "03:57"
             },
             {
-                "title": "同样一个你",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165585701063",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1807796551&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1807796551&format=lrc&trans=true",
-                "duration": "04:31"
+                "title": "分裂 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066671181&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671181&format=lrc&trans=true",
+                "duration": "04:21"
             },
             {
-                "title": "就说你想说的",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951170035412550",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2635596825&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2635596825&format=lrc&trans=true",
-                "duration": "05:50"
+                "title": "上海 一九四三 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066670552&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066670552&format=lrc&trans=true",
+                "duration": "03:04"
             },
             {
-                "title": "不具名的花",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172190059964",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1368754746&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1368754746&format=lrc&trans=true",
-                "duration": "05:39"
+                "title": "聽見下雨的聲音 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066671166&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671166&format=lrc&trans=true",
+                "duration": "04:30"
             },
             {
-                "title": "说我爱你的一百种方式",
-                "artist": "与少年他/告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164931040864",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1442773498&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1442773498&format=lrc&trans=true",
-                "duration": "04:31"
+                "title": "說了再見 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066671175&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671175&format=lrc&trans=true",
+                "duration": "04:36"
             },
             {
-                "title": "爱 (Live版)",
-                "artist": "王赫野/告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171331630100",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2717169746&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2717169746&format=lrc&trans=true",
-                "duration": "03:39"
+                "title": "安静(钢琴曲)(原唱：周杰伦)",
+                "artist": "酷客音乐",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169632868598",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2160818133&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2160818133&format=lrc&trans=true",
+                "duration": "04:38"
             },
             {
-                "title": "我以为你不会出现",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167429598505",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1948145018&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1948145018&format=lrc&trans=true",
-                "duration": "05:46"
+                "title": "爱像一阵风",
+                "artist": "稀饭",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167925110790",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1986193170&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1986193170&format=lrc&trans=true",
+                "duration": "01:49"
             },
             {
-                "title": "女孩 (Live版)",
-                "artist": "告五人/吉克隽逸",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168735281965",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2063468929&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2063468929&format=lrc&trans=true",
-                "duration": "05:42"
-            },
-            {
-                "title": "将错就对",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171415249187",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2723327157&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2723327157&format=lrc&trans=true",
-                "duration": "04:29"
-            },
-            {
-                "title": "独角兽",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168110801977",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=511920319&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=511920319&format=lrc&trans=true",
-                "duration": "06:39"
-            },
-            {
-                "title": "鹰",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171415249187",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2723327160&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2723327160&format=lrc&trans=true",
-                "duration": "04:59"
-            },
-            {
-                "title": "温蒂公主的侍卫+爱人错过 (Live版)",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168692019199",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2057712997&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2057712997&format=lrc&trans=true",
-                "duration": "08:54"
-            },
-            {
-                "title": "在凌晨睡着的自己",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168189459708",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2010289317&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2010289317&format=lrc&trans=true",
-                "duration": "04:40"
-            },
-            {
-                "title": "跳海",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172190059964",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1368754689&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1368754689&format=lrc&trans=true",
-                "duration": "04:49"
-            },
-            {
-                "title": "简答题",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951172190059964",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1368754754&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1368754754&format=lrc&trans=true",
-                "duration": "02:58"
-            },
-            {
-                "title": "不摇滚 (feat. 告五人)",
-                "artist": "八三夭/告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166459446375",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=1881684470&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1881684470&format=lrc&trans=true",
-                "duration": "04:51"
-            },
-            {
-                "title": "远距离恋爱",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168306417191",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2022072827&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2022072827&format=lrc&trans=true",
-                "duration": "05:12"
-            },
-            {
-                "title": "知足",
-                "artist": "五月天/告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168536167356",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2037926385&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2037926385&format=lrc&trans=true",
-                "duration": "04:10"
-            },
-            {
-                "title": "黑夜狂奔",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171415249187",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2723322998&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2723322998&format=lrc&trans=true",
+                "title": "我会学着放弃你 是因为我太爱你",
+                "artist": "稀饭",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167787984263",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1974522369&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1974522369&format=lrc&trans=true",
                 "duration": "05:20"
             },
             {
-                "title": "夏天的海冬天的雪",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951171415249187",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2723327162&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2723327162&format=lrc&trans=true",
-                "duration": "03:40"
+                "title": "一路向北 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066671167&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671167&format=lrc&trans=true",
+                "duration": "04:48"
             },
             {
-                "title": "我无法克制自己",
-                "artist": "告五人",
-                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168306417191",
-                "url": "https://163.hyc.moe?server=netease&type=url&id=2022069283&br=320",
-                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2022069283&format=lrc&trans=true",
-                "duration": "05:08"
+                "title": "楓 (Piano Ver.)",
+                "artist": "Piano Echoes",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168760973063",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2066671180&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2066671180&format=lrc&trans=true",
+                "duration": "04:39"
+            },
+            {
+                "title": "兰亭序（Orchid Pavilion Preface）",
+                "artist": "假面钢琴师Dr.Lemon",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168890321609",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2079100070&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2079100070&format=lrc&trans=true",
+                "duration": "04:36"
+            },
+            {
+                "title": "Flower Sea",
+                "artist": "北/Joke",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166382028305",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1881419273&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1881419273&format=lrc&trans=true",
+                "duration": "05:14"
+            },
+            {
+                "title": "夏天的风伴奏",
+                "artist": "苹果beat",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165630413554",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1812153337&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1812153337&format=lrc&trans=true",
+                "duration": "03:12"
+            },
+            {
+                "title": "jason-220421 藉口 (JAY)",
+                "artist": "Jason Piano",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168244655305",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2015590857&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2015590857&format=lrc&trans=true",
+                "duration": "04:58"
+            },
+            {
+                "title": "jason-220420 花海 (JAY)",
+                "artist": "Jason Piano",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168244655305",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2015590853&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2015590853&format=lrc&trans=true",
+                "duration": "04:21"
+            },
+            {
+                "title": "弦的了断",
+                "artist": "稀饭",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167925110790",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1986021413&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1986021413&format=lrc&trans=true",
+                "duration": "00:31"
+            },
+            {
+                "title": "说好不哭 (钢琴版) [原唱: 周杰伦 feat. 五月天阿信]",
+                "artist": "贵族钢琴轻音乐",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168160512090",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2008024368&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2008024368&format=lrc&trans=true",
+                "duration": "03:33"
+            },
+            {
+                "title": "不能说的秘密 (钢琴版) [原唱: 周杰伦]",
+                "artist": "贵族钢琴轻音乐",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168160512090",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2008026148&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2008026148&format=lrc&trans=true",
+                "duration": "04:35"
+            },
+            {
+                "title": "枫 (钢琴版) [原唱: 周杰伦]",
+                "artist": "贵族钢琴轻音乐",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168160512090",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=2008024367&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=2008024367&format=lrc&trans=true",
+                "duration": "04:42"
+            },
+            {
+                "title": "算什麽男人 (鋼琴版)",
+                "artist": "Jesse T",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166593169055",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1892809508&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1892809508&format=lrc&trans=true",
+                "duration": "04:41"
+            },
+            {
+                "title": "无与伦比-γ",
+                "artist": "清醒的歌",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166267562898",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1868169349&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1868169349&format=lrc&trans=true",
+                "duration": "04:29"
+            },
+            {
+                "title": "无与伦比-ν",
+                "artist": "清醒的歌",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166267562898",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1937759200&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1937759200&format=lrc&trans=true",
+                "duration": "05:45"
+            },
+            {
+                "title": "Counter-Clockwise Clock（piano ver.）",
+                "artist": "阿层丶",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166790964032",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1906515508&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1906515508&format=lrc&trans=true",
+                "duration": "03:00"
+            },
+            {
+                "title": "菿景彡（piano ver.）",
+                "artist": "阿层丶",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951168037734720",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1996290592&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1996290592&format=lrc&trans=true",
+                "duration": "04:03"
+            },
+            {
+                "title": "晴天 (钢琴版) [原唱: 周杰伦]",
+                "artist": "纪钧瀚 (Bryan Chi)",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167394412301",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1945894789&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1945894789&format=lrc&trans=true",
+                "duration": "03:58"
+            },
+            {
+                "title": "校园旁糖果店，记忆里在微甜（piano ver.）",
+                "artist": "阿层丶",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167317037302",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1939754143&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1939754143&format=lrc&trans=true",
+                "duration": "03:22"
+            },
+            {
+                "title": "木风（piano ver.）",
+                "artist": "阿层丶",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167192216084",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1931546794&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1931546794&format=lrc&trans=true",
+                "duration": "04:48"
+            },
+            {
+                "title": "告白气球 (钢琴版) [原唱: 周杰伦]",
+                "artist": "纪钧瀚 (Bryan Chi)",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167394412301",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1945895726&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1945895726&format=lrc&trans=true",
+                "duration": "03:25"
+            },
+            {
+                "title": "稻香 (钢琴版) [原唱: 周杰伦]",
+                "artist": "纪钧瀚 (Bryan Chi)",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167394412301",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1945895725&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1945895725&format=lrc&trans=true",
+                "duration": "03:16"
+            },
+            {
+                "title": "青花瓷 (钢琴版) [原唱: 周杰伦]",
+                "artist": "纪钧瀚 (Bryan Chi)",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167394412301",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1945895727&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1945895727&format=lrc&trans=true",
+                "duration": "03:42"
+            },
+            {
+                "title": "夜曲 (钢琴版) [原唱: 周杰伦]",
+                "artist": "纪钧瀚 (Bryan Chi)",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167394412301",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1945895728&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1945895728&format=lrc&trans=true",
+                "duration": "03:53"
+            },
+            {
+                "title": "還茬蓅浪（Pv.）",
+                "artist": "阿层丶",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167648295730",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1968993406&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1968993406&format=lrc&trans=true",
+                "duration": "04:36"
+            },
+            {
+                "title": "一点点「Jay」鋼琴曲詮釋",
+                "artist": "张丹青",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164884924790",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1441015490&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1441015490&format=lrc&trans=true",
+                "duration": "02:10"
+            },
+            {
+                "title": "无与伦比-θ",
+                "artist": "清醒的歌",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166267562898",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1868174069&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1868174069&format=lrc&trans=true",
+                "duration": "04:25"
+            },
+            {
+                "title": "拥有你我的世界才能完美（piano ver.）",
+                "artist": "阿层丶",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167033342545",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1919029274&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1919029274&format=lrc&trans=true",
+                "duration": "04:48"
+            },
+            {
+                "title": "熱帶雨林（piano ver.）",
+                "artist": "阿层丶",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167192216084",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1931544186&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1931544186&format=lrc&trans=true",
+                "duration": "04:39"
+            },
+            {
+                "title": "TA的歌",
+                "artist": "阿层丶",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951167192216084",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1931544143&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1931544143&format=lrc&trans=true",
+                "duration": "03:26"
+            },
+            {
+                "title": "天臺&月光（piano ver.）",
+                "artist": "阿层丶",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166973482439",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1917827645&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1917827645&format=lrc&trans=true",
+                "duration": "01:31"
+            },
+            {
+                "title": "反正花开了终究会落（piano ver.）",
+                "artist": "阿层丶",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166973482439",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1918027529&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1918027529&format=lrc&trans=true",
+                "duration": "04:37"
+            },
+            {
+                "title": "我爱的人（钢琴版）",
+                "artist": "阿层丶",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166132743394",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1857348664&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1857348664&format=lrc&trans=true",
+                "duration": "04:17"
+            },
+            {
+                "title": "你怎么连话都说不清楚（钢琴版）",
+                "artist": "阿层丶",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166132743394",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1857367467&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1857367467&format=lrc&trans=true",
+                "duration": "04:55"
+            },
+            {
+                "title": "夏天的風（钢琴版）",
+                "artist": "阿层丶",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166132743394",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1857346010&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1857346010&format=lrc&trans=true",
+                "duration": "01:50"
+            },
+            {
+                "title": "无与伦比-ε",
+                "artist": "清醒的歌",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166267562898",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1868174071&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1868174071&format=lrc&trans=true",
+                "duration": "04:45"
+            },
+            {
+                "title": "无与伦比-λ",
+                "artist": "清醒的歌",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166267562898",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1874010146&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1874010146&format=lrc&trans=true",
+                "duration": "04:30"
+            },
+            {
+                "title": "【钢琴】一点点",
+                "artist": "昼夜",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951162971134889",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=518563540&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=518563540&format=lrc&trans=true",
+                "duration": "03:46"
+            },
+            {
+                "title": "廖栋-《E8r钢琴曲》白色的风车 安静的转着（E8r remix）",
+                "artist": "E8r",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165695831157",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1817809103&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1817809103&format=lrc&trans=true",
+                "duration": "02:59"
+            },
+            {
+                "title": "梁盛-《E8r钢琴曲》别人在那看漫画我却对着钢琴说话（E8r remix）",
+                "artist": "E8r",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951165556060506",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1805969049&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1805969049&format=lrc&trans=true",
+                "duration": "01:34"
+            },
+            {
+                "title": "“精彩绝伦”Jay歌曲串烧（piano ver.）",
+                "artist": "阿层丶",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951166612700373",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1894345415&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1894345415&format=lrc&trans=true",
+                "duration": "09:12"
+            },
+            {
+                "title": "安静 神仙钢琴版",
+                "artist": "张丹青",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951164884924790",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1818536816&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1818536816&format=lrc&trans=true",
+                "duration": "03:36"
+            },
+            {
+                "title": "夏天的风 Piano ver.",
+                "artist": "锦鲤少年",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951169959351086",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=1462009065&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=1462009065&format=lrc&trans=true",
+                "duration": "03:47"
+            },
+            {
+                "title": "默 文武贝钢琴版",
+                "artist": "文武贝",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=18158434533427670",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=41462134&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=41462134&format=lrc&trans=true",
+                "duration": "02:39"
+            },
+            {
+                "title": "流行歌钢琴即兴1",
+                "artist": "Elsee",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951162832161807",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=476205417&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=476205417&format=lrc&trans=true",
+                "duration": "01:52"
+            },
+            {
+                "title": "默 Paul Liu钢琴版（Cover 那英）",
+                "artist": "Paul Liu",
+                "cover": "https://163.hyc.moe?server=netease&type=pic&id=109951162923030775",
+                "url": "https://163.hyc.moe?server=netease&type=url&id=492795794&br=320",
+                "lrc": "https://163.hyc.moe?server=netease&type=lrc&id=492795794&format=lrc&trans=true",
+                "duration": "04:51"
             }
         ]
     },
-    "_urlFingerprint": "cfb7db4d2f890a01ce3556ea3c3b2cc60db8297a3c6cac2476efdeff054048e0",
-    "_configFingerprint": "22ec7974e26de17d17f79a0ec394ba0b9846e91eb93d9fc42721d2bfde66b1b7"
+    "_urlFingerprint": "46abf92f620bdf559e8f5d4823869d0bae528c723ae0d9714413a7bcdb8a8d06",
+    "_configFingerprint": "e82c5ccb6954f1179571856c76031e77c8d02e05761b8d1630551d28d43c1fc0"
 }
