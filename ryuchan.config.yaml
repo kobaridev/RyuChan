@@ -1,7 +1,7 @@
 site:
-  tab: RyuChan
-  title: RyuChan
-  title_type: image
+  tab: MACRO
+  title: MACRO
+  title_type: text
   description: 🌸 轻盈、优雅、纯净 —— 用文字与图片记录生活与创意
   language: zh
   favicon: /favicon.ico
@@ -92,7 +92,7 @@ site:
       href: /friend
       svg: material-symbols:supervisor-account-outline-rounded
       target: _self
-  titleType: image
+  titleType: text
 anime:
   bilibili:
     uid: '542054505'
@@ -122,51 +122,50 @@ umami:
 user:
   name: MACRO
   description: Ciallo～(∠・ω<)⌒★
-  site: 
+  site: https://macro.wang
   avatar: /profile.png
   title_image: /logo.png
   qr_wechat: /WeChat.jpg
   qr_alipay: /Alipay.jpg
   sidebar:
     social:
-      - href: 
+      - href: null
         ariaLabel: Github
         title: Github
         svg: ri:github-line
-      - href: 
+      - href: null
         ariaLabel: BiliBili
         title: BiliBili
         svg: ri:bilibili-line
-      - href: >-
-          
+      - href: ''
         ariaLabel: Douyin
         title: Douyin
         svg: ri:tiktok-line
-      - href: 
+      - href: null
         title: Weibo
         ariaLabel: Weibo
         svg: ri:weibo-fill
   footer:
     social:
-      - href: 
+      - href: null
         ariaLabel: Github
         title: Github
         svg: ri:github-line
-      - href: 
+      - href: null
         ariaLabel: BiliBili
         title: BiliBili
         svg: ri:bilibili-line
-      - href: 
+      - href: null
         ariaLabel: X(twitter)
         title: X(twitter)
         svg: ri:twitter-line
-      - href: 
+      - href: null
         ariaLabel: Telegram
         title: Telegram
         svg: ri:telegram-line
 comments:
   enable: true
-  type: twikoo
+  type: waline
   giscus:
     repo: kobaridev/gsc
     repoId: R_kgDOPTM-mA
