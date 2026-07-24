@@ -152,7 +152,17 @@ const initialImage = isRandomEnabled
   </div>
 </div>
 
-<!-- 打字机效果脚本 -->
+<style>
+  #typewriter-text {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+  }
+  #typewriter-text.visible {
+    opacity: 1;
+  }
+</style>
+
+<!-- 渐出渐隐动画脚本 -->
 <script define:vars={{ TYPEWRITER_TEXTS, useTypewriter }} is:inline>
   document.addEventListener("astro:page-load", () => {
     if (!useTypewriter || !TYPEWRITER_TEXTS || TYPEWRITER_TEXTS.length === 0) {
@@ -163,50 +173,25 @@ const initialImage = isRandomEnabled
     if (!typewriterElement) return;
 
     let currentTextIndex = 0;
-    let currentCharIndex = 0;
-    let isDeleting = false;
-    let typeSpeed = 150;
-    let deleteSpeed = 50;
-    let pauseTime = 2500;
+    const fadeDuration = 1500;
+    const pauseTime = 4000;
 
-    function typeWriter() {
+    function showNextText() {
       const currentText = TYPEWRITER_TEXTS[currentTextIndex];
+      typewriterElement.textContent = currentText;
+      typewriterElement.classList.add("visible");
 
-      if (isDeleting) {
-        typewriterElement.textContent = currentText.substring(
-          0,
-          currentCharIndex - 1,
-        );
-        currentCharIndex--;
-
-        if (currentCharIndex === 0) {
-          isDeleting = false;
+      setTimeout(() => {
+        typewriterElement.classList.remove("visible");
+        
+        setTimeout(() => {
           currentTextIndex = (currentTextIndex + 1) % TYPEWRITER_TEXTS.length;
-          setTimeout(typeWriter, 300);
-          return;
-        }
-
-        setTimeout(typeWriter, deleteSpeed);
-      } else {
-        typewriterElement.textContent = currentText.substring(
-          0,
-          currentCharIndex + 1,
-        );
-        currentCharIndex++;
-
-        if (currentCharIndex === currentText.length) {
-          setTimeout(() => {
-            isDeleting = true;
-            typeWriter();
-          }, pauseTime);
-          return;
-        }
-
-        setTimeout(typeWriter, typeSpeed);
-      }
+          showNextText();
+        }, fadeDuration);
+      }, pauseTime);
     }
 
-    setTimeout(typeWriter, 500);
+    setTimeout(showNextText, 500);
   });
 </script>
 
