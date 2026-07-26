@@ -7,10 +7,6 @@ import CardGroup from "@components/temple/CardGroup.astro";
 import { Icon } from "astro-icon/components";
 import {
   t,
-  USER_AVATAR,
-  USER_NAME,
-  USER_DESCRIPTION,
-  USER_SIDEBAR_SOCIAL_ICONS,
 } from "@config";
 import { generatePageLinks } from "@utils/blogUtils";
 import { getMainBlogPaginationPaths } from "@utils/paginationUtils";
@@ -25,48 +21,6 @@ const pageLinks = generatePageLinks(totalPages);
 ---
 
 <BaseLayout title="Blog" isIndexed={false}>
-  <!-- Mobile Profile Bar — only visible on small/medium screens -->
-  <div class="rounded-3xl bg-base-100 shadow-lg border border-base-200 transition-all lg:hidden mb-4">
-    <div class="flex flex-row md:flex-col md:pt-4">
-      <a href="/about" class="relative h-36 w-36 shrink-0 md:hidden">
-        <img
-          class="absolute left-0 top-0 h-36 rounded-l-3xl object-cover"
-          src={USER_AVATAR}
-          alt="Avatar"
-          loading="eager"
-        />
-        <div class="absolute right-0 top-0 h-36 w-20 bg-gradient-to-l from-base-100"></div>
-      </a>
-      <a href="/about" class="mx-auto hidden h-36 w-36 cursor-pointer rounded-3xl transition-all hover:brightness-75 md:block">
-        <img
-          class="h-36 w-36 rounded-3xl object-cover"
-          src={USER_AVATAR}
-          alt="Avatar"
-          loading="lazy"
-        />
-      </a>
-      <div class="flex grow flex-col justify-center space-y-3 p-4">
-        <div class="flex flex-col items-center">
-          <a href="/about" class="line-clamp-1 text-xl font-semibold text-base-content">
-            {USER_NAME}
-          </a>
-          <span class="mb-2 mt-1 h-1 w-8 rounded-full bg-primary"></span>
-          <p class="line-clamp-1 text-base-content/60 text-sm font-semibold">{USER_DESCRIPTION}</p>
-        </div>
-        <ul class="flex flex-row items-center justify-center space-x-5">
-          {USER_SIDEBAR_SOCIAL_ICONS.map((icon) => (
-            <li>
-              <a href={icon.href} target="_blank" aria-label={icon.ariaLabel}
-                class="text-primary hover:text-primary/70 transition-colors">
-                <Icon name={icon.svg} class="w-5 h-5" />
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  </div>
-
   <!-- Blog Navigation Cards -->
   <CardGroup cols="2" class="grid-cols-2">
     <!-- Archives Card -->

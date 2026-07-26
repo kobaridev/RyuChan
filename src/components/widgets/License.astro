@@ -52,99 +52,95 @@ const socialLinks = [
     <Icon name="ri:heart-line" class="w-4 h-4 inline-block align-text-bottom text-error" /> Thanks for reading!  
   </div>  
   
-  <div class="card bg-base-200 overflow-visible">  
-    <div class="card-body relative p-4 sm:p-6 lg:p-8">  
-      <!-- License Icon -->  
-      <div class="absolute -top-8 left-8">  
-        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">  
-          <Icon name="ri:creative-commons-line" class="w-10 h-10 text-primary-content" />  
-        </div>  
-      </div>  
-  
-      <!-- Article Metadata -->  
-      <div class="space-y-4">  
-        <h3 class="text-lg sm:text-xl lg:text-2xl font-bold">{title}</h3>  
-  
-        <!-- Stats Row -->  
-        <div class="flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm opacity-75">  
-          {  
-            displayDate && (  
-              <span class="flex items-center gap-1">  
-                <Icon name="lucide:calendar" class="h-4 w-4" />  
-                {displayDate}  
-              </span>  
-            )  
-          }  
-  
-          {  
-            badge && (  
-              <span class="flex items-center gap-1">  
-                <Icon name="lucide:bookmark" class="h-4 w-4" />  
-                {badge}  
-              </span>  
-            )  
-          }  
-  
-          {  
-            word && time && (  
-              <div class="flex items-center gap-1">  
-                <Icon name="lucide:book-open" class="h-4 w-4" />  
-                <span>  
-                  {word} {t("label.wordCount")} · {time} {t("label.readTime")}  
-                </span>  
-              </div>  
-            )  
-          }  
-  
-          {  
-            slug && umamiConfig.enable && (  
+  <div class="card bg-base-200 text-base-content overflow-visible border border-base-300">
+    <div class="card-body relative p-4 sm:p-6 lg:p-8">
+      <div class="flex flex-col sm:flex-row gap-6 relative">
+        <!-- Left: Article Info -->
+        <div class="flex-1 min-w-0 space-y-3 relative z-10">
+          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold truncate">{title}</h3>
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-xs sm:text-sm text-base-content/60 hover:text-primary transition-colors break-all inline-block max-w-full"
+          >
+            {url}
+          </a>
+
+          <!-- Metadata Rows -->
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="flex gap-8">
+              <span class="text-base-content/60">作者</span>
+              <span class="font-medium">{USER_NAME}</span>
+            </div>
+            {displayDate && (
+              <div class="flex gap-8">
+                <span class="text-base-content/60">发布于</span>
+                <span class="font-medium">{displayDate}</span>
+              </div>
+            )}
+            <div class="flex gap-8">
+              <span class="text-base-content/60">许可协议</span>
+              <a
+                href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-medium text-primary hover:text-primary/80 transition-colors"
+              >
+                CC BY-NC-SA 4.0
+              </a>
+            </div>
+          </div>
+
+          <!-- Stats Row -->
+          <div class="flex flex-wrap gap-3 text-xs text-base-content/70 pt-2">
+            {word && time && (
+              <span class="flex items-center gap-1">
+                <Icon name="lucide:book-open" class="h-3.5 w-3.5" />
+                {word} {t("label.wordCount")} · {time} {t("label.readTime")}
+              </span>
+            )}
+            {slug && umamiConfig.enable && (
               <>
-                <div class="flex items-center gap-1">  
-                  <Icon name="lucide:eye" class="h-4 w-4 text-primary" />  
-                  <span id="license-page-views">-</span>  
-                </div>  
-                <div class="flex items-center gap-1">  
-                  <Icon name="lucide:user" class="h-4 w-4 text-primary" />  
-                  <span id="license-page-visitors">-</span>  
-                </div>
+                <span class="flex items-center gap-1">
+                  <Icon name="lucide:eye" class="h-3.5 w-3.5" />
+                  <span id="license-page-views">-</span>
+                </span>
+                <span class="flex items-center gap-1">
+                  <Icon name="lucide:user" class="h-3.5 w-3.5" />
+                  <span id="license-page-visitors">-</span>
+                </span>
               </>
-            )  
-          }   
-        </div>  
-  
-        <!-- Categories and Tags -->  
-        <div class="mt-4">  
-          <PostFilter categories={categories} tags={tags} />  
-          <!-- License Info -->  
-          <hr class="my-4" />  
-          <div class="flex justify-between items-center flex-wrap gap-4">  
-            <div class="text-sm opacity-75">  
-              © {USER_NAME} |  
-              <a  
-                href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed"  
-                target="_blank"  
-                rel="noopener noreferrer"  
-                class="hover:text-primary transition-colors"  
-              >  
-                CC BY-NC-SA 4.0  
-              </a>  
-            </div>  
-            <div class="flex gap-2">
-              <!-- Reward Button -->
-              <button class="btn btn-secondary btn-outline" onclick="reward_modal.showModal()">
-                赞赏
-                <Icon name="ri:hand-heart-line" class="w-5 h-5" />
-              </button>
-              <!-- Share Button -->  
-              <button class="btn btn-primary btn-outline" onclick="share_modal.showModal()">  
-                {t("label.share")}  
-                <Icon name="ri:share-line" class="w-5 h-5" />  
-              </button>
-            </div>  
-          </div>  
-        </div>  
-      </div>  
-    </div>  
+            )}
+          </div>
+        </div>
+
+        <!-- Right: CC Watermark -->
+        <div class="hidden sm:flex items-center justify-center w-40 lg:w-48 shrink-0 relative z-0 opacity-20">
+          <Icon name="ri:creative-commons-line" class="w-32 lg:w-40 h-auto text-base-content" />
+        </div>
+      </div>
+
+      <!-- Bottom bar: Categories/Tags + Actions -->
+      <div class="mt-5 pt-4 border-t border-base-300 space-y-3">
+        <PostFilter categories={categories} tags={tags} />
+        <div class="flex justify-between items-center flex-wrap gap-3">
+          <div class="text-xs text-base-content/50">
+            © {USER_NAME}
+          </div>
+          <div class="flex gap-2">
+            <button class="btn btn-sm btn-outline btn-success" onclick="reward_modal.showModal()">
+              <Icon name="ri:hand-heart-line" class="w-4 h-4" />
+              赞赏
+            </button>
+            <button class="btn btn-sm btn-outline btn-primary" onclick="share_modal.showModal()">
+              <Icon name="ri:share-line" class="w-4 h-4" />
+              {t("label.share")}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>  
   
   <!-- Share Modal -->  

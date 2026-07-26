@@ -119,6 +119,10 @@ const needsKatex = blog.body?.includes("$$") ?? false;
       commentsConfig.giscus && (
         <>
           <h1 class="text-2xl font-bold">Comments</h1>
+          <div class="alert alert-primary shadow-sm mb-4 py-2 text-sm">
+            <Icon name="lucide:message-circle" class="w-4 h-4" />
+            <span>无需登录即可评论，欢迎多多留言！</span>
+          </div>
           <MainCard>
             <section class="comments">
               <Giscus {...commentsConfig.giscus} />
@@ -134,6 +138,10 @@ const needsKatex = blog.body?.includes("$$") ?? false;
       commentsConfig.waline && (
         <>
           <h1 class="text-2xl font-bold">Comments</h1>
+          <div class="alert alert-primary shadow-sm mb-4 py-2 text-sm">
+            <Icon name="lucide:message-circle" class="w-4 h-4" />
+            <span>无需登录即可评论，欢迎多多留言！</span>
+          </div>
           <MainCard>
             <section class="comments">
               <Waline {...commentsConfig.waline} />
@@ -148,6 +156,10 @@ const needsKatex = blog.body?.includes("$$") ?? false;
       commentsConfig.twikoo && (
         <>
           <h1 class="text-2xl font-bold">Comments</h1>
+          <div class="alert alert-primary shadow-sm mb-4 py-2 text-sm">
+            <Icon name="lucide:message-circle" class="w-4 h-4" />
+            <span>无需登录即可评论，欢迎多多留言！</span>
+          </div>
           <MainCard>
             <section class="comments">
               <Twikoo {...commentsConfig.twikoo} />
