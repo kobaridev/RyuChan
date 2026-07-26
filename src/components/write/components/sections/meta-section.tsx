@@ -3,6 +3,7 @@ import { useWriteStore } from '../../stores/write-store'
 import { TagInput } from '../ui/tag-input'
 import { CustomSelect } from '../ui/custom-select'
 import { useState } from 'react'
+import { FileText, Tag, Folder, Calendar, Pin, File, EyeOff } from 'lucide-react'
 
 type MetaSectionProps = {
 	delay?: number
@@ -11,10 +12,8 @@ type MetaSectionProps = {
 
 export function MetaSection({ delay = 0, categories = [] }: MetaSectionProps) {
 	const { form, updateForm } = useWriteStore()
-	// 如果当前选中的分类不在预设列表中，且有值，则默认为自定义模式
 	const [isCustomCategory, setIsCustomCategory] = useState(() => {
 		if (form.categories.length === 0) return false
-		// 如果有多个分类，或者是单个分类但不在预设列表中，则为自定义模式
 		return form.categories.length > 1 || (form.categories.length === 1 && !categories.includes(form.categories[0]))
 	})
 
@@ -24,79 +23,122 @@ export function MetaSection({ delay = 0, categories = [] }: MetaSectionProps) {
 	]
 
 	return (
-		<motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay }} className='card bg-base-100 border border-base-200 shadow-sm p-4 relative'>
-			<h2 className='text-sm font-bold text-primary'>元信息</h2>
-
-			<div className='mt-3 space-y-3'>
-				<textarea
-					placeholder='为这篇文章写一段简短摘要'
-					rows={3}
-					className='textarea textarea-bordered w-full bg-base-100 focus:textarea-primary resize-none text-sm'
-					value={form.summary}
-					onChange={e => updateForm({ summary: e.target.value })}
-				/>
-
-				<div className="text-xs font-medium text-base-content/70">Badge</div>
-				<input
-					placeholder='Pin - 置顶文章（可选）'
-					className='input input-bordered w-full bg-base-100 focus:input-primary text-sm'
-					value={form.badge || ''}
-					onChange={e => updateForm({ badge: e.target.value })}
-				/>
-
-				<div className="text-xs font-medium text-base-content/70">文件格式</div>
-				<CustomSelect
-					value={form.fileFormat}
-					onChange={value => updateForm({ fileFormat: value as 'md' | 'mdx' })}
-					options={[
-						{ value: 'md', label: 'Markdown (.md)' },
-						{ value: 'mdx', label: 'MDX (.mdx)' }
-					]}
-					placeholder="选择文件格式"
-				/>
-
-				<div className="text-xs font-medium text-base-content/70">标签</div>
-				<TagInput tags={form.tags} onChange={tags => updateForm({ tags })} />
-
-				<div className="text-xs font-medium text-base-content/70">分类</div>
-				{categories.length > 0 && !isCustomCategory ? (
-					<CustomSelect
-						value={categories.includes(form.categories[0]) ? form.categories[0] : ''}
-						onChange={val => {
-							if (val === '__custom__') {
-								setIsCustomCategory(true)
-							} else {
-								updateForm({ categories: [val] })
-							}
-						}}
-						options={categoryOptions}
-						placeholder="选择分类..."
-					/>
-				) : (
-					<div className="space-y-1">
-						<TagInput tags={form.categories} onChange={categories => updateForm({ categories })} />
-						{categories.length > 0 && (
-							<button
-								onClick={() => setIsCustomCategory(false)}
-								className="text-xs text-primary hover:underline"
-							>
-								返回选择已有分类
-							</button>
-						)}
+		<motion.div 
+			initial={{ opacity: 0, y: 20 }} 
+			animate={{ opacity: 1, y: 0 }} 
+			transition={{ delay }} 
+			className='bg-base-100 rounded-2xl border border-base-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden'
+		>
+			<div className='flex items-center justify-between px-4 py-3 bg-gradient-to-r from-secondary/10 to-transparent border-b border-base-200'>
+				<div className='flex items-center gap-2'>
+					<div className='w-8 h-8 rounded-lg bg-secondary/15 flex items-center justify-center'>
+						<FileText className='w-4 h-4 text-secondary' />
 					</div>
-				)}
+					<h3 className='text-sm font-semibold text-base-content'>元信息</h3>
+				</div>
+			</div>
 
-				<input
-					type='datetime-local'
-					placeholder='日期'
-					className='input input-bordered w-full bg-base-100 focus:input-primary text-sm'
-					value={form.date}
-					onChange={e => {
-						updateForm({ date: e.target.value })
-					}}
-				/>
+			<div className='p-4 space-y-4'>
+				<div>
+					<div className='flex items-center gap-1.5 text-xs font-medium text-base-content/60 mb-1.5'>
+						<FileText className='w-3 h-3' />
+						<span>摘要</span>
+					</div>
+					<textarea
+						placeholder='为这篇文章写一段简短摘要'
+						rows={2}
+						className='textarea textarea-bordered w-full bg-base-100 focus:textarea-primary resize-none text-xs'
+						value={form.summary}
+						onChange={e => updateForm({ summary: e.target.value })}
+					/>
+				</div>
 
-				<div className='flex items-center gap-2 pt-1'>
+				<div className='grid grid-cols-2 gap-3'>
+					<div>
+						<div className='flex items-center gap-1.5 text-xs font-medium text-base-content/60 mb-1.5'>
+							<Pin className='w-3 h-3' />
+							<span>Badge</span>
+						</div>
+						<input
+							placeholder='置顶'
+							className='input input-bordered w-full bg-base-100 focus:input-primary text-xs h-9'
+							value={form.badge || ''}
+							onChange={e => updateForm({ badge: e.target.value })}
+						/>
+					</div>
+					<div>
+						<div className='flex items-center gap-1.5 text-xs font-medium text-base-content/60 mb-1.5'>
+							<File className='w-3 h-3' />
+							<span>格式</span>
+						</div>
+						<CustomSelect
+							value={form.fileFormat}
+							onChange={value => updateForm({ fileFormat: value as 'md' | 'mdx' })}
+							options={[
+								{ value: 'md', label: '.md' },
+								{ value: 'mdx', label: '.mdx' }
+							]}
+							placeholder="选择格式"
+						/>
+					</div>
+				</div>
+
+				<div>
+					<div className='flex items-center gap-1.5 text-xs font-medium text-base-content/60 mb-1.5'>
+						<Tag className='w-3 h-3' />
+						<span>标签</span>
+					</div>
+					<TagInput tags={form.tags} onChange={tags => updateForm({ tags })} />
+				</div>
+
+				<div>
+					<div className='flex items-center gap-1.5 text-xs font-medium text-base-content/60 mb-1.5'>
+						<Folder className='w-3 h-3' />
+						<span>分类</span>
+					</div>
+					{categories.length > 0 && !isCustomCategory ? (
+						<CustomSelect
+							value={categories.includes(form.categories[0]) ? form.categories[0] : ''}
+							onChange={val => {
+								if (val === '__custom__') {
+									setIsCustomCategory(true)
+								} else {
+									updateForm({ categories: [val] })
+								}
+							}}
+							options={categoryOptions}
+							placeholder="选择分类..."
+						/>
+					) : (
+						<div className="space-y-1">
+							<TagInput tags={form.categories} onChange={categories => updateForm({ categories })} />
+							{categories.length > 0 && (
+								<button
+									onClick={() => setIsCustomCategory(false)}
+									className="text-xs text-primary hover:underline"
+								>
+									← 返回选择已有分类
+								</button>
+							)}
+						</div>
+					)}
+				</div>
+
+				<div>
+					<div className='flex items-center gap-1.5 text-xs font-medium text-base-content/60 mb-1.5'>
+						<Calendar className='w-3 h-3' />
+						<span>日期</span>
+					</div>
+					<input
+						type='datetime-local'
+						placeholder='日期'
+						className='input input-bordered w-full bg-base-100 focus:input-primary text-xs h-9'
+						value={form.date}
+						onChange={e => updateForm({ date: e.target.value })}
+					/>
+				</div>
+
+				<label className='flex items-center gap-2 px-3 py-2 rounded-lg bg-base-200/30 cursor-pointer hover:bg-base-200/50 transition-colors'>
 					<input
 						type='checkbox'
 						id='hidden-check'
@@ -104,10 +146,11 @@ export function MetaSection({ delay = 0, categories = [] }: MetaSectionProps) {
 						onChange={e => updateForm({ hidden: e.target.checked })}
 						className='checkbox checkbox-primary checkbox-sm'
 					/>
-					<label htmlFor='hidden-check' className='cursor-pointer text-sm text-base-content/80 select-none'>
+					<span className='flex items-center gap-1.5 text-xs text-base-content/80'>
+						<EyeOff className='w-3.5 h-3.5' />
 						隐藏此文章（草稿）
-					</label>
-				</div>
+					</span>
+				</label>
 			</div>
 		</motion.div>
 	)

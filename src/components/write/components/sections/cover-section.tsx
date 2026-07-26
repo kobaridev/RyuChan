@@ -4,6 +4,7 @@ import { useRef, useState } from 'react'
 import { motion } from 'motion/react'
 import { toast } from 'sonner'
 import { useWriteStore } from '../../stores/write-store'
+import { ImagePlus, X, Link2 } from 'lucide-react'
 
 type CoverSectionProps = {
 	delay?: number
@@ -19,7 +20,6 @@ export function CoverSection({ delay = 0 }: CoverSectionProps) {
 	const handleUrlSubmit = () => {
 		if (!urlInput.trim()) return
 		const trimmed = urlInput.trim()
-		// Prevent blob: URLs from being set as cover — they won't work in production
 		if (trimmed.startsWith('blob:')) {
 			toast.error('blob: 链接仅限本地预览，请上传图片或使用远程 URL')
 			return
@@ -36,7 +36,6 @@ export function CoverSection({ delay = 0 }: CoverSectionProps) {
 	const handleCoverDrop = async (e: React.DragEvent<HTMLDivElement>) => {
 		e.preventDefault()
 
-		// 处理从图片列表中拖入的情况
 		const md = e.dataTransfer.getData('text/markdown') || e.dataTransfer.getData('text/plain') || ''
 		const m = /!\[\]\(([^)]+)\)/.exec(md.trim())
 		if (m) {
@@ -53,12 +52,10 @@ export function CoverSection({ delay = 0 }: CoverSectionProps) {
 			if (foundItem) {
 				setCover(foundItem)
 				toast.success('已设置封面')
-
 				return
 			}
 		}
 
-		// 处理直接拖入文件的情况
 		const files = e.dataTransfer.files
 		if (files && files.length > 0) {
 			const imageFiles = Array.from(files).filter(file => file.type.startsWith('image/'))
@@ -69,7 +66,6 @@ export function CoverSection({ delay = 0 }: CoverSectionProps) {
 
 			const resultImages = await addFiles(imageFiles as unknown as FileList)
 			if (resultImages && resultImages.length > 0) {
-				// 使用第一个图片作为封面
 				setCover(resultImages[0])
 				toast.success('已设置封面')
 			}
@@ -87,12 +83,10 @@ export function CoverSection({ delay = 0 }: CoverSectionProps) {
 
 		const resultImages = await addFiles(files)
 		if (resultImages && resultImages.length > 0) {
-			// 使用第一个图片作为封面
 			setCover(resultImages[0])
 			toast.success('已设置封面')
 		}
 
-		// 重置 input 以便可以选择相同的文件
 		e.target.value = ''
 	}
 
@@ -102,49 +96,74 @@ export function CoverSection({ delay = 0 }: CoverSectionProps) {
 	}
 
 	return (
-		<motion.div initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay }} className='card bg-base-100 border border-base-200 shadow-sm p-4 relative'>
-			<div className="flex items-center justify-between mb-3">
-				<h2 className='text-sm font-bold text-primary'>封面</h2>
+		<motion.div 
+			initial={{ opacity: 0, y: 20 }} 
+			animate={{ opacity: 1, y: 0 }} 
+			transition={{ delay }} 
+			className='bg-base-100 rounded-2xl border border-base-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden'
+		>
+			<div className='flex items-center justify-between px-4 py-3 bg-gradient-to-r from-primary/10 to-transparent border-b border-base-200'>
+				<div className='flex items-center gap-2'>
+					<div className='w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center'>
+						<ImagePlus className='w-4 h-4 text-primary' />
+					</div>
+					<h3 className='text-sm font-semibold text-base-content'>封面</h3>
+				</div>
 				{cover && (
-					<button onClick={handleClearCover} className="btn btn-xs btn-ghost text-base-content/40 hover:text-error">
-						清除封面
+					<button 
+						onClick={handleClearCover} 
+						className='w-6 h-6 rounded-md hover:bg-error/10 flex items-center justify-center transition-colors group'
+						title="清除封面"
+					>
+						<X className='w-3 h-3 text-base-content/40 group-hover:text-error' />
 					</button>
 				)}
 			</div>
 
-			<input ref={fileInputRef} type='file' accept='image/*' className='hidden' onChange={handleFileChange} />
-			<div
-				className='bg-base-100 h-[150px] overflow-hidden rounded-xl border border-base-200 border-dashed hover:border-primary/50 transition-colors'
-				onDragOver={e => {
-					e.preventDefault()
-				}}
-				onDrop={handleCoverDrop}>
-				{!!coverPreviewUrl ? (
-					<div className="group relative h-full w-full cursor-pointer" onClick={handleClickUpload}>
-						<img src={coverPreviewUrl} alt='cover preview' className='h-full w-full rounded-xl object-cover' />
-						<div className="absolute inset-0 flex items-center justify-center rounded-xl bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity">
-							<span className="text-sm text-white font-semibold">点击更换封面</span>
+			<div className='p-4'>
+				<input ref={fileInputRef} type='file' accept='image/*' className='hidden' onChange={handleFileChange} />
+				<div
+					className='relative group h-[140px] overflow-hidden rounded-xl border-2 border-dashed border-base-300 hover:border-primary/50 hover:bg-base-200/30 transition-all cursor-pointer'
+					onDragOver={e => e.preventDefault()}
+					onDrop={handleCoverDrop}
+					onClick={handleClickUpload}
+				>
+					{!!coverPreviewUrl ? (
+						<>
+							<img src={coverPreviewUrl} alt='cover preview' className='h-full w-full object-cover' />
+							<div className='absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all flex items-center justify-center'>
+								<span className='text-sm text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 px-3 py-1.5 rounded-lg'>
+									点击更换
+								</span>
+							</div>
+						</>
+					) : (
+						<div className='flex flex-col items-center justify-center h-full text-base-content/30 group-hover:text-primary/50 transition-colors'>
+							<ImagePlus className='w-8 h-8 mb-2' />
+							<span className='text-xs'>点击或拖入图片</span>
 						</div>
-					</div>
-				) : (
-					<div className='grid h-full w-full cursor-pointer place-items-center transition-colors hover:bg-base-200/50' onClick={handleClickUpload}>
-						<span className='text-3xl leading-none text-base-content/20'>+</span>
-					</div>
-				)}
-			</div>
+					)}
+				</div>
 
-			<div className="flex gap-2 mt-3">
-				<input
-					type="text"
-					className="input input-sm input-bordered w-full text-xs"
-					placeholder="输入图片 URL"
-					value={urlInput}
-					onChange={e => setUrlInput(e.target.value)}
-					onKeyDown={e => e.key === 'Enter' && handleUrlSubmit()}
-				/>
-				<button className="btn btn-sm btn-primary btn-square" onClick={handleUrlSubmit}>
-					<span className="text-xs">OK</span>
-				</button>
+				<div className='flex gap-2 mt-3'>
+					<div className='relative flex-1'>
+						<Link2 className='absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-base-content/40' />
+						<input
+							type="text"
+							className="input input-sm input-bordered w-full pl-8 pr-2 bg-base-100 focus:input-primary text-xs h-9"
+							placeholder="粘贴图片 URL"
+							value={urlInput}
+							onChange={e => setUrlInput(e.target.value)}
+							onKeyDown={e => e.key === 'Enter' && handleUrlSubmit()}
+						/>
+					</div>
+					<button 
+						className="btn btn-sm btn-primary h-9 px-3 min-w-[3rem]" 
+						onClick={handleUrlSubmit}
+					>
+						<span className="text-xs">确定</span>
+					</button>
+				</div>
 			</div>
 		</motion.div>
 	)

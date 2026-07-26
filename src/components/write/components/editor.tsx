@@ -2,31 +2,149 @@ import { motion } from 'motion/react'
 import { useWriteStore } from '../stores/write-store'
 import { INIT_DELAY } from '@/consts'
 import { useRef } from 'react'
+import {
+	Bold,
+	Italic,
+	Strikethrough,
+	Heading1,
+	Heading2,
+	Heading3,
+	Link,
+	Image,
+	Code,
+	List,
+	ListOrdered,
+	Quote,
+	Table,
+	Minus,
+	CheckSquare,
+	Sparkles,
+	Eye,
+	EyeOff,
+} from 'lucide-react'
+import { usePreviewStore } from '../stores/preview-store'
 
-const defaultText = 'text'
+const defaultText = '文本'
+
+type ToolbarButtonProps = {
+	icon: React.ReactNode
+	onClick: () => void
+	tooltip: string
+	active?: boolean
+}
+
+function ToolbarButton({ icon, onClick, tooltip, active }: ToolbarButtonProps) {
+	return (
+		<button
+			type='button'
+			title={tooltip}
+			onClick={onClick}
+			className={`p-2 rounded-lg transition-all duration-200 hover:bg-base-200 hover:scale-110 active:scale-95 ${
+				active ? 'bg-primary/20 text-primary' : 'text-base-content/70'
+			}`}>
+			{icon}
+		</button>
+	)
+}
+
+function ToolbarDivider() {
+	return <div className='w-px h-6 bg-base-300 mx-1' />
+}
 
 export function WriteEditor() {
-	const { form, updateForm, images, addFiles } = useWriteStore()
+	const { form, updateForm, addFiles } = useWriteStore()
+	const { isInlinePreview, toggleInlinePreview } = usePreviewStore()
 	const textareaRef = useRef<HTMLTextAreaElement>(null)
 
-	const insertText = (text: string) => {
+	const insertText = (text: string, cursorOffset?: number) => {
 		const textarea = textareaRef.current
 		if (!textarea) return
 
 		textarea.focus()
-		// Use execCommand to preserve undo/redo stack
-		const success = document.execCommand('insertText', false, text)
+		const { selectionStart, selectionEnd, value } = textarea
+		const before = value.substring(0, selectionStart)
+		const after = value.substring(selectionEnd)
+		const newCursorPos = cursorOffset !== undefined ? selectionStart + cursorOffset : selectionStart + text.length
 
-		if (!success) {
-			// Fallback for browsers that don't support execCommand
-			const { selectionStart, selectionEnd, value } = textarea
-			const before = value.substring(0, selectionStart)
-			const after = value.substring(selectionEnd)
-			updateForm({ md: before + text + after })
+		updateForm({ md: before + text + after })
+
+		setTimeout(() => {
+			textarea.setSelectionRange(newCursorPos, newCursorPos)
+			textarea.focus()
+		}, 0)
+	}
+
+	const insertLinePrefix = (prefix: string) => {
+		const textarea = textareaRef.current
+		if (!textarea) return
+
+		textarea.focus()
+		const { selectionStart, selectionEnd, value } = textarea
+		const lineStart = value.lastIndexOf('\n', selectionStart - 1) + 1
+		const lineEnd = value.indexOf('\n', selectionEnd)
+		const actualLineEnd = lineEnd === -1 ? value.length : lineEnd
+
+		const selectedText = value.substring(lineStart, actualLineEnd)
+		const newText = prefix + selectedText
+		const newValue = value.substring(0, lineStart) + newText + value.substring(actualLineEnd)
+
+		updateForm({ md: newValue })
+		setTimeout(() => {
+			textarea.setSelectionRange(lineStart + prefix.length, lineStart + prefix.length + selectedText.length)
+			textarea.focus()
+		}, 0)
+	}
+
+	const toggleMark = (beforeMark: string, afterMark: string) => {
+		const textarea = textareaRef.current
+		if (!textarea) return
+
+		const { selectionStart, selectionEnd, value } = textarea
+		const selectedText = value.substring(selectionStart, selectionEnd)
+		const text = selectedText || defaultText
+
+		const before = value.substring(0, selectionStart)
+		const after = value.substring(selectionEnd)
+
+		const isActive =
+			before.endsWith(beforeMark) && after.startsWith(afterMark)
+
+		if (isActive && selectedText) {
+			textarea.setSelectionRange(selectionStart - beforeMark.length, selectionEnd + afterMark.length)
+			insertText(selectedText)
+		} else {
+			insertText(`${beforeMark}${text}${afterMark}`)
+			if (!selectedText) {
+				setTimeout(() => {
+					textarea.setSelectionRange(
+						selectionStart + beforeMark.length,
+						selectionStart + beforeMark.length + defaultText.length
+					)
+				}, 0)
+			}
+		}
+	}
+
+	const insertTemplate = (template: string, placeholder?: string) => {
+		const textarea = textareaRef.current
+		if (!textarea) return
+
+		const { selectionStart } = textarea
+
+		if (placeholder) {
+			const placeholderIndex = template.indexOf(placeholder)
+			const before = template.substring(0, placeholderIndex)
+			const after = template.substring(placeholderIndex + placeholder.length)
+			const fullText = before + placeholder + after
+			const cursorPos = selectionStart + before.length
+
+			updateForm({ md: form.md + fullText })
 			setTimeout(() => {
-				textarea.setSelectionRange(selectionStart + text.length, selectionStart + text.length)
 				textarea.focus()
+				textarea.setSelectionRange(cursorPos, cursorPos + placeholder.length)
 			}, 0)
+		} else {
+			insertText(template)
 		}
 	}
 
@@ -37,65 +155,28 @@ export function WriteEditor() {
 		const { selectionStart, selectionEnd, value } = textarea
 		const selectedText = value.substring(selectionStart, selectionEnd)
 
-		// Ctrl/Cmd + B: Toggle Bold
 		if ((e.ctrlKey || e.metaKey) && e.key === 'b') {
 			e.preventDefault()
-			const before = value.substring(0, selectionStart)
-			const after = value.substring(selectionEnd)
-
-			// Check if already bold
-			const isBold = before.endsWith('**') && after.startsWith('**')
-
-			if (isBold && selectedText) {
-				// Remove bold - select including markers and replace
-				textarea.setSelectionRange(selectionStart - 2, selectionEnd + 2)
-				insertText(selectedText)
-			} else {
-				// Add bold
-				const text = selectedText || defaultText
-				insertText(`**${text}**`)
-				if (!selectedText) {
-					setTimeout(() => {
-						textarea.setSelectionRange(selectionStart + 2, selectionStart + 2 + defaultText.length)
-					}, 0)
-				}
-			}
+			toggleMark('**', '**')
 			return
 		}
 
-		// Ctrl/Cmd + I: Toggle Italic
 		if ((e.ctrlKey || e.metaKey) && e.key === 'i') {
 			e.preventDefault()
-			const before = value.substring(0, selectionStart)
-			const after = value.substring(selectionEnd)
-
-			// Check if already italic
-			const isItalic = before.endsWith('*') && after.startsWith('*') && !(before.endsWith('**') && after.startsWith('**'))
-
-			if (isItalic && selectedText) {
-				// Remove italic and replace
-				textarea.setSelectionRange(selectionStart - 1, selectionEnd + 1)
-				insertText(selectedText)
-			} else {
-				// Add italic
-				const text = selectedText || defaultText
-				insertText(`*${text}*`)
-				if (!selectedText) {
-					// Select the default text
-					setTimeout(() => {
-						textarea.setSelectionRange(selectionStart + 1, selectionStart + 1 + defaultText.length)
-					}, 0)
-				}
-			}
+			toggleMark('*', '*')
 			return
 		}
 
-		// Ctrl/Cmd + K: Link
+		if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'X' || e.key === 'x')) {
+			e.preventDefault()
+			toggleMark('~~', '~~')
+			return
+		}
+
 		if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
 			e.preventDefault()
-			const text = selectedText || defaultText
-			insertText(`[${text}](url)`)
-			// Select 'url' part
+			const text = selectedText || '链接文本'
+			insertText(`[${text}](url)`, text.length + 3)
 			setTimeout(() => {
 				const urlStart = selectionStart + text.length + 3
 				textarea.setSelectionRange(urlStart, urlStart + 3)
@@ -103,14 +184,25 @@ export function WriteEditor() {
 			return
 		}
 
-		// Tab: Indent
+		if ((e.ctrlKey || e.metaKey) && e.key === 'e') {
+			e.preventDefault()
+			const text = selectedText || '代码'
+			insertText(`\n\`\`\`\n${text}\n\`\`\`\n`)
+			return
+		}
+
+		if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === '.') {
+			e.preventDefault()
+			insertLinePrefix('> ')
+			return
+		}
+
 		if (e.key === 'Tab' && !e.shiftKey) {
 			e.preventDefault()
 			insertText('\t')
 			return
 		}
 
-		// Shift + Tab: Outdent
 		if (e.key === 'Tab' && e.shiftKey) {
 			e.preventDefault()
 			const lineStart = value.lastIndexOf('\n', selectionStart - 1) + 1
@@ -148,8 +240,9 @@ export function WriteEditor() {
 			const resultImages = await addFiles(imageFiles).catch(() => [])
 
 			if (resultImages && resultImages.length > 0) {
-				// 为所有处理后的图片（包括新添加和已存在的）生成 markdown
-				const markdowns = resultImages.map(item => (item.type === 'url' ? `![](${item.url})` : `![](local-image:${item.id})`)).join('\n')
+				const markdowns = resultImages
+					.map(item => (item.type === 'url' ? `![](${item.url})` : `![](local-image:${item.id})`))
+					.join('\n')
 				insertText(markdowns)
 			}
 		}
@@ -160,8 +253,8 @@ export function WriteEditor() {
 			initial={{ opacity: 0, scale: 0.8 }}
 			animate={{ opacity: 1, scale: 1 }}
 			transition={{ delay: INIT_DELAY }}
-			className='bg-base-100 flex min-h-[800px] w-full max-w-[800px] flex-col rounded-[40px] border border-base-200 p-8 shadow-xl'>
-			<div className='mb-4 flex flex-col md:flex-row gap-4'>
+			className='bg-base-100 flex min-h-[800px] w-full flex-col rounded-[32px] border border-base-200 shadow-xl overflow-hidden'>
+			<div className='mb-4 flex flex-col md:flex-row gap-4 p-4 pb-0'>
 				<input
 					type='text'
 					placeholder='标题'
@@ -177,15 +270,139 @@ export function WriteEditor() {
 					onChange={e => updateForm({ slug: e.target.value.toLowerCase() })}
 				/>
 			</div>
-			<textarea
-				ref={textareaRef}
-				placeholder='Markdown 内容'
-				className='textarea textarea-bordered h-[650px] w-full flex-1 resize-none rounded-2xl bg-base-100 p-6 text-base leading-relaxed focus:textarea-primary transition-all'
-				value={form.md}
-				onChange={e => updateForm({ md: e.target.value })}
-				onKeyDown={handleKeyDown}
-				onPaste={handlePaste}
-			/>
+
+			<div className='flex items-center justify-between px-4 py-2 border-b border-base-200 bg-base-100/50 flex-wrap gap-2'>
+				<div className='flex items-center gap-1 flex-wrap'>
+					<ToolbarButton
+						icon={<Bold className='w-5 h-5' />}
+						onClick={() => toggleMark('**', '**')}
+						tooltip='加粗 (Ctrl+B)'
+					/>
+					<ToolbarButton
+						icon={<Italic className='w-5 h-5' />}
+						onClick={() => toggleMark('*', '*')}
+						tooltip='斜体 (Ctrl+I)'
+					/>
+					<ToolbarButton
+						icon={<Strikethrough className='w-5 h-5' />}
+						onClick={() => toggleMark('~~', '~~')}
+						tooltip='删除线 (Ctrl+Shift+X)'
+					/>
+					<ToolbarDivider />
+					<ToolbarButton
+						icon={<Heading1 className='w-5 h-5' />}
+						onClick={() => insertLinePrefix('# ')}
+						tooltip='一级标题'
+					/>
+					<ToolbarButton
+						icon={<Heading2 className='w-5 h-5' />}
+						onClick={() => insertLinePrefix('## ')}
+						tooltip='二级标题'
+					/>
+					<ToolbarButton
+						icon={<Heading3 className='w-5 h-5' />}
+						onClick={() => insertLinePrefix('### ')}
+						tooltip='三级标题'
+					/>
+					<ToolbarDivider />
+					<ToolbarButton
+						icon={<Link className='w-5 h-5' />}
+						onClick={() => {
+							const textarea = textareaRef.current
+							const currentValue = textarea?.value || form.md
+							const cursorPos = textarea?.selectionStart || 0
+							const text = currentValue.substring(0, cursorPos).split('\n').pop() || '链接文本'
+							insertText(`[${text}](url)`)
+						}}
+						tooltip='链接 (Ctrl+K)'
+					/>
+					<ToolbarButton
+						icon={<Image className='w-5 h-5' />}
+						onClick={() => insertTemplate('![](url)', 'url')}
+						tooltip='图片'
+					/>
+					<ToolbarButton
+						icon={<Code className='w-5 h-5' />}
+						onClick={() => {
+							const textarea = textareaRef.current
+							const start = textarea?.selectionStart || 0
+							const end = textarea?.selectionEnd || 0
+							const text = form.md.substring(start, end) || '代码'
+							insertText(`\n\`\`\`\n${text}\n\`\`\`\n`)
+						}}
+						tooltip='代码块 (Ctrl+E)'
+					/>
+					<ToolbarDivider />
+					<ToolbarButton
+						icon={<List className='w-5 h-5' />}
+						onClick={() => insertLinePrefix('- ')}
+						tooltip='无序列表'
+					/>
+					<ToolbarButton
+						icon={<ListOrdered className='w-5 h-5' />}
+						onClick={() => insertLinePrefix('1. ')}
+						tooltip='有序列表'
+					/>
+					<ToolbarButton
+						icon={<CheckSquare className='w-5 h-5' />}
+						onClick={() => insertLinePrefix('- [ ] ')}
+						tooltip='任务列表'
+					/>
+					<ToolbarButton
+						icon={<Quote className='w-5 h-5' />}
+						onClick={() => insertLinePrefix('> ')}
+						tooltip='引用 (Ctrl+Shift+.)'
+					/>
+					<ToolbarDivider />
+					<ToolbarButton
+						icon={<Table className='w-5 h-5' />}
+						onClick={() =>
+							insertText('\n| 列1 | 列2 | 列3 |\n| --- | --- | --- |\n| 内容 | 内容 | 内容 |\n')
+						}
+						tooltip='表格'
+					/>
+					<ToolbarButton
+						icon={<Minus className='w-5 h-5' />}
+						onClick={() => insertText('\n---\n')}
+						tooltip='分割线'
+					/>
+				</div>
+
+				<div className='flex items-center gap-1'>
+					<ToolbarButton
+						icon={isInlinePreview ? <Eye className='w-5 h-5' /> : <EyeOff className='w-5 h-5' />}
+						onClick={toggleInlinePreview}
+						tooltip={isInlinePreview ? '隐藏内联预览' : '显示内联预览'}
+						active={isInlinePreview}
+					/>
+				</div>
+			</div>
+
+			<div className='relative flex-1 flex flex-col min-h-[600px]'>
+				<textarea
+					ref={textareaRef}
+					placeholder='Markdown 内容...'
+					className='textarea textarea-bordered h-full w-full flex-1 resize-none rounded-none bg-base-100 p-6 text-base leading-relaxed focus:textarea-primary transition-all font-mono'
+					value={form.md}
+					onChange={e => updateForm({ md: e.target.value })}
+					onKeyDown={handleKeyDown}
+					onPaste={handlePaste}
+				/>
+				<div className='absolute bottom-4 right-4 flex items-center gap-2 text-xs text-base-content/40 bg-base-100/80 px-3 py-1 rounded-full'>
+					<Sparkles className='w-3 h-3' />
+					<span>{form.md.length} 字符</span>
+				</div>
+			</div>
+
+			<div className='px-4 py-2 border-t border-base-200 bg-base-100/50 flex items-center justify-between text-xs text-base-content/50 flex-wrap gap-2'>
+				<span>支持 Markdown 语法 · 粘贴图片自动上传</span>
+				<div className='flex items-center gap-3 flex-wrap'>
+					<span className='font-mono'>Ctrl+B 加粗</span>
+					<span className='font-mono'>Ctrl+I 斜体</span>
+					<span className='font-mono'>Ctrl+K 链接</span>
+					<span className='font-mono'>Ctrl+E 代码块</span>
+				</div>
+			</div>
 		</motion.div>
 	)
 }

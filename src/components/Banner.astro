@@ -20,7 +20,7 @@ if (currentPath === "/") {
   !currentPath.includes("/blog/tag/") &&
   !currentPath.includes("/blog/category/")
 ) {
-  pageKey = "home";
+  pageKey = "post";
 } else {
   pageKey = currentPath.replace(/^\//, "");
 }
@@ -28,26 +28,17 @@ if (currentPath === "/") {
 const cleanPageKey = pageKey.replace(/\/$/, "");
 const pageConfig =
   SITE_PAGES[cleanPageKey] ?? SITE_PAGES[pageKey] ?? SITE_PAGES["home"];
-const useLargeFont =
-  pageKey === "home" ||
-  (currentPath.startsWith("/blog/") &&
-    !currentPath.includes("/blog/page/") &&
-    currentPath !== "/blog" &&
-    !currentPath.includes("/blog/tag/") &&
-    !currentPath.includes("/blog/category/"));
-const useTypewriter =
-  pageKey === "home" ||
-  (currentPath.startsWith("/blog/") &&
-    !currentPath.includes("/blog/page/") &&
-    currentPath !== "/blog" &&
-    !currentPath.includes("/blog/tag/") &&
-    !currentPath.includes("/blog/category/"));
+
+const isHomePage = pageKey === "home";
+const useLargeFont = isHomePage;
+const useTypewriter = isHomePage;
 const displayTitle = pageConfig.title || "";
 const displaySubtitle = pageConfig.subtitle || "";
 const hasTitle = displayTitle !== undefined && displayTitle !== "";
 const hasSubtitle = displaySubtitle !== undefined && displaySubtitle !== "";
 
-const bannerHeight = BANNER_HEIGHT;
+const bannerHeight = isHomePage ? BANNER_HEIGHT : "20vh";
+const mobileBannerHeight = isHomePage ? "40vh" : "15vh";
 
 const isRandomEnabled = BANNER_CONFIG?.enableRandom === true;
 const RANDOM_API_URL = isRandomEnabled ? BANNER_CONFIG?.randomUrl : null;
@@ -74,9 +65,9 @@ const initialImage = isRandomEnabled
     <!-- 遮罩层 -->
     <div class="absolute left-0 top-0 z-10 h-full w-full transition-colors duration-300 bg-black/40"></div>
 
-    <!-- 显示标题和副标题 -->
+    <!-- 显示标题和副标题（仅首页显示） -->
     {
-      (hasTitle || hasSubtitle) && (
+      isHomePage && (hasTitle || hasSubtitle) && (
         <div class="relative z-20 h-[95%] w-full pointer-events-none">
           <div class="absolute left-1/2 top-1/2 w-4/5 -translate-x-1/2 -translate-y-1/2 lg:w-3/4">
             <div class="flex flex-col pointer-events-auto">
@@ -367,10 +358,10 @@ const initialImage = isRandomEnabled
   });
 </script>
 
-<style define:vars={{ bannerHeight }}>
+<style define:vars={{ bannerHeight, mobileBannerHeight }}>
   .banner {
     @apply relative opacity-100;
-    height: 40vh;
+    height: var(--mobileBannerHeight);
     will-change: transform;
     transform: translateZ(0);
     backface-visibility: hidden;

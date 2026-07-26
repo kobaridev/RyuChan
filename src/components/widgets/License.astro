@@ -4,12 +4,13 @@ import { USER_NAME, DATE_FORMAT, t, umamiConfig, USER_QR_WECHAT, USER_QR_ALIPAY 
 import type { PostData } from "@interfaces/data";  
 import { Icon } from "astro-icon/components";  
 import PostFilter from "./PostFilter.astro";  
-
+  
 const { title, url, pubDate, badge, categories = [], tags = [], word, time } = Astro.props as PostData;  
 const displayDate = pubDate ? dayjs(pubDate).format(DATE_FORMAT) : "";  
-
+  
+// 从 URL 中提取 slug  
 const slug = url ? url.toString().split('/').filter(Boolean).pop() : undefined;  
-
+  
 const socialLinks = [  
   {  
     name: "X (Twitter)",  
@@ -43,254 +44,268 @@ const socialLinks = [
   },  
 ];  
 ---  
-
-<hr class="my-8 border-base-300/30" />  
-
-<div class="card bg-base-200/50 backdrop-blur-sm border border-base-300/20 overflow-hidden">  
-  <div class="card-body p-6 md:p-8">  
-    <!-- Header Section -->  
-    <div class="flex items-start justify-between gap-4 mb-6">  
-      <!-- Title -->  
-      <div class="flex-1">  
-        <h3 class="text-xl md:text-2xl font-bold text-base-content">{title}</h3>  
+  
+<hr />  
+<div class="container p-0">  
+  <div class="text-right text-sm text-base-content/60 italic mb-2">  
+    <Icon name="ri:heart-line" class="w-4 h-4 inline-block align-text-bottom text-error" /> Thanks for reading!  
+  </div>  
+  
+  <div class="card bg-base-200 overflow-visible">  
+    <div class="card-body relative p-4 sm:p-6 lg:p-8">  
+      <!-- License Icon -->  
+      <div class="absolute -top-8 left-8">  
+        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-lg">  
+          <Icon name="ri:creative-commons-line" class="w-10 h-10 text-primary-content" />  
+        </div>  
       </div>  
-      
-      <!-- CC Badge -->  
-      <div class="flex-shrink-0">  
-        <a  
-          href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed"  
-          target="_blank"  
-          rel="noopener noreferrer"  
-          class="inline-flex items-center gap-2 px-3 py-2 bg-primary/10 border border-primary/20 rounded-full opacity-60 hover:opacity-100 transition-opacity group"  
-          title="CC BY-NC-SA 4.0"  
-        >  
-          <Icon name="ri:creative-commons-line" class="w-4 h-4 text-primary" />  
-          <span class="text-xs font-medium text-primary">CC BY-NC-SA</span>  
-        </a>  
-      </div>  
-    </div>  
-
-    <!-- Stats Row -->  
-    <div class="flex flex-wrap items-center gap-3 md:gap-4 mb-6 text-sm">  
-      {displayDate && (  
-        <div class="flex items-center gap-1.5 text-base-content/70">  
-          <Icon name="lucide:calendar" class="w-4 h-4" />  
-          <span>{displayDate}</span>  
+  
+      <!-- Article Metadata -->  
+      <div class="space-y-4">  
+        <h3 class="text-lg sm:text-xl lg:text-2xl font-bold">{title}</h3>  
+  
+        <!-- Stats Row -->  
+        <div class="flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm opacity-75">  
+          {  
+            displayDate && (  
+              <span class="flex items-center gap-1">  
+                <Icon name="lucide:calendar" class="h-4 w-4" />  
+                {displayDate}  
+              </span>  
+            )  
+          }  
+  
+          {  
+            badge && (  
+              <span class="flex items-center gap-1">  
+                <Icon name="lucide:bookmark" class="h-4 w-4" />  
+                {badge}  
+              </span>  
+            )  
+          }  
+  
+          {  
+            word && time && (  
+              <div class="flex items-center gap-1">  
+                <Icon name="lucide:book-open" class="h-4 w-4" />  
+                <span>  
+                  {word} {t("label.wordCount")} · {time} {t("label.readTime")}  
+                </span>  
+              </div>  
+            )  
+          }  
+  
+          {  
+            slug && umamiConfig.enable && (  
+              <>
+                <div class="flex items-center gap-1">  
+                  <Icon name="lucide:eye" class="h-4 w-4 text-primary" />  
+                  <span id="license-page-views">-</span>  
+                </div>  
+                <div class="flex items-center gap-1">  
+                  <Icon name="lucide:user" class="h-4 w-4 text-primary" />  
+                  <span id="license-page-visitors">-</span>  
+                </div>
+              </>
+            )  
+          }   
         </div>  
-      )}  
-
-      {badge && (  
-        <div class="flex items-center gap-1.5 text-base-content/70">  
-          <Icon name="lucide:bookmark" class="w-4 h-4" />  
-          <span>{badge}</span>  
-        </div>  
-      )}  
-
-      {word && time && (  
-        <div class="flex items-center gap-1.5 text-base-content/70">  
-          <Icon name="lucide:book-open" class="w-4 h-4" />  
-          <span>{word} {t("label.wordCount")} · {time} {t("label.readTime")}</span>  
-        </div>  
-      )}  
-
-      {slug && umamiConfig.enable && (  
-        <>  
-          <div class="flex items-center gap-1.5">  
-            <Icon name="lucide:eye" class="w-4 h-4 text-primary" />  
-            <span id="license-page-views" class="text-primary">-</span>  
+  
+        <!-- Categories and Tags -->  
+        <div class="mt-4">  
+          <PostFilter categories={categories} tags={tags} />  
+          <!-- License Info -->  
+          <hr class="my-4" />  
+          <div class="flex justify-between items-center flex-wrap gap-4">  
+            <div class="text-sm opacity-75">  
+              © {USER_NAME} |  
+              <a  
+                href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed"  
+                target="_blank"  
+                rel="noopener noreferrer"  
+                class="hover:text-primary transition-colors"  
+              >  
+                CC BY-NC-SA 4.0  
+              </a>  
+            </div>  
+            <div class="flex gap-2">
+              <!-- Reward Button -->
+              <button class="btn btn-secondary btn-outline" onclick="reward_modal.showModal()">
+                赞赏
+                <Icon name="ri:hand-heart-line" class="w-5 h-5" />
+              </button>
+              <!-- Share Button -->  
+              <button class="btn btn-primary btn-outline" onclick="share_modal.showModal()">  
+                {t("label.share")}  
+                <Icon name="ri:share-line" class="w-5 h-5" />  
+              </button>
+            </div>  
           </div>  
-          <div class="flex items-center gap-1.5">  
-            <Icon name="lucide:user" class="w-4 h-4 text-primary" />  
-            <span id="license-page-visitors" class="text-primary">-</span>  
-          </div>  
-        </>  
-      )}  
-    </div>  
-
-    <!-- Categories and Tags -->  
-    <div class="mb-6">  
-      <PostFilter categories={categories} tags={tags} />  
-    </div>  
-
-    <!-- Footer Section -->  
-    <div class="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-base-300/20">  
-      <!-- Copyright -->  
-      <div class="flex items-center gap-2 text-sm text-base-content/60">  
-        <Icon name="ri:copyright-line" class="w-4 h-4" />  
-        <span>{USER_NAME}</span>  
-      </div>  
-      
-      <!-- Action Buttons -->  
-      <div class="flex items-center gap-2">  
-        <button  
-          class="btn btn-sm btn-secondary btn-outline hover:bg-secondary/10 transition-all"  
-          onclick="reward_modal.showModal()"  
-        >  
-          <Icon name="ri:hand-heart-line" class="w-4 h-4" />  
-          <span class="ml-1">赞赏</span>  
-        </button>  
-        <button  
-          class="btn btn-sm btn-primary btn-outline hover:bg-primary/10 transition-all"  
-          onclick="share_modal.showModal()"  
-        >  
-          <Icon name="ri:share-line" class="w-4 h-4" />  
-          <span class="ml-1">{t("label.share")}</span>  
-        </button>  
+        </div>  
       </div>  
     </div>  
   </div>  
-</div>  
-
-<!-- Share Modal -->  
-<dialog id="share_modal" class="modal modal-bottom sm:modal-middle">  
-  <div class="modal-box max-w-2xl rounded-none sm:rounded-xl relative">  
-    <h3 class="font-bold text-lg sm:text-xl mb-6 text-center">  
-      {t("label.shareCard")}  
-    </h3>  
-    <div class="flex flex-wrap gap-4 justify-center">  
-      {socialLinks.map(({ name, icon, class: bgClass, url }) => (  
-        <a  
-          href={url}  
-          class={`btn btn-circle btn-lg transition-transform hover:scale-110 ${bgClass}`}  
-          target="_blank"  
-          rel="noopener noreferrer"  
-          title={name}  
-        >  
-          <span class="sr-only">{name}</span>  
-          <Icon name={icon} class="w-6 h-6 text-white" />  
-        </a>  
-      ))}  
-      <button  
-        class="btn btn-circle btn-lg transition-transform hover:scale-110 bg-neutral hover:bg-neutral-focus"  
-        title="Copy Link"  
-        onclick={`navigator.clipboard.writeText(window.location.href).then(() => {
-          const btn = this;
-          const toast = document.getElementById('copy-toast');
-          btn.classList.add('btn-success');
-          if (toast) {
-            toast.classList.remove('opacity-0', 'translate-y-4');
-          }
-          setTimeout(() => {
-            btn.classList.remove('btn-success');
-            if (toast) {
-              toast.classList.add('opacity-0', 'translate-y-4');
-            }
-          }, 2000);
-        })`}  
-      >  
-        <span class="sr-only">Copy Link</span>  
-        <Icon name="ri:links-line" class="w-6 h-6 text-white" />  
-      </button>  
-    </div>  
-
-    <div id="copy-toast" class="absolute left-1/2 -translate-x-1/2 bottom-20 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none z-50 w-max">  
-      <div class="alert alert-success shadow-lg text-white py-2 px-4 text-sm">  
-        <Icon name="ri:checkbox-circle-line" class="w-5 h-5" />  
-        <span>链接已复制成功！</span>  
-      </div>  
-    </div>  
-
-    <div class="modal-action">  
-      <form method="dialog">  
-        <button class="btn btn-ghost hover:scale-105 transition-transform">  
-          {t("label.close")}  
-        </button>  
-      </form>  
-    </div>  
-  </div>  
-  <form method="dialog" class="modal-backdrop">  
-    <button>{t("label.close")}</button>  
-  </form>  
-</dialog>  
-
-<!-- Reward Modal -->  
-<dialog id="reward_modal" class="modal modal-middle">  
-  <div class="modal-box w-11/12 max-w-4xl rounded-xl relative overflow-x-hidden">  
-    <h3 class="font-bold text-lg sm:text-xl mb-6 text-center">  
-      赞赏支持  
-    </h3>  
-      
-    <div class="flex flex-row justify-center items-center gap-4 md:gap-8 p-4">  
-      <div class="flex flex-col items-center gap-2">  
-        <div class="w-28 h-28 md:w-44 md:h-44 bg-white rounded-xl overflow-hidden shadow-lg border border-base-300 flex items-center justify-center">  
-          <img src={USER_QR_WECHAT} alt="微信收款码" class="w-full h-full object-contain" />  
-        </div>  
-        <div class="flex items-center gap-1 md:gap-2 text-success font-bold text-xs md:text-base">  
-          <Icon name="ri:wechat-pay-line" class="w-4 h-4 md:w-6 md:h-6" />  
-          <span>微信</span>  
-        </div>  
-      </div>  
-
-      <div class="flex flex-col items-center gap-2">  
-        <div class="w-28 h-28 md:w-44 md:h-44 bg-white rounded-xl overflow-hidden shadow-lg border border-base-300 flex items-center justify-center">  
-          <img src={USER_QR_ALIPAY} alt="支付宝收款码" class="w-full h-full object-contain" />  
-        </div>  
-        <div class="flex items-center gap-1 md:gap-2 text-[#1677ff] font-bold text-xs md:text-base">  
-          <Icon name="ri:alipay-line" class="w-4 h-4 md:w-6 md:h-6" />  
-          <span>支付宝</span>  
-        </div>  
-      </div>  
-    </div>  
-
-    <div class="modal-action">  
-      <form method="dialog">  
-        <button class="btn btn-ghost hover:scale-105 transition-transform">  
-          {t("label.close")}  
-        </button>  
-      </form>  
-    </div>  
-  </div>  
-  <form method="dialog" class="modal-backdrop">  
-    <button>{t("label.close")}</button>  
-  </form>  
-</dialog>  
-
-{slug && umamiConfig.enable && (  
-  <script define:vars={{ slug, umamiConfig }} is:inline>  
-    async function fetchLicensePageViews() {  
-      if (!umamiConfig.enable) {  
-        return;  
-      }  
-        
-      const checkInterval = setInterval(async () => {
-        if (typeof window.fetchUmamiStats === 'function') {
-          clearInterval(checkInterval);
-          try {
-            const queryPath = `/blog/${slug}`;
-            
-            const statsData = await window.fetchUmamiStats(umamiConfig.baseUrl, umamiConfig.shareId, {
-              timezone: umamiConfig.timezone,
-              path: queryPath
-            });
-            
-            const pageViews = (typeof statsData.pageviews === 'object' ? statsData.pageviews.value : statsData.pageviews) || 0;
-            const visits = (typeof statsData.visitors === 'object' ? statsData.visitors.value : statsData.visitors) || 0;
-            
-            const viewsElement = document.getElementById('license-page-views');
-            const visitorsElement = document.getElementById('license-page-visitors');
-            
-            if (viewsElement) viewsElement.textContent = `${pageViews} 次`;
-            if (visitorsElement) visitorsElement.textContent = `${visits} 人`;
-            
-          } catch (error) {
-            console.error('Error fetching page views for license:', error);
-            const viewsElement = document.getElementById('license-page-views');
-            const visitorsElement = document.getElementById('license-page-visitors');
-            if (viewsElement) viewsElement.textContent = '-';
-            if (visitorsElement) visitorsElement.textContent = '-';
-          }
+  
+  <!-- Share Modal -->  
+  <dialog id="share_modal" class="modal modal-bottom sm:modal-middle">  
+    <div class="modal-box max-w-2xl rounded-none sm:rounded-xl relative">  
+      <h3 class="font-bold text-lg sm:text-xl mb-6 text-center">  
+        {t("label.shareCard")}  
+      </h3>  
+      <div class="flex flex-wrap gap-4 justify-center">  
+        {  
+          socialLinks.map(({ name, icon, class: bgClass, url }) => (  
+            <a  
+              href={url}  
+              class={`btn btn-circle btn-lg transition-transform hover:scale-110 ${bgClass}`}  
+              target="_blank"  
+              rel="noopener noreferrer"  
+              title={name}  
+            >  
+              <span class="sr-only">{name}</span>  
+              <Icon name={icon} class="w-6 h-6 text-white" />  
+            </a>  
+          ))  
         }
-      }, 100);
-      
-      setTimeout(() => clearInterval(checkInterval), 10000);
-    }  
+        <!-- Copy Link Button -->
+        <button
+          class="btn btn-circle btn-lg transition-transform hover:scale-110 bg-neutral hover:bg-neutral-focus"
+          title="Copy Link"
+          onclick={`navigator.clipboard.writeText(window.location.href).then(() => {
+            const btn = this;
+            const toast = document.getElementById('copy-toast');
+            btn.classList.add('btn-success');
+            if (toast) {
+              toast.classList.remove('opacity-0', 'translate-y-4');
+            }
+            setTimeout(() => {
+              btn.classList.remove('btn-success');
+              if (toast) {
+                toast.classList.add('opacity-0', 'translate-y-4');
+              }
+            }, 2000);
+          })`}
+        >
+          <span class="sr-only">Copy Link</span>
+          <Icon name="ri:links-line" class="w-6 h-6 text-white" />
+        </button>  
+      </div>
 
-    document.addEventListener('astro:page-load', fetchLicensePageViews);
-    if (document.readyState === 'complete') fetchLicensePageViews();
-    else document.addEventListener('DOMContentLoaded', fetchLicensePageViews);
+      <!-- Toast Notification inside Modal -->
+      <div id="copy-toast" class="absolute left-1/2 -translate-x-1/2 bottom-20 transition-all duration-300 opacity-0 translate-y-4 pointer-events-none z-50 w-max">
+        <div class="alert alert-success shadow-lg text-white py-2 px-4 text-sm">
+          <Icon name="ri:checkbox-circle-line" class="w-5 h-5" />
+          <span>链接已复制成功！</span>
+        </div>
+      </div>
+
+      <div class="modal-action">  
+        <form method="dialog">  
+          <button class="btn btn-ghost hover:scale-105 transition-transform">  
+            {t("label.close")}  
+          </button>  
+        </form>  
+      </div>  
+    </div>  
+    <form method="dialog" class="modal-backdrop">  
+      <button>{t("label.close")}</button>  
+    </form>  
+  </dialog>
+
+  <!-- Reward Modal -->
+  <dialog id="reward_modal" class="modal modal-middle">
+    <div class="modal-box w-11/12 max-w-4xl rounded-xl relative overflow-x-hidden">
+      <h3 class="font-bold text-lg sm:text-xl mb-6 text-center">
+        赞赏支持
+      </h3>
+      
+      <div class="flex flex-row justify-center items-center gap-4 md:gap-8 p-4">
+        <!-- WeChat -->
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-28 h-28 md:w-44 md:h-44 bg-white rounded-xl overflow-hidden shadow-lg border border-base-300 flex items-center justify-center">
+            <img src={USER_QR_WECHAT} alt="微信收款码" class="w-full h-full object-contain" />
+          </div>
+          <div class="flex items-center gap-1 md:gap-2 text-success font-bold text-xs md:text-base">
+            <Icon name="ri:wechat-pay-line" class="w-4 h-4 md:w-6 md:h-6" />
+            <span>微信</span>
+          </div>
+        </div>
+
+        <!-- Alipay -->
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-28 h-28 md:w-44 md:h-44 bg-white rounded-xl overflow-hidden shadow-lg border border-base-300 flex items-center justify-center">
+            <img src={USER_QR_ALIPAY} alt="支付宝收款码" class="w-full h-full object-contain" />
+          </div>
+          <div class="flex items-center gap-1 md:gap-2 text-[#1677ff] font-bold text-xs md:text-base">
+            <Icon name="ri:alipay-line" class="w-4 h-4 md:w-6 md:h-6" />
+            <span>支付宝</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-action">
+        <form method="dialog">
+          <button class="btn btn-ghost hover:scale-105 transition-transform">
+            {t("label.close")}
+          </button>
+        </form>
+      </div>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+      <button>{t("label.close")}</button>
+    </form>
+  </dialog>
+</div>  
+  
+{slug && umamiConfig.enable && (  
+  <script define:vars={{ slug, umamiConfig }} is:inline>
+    (function() {
+      if (window.__licenseFetching) return;
+      window.__licenseFetching = true;
+
+      function fetchLicensePageViews() {
+        if (!umamiConfig.enable) return;
+        
+        var checkInterval = setInterval(async function() {
+          if (typeof window.fetchUmamiStats === 'function') {
+            clearInterval(checkInterval);
+            try {
+              var queryPath = '/blog/' + slug;
+              var statsData = await window.fetchUmamiStats(umamiConfig.baseUrl, umamiConfig.shareId, {
+                timezone: umamiConfig.timezone,
+                path: queryPath
+              });
+              
+              var pageViews = (typeof statsData.pageviews === 'object' ? statsData.pageviews.value : statsData.pageviews) || 0;
+              var visits = (typeof statsData.visitors === 'object' ? statsData.visitors.value : statsData.visitors) || 0;
+              
+              var viewsElement = document.getElementById('license-page-views');
+              var visitorsElement = document.getElementById('license-page-visitors');
+              
+              if (viewsElement) viewsElement.textContent = pageViews + ' 次';
+              if (visitorsElement) visitorsElement.textContent = visits + ' 人';
+            } catch (error) {
+              var viewsElement = document.getElementById('license-page-views');
+              var visitorsElement = document.getElementById('license-page-visitors');
+              if (viewsElement) viewsElement.textContent = '-';
+              if (visitorsElement) visitorsElement.textContent = '-';
+            }
+          }
+        }, 500);
+        
+        setTimeout(function() { clearInterval(checkInterval); }, 10000);
+      }
+
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        fetchLicensePageViews();
+      } else {
+        document.addEventListener('DOMContentLoaded', fetchLicensePageViews);
+      }
+      document.addEventListener('astro:page-load', fetchLicensePageViews);
+    })();
   </script>  
 )}  
-
+  
 <style>  
   .modal-backdrop button {  
     cursor: default;  
@@ -298,7 +313,8 @@ const socialLinks = [
     height: 100%;  
     opacity: 0;  
   }  
-
+  
+  /* Remove underlines from PostFilter buttons */  
   :global(.card-body .btn-category),  
   :global(.card-body .btn-tag) {  
     text-decoration: none;  

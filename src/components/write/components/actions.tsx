@@ -4,10 +4,11 @@ import { toast } from 'sonner'
 import { useWriteStore } from '../stores/write-store'
 import { usePreviewStore } from '../stores/preview-store'
 import { usePublish } from '../hooks/use-publish'
+import { Eye, Monitor } from 'lucide-react'
 
 export function WriteActions() {
 	const { loading, mode, form, loadBlogForEdit, originalSlug, updateForm } = useWriteStore()
-	const { openPreview } = usePreviewStore()
+	const { openPreview, isInlinePreview, toggleInlinePreview } = usePreviewStore()
 	const { isAuth, onChoosePrivateKey, onPublish, onDelete } = usePublish()
 	const [saving, setSaving] = useState(false)
 	const keyInputRef = useRef<HTMLInputElement>(null)
@@ -138,6 +139,20 @@ export function WriteActions() {
 					onClick={handleImportMd}>
 					导入 MD
 				</motion.button>
+
+				<motion.button
+					initial={{ opacity: 0, scale: 0.6 }}
+					animate={{ opacity: 1, scale: 1 }}
+					whileHover={{ scale: 1.05 }}
+					whileTap={{ scale: 0.95 }}
+					className={`btn btn-sm rounded-xl xl:flex ${isInlinePreview ? 'btn-primary/20 text-primary' : 'btn-ghost'} hidden`}
+					disabled={loading}
+					onClick={toggleInlinePreview}
+					title={isInlinePreview ? '关闭双栏预览' : '开启双栏预览'}>
+					<Eye className="w-4 h-4 mr-1" />
+					{isInlinePreview ? '双栏中' : '双栏'}
+				</motion.button>
+
 				<motion.button
 					initial={{ opacity: 0, scale: 0.6 }}
 					animate={{ opacity: 1, scale: 1 }}
@@ -145,9 +160,12 @@ export function WriteActions() {
 					whileTap={{ scale: 0.95 }}
 					className='btn btn-sm btn-ghost rounded-xl'
 					disabled={loading}
-					onClick={openPreview}>
-					预览
+					onClick={openPreview}
+					title='全屏预览'>
+					<Monitor className="w-4 h-4 mr-1" />
+					全屏
 				</motion.button>
+
 				<motion.button
 					initial={{ opacity: 0, scale: 0.6 }}
 					animate={{ opacity: 1, scale: 1 }}

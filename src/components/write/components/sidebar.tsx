@@ -9,12 +9,12 @@ type WriteSidebarProps = {
 
 export function WriteSidebar({ categories = [] }: WriteSidebarProps) {
 	return (
-		<div className='w-full max-w-[320px] space-y-6'>
-			<div className='grid grid-cols-1 gap-6'>
+		<div className='w-full'>
+			<div className='grid grid-cols-1 md:grid-cols-3 gap-5'>
 				<CoverSection delay={INIT_DELAY + ANIMATION_DELAY * 0} />
 				<MetaSection delay={INIT_DELAY + ANIMATION_DELAY * 1} categories={categories} />
+				<ImagesSection delay={INIT_DELAY + ANIMATION_DELAY * 2} />
 			</div>
-			<ImagesSection delay={INIT_DELAY + ANIMATION_DELAY * 2} />
 		</div>
 	)
 }
