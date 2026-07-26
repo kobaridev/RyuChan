@@ -5,7 +5,8 @@ import type { PostData } from "@interfaces/data";
 const { pubDate, badge, word, time, url, hideViews = false } = Astro.props as PostData & { url?: string, hideViews?: boolean };  
   
 // 从 URL 中提取 slug  
-const slug = url ? url.split('/').filter(Boolean).pop() : undefined;  
+const slug = url ? url.split('/').filter(Boolean).pop() : undefined;
+const slugId = slug ? slug.replace(/[^a-zA-Z0-9]/g, '_') : 'unknown';  
 ---  
   
 <div class="flex flex-col sm:flex-row sm:justify-between gap-y-1 sm:gap-y-2 mb-2 sm:mb-4 text-[10px] sm:text-sm opacity-75">  
@@ -48,53 +49,37 @@ const slug = url ? url.split('/').filter(Boolean).pop() : undefined;
 </div>  
   
 {!hideViews && slug && umamiConfig.enable && (  
-  <script define:vars={{ slug, umamiConfig }} is:inline>
-    // 获取文章浏览量统计，支持 websiteId 或 shareId
-    async function fetchPostViews() {
-      if (!umamiConfig.enable) {
-        return;
-      }
-      
-      const checkInterval = setInterval(async () => {
-        if (typeof window.fetchUmamiStats === 'function') {
-          clearInterval(checkInterval);
-          try {
-            // RyuChan assumes blog posts are at /blog/slug
-            // Adjust this path if your URL structure is different
-            const queryPath = `/blog/${slug}`;
-            
-            const statsData = await window.fetchUmamiStats(umamiConfig.baseUrl, umamiConfig.shareId, {
-              timezone: umamiConfig.timezone,
-              path: queryPath
-            });
-            
-            const pageViews = (typeof statsData.pageviews === 'object' ? statsData.pageviews.value : statsData.pageviews) || 0;
-            const visits = (typeof statsData.visitors === 'object' ? statsData.visitors.value : statsData.visitors) || 0;
-            
-            const viewsElement = document.getElementById(`page-views-${slug}`);
-            const visitorsElement = document.getElementById(`page-visitors-${slug}`);
-            
-            if (viewsElement) viewsElement.textContent = `${pageViews} 次`;
-            if (visitorsElement) visitorsElement.textContent = `${visits} 人`;
-          } catch (error) {
-            console.error('Error fetching page views for', slug, ':', error);
-            const viewsElement = document.getElementById(`page-views-${slug}`);
-            const visitorsElement = document.getElementById(`page-visitors-${slug}`);
-            
-            if (viewsElement) viewsElement.textContent = '-';
-            if (visitorsElement) visitorsElement.textContent = '-';
-          }
-        }
-      }, 100);
+  <script define:vars={{ slug, slugId, umamiConfig }} is:inline>
+    (function() {
+      var FUNC_NAME = '__fetchInfo_' + slugId;
 
-      // Stop checking after 10 seconds
-      setTimeout(() => clearInterval(checkInterval), 10000);
-    }
-    
-    // 页面加载完成后获取统计数据
-    document.addEventListener('astro:page-load', fetchPostViews);
-    // Initial run for direct loads (though astro:page-load covers it usually)
-    if (document.readyState === 'complete') fetchPostViews();
-    else document.addEventListener('DOMContentLoaded', fetchPostViews);
+      window[FUNC_NAME] = function() {
+        if (!umamiConfig.enable) return;
+        var checkInterval = setInterval(function() {
+          if (typeof window.fetchUmamiPageStats === 'function') {
+            clearInterval(checkInterval);
+            var queryPath = '/blog/' + slug;
+            window.fetchUmamiPageStats(umamiConfig.baseUrl, umamiConfig.shareId, queryPath).then(function(statsData) {
+              var pageViews = (typeof statsData.pageviews === 'object' ? statsData.pageviews.value : statsData.pageviews) || 0;
+              var visits = (typeof statsData.visitors === 'object' ? statsData.visitors.value : statsData.visitors) || 0;
+              var viewsElement = document.getElementById('page-views-' + slug);
+              var visitorsElement = document.getElementById('page-visitors-' + slug);
+              if (viewsElement) viewsElement.textContent = pageViews + ' 次';
+              if (visitorsElement) visitorsElement.textContent = visits + ' 人';
+            }).catch(function(error) {
+              var viewsElement = document.getElementById('page-views-' + slug);
+              var visitorsElement = document.getElementById('page-visitors-' + slug);
+              if (viewsElement) viewsElement.textContent = '-';
+              if (visitorsElement) visitorsElement.textContent = '-';
+            });
+          }
+        }, 100);
+        setTimeout(function() { clearInterval(checkInterval); }, 10000);
+      };
+
+      document.addEventListener('astro:page-load', function() { window[FUNC_NAME](); });
+      if (document.readyState === 'complete') window[FUNC_NAME]();
+      else document.addEventListener('DOMContentLoaded', function() { window[FUNC_NAME](); });
+    })();
   </script>
 )}

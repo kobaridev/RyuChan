@@ -9,7 +9,8 @@ const { title, url, pubDate, badge, categories = [], tags = [], word, time } = A
 const displayDate = pubDate ? dayjs(pubDate).format(DATE_FORMAT) : "";  
   
 // 从 URL 中提取 slug  
-const slug = url ? url.toString().split('/').filter(Boolean).pop() : undefined;  
+const slug = url ? url.toString().split('/').filter(Boolean).pop() : undefined;
+const slugId = slug ? slug.replace(/[^a-zA-Z0-9]/g, '_') : 'unknown';  
   
 const socialLinks = [  
   {  
@@ -258,50 +259,44 @@ const socialLinks = [
 </div>  
   
 {slug && umamiConfig.enable && (  
-  <script define:vars={{ slug, umamiConfig }} is:inline>
+  <script define:vars={{ slug, slugId, umamiConfig }} is:inline>
     (function() {
-      if (window.__licenseFetching) return;
-      window.__licenseFetching = true;
+      var GUARD_KEY = '__licenseFetching_' + slugId;
+      if (window[GUARD_KEY]) return;
+      window[GUARD_KEY] = true;
 
-      function fetchLicensePageViews() {
+      var FUNC_NAME = '__fetchLicense_' + slugId;
+
+      window[FUNC_NAME] = function() {
         if (!umamiConfig.enable) return;
-        
-        var checkInterval = setInterval(async function() {
-          if (typeof window.fetchUmamiStats === 'function') {
+        var checkInterval = setInterval(function() {
+          if (typeof window.fetchUmamiPageStats === 'function') {
             clearInterval(checkInterval);
-            try {
-              var queryPath = '/blog/' + slug;
-              var statsData = await window.fetchUmamiStats(umamiConfig.baseUrl, umamiConfig.shareId, {
-                timezone: umamiConfig.timezone,
-                path: queryPath
-              });
-              
+            var queryPath = '/blog/' + slug;
+            window.fetchUmamiPageStats(umamiConfig.baseUrl, umamiConfig.shareId, queryPath).then(function(statsData) {
               var pageViews = (typeof statsData.pageviews === 'object' ? statsData.pageviews.value : statsData.pageviews) || 0;
               var visits = (typeof statsData.visitors === 'object' ? statsData.visitors.value : statsData.visitors) || 0;
-              
               var viewsElement = document.getElementById('license-page-views');
               var visitorsElement = document.getElementById('license-page-visitors');
-              
               if (viewsElement) viewsElement.textContent = pageViews + ' 次';
               if (visitorsElement) visitorsElement.textContent = visits + ' 人';
-            } catch (error) {
+            }).catch(function(error) {
               var viewsElement = document.getElementById('license-page-views');
               var visitorsElement = document.getElementById('license-page-visitors');
               if (viewsElement) viewsElement.textContent = '-';
               if (visitorsElement) visitorsElement.textContent = '-';
-            }
+            });
           }
         }, 500);
-        
         setTimeout(function() { clearInterval(checkInterval); }, 10000);
-      }
+      };
 
       if (document.readyState === 'complete' || document.readyState === 'interactive') {
-        fetchLicensePageViews();
+        window[FUNC_NAME]();
       } else {
-        document.addEventListener('DOMContentLoaded', fetchLicensePageViews);
+        document.addEventListener('DOMContentLoaded', function() { window[FUNC_NAME](); });
       }
-      document.addEventListener('astro:page-load', fetchLicensePageViews);
+      document.addEventListener('astro:page-load', function() { window[FUNC_NAME](); });
     })();
   </script>  
 )}  
