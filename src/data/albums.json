@@ -108,5 +108,25 @@
         "description": "Eight"
       }
     ]
+  },
+  {
+    "id": "61c82bef",
+    "date": "2026-07-25",
+    "event": "新相册2",
+    "title": "",
+    "description": "",
+    "icon": "📷",
+    "photos": [
+      {
+        "src": "https://img.cdn1.vip/i/6a5ecf9761657_1784598423.webp",
+        "variant": "4x3",
+        "title": "6a5ecf9761657_1784598423"
+      },
+      {
+        "src": "https://img.cdn1.vip/i/6a670129cfe63_1785135401.webp",
+        "variant": "4x3",
+        "title": "6a670129cfe63_1785135401"
+      }
+    ]
   }
 ]
