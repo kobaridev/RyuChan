@@ -39,7 +39,7 @@ function ToolbarButton({ icon, onClick, tooltip, active }: ToolbarButtonProps) {
 			type='button'
 			title={tooltip}
 			onClick={onClick}
-			className={`p-2 rounded-lg transition-all duration-200 hover:bg-base-200 hover:scale-110 active:scale-95 ${
+			className={`p-1.5 md:p-2 rounded-md md:rounded-lg transition-all duration-200 hover:bg-base-200 hover:scale-110 active:scale-95 ${
 				active ? 'bg-primary/20 text-primary' : 'text-base-content/70'
 			}`}>
 			{icon}
@@ -48,7 +48,7 @@ function ToolbarButton({ icon, onClick, tooltip, active }: ToolbarButtonProps) {
 }
 
 function ToolbarDivider() {
-	return <div className='w-px h-6 bg-base-300 mx-1' />
+	return <div className='w-px h-4 md:h-6 bg-base-300 mx-0.5 md:mx-1' />
 }
 
 export function WriteEditor() {
@@ -253,60 +253,60 @@ export function WriteEditor() {
 			initial={{ opacity: 0, scale: 0.8 }}
 			animate={{ opacity: 1, scale: 1 }}
 			transition={{ delay: INIT_DELAY }}
-			className='bg-base-100 flex min-h-[800px] w-full flex-col rounded-[32px] border border-base-200 shadow-xl overflow-hidden'>
-			<div className='mb-4 flex flex-col md:flex-row gap-4 p-4 pb-0'>
+			className='bg-base-100 flex min-h-[600px] md:min-h-[800px] w-full flex-col rounded-2xl md:rounded-[32px] border border-base-200 shadow-xl overflow-hidden'>
+			<div className='mb-3 md:mb-4 flex flex-col md:flex-row gap-3 md:gap-4 p-3 md:p-4 pb-0'>
 				<input
 					type='text'
 					placeholder='标题'
-					className='input input-bordered w-full md:flex-1 bg-base-100 focus:input-primary transition-all h-12 p-4 rounded-lg text-base font-medium'
+					className='input input-bordered w-full md:flex-1 bg-base-100 focus:input-primary transition-all h-11 md:h-12 p-3 md:p-4 rounded-lg text-sm md:text-base font-medium'
 					value={form.title}
 					onChange={e => updateForm({ title: e.target.value })}
 				/>
 				<input
 					type='text'
-					placeholder='slug（xx-xx）'
-					className='input input-bordered w-full md:w-[200px] bg-base-100 focus:input-primary transition-all h-12 p-4 rounded-lg text-base font-medium'
+					placeholder='slug（20260727-a38e5）'
+					className='input input-bordered w-full md:w-[200px] bg-base-100 focus:input-primary transition-all h-11 md:h-12 p-3 md:p-4 rounded-lg text-sm md:text-base font-medium'
 					value={form.slug}
 					onChange={e => updateForm({ slug: e.target.value.toLowerCase() })}
 				/>
 			</div>
 
-			<div className='flex items-center justify-between px-4 py-2 border-b border-base-200 bg-base-100/50 flex-wrap gap-2'>
-				<div className='flex items-center gap-1 flex-wrap'>
+			<div className='flex items-center justify-between px-2 md:px-4 py-1.5 md:py-2 border-b border-base-200 bg-base-100/50 overflow-x-auto scrollbar-hide'>
+				<div className='flex items-center gap-0.5 md:gap-1 flex-nowrap md:flex-wrap min-w-max md:min-w-0'>
 					<ToolbarButton
-						icon={<Bold className='w-5 h-5' />}
+						icon={<Bold className='w-4 h-4 md:w-5 md:h-5' />}
 						onClick={() => toggleMark('**', '**')}
 						tooltip='加粗 (Ctrl+B)'
 					/>
 					<ToolbarButton
-						icon={<Italic className='w-5 h-5' />}
+						icon={<Italic className='w-4 h-4 md:w-5 md:h-5' />}
 						onClick={() => toggleMark('*', '*')}
 						tooltip='斜体 (Ctrl+I)'
 					/>
 					<ToolbarButton
-						icon={<Strikethrough className='w-5 h-5' />}
+						icon={<Strikethrough className='w-4 h-4 md:w-5 md:h-5' />}
 						onClick={() => toggleMark('~~', '~~')}
 						tooltip='删除线 (Ctrl+Shift+X)'
 					/>
 					<ToolbarDivider />
 					<ToolbarButton
-						icon={<Heading1 className='w-5 h-5' />}
+						icon={<Heading1 className='w-4 h-4 md:w-5 md:h-5' />}
 						onClick={() => insertLinePrefix('# ')}
 						tooltip='一级标题'
 					/>
 					<ToolbarButton
-						icon={<Heading2 className='w-5 h-5' />}
+						icon={<Heading2 className='w-4 h-4 md:w-5 md:h-5' />}
 						onClick={() => insertLinePrefix('## ')}
 						tooltip='二级标题'
 					/>
 					<ToolbarButton
-						icon={<Heading3 className='w-5 h-5' />}
+						icon={<Heading3 className='w-4 h-4 md:w-5 md:h-5' />}
 						onClick={() => insertLinePrefix('### ')}
 						tooltip='三级标题'
 					/>
 					<ToolbarDivider />
 					<ToolbarButton
-						icon={<Link className='w-5 h-5' />}
+						icon={<Link className='w-4 h-4 md:w-5 md:h-5' />}
 						onClick={() => {
 							const textarea = textareaRef.current
 							const currentValue = textarea?.value || form.md
@@ -317,12 +317,12 @@ export function WriteEditor() {
 						tooltip='链接 (Ctrl+K)'
 					/>
 					<ToolbarButton
-						icon={<Image className='w-5 h-5' />}
+						icon={<Image className='w-4 h-4 md:w-5 md:h-5' />}
 						onClick={() => insertTemplate('![](url)', 'url')}
 						tooltip='图片'
 					/>
 					<ToolbarButton
-						icon={<Code className='w-5 h-5' />}
+						icon={<Code className='w-4 h-4 md:w-5 md:h-5' />}
 						onClick={() => {
 							const textarea = textareaRef.current
 							const start = textarea?.selectionStart || 0
@@ -334,43 +334,43 @@ export function WriteEditor() {
 					/>
 					<ToolbarDivider />
 					<ToolbarButton
-						icon={<List className='w-5 h-5' />}
+						icon={<List className='w-4 h-4 md:w-5 md:h-5' />}
 						onClick={() => insertLinePrefix('- ')}
 						tooltip='无序列表'
 					/>
 					<ToolbarButton
-						icon={<ListOrdered className='w-5 h-5' />}
+						icon={<ListOrdered className='w-4 h-4 md:w-5 md:h-5' />}
 						onClick={() => insertLinePrefix('1. ')}
 						tooltip='有序列表'
 					/>
 					<ToolbarButton
-						icon={<CheckSquare className='w-5 h-5' />}
+						icon={<CheckSquare className='w-4 h-4 md:w-5 md:h-5' />}
 						onClick={() => insertLinePrefix('- [ ] ')}
 						tooltip='任务列表'
 					/>
 					<ToolbarButton
-						icon={<Quote className='w-5 h-5' />}
+						icon={<Quote className='w-4 h-4 md:w-5 md:h-5' />}
 						onClick={() => insertLinePrefix('> ')}
 						tooltip='引用 (Ctrl+Shift+.)'
 					/>
 					<ToolbarDivider />
 					<ToolbarButton
-						icon={<Table className='w-5 h-5' />}
+						icon={<Table className='w-4 h-4 md:w-5 md:h-5' />}
 						onClick={() =>
 							insertText('\n| 列1 | 列2 | 列3 |\n| --- | --- | --- |\n| 内容 | 内容 | 内容 |\n')
 						}
 						tooltip='表格'
 					/>
 					<ToolbarButton
-						icon={<Minus className='w-5 h-5' />}
+						icon={<Minus className='w-4 h-4 md:w-5 md:h-5' />}
 						onClick={() => insertText('\n---\n')}
 						tooltip='分割线'
 					/>
 				</div>
 
-				<div className='flex items-center gap-1'>
+				<div className='flex items-center gap-0.5 md:gap-1'>
 					<ToolbarButton
-						icon={isInlinePreview ? <Eye className='w-5 h-5' /> : <EyeOff className='w-5 h-5' />}
+						icon={isInlinePreview ? <Eye className='w-4 h-4 md:w-5 md:h-5' /> : <EyeOff className='w-4 h-4 md:w-5 md:h-5' />}
 						onClick={toggleInlinePreview}
 						tooltip={isInlinePreview ? '隐藏内联预览' : '显示内联预览'}
 						active={isInlinePreview}
@@ -378,29 +378,31 @@ export function WriteEditor() {
 				</div>
 			</div>
 
-			<div className='relative flex-1 flex flex-col min-h-[600px]'>
+			<div className='relative flex-1 flex flex-col min-h-[400px] md:min-h-[600px]'>
 				<textarea
 					ref={textareaRef}
 					placeholder='Markdown 内容...'
-					className='textarea textarea-bordered h-full w-full flex-1 resize-none rounded-none bg-base-100 p-6 text-base leading-relaxed focus:textarea-primary transition-all font-mono'
+					className='textarea textarea-bordered h-full w-full flex-1 resize-none rounded-none bg-base-100 p-4 md:p-6 text-sm md:text-base leading-relaxed focus:textarea-primary transition-all font-mono'
 					value={form.md}
 					onChange={e => updateForm({ md: e.target.value })}
 					onKeyDown={handleKeyDown}
 					onPaste={handlePaste}
 				/>
-				<div className='absolute bottom-4 right-4 flex items-center gap-2 text-xs text-base-content/40 bg-base-100/80 px-3 py-1 rounded-full'>
+				<div className='absolute bottom-3 md:bottom-4 right-3 md:right-4 flex items-center gap-2 text-xs text-base-content/40 bg-base-100/80 px-2 md:px-3 py-1 rounded-full'>
 					<Sparkles className='w-3 h-3' />
 					<span>{form.md.length} 字符</span>
 				</div>
 			</div>
 
-			<div className='px-4 py-2 border-t border-base-200 bg-base-100/50 flex items-center justify-between text-xs text-base-content/50 flex-wrap gap-2'>
-				<span>支持 Markdown 语法 · 粘贴图片自动上传</span>
-				<div className='flex items-center gap-3 flex-wrap'>
-					<span className='font-mono'>Ctrl+B 加粗</span>
-					<span className='font-mono'>Ctrl+I 斜体</span>
-					<span className='font-mono'>Ctrl+K 链接</span>
-					<span className='font-mono'>Ctrl+E 代码块</span>
+			<div className='hidden md:block px-4 py-2 border-t border-base-200 bg-base-100/50'>
+				<div className='flex items-center justify-between text-xs text-base-content/50 flex-wrap gap-2'>
+					<span>支持 Markdown 语法 · 粘贴图片自动上传</span>
+					<div className='flex items-center gap-3 flex-wrap'>
+						<span className='font-mono'>Ctrl+B 加粗</span>
+						<span className='font-mono'>Ctrl+I 斜体</span>
+						<span className='font-mono'>Ctrl+K 链接</span>
+						<span className='font-mono'>Ctrl+E 代码块</span>
+					</div>
 				</div>
 			</div>
 		</motion.div>

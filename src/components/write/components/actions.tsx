@@ -4,13 +4,14 @@ import { toast } from 'sonner'
 import { useWriteStore } from '../stores/write-store'
 import { usePreviewStore } from '../stores/preview-store'
 import { usePublish } from '../hooks/use-publish'
-import { Eye, Monitor } from 'lucide-react'
+import { Eye, Monitor, FileText, Trash2, X, MoreVertical } from 'lucide-react'
 
 export function WriteActions() {
 	const { loading, mode, form, loadBlogForEdit, originalSlug, updateForm } = useWriteStore()
 	const { openPreview, isInlinePreview, toggleInlinePreview } = usePreviewStore()
 	const { isAuth, onChoosePrivateKey, onPublish, onDelete } = usePublish()
 	const [saving, setSaving] = useState(false)
+	const [menuOpen, setMenuOpen] = useState(false)
 	const keyInputRef = useRef<HTMLInputElement>(null)
 	const mdInputRef = useRef<HTMLInputElement>(null)
 
@@ -100,83 +101,132 @@ export function WriteActions() {
 			/>
 			<input ref={mdInputRef} type='file' accept='.md' className='hidden' onChange={handleMdFileChange} />
 
-			<ul className='absolute top-4 right-6 flex items-center gap-2'>
-				{mode === 'edit' && (
-					<>
-						<motion.div initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }} className='flex items-center gap-2'>
+			<div className='absolute top-2 md:top-4 right-2 md:right-6 left-2 md:left-6 flex items-center justify-between gap-2'>
+				<div className='flex items-center gap-1.5'>
+					{mode === 'edit' && (
+						<motion.div initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }} className='hidden md:flex items-center gap-2'>
 							<div className='rounded-lg border bg-blue-50 px-4 py-2 text-sm text-blue-700'>编辑模式</div>
 						</motion.div>
+					)}
+				</div>
+
+				<div className='flex items-center gap-1 md:gap-2'>
+					<motion.button
+						initial={{ opacity: 0, scale: 0.6 }}
+						animate={{ opacity: 1, scale: 1 }}
+						whileHover={{ scale: 1.05 }}
+						whileTap={{ scale: 0.95 }}
+						className='btn btn-xs md:btn-sm btn-ghost rounded-lg md:rounded-xl'
+						disabled={loading}
+						onClick={openPreview}
+						title='全屏预览'>
+						<Monitor className="w-3.5 h-3.5 md:w-4 md:h-4" />
+						<span className='hidden md:inline ml-1'>全屏</span>
+					</motion.button>
+
+					<motion.button
+						initial={{ opacity: 0, scale: 0.6 }}
+						animate={{ opacity: 1, scale: 1 }}
+						whileHover={{ scale: 1.05 }}
+						whileTap={{ scale: 0.95 }}
+						className={`btn btn-xs md:btn-sm rounded-lg md:rounded-xl ${isInlinePreview ? 'btn-primary/20 text-primary' : 'btn-ghost'}`}
+						disabled={loading}
+						onClick={toggleInlinePreview}
+						title={isInlinePreview ? '关闭双栏预览' : '开启双栏预览'}>
+						<Eye className="w-3.5 h-3.5 md:w-4 md:h-4" />
+						<span className='hidden md:inline ml-1'>{isInlinePreview ? '双栏中' : '双栏'}</span>
+					</motion.button>
+
+					<div className='md:hidden relative'>
+						<button
+							className='btn btn-xs btn-ghost rounded-lg'
+							onClick={() => setMenuOpen(!menuOpen)}
+							title='更多操作'>
+							<MoreVertical className='w-4 h-4' />
+						</button>
+						{menuOpen && (
+							<>
+								<div className='fixed inset-0 z-40' onClick={() => setMenuOpen(false)} />
+								<div className='absolute right-0 top-full mt-1 z-50 bg-base-100 border border-base-200 rounded-xl shadow-lg py-1 min-w-[120px]'>
+									{mode === 'edit' && (
+										<>
+											<button
+												onClick={() => { handleDelete(); setMenuOpen(false) }}
+												className='flex items-center gap-2 w-full px-3 py-2 text-left text-xs hover:bg-base-200 text-error'>
+												<Trash2 className='w-3.5 h-3.5' />
+												删除文章
+											</button>
+											<button
+												onClick={() => { handleCancel(); setMenuOpen(false) }}
+												className='flex items-center gap-2 w-full px-3 py-2 text-left text-xs hover:bg-base-200'>
+												<X className='w-3.5 h-3.5' />
+												取消
+											</button>
+										</>
+									)}
+									<button
+										onClick={() => { handleImportMd(); setMenuOpen(false) }}
+										className='flex items-center gap-2 w-full px-3 py-2 text-left text-xs hover:bg-base-200'>
+										<FileText className='w-3.5 h-3.5' />
+										导入 MD
+									</button>
+								</div>
+							</>
+						)}
+					</div>
+
+					<div className='hidden md:flex items-center gap-2'>
+						{mode === 'edit' && (
+							<>
+								<motion.button
+									initial={{ opacity: 0, scale: 0.6 }}
+									animate={{ opacity: 1, scale: 1 }}
+									whileHover={{ scale: 1.05 }}
+									whileTap={{ scale: 0.95 }}
+									className='btn btn-sm btn-error btn-outline rounded-xl'
+									disabled={loading}
+									onClick={handleDelete}
+									title='删除文章'>
+									删除
+								</motion.button>
+
+								<motion.button
+									whileHover={{ scale: 1.05 }}
+									whileTap={{ scale: 0.95 }}
+									onClick={handleCancel}
+									disabled={saving}
+									className='btn btn-sm btn-ghost rounded-xl'
+									title='取消'>
+									取消
+								</motion.button>
+							</>
+						)}
 
 						<motion.button
 							initial={{ opacity: 0, scale: 0.6 }}
 							animate={{ opacity: 1, scale: 1 }}
 							whileHover={{ scale: 1.05 }}
 							whileTap={{ scale: 0.95 }}
-							className='btn btn-sm btn-error btn-outline rounded-xl'
+							className='btn btn-sm btn-ghost rounded-xl'
 							disabled={loading}
-							onClick={handleDelete}>
-							删除
+							onClick={handleImportMd}
+							title='导入 Markdown'>
+							导入 MD
 						</motion.button>
+					</div>
 
-						<motion.button
-							whileHover={{ scale: 1.05 }}
-							whileTap={{ scale: 0.95 }}
-							onClick={handleCancel}
-							disabled={saving}
-							className='btn btn-sm btn-ghost rounded-xl'>
-							取消
-						</motion.button>
-					</>
-				)}
-
-				<motion.button
-					initial={{ opacity: 0, scale: 0.6 }}
-					animate={{ opacity: 1, scale: 1 }}
-					whileHover={{ scale: 1.05 }}
-					whileTap={{ scale: 0.95 }}
-					className='btn btn-sm btn-ghost rounded-xl'
-					disabled={loading}
-					onClick={handleImportMd}>
-					导入 MD
-				</motion.button>
-
-				<motion.button
-					initial={{ opacity: 0, scale: 0.6 }}
-					animate={{ opacity: 1, scale: 1 }}
-					whileHover={{ scale: 1.05 }}
-					whileTap={{ scale: 0.95 }}
-					className={`btn btn-sm rounded-xl xl:flex ${isInlinePreview ? 'btn-primary/20 text-primary' : 'btn-ghost'} hidden`}
-					disabled={loading}
-					onClick={toggleInlinePreview}
-					title={isInlinePreview ? '关闭双栏预览' : '开启双栏预览'}>
-					<Eye className="w-4 h-4 mr-1" />
-					{isInlinePreview ? '双栏中' : '双栏'}
-				</motion.button>
-
-				<motion.button
-					initial={{ opacity: 0, scale: 0.6 }}
-					animate={{ opacity: 1, scale: 1 }}
-					whileHover={{ scale: 1.05 }}
-					whileTap={{ scale: 0.95 }}
-					className='btn btn-sm btn-ghost rounded-xl'
-					disabled={loading}
-					onClick={openPreview}
-					title='全屏预览'>
-					<Monitor className="w-4 h-4 mr-1" />
-					全屏
-				</motion.button>
-
-				<motion.button
-					initial={{ opacity: 0, scale: 0.6 }}
-					animate={{ opacity: 1, scale: 1 }}
-					whileHover={{ scale: 1.05 }}
-					whileTap={{ scale: 0.95 }}
-					className='btn btn-sm btn-primary rounded-xl px-6 shadow-lg shadow-primary/20'
-					disabled={loading}
-					onClick={handleImportOrPublish}>
-					{buttonText}
-				</motion.button>
-			</ul>
+					<motion.button
+						initial={{ opacity: 0, scale: 0.6 }}
+						animate={{ opacity: 1, scale: 1 }}
+						whileHover={{ scale: 1.05 }}
+						whileTap={{ scale: 0.95 }}
+						className='btn btn-xs md:btn-sm btn-primary rounded-lg md:rounded-xl px-3 md:px-6 shadow-lg shadow-primary/20 font-semibold'
+						disabled={loading}
+						onClick={handleImportOrPublish}>
+						{buttonText}
+					</motion.button>
+				</div>
+			</div>
 		</>
 	)
 }

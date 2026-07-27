@@ -96,18 +96,18 @@ export function CoverSection({ delay = 0 }: CoverSectionProps) {
 	}
 
 	return (
-		<motion.div 
-			initial={{ opacity: 0, y: 20 }} 
-			animate={{ opacity: 1, y: 0 }} 
-			transition={{ delay }} 
+		<motion.div
+			initial={{ opacity: 0, y: 20 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ delay }}
 			className='bg-base-100 rounded-2xl border border-base-200 shadow-sm hover:shadow-md transition-shadow overflow-hidden'
 		>
-			<div className='flex items-center justify-between px-4 py-3 bg-gradient-to-r from-primary/10 to-transparent border-b border-base-200'>
+			<div className='flex items-center justify-between px-3 md:px-4 py-2.5 md:py-3 bg-gradient-to-r from-primary/10 to-transparent border-b border-base-200'>
 				<div className='flex items-center gap-2'>
-					<div className='w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center'>
-						<ImagePlus className='w-4 h-4 text-primary' />
+					<div className='w-7 h-7 md:w-8 md:h-8 rounded-lg bg-primary/15 flex items-center justify-center'>
+						<ImagePlus className='w-3.5 h-3.5 md:w-4 md:h-4 text-primary' />
 					</div>
-					<h3 className='text-sm font-semibold text-base-content'>封面</h3>
+					<h3 className='text-xs md:text-sm font-semibold text-base-content'>封面</h3>
 				</div>
 				{cover && (
 					<button 
@@ -120,10 +120,10 @@ export function CoverSection({ delay = 0 }: CoverSectionProps) {
 				)}
 			</div>
 
-			<div className='p-4'>
+			<div className='p-3 md:p-4'>
 				<input ref={fileInputRef} type='file' accept='image/*' className='hidden' onChange={handleFileChange} />
 				<div
-					className='relative group h-[140px] overflow-hidden rounded-xl border-2 border-dashed border-base-300 hover:border-primary/50 hover:bg-base-200/30 transition-all cursor-pointer'
+					className='relative group h-[100px] md:h-[140px] overflow-hidden rounded-xl border-2 border-dashed border-base-300 hover:border-primary/50 hover:bg-base-200/30 transition-all cursor-pointer'
 					onDragOver={e => e.preventDefault()}
 					onDrop={handleCoverDrop}
 					onClick={handleClickUpload}
@@ -132,36 +132,36 @@ export function CoverSection({ delay = 0 }: CoverSectionProps) {
 						<>
 							<img src={coverPreviewUrl} alt='cover preview' className='h-full w-full object-cover' />
 							<div className='absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all flex items-center justify-center'>
-								<span className='text-sm text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 px-3 py-1.5 rounded-lg'>
+								<span className='text-xs md:text-sm text-white font-medium opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 px-2 md:px-3 py-1 md:py-1.5 rounded-lg'>
 									点击更换
 								</span>
 							</div>
 						</>
 					) : (
 						<div className='flex flex-col items-center justify-center h-full text-base-content/30 group-hover:text-primary/50 transition-colors'>
-							<ImagePlus className='w-8 h-8 mb-2' />
-							<span className='text-xs'>点击或拖入图片</span>
+							<ImagePlus className='w-6 h-6 md:w-8 md:h-8 mb-1 md:mb-2' />
+							<span className='text-[10px] md:text-xs'>点击或拖入图片</span>
 						</div>
 					)}
 				</div>
 
-				<div className='flex gap-2 mt-3'>
+				<div className='flex gap-2 mt-2 md:mt-3'>
 					<div className='relative flex-1'>
-						<Link2 className='absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-base-content/40' />
+						<Link2 className='absolute left-2 md:left-2.5 top-1/2 -translate-y-1/2 w-3 md:w-3.5 h-3 md:h-3.5 text-base-content/40' />
 						<input
 							type="text"
-							className="input input-sm input-bordered w-full pl-8 pr-2 bg-base-100 focus:input-primary text-xs h-9"
+							className="input input-sm input-bordered w-full pl-7 md:pl-8 pr-2 bg-base-100 focus:input-primary text-[10px] md:text-xs h-8 md:h-9"
 							placeholder="粘贴图片 URL"
 							value={urlInput}
 							onChange={e => setUrlInput(e.target.value)}
 							onKeyDown={e => e.key === 'Enter' && handleUrlSubmit()}
 						/>
 					</div>
-					<button 
-						className="btn btn-sm btn-primary h-9 px-3 min-w-[3rem]" 
+					<button
+						className="btn btn-sm btn-primary h-8 md:h-9 px-2.5 md:px-3 min-w-[2.5rem] md:min-w-[3rem]"
 						onClick={handleUrlSubmit}
 					>
-						<span className="text-xs">确定</span>
+						<span className="text-[10px] md:text-xs">确定</span>
 					</button>
 				</div>
 			</div>

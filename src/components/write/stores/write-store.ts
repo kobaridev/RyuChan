@@ -5,6 +5,15 @@ import { loadBlog } from '@/lib/load-blog'
 import type { PublishForm, ImageItem } from '../types'
 import { formatDateTimeLocal } from '@/lib/utils'
 
+function generateSlug(): string {
+	const date = new Date()
+	const y = date.getFullYear()
+	const m = String(date.getMonth() + 1).padStart(2, '0')
+	const d = String(date.getDate()).padStart(2, '0')
+	const rand = Math.random().toString(36).slice(2, 7)
+	return `${y}${m}${d}-${rand}`
+}
+
 type WriteStore = {
 	// Mode state
 	mode: 'create' | 'edit'
@@ -38,8 +47,8 @@ type WriteStore = {
 	reset: () => void
 }
 
-const initialForm: PublishForm = {
-	slug: '',
+const initialForm = (): PublishForm => ({
+	slug: generateSlug(),
 	title: '',
 	md: '',
 	tags: [],
@@ -48,7 +57,7 @@ const initialForm: PublishForm = {
 	hidden: false,
 	categories: [],
 	fileFormat: 'md' // 默认使用md格式
-}
+})
 
 export const useWriteStore = create<WriteStore>((set, get) => ({
 	// Mode state
@@ -58,7 +67,7 @@ export const useWriteStore = create<WriteStore>((set, get) => ({
 	setMode: (mode, originalSlug, originalFileFormat) => set({ mode, originalSlug: originalSlug || null, originalFileFormat }),
 
 	// Form state
-	form: { ...initialForm },
+	form: initialForm(),
 	updateForm: updates => set(state => ({ form: { ...state.form, ...updates } })),
 	setForm: form => set({ form }),
 
@@ -219,7 +228,7 @@ export const useWriteStore = create<WriteStore>((set, get) => ({
 			mode: 'create',
 			originalSlug: null,
 			originalFileFormat: null,
-			form: { ...initialForm, date: formatDateTimeLocal() },
+			form: { ...initialForm(), date: formatDateTimeLocal() },
 			images: [],
 			cover: null
 		})

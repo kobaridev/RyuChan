@@ -53,61 +53,52 @@ const socialLinks = [
   </div>  
   
   <div class="card bg-base-200 text-base-content overflow-visible border border-base-300">
-    <div class="card-body relative p-4 sm:p-6 lg:p-8">
-      <div class="flex flex-col sm:flex-row gap-6 relative">
+    <div class="card-body relative p-3 sm:p-4">
+      <div class="flex flex-col sm:flex-row gap-4 relative">
         <!-- Left: Article Info -->
-        <div class="flex-1 min-w-0 space-y-3 relative z-10">
-          <h3 class="text-lg sm:text-xl lg:text-2xl font-bold truncate">{title}</h3>
+        <div class="flex-1 min-w-0 space-y-2 relative z-10">
+          <h3 class="text-base sm:text-lg font-bold truncate">{title}</h3>
           <a
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-xs sm:text-sm text-base-content/60 hover:text-primary transition-colors break-all inline-block max-w-full"
+            class="text-xs text-base-content/60 hover:text-primary transition-colors break-all inline-block max-w-full"
           >
             {url}
           </a>
 
           <!-- Metadata Rows -->
-          <div class="space-y-2 text-xs sm:text-sm">
-            <div class="flex gap-8">
-              <span class="text-base-content/60">作者</span>
-              <span class="font-medium">{USER_NAME}</span>
-            </div>
+          <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs">
+            <span class="text-base-content/60">作者 <span class="font-medium text-base-content">{USER_NAME}</span></span>
             {displayDate && (
-              <div class="flex gap-8">
-                <span class="text-base-content/60">发布于</span>
-                <span class="font-medium">{displayDate}</span>
-              </div>
+              <span class="text-base-content/60">发布于 <span class="font-medium text-base-content">{displayDate}</span></span>
             )}
-            <div class="flex gap-8">
-              <span class="text-base-content/60">许可协议</span>
-              <a
-                href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="font-medium text-primary hover:text-primary/80 transition-colors"
-              >
-                CC BY-NC-SA 4.0
-              </a>
-            </div>
+            <a
+              href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-medium text-primary hover:text-primary/80 transition-colors"
+            >
+              CC BY-NC-SA 4.0
+            </a>
           </div>
 
           <!-- Stats Row -->
-          <div class="flex flex-wrap gap-3 text-xs text-base-content/70 pt-2">
+          <div class="flex flex-wrap gap-3 text-xs text-base-content/70 pt-1">
             {word && time && (
               <span class="flex items-center gap-1">
-                <Icon name="lucide:book-open" class="h-3.5 w-3.5" />
+                <Icon name="lucide:book-open" class="h-3 w-3" />
                 {word} {t("label.wordCount")} · {time} {t("label.readTime")}
               </span>
             )}
             {slug && umamiConfig.enable && (
               <>
                 <span class="flex items-center gap-1">
-                  <Icon name="lucide:eye" class="h-3.5 w-3.5" />
+                  <Icon name="lucide:eye" class="h-3 w-3" />
                   <span id="license-page-views">-</span>
                 </span>
                 <span class="flex items-center gap-1">
-                  <Icon name="lucide:user" class="h-3.5 w-3.5" />
+                  <Icon name="lucide:user" class="h-3 w-3" />
                   <span id="license-page-visitors">-</span>
                 </span>
               </>
@@ -116,25 +107,25 @@ const socialLinks = [
         </div>
 
         <!-- Right: CC Watermark -->
-        <div class="hidden sm:flex items-center justify-center w-40 lg:w-48 shrink-0 relative z-0 opacity-20">
-          <Icon name="ri:creative-commons-line" class="w-32 lg:w-40 h-auto text-base-content" />
+        <div class="hidden sm:flex items-center justify-center w-16 lg:w-20 shrink-0 relative z-0 opacity-15">
+          <Icon name="ri:creative-commons-line" class="w-14 lg:w-16 h-auto text-base-content" />
         </div>
       </div>
 
       <!-- Bottom bar: Categories/Tags + Actions -->
-      <div class="mt-5 pt-4 border-t border-base-300 space-y-3">
+      <div class="mt-3 pt-2 border-t border-base-300 space-y-2">
         <PostFilter categories={categories} tags={tags} />
-        <div class="flex justify-between items-center flex-wrap gap-3">
+        <div class="flex justify-between items-center flex-wrap gap-2">
           <div class="text-xs text-base-content/50">
             © {USER_NAME}
           </div>
           <div class="flex gap-2">
-            <button class="btn btn-sm btn-outline btn-success" onclick="reward_modal.showModal()">
-              <Icon name="ri:hand-heart-line" class="w-4 h-4" />
+            <button class="btn btn-xs btn-outline btn-success" onclick="reward_modal.showModal()">
+              <Icon name="ri:hand-heart-line" class="w-3.5 h-3.5" />
               赞赏
             </button>
-            <button class="btn btn-sm btn-outline btn-primary" onclick="share_modal.showModal()">
-              <Icon name="ri:share-line" class="w-4 h-4" />
+            <button class="btn btn-xs btn-outline btn-primary" onclick="share_modal.showModal()">
+              <Icon name="ri:share-line" class="w-3.5 h-3.5" />
               {t("label.share")}
             </button>
           </div>

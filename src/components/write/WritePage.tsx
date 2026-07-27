@@ -10,7 +10,6 @@ import { InlinePreview } from './components/inline-preview'
 import { useEffect, useState } from 'react'
 import { Toaster } from 'sonner'
 import { useLoadBlog } from './hooks/use-load-blog'
-import { Eye, EyeOff } from 'lucide-react'
 
 type WritePageProps = {
     categories?: string[]
@@ -18,7 +17,7 @@ type WritePageProps = {
 
 export default function WritePage({ categories = [] }: WritePageProps) {
     const { form, cover, reset } = useWriteStore()
-    const { isPreview, closePreview, isInlinePreview, toggleInlinePreview } = usePreviewStore()
+    const { isPreview, closePreview, isInlinePreview } = usePreviewStore()
     const [slug, setSlug] = useState<string | null>(null)
 
     useEffect(() => {
@@ -67,7 +66,7 @@ export default function WritePage({ categories = [] }: WritePageProps) {
                 <WritePreview form={form} coverPreviewUrl={coverPreviewUrl} onClose={closePreview} slug={slug || undefined} />
             ) : (
                 <>
-                    <div className='flex flex-col h-full justify-center gap-6 px-4 md:px-6 pt-24 pb-12 max-w-[1920px] mx-auto w-full'>
+                    <div className='flex flex-col h-full justify-center gap-4 md:gap-6 px-3 md:px-6 pt-20 md:pt-24 pb-12 max-w-[1920px] mx-auto w-full'>
                         <div className='flex flex-col xl:flex-row gap-6 w-full'>
                             <div className={`flex-1 min-w-0 ${isInlinePreview ? 'xl:w-1/2' : 'xl:w-full'}`}>
                                 <WriteEditor />
@@ -82,14 +81,6 @@ export default function WritePage({ categories = [] }: WritePageProps) {
                     </div>
 
                     <WriteActions />
-
-                    <button
-                        onClick={toggleInlinePreview}
-                        className='fixed bottom-6 right-6 btn btn-circle btn-primary shadow-lg lg:hidden z-40'
-                        title={isInlinePreview ? '关闭双栏预览' : '开启双栏预览'}
-                    >
-                        {isInlinePreview ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
-                    </button>
                 </>
             )}
         </>
