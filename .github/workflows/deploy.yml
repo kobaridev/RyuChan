@@ -25,6 +25,19 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Install dependencies
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: pnpm install
+        run: pnpm install --frozen-lockfile
+
       - name: Clone content repo
         env:
           CONTENT_TOKEN: ${{ secrets.CONTENT_TOKEN }}
@@ -48,19 +61,6 @@ jobs:
 
       - name: Prebuild content sync
         run: node scripts/prebuild-content.mjs
-
-      - name: Install dependencies
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: pnpm
-          cache-dependency-path: pnpm-lock.yaml
-      - name: pnpm install
-        run: pnpm install --frozen-lockfile
 
       - name: Build
         run: pnpm build
