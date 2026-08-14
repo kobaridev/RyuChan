@@ -1,0 +1,73 @@
+name: Deploy to Cloudflare Worker
+
+on:
+  push:
+    branches: [main, dev]
+  repository_dispatch:
+    types: [content-update]
+  workflow_dispatch:
+
+concurrency:
+  group: cloudflare-worker
+  cancel-in-progress: true
+
+env:
+  PUBLIC_CONTENT_REPO_OWNER: kobaridev
+  PUBLIC_CONTENT_REPO: RyuChan-Content
+  PUBLIC_CONTENT_REPO_BRANCH: main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout frontend repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Clone content repo
+        env:
+          CONTENT_TOKEN: ${{ secrets.CONTENT_TOKEN }}
+        run: |
+          CONTENT_DIR="node_modules/.cache/${{ env.PUBLIC_CONTENT_REPO }}"
+          if [ ! -d "$CONTENT_DIR" ]; then
+            mkdir -p "$(dirname "$CONTENT_DIR")"
+            TOKEN="${{ secrets.CONTENT_TOKEN }}"
+            if [ -n "$TOKEN" ]; then
+              TOKEN="${TOKEN//$'\n'/}"
+              git clone --depth 1 --branch "${{ env.PUBLIC_CONTENT_REPO_BRANCH }}" \
+                "https://x-access-token:${TOKEN}@github.com/${{ env.PUBLIC_CONTENT_REPO_OWNER }}/${{ env.PUBLIC_CONTENT_REPO }}.git" \
+                "$CONTENT_DIR"
+            else
+              git clone --depth 1 --branch "${{ env.PUBLIC_CONTENT_REPO_BRANCH }}" \
+                "https://github.com/${{ env.PUBLIC_CONTENT_REPO_OWNER }}/${{ env.PUBLIC_CONTENT_REPO }}.git" \
+                "$CONTENT_DIR"
+            fi
+          fi
+          echo "CONTENT_REPO=$CONTENT_DIR" >> $GITHUB_ENV
+
+      - name: Prebuild content sync
+        run: node scripts/prebuild-content.mjs
+
+      - name: Build
+        run: pnpm build:worker
+
+      - name: Deploy to Cloudflare Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
