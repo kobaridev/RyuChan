@@ -15,9 +15,9 @@
 
 ## 环境变量
 
-- `PUBLIC_CONTENT_REPO_OWNER`: 内容仓 owner（默认 kobaridev）
-- `PUBLIC_CONTENT_REPO`: 内容仓名称（默认 RyuChan-Content）
-- `PUBLIC_CONTENT_REPO_BRANCH`: 内容仓分支（默认 main）
+- `CONTENT_REPO_OWNER`: 内容仓 owner（默认 kobaridev）
+- `CONTENT_REPO_NAME`: 内容仓名称（默认 RyuChan-Content）
+- `CONTENT_REPO_BRANCH`: 内容仓分支（默认 main）
 
 ## 使用方式
 

@@ -7,7 +7,7 @@
  * 内容仓获取优先级：
  *   1. 环境变量 CONTENT_REPO（本地开发时指定绝对路径，最快）
  *   2. 本地相对路径 ../ryuchan-content
- *   3. 从 GitHub clone（支持私有仓，需要 PUBLIC_CONTENT_TOKEN 或 GITHUB_TOKEN）
+ *   3. 从 GitHub clone（支持私有仓，需要 CONTENT_TOKEN 或 GITHUB_TOKEN）
  */
 
 import { execSync } from 'child_process';
@@ -41,14 +41,14 @@ if (!CONTENT_REPO) {
   if (fs.existsSync(localPath)) {
     CONTENT_REPO = localPath;
   } else {
-    // 尝试从 GitHub clone
-    const OWNER = process.env.PUBLIC_CONTENT_REPO_OWNER || 'kobaridev';
-    const REPO  = process.env.PUBLIC_CONTENT_REPO || 'RyuChan-Content';
-    const BRANCH = process.env.PUBLIC_CONTENT_REPO_BRANCH || 'main';
-    const CLONE_URL = process.env.PUBLIC_CONTENT_REPO_URL || `https://github.com/${OWNER}/${REPO}.git`;
+    // 尝试从 GitHub clone（env 由 workflow 或用户设置）
+    const OWNER = process.env.CONTENT_REPO_OWNER;
+    const REPO  = process.env.CONTENT_REPO_NAME;
+    const BRANCH = process.env.CONTENT_REPO_BRANCH || 'main';
+    const CLONE_URL = process.env.CONTENT_REPO_URL || `https://github.com/${OWNER}/${REPO}.git`;
 
-    // 获取凭据：优先 PUBLIC_CONTENT_TOKEN，其次 GITHUB_TOKEN（CI 环境）
-    const TOKEN = process.env.PUBLIC_CONTENT_TOKEN || process.env.GITHUB_TOKEN || '';
+    // 获取凭据：优先 CONTENT_TOKEN，其次 GITHUB_TOKEN（CI 环境）
+    const TOKEN = process.env.CONTENT_TOKEN || process.env.GITHUB_TOKEN || '';
     const CRED_URL = TOKEN
       ? `https://${TOKEN}@github.com/${OWNER}/${REPO}.git`
       : CLONE_URL;

@@ -12,9 +12,9 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  PUBLIC_CONTENT_REPO_OWNER: kobaridev
-  PUBLIC_CONTENT_REPO: RyuChan-Content
-  PUBLIC_CONTENT_REPO_BRANCH: main
+  CONTENT_REPO_OWNER: kobaridev
+  CONTENT_REPO_NAME: RyuChan-Content
+  CONTENT_REPO_BRANCH: main
 
 jobs:
   deploy:
@@ -42,18 +42,18 @@ jobs:
         env:
           CONTENT_TOKEN: ${{ secrets.CONTENT_TOKEN }}
         run: |
-          CONTENT_DIR="node_modules/.cache/${{ env.PUBLIC_CONTENT_REPO }}"
+          CONTENT_DIR="node_modules/.cache/${{ env.CONTENT_REPO_NAME }}"
           if [ ! -d "$CONTENT_DIR" ]; then
             mkdir -p "$(dirname "$CONTENT_DIR")"
             TOKEN="${{ secrets.CONTENT_TOKEN }}"
             if [ -n "$TOKEN" ]; then
               TOKEN="${TOKEN//$'\n'/}"
-              git clone --depth 1 --branch "${{ env.PUBLIC_CONTENT_REPO_BRANCH }}" \
-                "https://x-access-token:${TOKEN}@github.com/${{ env.PUBLIC_CONTENT_REPO_OWNER }}/${{ env.PUBLIC_CONTENT_REPO }}.git" \
+              git clone --depth 1 --branch "${{ env.CONTENT_REPO_BRANCH }}" \
+                "https://x-access-token:${TOKEN}@github.com/${{ env.CONTENT_REPO_OWNER }}/${{ env.CONTENT_REPO_NAME }}.git" \
                 "$CONTENT_DIR"
             else
-              git clone --depth 1 --branch "${{ env.PUBLIC_CONTENT_REPO_BRANCH }}" \
-                "https://github.com/${{ env.PUBLIC_CONTENT_REPO_OWNER }}/${{ env.PUBLIC_CONTENT_REPO }}.git" \
+              git clone --depth 1 --branch "${{ env.CONTENT_REPO_BRANCH }}" \
+                "https://github.com/${{ env.CONTENT_REPO_OWNER }}/${{ env.CONTENT_REPO_NAME }}.git" \
                 "$CONTENT_DIR"
             fi
           fi
@@ -66,8 +66,7 @@ jobs:
         run: pnpm build
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=ryuchan --branch=${{ github.ref_name }}
+        run: npx wrangler pages deploy dist --project-name=ryuchan --branch=${{ github.ref_name }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
