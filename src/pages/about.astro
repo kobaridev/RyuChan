@@ -39,7 +39,7 @@ const cfg = aboutConfig.default || aboutConfig;
           <p class="text-xl text-base-content/80 mb-4">{cfg.title}</p>
 
           <div class="flex flex-wrap gap-3 justify-center md:justify-start mb-6">
-            {cfg.links.map((link) => (
+            {cfg.links?.map((link) => (
               <a
                 href={link.href}
                 target={link.href.startsWith("http") ? "_blank" : "_self"}
@@ -54,7 +54,7 @@ const cfg = aboutConfig.default || aboutConfig;
           </div>
 
           <div class="text-base-content/80 leading-relaxed">
-            {cfg.description.map((desc) => (
+            {cfg.description?.map((desc) => (
               <p class={desc !== cfg.description[0] ? "mt-2" : ""}>{desc}</p>
             ))}
           </div>

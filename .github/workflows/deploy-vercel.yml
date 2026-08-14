@@ -67,7 +67,8 @@ jobs:
 
       - name: Deploy to Vercel
         run: |
-          if [ "${{ github.ref_name }}" = "main" ]; then
+          BRANCH="${{ github.event.client_payload.branch || github.ref_name }}"
+          if [ "${BRANCH}" = "main" ]; then
             npx vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
           else
             npx vercel deploy --yes --token=${{ secrets.VERCEL_TOKEN }}
