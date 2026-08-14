@@ -2,6 +2,15 @@
   "name": "ryuchan",
   "type": "module",
   "version": "2.0.0",
+  "packageManager": "pnpm@11.15.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp",
+      "unrs-resolver",
+      "workerd"
+    ]
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
