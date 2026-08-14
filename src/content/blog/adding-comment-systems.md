@@ -1,21 +1,20 @@
 ---
+slug: adding-comment-systems
 title: Adding Comment Systems to RyuChan
-description: >-
-  A comprehensive guide on how to integrate the Waline comment system into your
-  RyuChan blog
+description: A comprehensive guide on how to integrate the Waline comment system into
+  your RyuChan blog
 pubDate: 2025-04-15T00:00
 image: /image/image4.webp
-draft: false
-tags:
-  - RyuChan
-  - Comments
-  - Waline
-  - Astro
-categories:
-  - Documentation
 badge: Comment
+draft: false
+categories:
+- Documentation
+tags:
+- RyuChan
+- Comments
+- Waline
+- Astro
 ---
-
 ## Introduction
 
 RyuChan 博客现已支持通过配置文件集中管理评论系统，无需在页面手动引入组件或硬编码参数，只需在 `ryuchan.config.yaml` 中配置即可。

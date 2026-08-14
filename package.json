@@ -7,7 +7,7 @@
     "start": "astro dev",
     "check": "astro check",
     "prefetch:music": "node scripts/fetch-music-duration.mjs",
-    "prebuild": "node scripts/fetch-music-duration.mjs --progress",
+    "prebuild": "node scripts/prebuild-content.mjs && node scripts/fetch-music-duration.mjs --progress",
     "build": "astro build && npx pagefind --site ./dist",
     "build:worker": "astro build",
     "search:clean": "rimraf public/pagefind",

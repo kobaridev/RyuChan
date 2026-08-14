@@ -1,20 +1,20 @@
 ---
+slug: mathematics-examples
 title: Mathematical Formulas in Markdown
-description: >-
-  A demonstration of various mathematical formulas rendered using LaTeX within
-  Markdown.
+description: A demonstration of various mathematical formulas rendered using LaTeX
+  within Markdown.
 pubDate: 2025-05-31T00:00
 image: /image/image5.webp
+badge: ''
 draft: false
-tags:
-  - Markdown
-  - LaTeX
-  - Mathematics
 categories:
-  - Documentation
-  - Examples
+- Documentation
+- Examples
+tags:
+- Markdown
+- LaTeX
+- Mathematics
 ---
-
 This document serves as a test for rendering mathematical formulas in Markdown using `$$` delimiters.
 
 ## Basic Algebra

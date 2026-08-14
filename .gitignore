@@ -13,7 +13,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# # environment variables
+# environment variables
 .env
 .env.production
 
@@ -23,7 +23,7 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# pagefind
+# pagefind (build output)
 public/pagefind/
 
 # pnpm store
@@ -35,7 +35,23 @@ pnpm-store/
 !.dev.vars.example
 !.env.example
 
-
 # syncthing files
 *.syncthing*
 *.sync*
+
+# prebuild-generated files — source of truth is ryuchan-content,
+# these are reconstructed at build time by scripts/prebuild-content.mjs
+ryuchan.config.yaml
+src/content/blog/*.md
+src/content/blog/*.mdx
+src/data/friends.yaml
+src/data/projects.yaml
+src/data/navigation.yaml
+src/data/albums.json
+public/image/
+public/logo.png
+public/profile.png
+public/favicon.ico
+public/Alipay.jpg
+public/WeChat.jpg
+public/home.webp

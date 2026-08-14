@@ -1,0 +1,11 @@
+# 强制 LF 行尾，防止 Windows git core.autocrlf 将文件转为 CRLF
+# 这样跨平台 clone 后不会被误判为已修改
+* text=auto eol=lf
+
+# 二进制文件不处理行尾
+*.ico binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.zip binary
