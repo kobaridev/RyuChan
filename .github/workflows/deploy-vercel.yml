@@ -69,9 +69,9 @@ jobs:
         run: |
           BRANCH="${{ github.event.client_payload.branch || github.ref_name }}"
           if [ "${BRANCH}" = "main" ]; then
-            npx vercel deploy --prebuilt --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
+            npx vercel deploy --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
           else
-            npx vercel deploy --prebuilt --yes --token=${{ secrets.VERCEL_TOKEN }}
+            npx vercel deploy --yes --token=${{ secrets.VERCEL_TOKEN }}
           fi
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
