@@ -230,12 +230,22 @@ if (fs.existsSync(blogSrc)) {
   log(`文章同步: ${blogDst}`);
 }
 
-// 同步 about 页面内容
+// 同步 about 页面内容（注入 title 到 frontmatter）
 const aboutSrc = path.resolve(SRC_CONTENT, 'about/src');
 const aboutDst = path.resolve(ROOT, 'src/content/about');
 if (fs.existsSync(aboutSrc)) {
   if (fs.existsSync(aboutDst)) fs.rmSync(aboutDst, { recursive: true });
   copyDir(aboutSrc, aboutDst);
+
+  // 注入 title 到 index.md 的 frontmatter（内容仓的 about 页面无 frontmatter，title 在 config.yaml 中）
+  const aboutIndex = path.resolve(aboutDst, 'index.md');
+  if (fs.existsSync(aboutIndex)) {
+    const title = cfg.about?.page?.title || cfg.about?.title || 'About Me';
+    const content = fs.readFileSync(aboutIndex, 'utf8');
+    const frontmatter = `---\ntitle: "${title}"\n---\n`;
+    fs.writeFileSync(aboutIndex, frontmatter + content);
+  }
+
   log(`关于页同步: ${aboutDst}`);
 }
 
