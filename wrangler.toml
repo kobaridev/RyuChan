@@ -12,3 +12,9 @@ binding = "ASSETS"
 enabled = true
 head_sampling_rate = 1
 invocation_logs = true
+
+[env.dev]
+name = "ryuchan-dev"
+
+[env.main]
+name = "ryuchan"

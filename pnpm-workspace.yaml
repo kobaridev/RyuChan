@@ -1,9 +1,5 @@
-packages:
-  - "."
-
-onlyBuiltDependencies:
-  - esbuild
-  - sharp
-  - swup
-  - unrs-resolver
-  - workerd
+allowBuilds:
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
+  workerd: true
