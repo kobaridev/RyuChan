@@ -42,10 +42,16 @@ if (!CONTENT_REPO) {
     CONTENT_REPO = localPath;
   } else {
     // 尝试从 GitHub clone（env 由 workflow 或用户设置）
-    const OWNER = process.env.CONTENT_REPO_OWNER;
-    const REPO  = process.env.CONTENT_REPO_NAME;
-    const BRANCH = process.env.CONTENT_REPO_BRANCH || 'main';
-    const CLONE_URL = process.env.CONTENT_REPO_URL || `https://github.com/${OWNER}/${REPO}.git`;
+	    const OWNER = process.env.CONTENT_REPO_OWNER;
+	    const REPO  = process.env.CONTENT_REPO_NAME;
+	    if (!OWNER || !REPO) {
+	      log('错误：未设置 CONTENT_REPO_OWNER / CONTENT_REPO_NAME 环境变量');
+	      log('请在部署平台（Vercel / Cloudflare Pages）的环境变量中配置这两个值');
+	      log('或设置 CONTENT_REPO 指向本地内容仓路径');
+	      process.exit(1);
+	    }
+	    const BRANCH = process.env.CONTENT_REPO_BRANCH || 'main';
+	    const CLONE_URL = process.env.CONTENT_REPO_URL || `https://github.com/${OWNER}/${REPO}.git`;
 
     // 获取凭据：优先 CONTENT_TOKEN，其次 GITHUB_TOKEN（CI 环境）
     const TOKEN = process.env.CONTENT_TOKEN || process.env.GITHUB_TOKEN || '';
