@@ -93,7 +93,7 @@ const cfg = aboutConfig.default || aboutConfig;
         </h2>
 
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-          {cfg.techStack.map((tech) => (
+          {cfg.techStack?.map((tech) => (
             <div class="flex flex-col items-center justify-center p-4 bg-base-200 rounded-lg hover:bg-base-300 transition-colors">
               <div class="text-3xl mb-2" style={{ color: tech.color }}>
                 <Icon name={tech.icon} class="w-10 h-10" />
