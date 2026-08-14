@@ -13,6 +13,8 @@
 
 [**🖥️ Ryuchan Demo**](https://demo.131714.xyz)  
 
+> � **v3.0.0 已发布！** 架构全面升级：**内容与前端代码隔离，拆分为两个独立仓库**，实现更灵活的内容管理与部署方式。  
+
 ## 📷 预览  
 
 ![preview](https://picbed.131714.xyz/blog/ryuchan_preview.png)  
