@@ -8,6 +8,7 @@ import aboutConfig from "@/data/about-config.js";
 
 const aboutEntries = await getCollection('about');
 const aboutEntry = aboutEntries[0];
+const { Content } = aboutEntry ? await aboutEntry.render() : { Content: null };
 const cfg = aboutConfig.default || aboutConfig;
 ---
 
@@ -67,9 +68,9 @@ const cfg = aboutConfig.default || aboutConfig;
           <span>关于本站</span>
         </h2>
 
-        {aboutEntry && (
+        {Content && (
           <div class="prose prose-base dark:prose-invert max-w-none">
-            {@html aboutEntry.body}
+            <Content />
           </div>
         )}
       </section>
