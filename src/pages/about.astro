@@ -1,12 +1,18 @@
----  
-import BaseLayout from "@/layouts/BaseLayout.astro";  
-import { Icon } from "astro-icon/components";  
-import Card from "@/components/temple/Card.astro";  
-import GitHubStats from "@/components/mdx/GitHubStats.astro";  
----  
-  
-<BaseLayout title="About" isIndexed={false}>  
-  <Card class="p-4 md:p-8 relative">  
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
+import Card from "@/components/temple/Card.astro";
+import GitHubStats from "@/components/mdx/GitHubStats.astro";
+import { getCollection } from "astro:content";
+import aboutConfig from "@/data/about-config.js";
+
+const aboutEntries = await getCollection('about');
+const aboutEntry = aboutEntries[0];
+const cfg = aboutConfig.default || aboutConfig;
+---
+
+<BaseLayout title="About" isIndexed={false}>
+  <Card class="p-4 md:p-8 relative">
     <!-- 编辑按钮 -->
     <a
       href="/about-edit"
@@ -16,131 +22,86 @@ import GitHubStats from "@/components/mdx/GitHubStats.astro";
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path><path d="m15 5 4 4"></path></svg>编辑
     </a>
 
-    <div class="space-y-10 mb-8 mt-10 md:mt-0">  
-      <!-- Profile Section -->  
-      <section class="flex flex-col md:flex-row gap-8 items-center md:items-start">  
-        <div class="avatar">  
-          <div  
-            class="w-32 h-32 md:w-40 md:h-40 rounded-xl ring ring-primary ring-offset-base-100 ring-offset-2 overflow-hidden"  
-          >  
-            <img src="https://github.com/kobaridev.png" alt="Xiaozhang" width="160" height="160" loading="eager" />  
-          </div>  
-        </div>  
-  
-        <div class="flex-1 text-center md:text-left">  
-          <h1 class="text-3xl md:text-4xl font-bold mb-2">Xiaozhang</h1>  
-          <p class="text-xl text-base-content/80 mb-4">全栈开发者 & 开源爱好者</p>  
-  
-          <div class="flex flex-wrap gap-3 justify-center md:justify-start mb-6">  
-            <a  
-              href="https://github.com/kobaridev"  
-              target="_blank"  
-              rel="noopener noreferrer"  
-              class="btn btn-sm btn-outline gap-2"  
-            >  
-              <Icon name="lucide:github" class="w-4 h-4" />  
-              <span>GitHub</span>  
-            </a>  
-            <a  
-              href="https://twitter.com/xzz_ya"  
-              target="_blank"  
-              rel="noopener noreferrer"  
-              class="btn btn-sm btn-outline gap-2"  
-            >  
-              <Icon name="lucide:twitter" class="w-4 h-4" />  
-              <span>Twitter</span>  
-            </a>  
-            <a href="mailto:xzzya03@outlook.com" class="btn btn-sm btn-outline gap-2">  
-              <Icon name="lucide:mail" class="w-4 h-4" />  
-              <span>Email</span>  
-            </a>  
-          </div>  
-  
-          <div class="text-base-content/80 leading-relaxed">  
-            <p>👋 你好！我是 Xiaozhang，一名热爱技术的全栈开发者。</p>  
-            <p class="mt-2">💻 专注于前端开发和用户体验设计，喜欢探索新技术，享受用代码解决问题的过程。</p>  
-            <p class="mt-2">🌱 坚信开源精神，积极参与开源项目，相信技术可以让世界变得更美好。</p>  
-          </div>  
-        </div>  
-      </section>  
-  
-      <!-- About This Site -->  
-      <section>  
-        <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">  
-          <Icon name="lucide:info" class="w-6 h-6 text-primary" />  
-          <span>关于本站</span>  
-        </h2>  
-          
-        <div class="prose prose-base dark:prose-invert max-w-none">  
-          <p>  
-            这是我的个人博客，一个简洁、优雅、快速的静态博客系统，基于 Astro 5.0+ & Tailwind CSS 构建。  
-          </p>  
-            
-          <h3 class="text-xl font-bold mt-4 mb-2">🌟 核心特色</h3>  
-          <ul class="list-disc list-inside space-y-1">  
-            <li>📝 <strong>在线发布</strong>：无需本地环境，浏览器中直接编写和发布文章</li>  
-            <li>⚙️ <strong>可视化配置</strong>：Web界面管理网站设置，零代码操作</li>  
-            <li>🚀 <strong>极速体验</strong>：基于 Astro 构建，提供极速的访问速度与优秀的 SEO</li>  
-            <li>🎨 <strong>优雅设计</strong>：使用 Tailwind CSS 与 daisyUI，支持深色/浅色主题</li>  
-            <li>📱 <strong>完美适配</strong>：移动端优先的响应式设计，优化卡片布局与网格导航</li>  
-            <li>🔍 <strong>智能搜索</strong>：集成 Pagefind，毫秒级全文搜索</li>  
-            <li>⚡ <strong>流畅动画</strong>：ClientRouter 实现丝滑的页面过渡效果</li>  
-          </ul>  
-  
-          <h3 class="text-xl font-bold mt-4 mb-2">🎯 功能亮点</h3>  
-          <ul class="list-disc list-inside space-y-1">  
-            <li>📚 <strong>追番管理</strong>：集成 TMDB API，记录和分享喜欢的动漫作品</li>  
-            <li>🧭 <strong>网站导航</strong>：分类整理常用工具和资源链接</li>  
-            <li>👥 <strong>友链展示</strong>：展示朋友们的优秀博客和项目</li>  
-            <li>📊 <strong>数据统计</strong>：集成 Umami 分析，了解网站访问情况</li>  
-            <li>💬 <strong>评论系统</strong>：支持 Giscus 和 Waline，与读者互动交流</li>  
-          </ul>  
-        </div>  
-      </section>  
-  
-      <!-- GitHub Stats -->  
-      <section>  
-        <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">  
-          <Icon name="lucide:github" class="w-6 h-6 text-primary" />  
-          <span>开源贡献</span>  
-        </h2>  
-  
-        <GitHubStats username="kobaridev" showLanguages={false} showCommitGraph={true} />  
-      </section>  
-  
-      <!-- Tech Stack -->  
-      <section>  
-        <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">  
-          <Icon name="lucide:code-2" class="w-6 h-6 text-primary" />  
-          <span>技术栈</span>  
-        </h2>  
-  
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">  
-          {  
-            [  
-              { name: "Astro", icon: "simple-icons:astro", color: "oklch(0.5 0.2 300)" },  
-              { name: "JavaScript", icon: "simple-icons:javascript", color: "oklch(0.8 0.2 80)" },  
-              { name: "TypeScript", icon: "simple-icons:typescript", color: "oklch(0.6 0.2 250)" },  
-              { name: "React", icon: "simple-icons:react", color: "oklch(0.7 0.2 200)" },  
-              { name: "Node.js", icon: "simple-icons:nodedotjs", color: "oklch(0.7 0.2 140)" },  
-              { name: "TailwindCSS", icon: "simple-icons:tailwindcss", color: "oklch(0.6 0.2 220)" },  
-              { name: "HTML5", icon: "simple-icons:html5", color: "oklch(0.7 0.2 30)" },  
-              { name: "CSS3", icon: "simple-icons:css3", color: "oklch(0.7 0.2 220)" },  
-              { name: "Git", icon: "simple-icons:git", color: "oklch(0.7 0.2 30)" },  
-              { name: "Python", icon: "simple-icons:python", color: "oklch(0.7 0.2 250)" },  
-              { name: "Docker", icon: "simple-icons:docker", color: "oklch(0.6 0.2 200)" },  
-              { name: "Vue.js", icon: "simple-icons:vuedotjs", color: "oklch(0.6 0.2 120)" },  
-            ].map((tech) => (  
-              <div class="flex flex-col items-center justify-center p-4 bg-base-200 rounded-lg hover:bg-base-300 transition-colors">  
-                <div class="text-3xl mb-2" style={`color: ${tech.color}`}>  
-                  <Icon name={tech.icon} class="w-10 h-10" />  
-                </div>  
-                <span class="text-sm font-medium">{tech.name}</span>  
-              </div>  
-            ))  
-          }  
-        </div>  
-      </section>  
-    </div>  
-  </Card>  
+    <div class="space-y-10 mb-8 mt-10 md:mt-0">
+      <!-- Profile Section -->
+      <section class="flex flex-col md:flex-row gap-8 items-center md:items-start">
+        <div class="avatar">
+          <div
+            class="w-32 h-32 md:w-40 md:h-40 rounded-xl ring ring-primary ring-offset-base-100 ring-offset-2 overflow-hidden"
+          >
+            <img src={aboutEntry?.data?.avatar || cfg.avatar || "/profile.png"} alt={aboutEntry?.data?.displayName || cfg.name} width="160" height="160" loading="eager" />
+          </div>
+        </div>
+
+        <div class="flex-1 text-center md:text-left">
+          <h1 class="text-3xl md:text-4xl font-bold mb-2">{aboutEntry?.data?.title || cfg.displayName || cfg.name}</h1>
+          <p class="text-xl text-base-content/80 mb-4">{cfg.title}</p>
+
+          <div class="flex flex-wrap gap-3 justify-center md:justify-start mb-6">
+            {cfg.links.map((link) => (
+              <a
+                href={link.href}
+                target={link.href.startsWith("http") ? "_blank" : "_self"}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : ""}
+                class="btn btn-sm btn-outline gap-2"
+                aria-label={link.ariaLabel}
+              >
+                <Icon name={link.icon} class="w-4 h-4" />
+                <span>{link.title}</span>
+              </a>
+            ))}
+          </div>
+
+          <div class="text-base-content/80 leading-relaxed">
+            {cfg.description.map((desc) => (
+              <p class={desc !== cfg.description[0] ? "mt-2" : ""}>{desc}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- About This Site (from markdown) -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+          <Icon name="lucide:info" class="w-6 h-6 text-primary" />
+          <span>关于本站</span>
+        </h2>
+
+        {aboutEntry && (
+          <div class="prose prose-base dark:prose-invert max-w-none">
+            {@html aboutEntry.body}
+          </div>
+        )}
+      </section>
+
+      <!-- GitHub Stats -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+          <Icon name="lucide:github" class="w-6 h-6 text-primary" />
+          <span>开源贡献</span>
+        </h2>
+
+        <GitHubStats username={cfg.githubUsername} showLanguages={false} showCommitGraph={true} />
+      </section>
+
+      <!-- Tech Stack -->
+      <section>
+        <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+          <Icon name="lucide:code-2" class="w-6 h-6 text-primary" />
+          <span>技术栈</span>
+        </h2>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          {cfg.techStack.map((tech) => (
+            <div class="flex flex-col items-center justify-center p-4 bg-base-200 rounded-lg hover:bg-base-300 transition-colors">
+              <div class="text-3xl mb-2" style={{ color: tech.color }}>
+                <Icon name={tech.icon} class="w-10 h-10" />
+              </div>
+              <span class="text-sm font-medium">{tech.name}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  </Card>
 </BaseLayout>

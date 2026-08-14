@@ -217,7 +217,7 @@ const outPath = path.resolve(ROOT, 'ryuchan.config.yaml');
 fs.writeFileSync(outPath, yaml.dump(newConfig, { lineWidth: -1, quotingType: '"', forceQuotes: false, noRefs: true }));
 log(`ryuchan.config.yaml 已生成`);
 
-// ---- 4. 同步文章 ----
+// ---- 4. 同步文章和 about 页面 ----
 const blogSrc = path.resolve(SRC_CONTENT, 'blog/src');
 const blogDst = path.resolve(ROOT, 'src/content/blog');
 if (fs.existsSync(blogSrc)) {
@@ -225,6 +225,28 @@ if (fs.existsSync(blogSrc)) {
   if (fs.existsSync(blogDst)) fs.rmSync(blogDst, { recursive: true });
   copyDir(blogSrc, blogDst);
   log(`文章同步: ${blogDst}`);
+}
+
+// 同步 about 页面内容
+const aboutSrc = path.resolve(SRC_CONTENT, 'about/src');
+const aboutDst = path.resolve(ROOT, 'src/content/about');
+if (fs.existsSync(aboutSrc)) {
+  if (fs.existsSync(aboutDst)) fs.rmSync(aboutDst, { recursive: true });
+  copyDir(aboutSrc, aboutDst);
+  log(`关于页同步: ${aboutDst}`);
+}
+
+// 同步 about 配置到前端 env（可选：暴露到前端环境变量）
+const aboutConfigSrc = path.resolve(SRC_CONTENT, 'about/config.yaml');
+const aboutConfigDst = path.resolve(ROOT, 'src/data/about-config.js');
+if (fs.existsSync(aboutConfigSrc)) {
+  ensureDir(path.dirname(aboutConfigDst));
+  const config = yaml.load(fs.readFileSync(aboutConfigSrc, 'utf8'));
+  // Generate JS module export for Astro import
+  const jsContent = `export default ${JSON.stringify(config, null, 2).replace(/"/g, "'")}
+`;
+  fs.writeFileSync(aboutConfigDst, jsContent, 'utf8');
+  log(`关于页配置同步: src/data/about-config.js`);
 }
 
 // ---- 5. 合成 src/data/* ----
