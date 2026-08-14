@@ -32,9 +32,11 @@ jobs:
           CONTENT_DIR="node_modules/.cache/${{ env.PUBLIC_CONTENT_REPO }}"
           if [ ! -d "$CONTENT_DIR" ]; then
             mkdir -p "$(dirname "$CONTENT_DIR")"
-            if [ -n "$CONTENT_TOKEN" ]; then
+            TOKEN="${{ secrets.CONTENT_TOKEN }}"
+            if [ -n "$TOKEN" ]; then
+              TOKEN="${TOKEN//$'\n'/}"
               git clone --depth 1 --branch "${{ env.PUBLIC_CONTENT_REPO_BRANCH }}" \
-                "https://x-access-token:${CONTENT_TOKEN}@github.com/${{ env.PUBLIC_CONTENT_REPO_OWNER }}/${{ env.PUBLIC_CONTENT_REPO }}.git" \
+                "https://x-access-token:${TOKEN}@github.com/${{ env.PUBLIC_CONTENT_REPO_OWNER }}/${{ env.PUBLIC_CONTENT_REPO }}.git" \
                 "$CONTENT_DIR"
             else
               git clone --depth 1 --branch "${{ env.PUBLIC_CONTENT_REPO_BRANCH }}" \
