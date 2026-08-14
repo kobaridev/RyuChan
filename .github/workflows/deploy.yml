@@ -2,7 +2,7 @@ name: Deploy to Cloudflare Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
   repository_dispatch:
     types: [content-update]
   workflow_dispatch:
