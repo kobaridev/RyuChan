@@ -36,9 +36,7 @@ jobs:
           version: 11
 
       - name: Install dependencies
-        env:
-          CI: true
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --allow-build
 
       - name: Clone content repo
         env:
