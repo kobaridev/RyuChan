@@ -141,7 +141,10 @@ newConfig.site = {
       typewriterTexts: cfg.blog?.typewriterTexts || [],
     },
     friend: { title: cfg.friends?.title || 'friends', subtitle: subtitleOf(cfg.friends) },
-    about:  { title: cfg.about?.title || 'About Me', subtitle: subtitleOf(cfg.about) },
+    about:  {
+      title: cfg.about?.page?.title || cfg.about?.title || 'About Me',
+      subtitle: cfg.about?.page?.subtitle || subtitleOf(cfg.about),
+    },
     navigation: { title: cfg.navigation?.title || 'Navigation', subtitle: subtitleOf(cfg.navigation) },
     anime:  { title: cfg.anime?.title || 'anime', subtitle: subtitleOf(cfg.anime) },
     project:{ title: cfg.project?.title || 'Project', subtitle: subtitleOf(cfg.project) },

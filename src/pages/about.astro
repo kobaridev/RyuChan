@@ -11,7 +11,7 @@ const aboutEntry = aboutEntries[0];
 const cfg = aboutConfig.default || aboutConfig;
 ---
 
-<BaseLayout title="About" isIndexed={false}>
+<BaseLayout title={cfg.page?.title || "About"} isIndexed={false}>
   <Card class="p-4 md:p-8 relative">
     <!-- 编辑按钮 -->
     <a
