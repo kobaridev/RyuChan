@@ -6,6 +6,8 @@ import yaml from 'js-yaml';
 
 const MUSIC_DATA_PATH = path.resolve('src/data/music.json');
 const CONFIG_PATH = path.resolve('ryuchan.config.yaml');
+const CONTENT_REPO = process.env.CONTENT_REPO || path.resolve('../ryuchan-content');
+const CUSTOM_PLAYLISTS_DIR = path.resolve(CONTENT_REPO, 'src/content/music/custom');
 const CONCURRENCY = 8;
 const RETRIES = 3;
 const SAVE_INTERVAL = 20; // incremental save every N resolved
@@ -282,6 +284,37 @@ function computeConfigFingerprint(playlists, apiBase) {
     .digest('hex');
 }
 
+/**
+ * Load custom playlist data from content repo src/content/music/custom/*.yaml
+ * Returns { [id]: { name, songs: [...] } }
+ */
+function loadCustomPlaylists() {
+  try {
+    if (!fs.existsSync(CUSTOM_PLAYLISTS_DIR)) return {};
+    const yamlSync = require('js-yaml');
+    const result = {};
+    for (const f of fs.readdirSync(CUSTOM_PLAYLISTS_DIR).filter(x => x.endsWith('.yaml')).sort()) {
+      const d = yamlSync.load(fs.readFileSync(path.join(CUSTOM_PLAYLISTS_DIR, f), 'utf8'));
+      if (!d?.name) continue;
+      const id = f.replace(/\.yaml$/, '');
+      result[id] = {
+        name: d.name,
+        songs: (d.songs || []).map(s => ({
+          title: s.title || 'Unknown',
+          artist: s.artist || 'Unknown',
+          cover: s.cover || '',
+          url: s.url || '',
+          lrc: s.lrc || '',
+          duration: s.duration || ''
+        }))
+      };
+    }
+    return result;
+  } catch {
+    return {};
+  }
+}
+
 async function fetchMusicDuration() {
   try {
     // --- Load config ---
@@ -334,8 +367,26 @@ async function fetchMusicDuration() {
       existingConfigFingerprint = existingData._configFingerprint || null;
     } catch (e) { /* no existing data */ }
 
+    // --- Load custom playlists from content repo ---
+    const customPlaylists = loadCustomPlaylists();
+    if (Object.keys(customPlaylists).length > 0) {
+      log(`🎵 Custom playlists from content repo: ${Object.keys(customPlaylists).length} playlist(s)`);
+      for (const [id, pl] of Object.entries(customPlaylists)) {
+        if (!existingData.playlistSongs[id]) {
+          existingData.playlistSongs[id] = pl.songs;
+          log(`  ✅ Loaded custom playlist "${pl.name}": ${pl.songs.length} songs`);
+        }
+      }
+    }
+
     // --- Config fingerprint check (fast, no API calls) ---
-    const configFingerprint = computeConfigFingerprint(playlists, apiBase);
+    // Include custom playlist IDs in config fingerprint so changes trigger re-prefetch
+    const customIds = Object.keys(customPlaylists);
+    const fpPlaylists = [
+      ...playlists,
+      ...customIds.map(id => ({ id, type: 'custom' }))
+    ];
+    const configFingerprint = computeConfigFingerprint(fpPlaylists, apiBase);
 
     // --- Fetch all playlists in parallel ---
     const playlistResults = await Promise.all(

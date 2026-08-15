@@ -195,25 +195,55 @@ newConfig.comments = {
   giscus: loadProvider('comments/provider/giscus.yaml') || existing.comments?.giscus || {},
 };
 
+// Helper: load custom playlist songs from content repo
+function loadCustomPlaylists() {
+  const customDir = path.resolve(SRC_CONTENT, 'music/custom');
+  if (!fs.existsSync(customDir)) return {};
+  const result = {};
+  for (const f of fs.readdirSync(customDir).filter(x => x.endsWith('.yaml')).sort()) {
+    const d = yaml.load(fs.readFileSync(path.join(customDir, f), 'utf8'));
+    if (!d?.name) continue;
+    const id = f.replace(/\.yaml$/, '');
+    result[id] = {
+      name: d.name,
+      songs: (d.songs || []).map(s => ({
+        title: s.title || 'Unknown',
+        artist: s.artist || 'Unknown',
+        cover: s.cover || '',
+        url: s.url || '',
+        lrc: s.lrc || '',
+        duration: s.duration || ''
+      }))
+    };
+  }
+  return result;
+}
+
 newConfig.music = {
   api: cfg.music?.api || existing.music?.api || 'https://meting.mikus.ink/api',
   playlists: (() => {
     const listDir = path.resolve(SRC_CONTENT, 'music/list');
     if (!fs.existsSync(listDir)) return existing.music?.playlists || [];
-    return fs.readdirSync(listDir)
-      .filter(f => f.endsWith('.yaml'))
-      .sort()
-      .map(f => {
-        const d = yaml.load(fs.readFileSync(path.join(listDir, f), 'utf8'));
-        const song = d.songs?.[0] || {};
-        // id 取歌单实际 index（不是文件名），server 取 provider
-        const entry = { id: String(song.index ?? ''), name: d.name, server: song.provider || 'netease' };
-        if (song.provider === 'custom') {
-          entry.type = 'custom';
-          delete entry.server;
+    const customPlaylists = loadCustomPlaylists();
+    const allEntries = [];
+    for (const f of fs.readdirSync(listDir).filter(x => x.endsWith('.yaml')).sort()) {
+      const d = yaml.load(fs.readFileSync(path.join(listDir, f), 'utf8'));
+      if (!d?.name) continue;
+      const song = d.songs?.[0] || {};
+      const entry = { id: String(song.index ?? ''), name: d.name, server: song.provider || 'netease' };
+      if (song.provider === 'custom') {
+        entry.type = 'custom';
+        delete entry.server;
+        // If the custom playlist exists in content repo, merge its songs into ryuchan.config.yaml
+        const customId = song.index;
+        if (customPlaylists[customId]) {
+          entry.songs = customPlaylists[customId].songs;
+          entry.playlistName = customPlaylists[customId].name;
         }
-        return entry;
-      });
+      }
+      allEntries.push(entry);
+    }
+    return allEntries;
   })(),
 };
 newConfig.anime = {
