@@ -754,10 +754,17 @@ export function ConfigPage() {
     const onChoosePrivateKey = async (file: File) => {
         try {
             const pem = await readFileAsText(file)
+            if (!pem || pem.trim().length === 0) {
+                throw new Error('密钥文件为空')
+            }
+            if (!pem.includes('BEGIN') && !pem.includes('PRIVATE')) {
+                throw new Error('无效的密钥格式，请确保选择 .pem 文件')
+            }
             await setPrivateKey(pem)
             toast.success('密钥导入成功')
-        } catch (e) {
-            toast.error('密钥导入失败')
+        } catch (e: any) {
+            console.error('Key import error:', e)
+            toast.error('密钥导入失败: ' + (e?.message || '未知错误'))
         }
     }
 
