@@ -3,6 +3,7 @@ import { toast, Toaster } from 'sonner'
 import { getAuthToken } from '@/lib/auth'
 import { GITHUB_CONFIG } from '@/consts'
 import { CONTENT_PATHS } from '@/lib/content-paths'
+import { synthesizeConfig, buildConfigTreeItems } from '@/lib/config-synthesis'
 import {
     readTextFileFromRepo,
     putFile,
@@ -125,37 +126,41 @@ export function ConfigPage() {
 
     const loadMusicData = async () => {
         try {
-            let token: string | undefined
-            try {
-                token = await getAuthToken()
-            } catch (e) {
-                console.log('Public access mode for music data')
-            }
-
-            // 尝试从 GitHub 读取 music.json
             let content: string | null | undefined
+
+            // 1. 优先尝试本地 fetch（比 GitHub 快得多）
             try {
-                content = await readTextFileFromRepo(
-                    token,
-                    GITHUB_CONFIG.OWNER,
-                    GITHUB_CONFIG.REPO,
-                    'src/data/music.json',
-                    GITHUB_CONFIG.BRANCH
-                )
+                const localRes = await fetch('/data/music.json')
+                if (localRes.ok) {
+                    content = await localRes.text()
+                    console.log('Loaded music.json from local file')
+                }
             } catch (e) {
-                console.log('GitHub music.json fetch failed, trying local...')
+                console.log('Local music.json not available')
             }
 
-            // 如果 GitHub 没有数据，尝试从本地加载
+            // 2. GitHub 作为后备
             if (!content) {
+                let token: string | undefined
                 try {
-                    const localRes = await fetch('/data/music.json')
-                    if (localRes.ok) {
-                        content = await localRes.text()
-                        console.log('Loaded music.json from local file')
+                    token = await getAuthToken()
+                } catch (e) {
+                    console.log('Public access mode for music data')
+                }
+
+                try {
+                    content = await readTextFileFromRepo(
+                        token,
+                        GITHUB_CONFIG.OWNER,
+                        GITHUB_CONFIG.REPO,
+                        'src/data/music.json',
+                        GITHUB_CONFIG.BRANCH
+                    )
+                    if (content) {
+                        console.log('Loaded music.json from GitHub content repo')
                     }
                 } catch (e) {
-                    console.log('Local music.json not available')
+                    console.log('GitHub music.json fetch failed, trying local...')
                 }
             }
 
@@ -171,28 +176,15 @@ export function ConfigPage() {
     const loadConfig = async () => {
         try {
             setLoading(true)
-            let token: string | undefined
-            try {
-                token = await getAuthToken()
-            } catch (e) {
-                console.log('Public access mode')
-            }
-
-            // 尝试从 GitHub 读取配置
             let content: string | null | undefined
-            try {
-                content = await readTextFileFromRepo(
-                    token,
-                    GITHUB_CONFIG.OWNER,
-                    GITHUB_CONFIG.REPO,
-                    'ryuchan.config.yaml',
-                    GITHUB_CONFIG.BRANCH
-                )
-            } catch (e) {
-                console.log('GitHub fetch failed, trying local config...')
+
+            // 1. 优先从服务器注入获取（config.astro 在构建时读取本地文件注入，无需网络）
+            if ((window as any).__SERVER_CONFIG__) {
+                content = (window as any).__SERVER_CONFIG__
+                console.log('Loaded config from server injection')
             }
 
-            // 如果 GitHub 没有数据，尝试从本地加载（开发环境）
+            // 2. 尝试本地 fetch（dev 模式可能不可用，但值得一试）
             if (!content) {
                 try {
                     const localRes = await fetch('/ryuchan.config.yaml')
@@ -205,10 +197,24 @@ export function ConfigPage() {
                 }
             }
 
-            // 在 dev 模式下使用服务端注入的配置
-            if (!content && (window as any).__SERVER_CONFIG__) {
-                content = (window as any).__SERVER_CONFIG__
-                console.log('Loaded config from server injection')
+            // 3. 最后尝试从 GitHub 内容仓各模块 config.yaml 合成
+            if (!content) {
+                let token: string | undefined
+                try {
+                    token = await getAuthToken()
+                } catch (e) {
+                    console.log('Public access mode')
+                }
+
+                try {
+                    const synthesized = await synthesizeConfig(token)
+                    if (synthesized && Object.keys(synthesized).length > 0) {
+                        content = yaml.dump(synthesized, { lineWidth: -1, noRefs: true })
+                        console.log('Loaded config from GitHub content repo (synthesized from modules)')
+                    }
+                } catch (e) {
+                    console.log('GitHub config synthesis failed, using local config...')
+                }
             }
 
             if (content) {
@@ -630,23 +636,29 @@ export function ConfigPage() {
                 setPendingImages({})
             }
 
-            // 2. Process Config File
-            let contentToSave = configContent
+            // 2. Process Config File — 分解为各模块 config.yaml 写入内容仓
+            let configToSave = configToUpdate
+            let savedConfigContent = configContent  // 用于重置 dirty 状态
             if (mode === 'visual' && configToUpdate) {
-                contentToSave = yaml.dump(configToUpdate)
-                setParsedConfig(configToUpdate)
-                setConfigContent(contentToSave)
+                configToSave = configToUpdate
+                savedConfigContent = yaml.dump(configToUpdate)
+            } else if (mode === 'code') {
+                // 代码模式：解析 YAML 得到对象
+                try {
+                    configToSave = yaml.load(configContent) as any
+                    savedConfigContent = configContent
+                } catch {
+                    toast.error('YAML 格式无效，请检查语法')
+                    setSaving(false)
+                    return
+                }
             }
 
-            const configBase64 = toBase64Utf8(contentToSave)
-            toast.loading('正在创建配置文件 Blob...', { id: toastId })
-            const { sha: configSha } = await createBlob(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, configBase64, 'base64')
-            treeItems.push({
-                path: 'ryuchan.config.yaml',
-                mode: '100644',
-                type: 'blob',
-                sha: configSha
-            })
+            if (configToSave) {
+                toast.loading('正在分解配置到各模块...', { id: toastId })
+                const configTreeItems = await buildConfigTreeItems(configToSave)
+                treeItems.push(...configTreeItems)
+            }
 
             // 3. Process Music Data File (if dirty)
             if (musicDataDirty && musicDataForSave) {
@@ -699,7 +711,7 @@ export function ConfigPage() {
             // Reset dirty states
             setIsDirty(false)
             setMusicDataDirty(false)
-            setLastFetchedContent(contentToSave)
+            setLastFetchedContent(savedConfigContent)
 
             toast.success('🎉 配置更新成功！', {
                 id: toastId,
