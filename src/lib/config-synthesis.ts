@@ -63,7 +63,7 @@ function sub(cfg: Record<string, unknown> | undefined): string {
 export async function synthesizeConfig(token: string | undefined): Promise<Record<string, unknown>> {
   const cfg = await loadAllModuleConfigs(token)
 
-  const siteBase = (cfg.site || {}) as Record<string, unknown>
+  const siteBase = ((cfg.site as any)?.site || {}) as Record<string, unknown>
 
   const result: Record<string, unknown> = {}
 
