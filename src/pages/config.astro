@@ -7,7 +7,8 @@ import path from 'node:path';
 
 const serverPlaylists = JSON.stringify(MUSIC_CONFIG?.playlists || []);
 // 在 dev 模式下把完整配置 YAML 注入客户端，避免前端 fetch 不到
-const configYaml = JSON.stringify(fs.readFileSync(path.resolve('ryuchan.config.yaml'), 'utf-8'));
+const configYaml = fs.readFileSync(path.resolve('ryuchan.config.yaml'), 'utf-8');
+// 注意：不要在这里做 JSON.stringify，因为 define:vars 会自动处理序列化
 ---
 
 <BaseLayout title="站点配置" showSidebar={false} showBanner={false} isIndexed={false}>
