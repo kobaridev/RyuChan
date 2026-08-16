@@ -126,6 +126,9 @@ const cfg = {
 };
 
 // ---- 3. 合成 ryuchan.config.yaml（兼容原格式）----
+// 优先使用内容仓根目录的 ryuchan.config.yaml（在线编辑器直接写入的）
+// 如果不存在，则回退到从各模块 config.yaml 合成
+const configAtRoot = path.resolve(CONTENT_REPO, 'ryuchan.config.yaml');
 const existing = fs.existsSync(path.resolve(ROOT, 'ryuchan.config.yaml'))
   ? yaml.load(fs.readFileSync(path.resolve(ROOT, 'ryuchan.config.yaml'), 'utf8')) || {}
   : {};
@@ -252,9 +255,17 @@ newConfig.anime = {
 };
 
 const outPath = path.resolve(ROOT, 'ryuchan.config.yaml');
-// noRefs: 避免 YAML 输出 &ref_0 / *ref_0 锚点（sidebar 与 footer 引用同一数组时会产生）
-fs.writeFileSync(outPath, yaml.dump(newConfig, { lineWidth: -1, quotingType: '"', forceQuotes: false, noRefs: true }));
-log(`ryuchan.config.yaml 已生成`);
+
+if (fs.existsSync(configAtRoot)) {
+  // 内容仓根目录已有 ryuchan.config.yaml（在线编辑器直接写入），直接复制使用
+  fs.copyFileSync(configAtRoot, outPath);
+  log('ryuchan.config.yaml 已从内容仓根目录复制（在线编辑器写入）');
+} else {
+  // 回退：从各模块 config.yaml 合成
+  // noRefs: 避免 YAML 输出 &ref_0 / *ref_0 锚点（sidebar 与 footer 引用同一数组时会产生）
+  fs.writeFileSync(outPath, yaml.dump(newConfig, { lineWidth: -1, quotingType: '"', forceQuotes: false, noRefs: true }));
+  log('ryuchan.config.yaml 已从模块配置合成');
+}
 
 // ---- 4. 同步文章和 about 页面 ----
 const blogSrc = path.resolve(SRC_CONTENT, 'blog/src');
@@ -370,3 +381,21 @@ if (fs.existsSync(brandSrc)) {
 }
 
 log('同步完成');
+
+// ---- 7. 同步在线编辑器上传的图片 ----
+// 博客文章配图
+copyDir(path.resolve(ASSETS, 'images'), path.resolve(ROOT, 'public/images'));
+log('博客配图同步: assets/images → public/images');
+
+// 相册图片
+copyDir(path.resolve(ASSETS, 'albums'), path.resolve(ROOT, 'public/image/albums'));
+log('相册图片同步: assets/albums → public/image/albums');
+
+// ---- 8. 同步音乐数据 ----
+const musicSrc = path.resolve(CONTENT_REPO, 'src/data/music.json');
+const musicDst = path.resolve(ROOT, 'src/data/music.json');
+if (fs.existsSync(musicSrc)) {
+  ensureDir(path.dirname(musicDst));
+  fs.copyFileSync(musicSrc, musicDst);
+  log('music.json 已同步');
+}

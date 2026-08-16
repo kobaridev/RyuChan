@@ -1,22 +1,22 @@
 import {
   readTextFileFromRepo,
-  toBase64Utf8,
+  listRepoFilesRecursive,
   createBlob,
   createTree,
   createCommit,
   updateRef,
   getRef,
   getCommit,
-  type TreeItem
+  type TreeItem,
 } from '@/lib/github-client'
+import { replaceIndividualFiles } from '@/lib/individual-files'
 import { fileToBase64NoPrefix } from '@/lib/file-utils'
 import { getAuthToken } from '@/lib/auth'
 import { GITHUB_CONFIG } from '@/consts'
+import { CONTENT_PATHS } from '@/lib/content-paths'
 import yaml from 'js-yaml'
 import { toast } from 'sonner'
 import type { ProjectItem } from '@/interface/project'
-
-const PROJECTS_FILE_PATH = 'src/data/projects.yaml'
 
 export async function loadProjectsFromGitHub(): Promise<ProjectItem[]> {
   let token: string | undefined
@@ -25,26 +25,49 @@ export async function loadProjectsFromGitHub(): Promise<ProjectItem[]> {
   } catch {
     // try public access
   }
-  const content = await readTextFileFromRepo(
-    token,
-    GITHUB_CONFIG.OWNER,
-    GITHUB_CONFIG.REPO,
-    PROJECTS_FILE_PATH,
-    GITHUB_CONFIG.BRANCH
-  )
-  if (!content) return []
+
+  // 从内容仓库的独立 YAML 文件中加载项目
+  let files: string[] = []
   try {
-    const data = yaml.load(content)
-    if (Array.isArray(data)) return data as ProjectItem[]
-    return []
+    files = await listRepoFilesRecursive(
+      token,
+      GITHUB_CONFIG.OWNER,
+      GITHUB_CONFIG.REPO,
+      CONTENT_PATHS.projectSrc,
+      GITHUB_CONFIG.BRANCH,
+    )
   } catch {
     return []
   }
+
+  const yamlFiles = files.filter((f) => f.endsWith('.yaml')).sort()
+  const projects: ProjectItem[] = []
+
+  for (const filePath of yamlFiles) {
+    const content = await readTextFileFromRepo(
+      token,
+      GITHUB_CONFIG.OWNER,
+      GITHUB_CONFIG.REPO,
+      filePath,
+      GITHUB_CONFIG.BRANCH,
+    )
+    if (!content) continue
+    try {
+      const data = yaml.load(content) as ProjectItem
+      if (data && data.name) {
+        projects.push(data)
+      }
+    } catch {
+      // skip malformed
+    }
+  }
+
+  return projects
 }
 
 export async function saveProjectsToGitHub(
   projects: ProjectItem[],
-  pendingAvatars?: Record<number, { file: File; previewUrl: string }>
+  pendingAvatars?: Record<number, { file: File; previewUrl: string }>,
 ): Promise<void> {
   const token = await getAuthToken()
   const toastId = toast.loading('🚀 正在保存项目数据...')
@@ -52,12 +75,12 @@ export async function saveProjectsToGitHub(
   try {
     const treeItems: TreeItem[] = []
 
-    // Handle avatar image uploads first
+    // 1. Handle avatar image uploads — store in content repo
     if (pendingAvatars && Object.keys(pendingAvatars).length > 0) {
       for (const [indexStr, { file }] of Object.entries(pendingAvatars)) {
         const index = parseInt(indexStr)
         const ext = file.name.split('.').pop()?.toLowerCase() || 'png'
-        const avatarPath = `public/images/projects/avatar-${index}.${ext}`
+        const avatarPath = `${CONTENT_PATHS.projectAvatars}/avatar-${index}.${ext}`
 
         toast.loading(`正在上传头像 ${index + 1}...`, { id: toastId })
 
@@ -67,14 +90,14 @@ export async function saveProjectsToGitHub(
           GITHUB_CONFIG.OWNER,
           GITHUB_CONFIG.REPO,
           base64Content,
-          'base64'
+          'base64',
         )
 
         treeItems.push({
           path: avatarPath,
           mode: '100644',
           type: 'blob',
-          sha: blobSha
+          sha: blobSha,
         })
 
         // Update project avatar to the new path (strip public/ for Astro serving)
@@ -82,27 +105,16 @@ export async function saveProjectsToGitHub(
       }
     }
 
-    // Serialize projects to YAML and create blob
-    const yamlContent = yaml.dump(projects, { lineWidth: -1, noRefs: true })
-    const base64Content = toBase64Utf8(yamlContent)
-
-    toast.loading('正在创建文件 Blob...', { id: toastId })
-    const { sha: yamlBlobSha } = await createBlob(
+    // 2. Replace all individual project YAML files
+    toast.loading('正在生成项目文件...', { id: toastId })
+    const fileTreeItems = await replaceIndividualFiles(
       token,
-      GITHUB_CONFIG.OWNER,
-      GITHUB_CONFIG.REPO,
-      base64Content,
-      'base64'
+      CONTENT_PATHS.projectSrc,
+      projects,
     )
+    treeItems.push(...fileTreeItems)
 
-    treeItems.push({
-      path: PROJECTS_FILE_PATH,
-      mode: '100644',
-      type: 'blob',
-      sha: yamlBlobSha
-    })
-
-    // Get current branch state
+    // 3. Commit
     toast.loading('正在获取分支信息...', { id: toastId })
     const refName = `heads/${GITHUB_CONFIG.BRANCH}`
     const ref = await getRef(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, refName)
@@ -111,17 +123,15 @@ export async function saveProjectsToGitHub(
     const commit = await getCommit(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, currentCommitSha)
     const baseTreeSha = commit.tree.sha
 
-    // Create new tree
     toast.loading('🌳 正在构建文件树...', { id: toastId })
     const { sha: newTreeSha } = await createTree(
       token,
       GITHUB_CONFIG.OWNER,
       GITHUB_CONFIG.REPO,
       treeItems,
-      baseTreeSha
+      baseTreeSha,
     )
 
-    // Create commit
     toast.loading('💾 正在提交更改...', { id: toastId })
     const { sha: newCommitSha } = await createCommit(
       token,
@@ -129,22 +139,21 @@ export async function saveProjectsToGitHub(
       GITHUB_CONFIG.REPO,
       'chore(projects): update projects data',
       newTreeSha,
-      [currentCommitSha]
+      [currentCommitSha],
     )
 
-    // Update branch ref
     toast.loading('🔄 正在同步远程分支...', { id: toastId })
     await updateRef(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, refName, newCommitSha)
 
     toast.success('🎉 项目数据更新成功！', {
       id: toastId,
-      description: '更改已推送到仓库，GitHub Actions 将会自动重新部署。'
+      description: '更改已推送到内容仓库，重新部署后即可生效。',
     })
   } catch (error: any) {
     console.error(error)
     toast.error('❌ 保存失败', {
       id: toastId,
-      description: error.message || '发生了未知错误，请重试'
+      description: error.message || '发生了未知错误，请重试',
     })
     throw error
   }

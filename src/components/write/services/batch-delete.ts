@@ -1,6 +1,7 @@
 import { toast } from 'sonner'
 import { getAuthToken } from '@/lib/auth'
 import { GITHUB_CONFIG } from '@/consts'
+import { CONTENT_PATHS } from '@/lib/content-paths'
 import { createCommit, createTree, getCommit, getRef, listRepoFilesRecursive, listRepoDir, type TreeItem, updateRef } from '@/lib/github-client'
 
 export async function batchDeleteBlogs(slugs: string[]): Promise<void> {
@@ -20,10 +21,10 @@ export async function batchDeleteBlogs(slugs: string[]): Promise<void> {
 
         // 获取博客目录文件列表，用于不区分大小写匹配
         toast.loading('正在扫描博客文件...', { id: toastId })
-        const blogFiles = await listRepoFilesRecursive(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, 'src/content/blog', GITHUB_CONFIG.BRANCH)
+        const blogFiles = await listRepoFilesRecursive(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, CONTENT_PATHS.blogSrc, GITHUB_CONFIG.BRANCH)
         
         // 获取图片根目录列表，用于查找对应的 slug 目录
-        const imagesRootDir = await listRepoDir(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, 'public/images', GITHUB_CONFIG.BRANCH)
+        const imagesRootDir = await listRepoDir(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, CONTENT_PATHS.blogImages, GITHUB_CONFIG.BRANCH)
 
         const treeItems: TreeItem[] = []
 
@@ -48,8 +49,8 @@ export async function batchDeleteBlogs(slugs: string[]): Promise<void> {
             }
             
             // 2. 处理文章文件 (.md 或 .mdx)
-            const mdPath = `src/content/blog/${slug}.md`
-            const mdxPath = `src/content/blog/${slug}.mdx`
+            const mdPath = `${CONTENT_PATHS.blogSrc}/${slug}.md`
+            const mdxPath = `${CONTENT_PATHS.blogSrc}/${slug}.mdx`
             
             // 在 blogFiles 中查找匹配的路径 (忽略大小写)
             const foundMd = blogFiles.find(path => path.toLowerCase() === mdPath.toLowerCase())

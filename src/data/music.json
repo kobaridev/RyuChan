@@ -1547,7 +1547,7 @@
         {
             "title": "我想要占据你",
             "artist": "告五人",
-            "cover": "https://p2.music.126.net/PgcIr7Vv7J4N_OjYxQbo0g==/109951168306417191.jpg",
+            "cover": "https://p1.music.126.net/PgcIr7Vv7J4N_OjYxQbo0g==/109951168306417191.jpg",
             "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2022072826",
             "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2022072826",
             "duration": "04:12"
@@ -1555,7 +1555,7 @@
         {
             "title": "给你一瓶魔法药水",
             "artist": "告五人",
-            "cover": "https://p2.music.126.net/W2mKDaDQegJg0ic0GOd2KQ==/109951169169063268.jpg",
+            "cover": "https://p1.music.126.net/W2mKDaDQegJg0ic0GOd2KQ==/109951169169063268.jpg",
             "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1959667345",
             "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1959667345",
             "duration": "04:18"
@@ -1563,7 +1563,7 @@
         {
             "title": "唯一",
             "artist": "告五人",
-            "cover": "https://p2.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
+            "cover": "https://p1.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
             "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807799505",
             "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1807799505",
             "duration": "04:30"
@@ -1571,7 +1571,7 @@
         {
             "title": "爱人错过",
             "artist": "告五人",
-            "cover": "https://p2.music.126.net/awJUvRnQYOjyoUJbzfL-Ig==/109951172190059964.jpg",
+            "cover": "https://p1.music.126.net/awJUvRnQYOjyoUJbzfL-Ig==/109951172190059964.jpg",
             "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1368754688",
             "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1368754688",
             "duration": "04:52"
@@ -1579,7 +1579,7 @@
         {
             "title": "带我去找夜生活",
             "artist": "告五人",
-            "cover": "https://p2.music.126.net/lmCtt6-3fOPSdA1uwGCY5Q==/109951164567402626.jpg",
+            "cover": "https://p1.music.126.net/lmCtt6-3fOPSdA1uwGCY5Q==/109951164567402626.jpg",
             "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1410647903",
             "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1410647903",
             "duration": "04:59"
@@ -1587,7 +1587,7 @@
         {
             "title": "温蒂公主的侍卫",
             "artist": "告五人",
-            "cover": "https://p2.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
+            "cover": "https://p1.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
             "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807796555",
             "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1807796555",
             "duration": "04:17"
@@ -1943,14 +1943,6 @@
             "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2022069283",
             "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2022069283",
             "duration": "05:08"
-        },
-        {
-            "artist": "周杰伦",
-            "cover": "https://y.qq.com/music/photo_new/T002R300x300M000000MkMni19ClKG_5.jpg?max_age=2592000",
-            "duration": "04:29",
-            "lrc": "https://imgbed.904002.xyz/file/music/歌词/周杰伦/晴天.lrc",
-            "title": "晴天",
-            "url": "https://music1.904002.xyz/%E5%91%A8%E6%9D%B0%E4%BC%A6/晴天.flac"
         }
     ],
     "playlistCounts": {
@@ -1958,7 +1950,10 @@
         "7039749142": 99,
         "7559655733": 39,
         "17966019560": 50,
-        "zhoujielun": 1
+        "01-zhoujielun": 0,
+        "02-gufeng": 0,
+        "03-acg": 0,
+        "04-quiet": 0
     },
     "playlistSongs": {
         "17933567326": [
@@ -3515,7 +3510,7 @@
             {
                 "title": "我想要占据你",
                 "artist": "告五人",
-                "cover": "https://p2.music.126.net/PgcIr7Vv7J4N_OjYxQbo0g==/109951168306417191.jpg",
+                "cover": "https://p1.music.126.net/PgcIr7Vv7J4N_OjYxQbo0g==/109951168306417191.jpg",
                 "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2022072826",
                 "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2022072826",
                 "duration": "04:12"
@@ -3523,7 +3518,7 @@
             {
                 "title": "给你一瓶魔法药水",
                 "artist": "告五人",
-                "cover": "https://p2.music.126.net/W2mKDaDQegJg0ic0GOd2KQ==/109951169169063268.jpg",
+                "cover": "https://p1.music.126.net/W2mKDaDQegJg0ic0GOd2KQ==/109951169169063268.jpg",
                 "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1959667345",
                 "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1959667345",
                 "duration": "04:18"
@@ -3531,7 +3526,7 @@
             {
                 "title": "唯一",
                 "artist": "告五人",
-                "cover": "https://p2.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
+                "cover": "https://p1.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
                 "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807799505",
                 "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1807799505",
                 "duration": "04:30"
@@ -3539,7 +3534,7 @@
             {
                 "title": "爱人错过",
                 "artist": "告五人",
-                "cover": "https://p2.music.126.net/awJUvRnQYOjyoUJbzfL-Ig==/109951172190059964.jpg",
+                "cover": "https://p1.music.126.net/awJUvRnQYOjyoUJbzfL-Ig==/109951172190059964.jpg",
                 "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1368754688",
                 "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1368754688",
                 "duration": "04:52"
@@ -3547,7 +3542,7 @@
             {
                 "title": "带我去找夜生活",
                 "artist": "告五人",
-                "cover": "https://p2.music.126.net/lmCtt6-3fOPSdA1uwGCY5Q==/109951164567402626.jpg",
+                "cover": "https://p1.music.126.net/lmCtt6-3fOPSdA1uwGCY5Q==/109951164567402626.jpg",
                 "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1410647903",
                 "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1410647903",
                 "duration": "04:59"
@@ -3555,7 +3550,7 @@
             {
                 "title": "温蒂公主的侍卫",
                 "artist": "告五人",
-                "cover": "https://p2.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
+                "cover": "https://p1.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
                 "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807796555",
                 "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1807796555",
                 "duration": "04:17"
@@ -3913,17 +3908,11 @@
                 "duration": "05:08"
             }
         ],
-        "zhoujielun": [
-            {
-                "artist": "周杰伦",
-                "cover": "https://y.qq.com/music/photo_new/T002R300x300M000000MkMni19ClKG_5.jpg?max_age=2592000",
-                "duration": "04:29",
-                "lrc": "https://imgbed.904002.xyz/file/music/歌词/周杰伦/晴天.lrc",
-                "title": "晴天",
-                "url": "https://music1.904002.xyz/%E5%91%A8%E6%9D%B0%E4%BC%A6/晴天.flac"
-            }
-        ]
+        "01-zhoujielun": [],
+        "02-gufeng": [],
+        "03-acg": [],
+        "04-quiet": []
     },
-    "_urlFingerprint": "7a054bb3b761e36d230eb8801a6a7942c2016a909aa0c0f8bcbdf6b989d235e7",
-    "_configFingerprint": "57d4d8259edf9a665a80dc8de2a6f9344ae069c016d0696c4bd28606266fc952"
+    "_urlFingerprint": "ecb4f69f0b56918415e20f51af507fc73097c2ed9e89a75dd1d04ddce82d8604",
+    "_configFingerprint": "c11f77764ae4500aa1ad9870ec5df35b0bacad19ae3181a7c9572d04f7f7d5f6"
 }

@@ -1,12 +1,6 @@
 ---
 title: "About Me"
 ---
-# 关于 Ryus
-
-你好！我是 **KoBariDev**，一名热爱技术的全栈开发者。
-
-## 关于本站
-
 这是我的个人博客，一个简洁、优雅、快速的静态博客系统，基于 Astro 5.0+ & Tailwind CSS 构建。
 
 ### 核心特色
@@ -27,6 +21,3 @@ title: "About Me"
 - **数据统计**：集成 Umami 分析，了解网站访问情况
 - **评论系统**：支持 Giscus 和 Waline，与读者互动交流
 
-## 开源贡献
-
-[GitHub Stats](https://github.com/kobaridev)

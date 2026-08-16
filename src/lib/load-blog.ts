@@ -1,6 +1,7 @@
 import { getAuthToken, hasAuth } from './auth'
 import { readTextFileFromRepo, listRepoFilesRecursive } from './github-client'
 import { GITHUB_CONFIG } from '@/consts'
+import { CONTENT_PATHS } from '@/lib/content-paths'
 import { parseFrontmatter } from './frontmatter'
 import type { PublishForm } from '@/components/write/types'
 import dayjs from 'dayjs'
@@ -15,18 +16,18 @@ export async function loadBlog(slug: string): Promise<{ form: PublishForm, cover
         }
     }
     
-    let path = `src/content/blog/${slug}.md`
+    let path = `${CONTENT_PATHS.blogSrc}/${slug}.md`
     let content = await readTextFileFromRepo(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, path, GITHUB_CONFIG.BRANCH)
     
     if (!content) {
-         path = `src/content/blog/${slug}.mdx`
+         path = `${CONTENT_PATHS.blogSrc}/${slug}.mdx`
          content = await readTextFileFromRepo(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, path, GITHUB_CONFIG.BRANCH)
     }
 
     // Fallback: Case-insensitive search
     if (!content) {
         try {
-            const files = await listRepoFilesRecursive(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, 'src/content/blog', GITHUB_CONFIG.BRANCH)
+            const files = await listRepoFilesRecursive(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, CONTENT_PATHS.blogSrc, GITHUB_CONFIG.BRANCH)
             const targetMd = `/${slug}.md`.toLowerCase()
             const targetMdx = `/${slug}.mdx`.toLowerCase()
             

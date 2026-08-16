@@ -2,7 +2,7 @@
 
 import {
   readTextFileFromRepo,
-  toBase64Utf8,
+  listRepoFilesRecursive,
   createBlob,
   createTree,
   createCommit,
@@ -10,16 +10,16 @@ import {
   getRef,
   getCommit,
   getTreeRecursive,
-  type TreeItem
+  type TreeItem,
 } from '@/lib/github-client'
+import { replaceIndividualFiles } from '@/lib/individual-files'
 import { fileToBase64NoPrefix } from '@/lib/file-utils'
 import { getAuthToken } from '@/lib/auth'
 import { GITHUB_CONFIG } from '@/consts'
+import { CONTENT_PATHS } from '@/lib/content-paths'
+import yaml from 'js-yaml'
 import { toast } from 'sonner'
 import type { AlbumItem } from '@/data/albums'
-
-const ALBUMS_FILE_PATH = 'src/data/albums.json'
-const IMAGES_DIR = 'public/image/albums'
 
 export async function loadAlbumsFromGitHub(): Promise<AlbumItem[]> {
   let token: string | undefined
@@ -28,31 +28,62 @@ export async function loadAlbumsFromGitHub(): Promise<AlbumItem[]> {
   } catch {
     // try public access
   }
-  const content = await readTextFileFromRepo(
-    token,
-    GITHUB_CONFIG.OWNER,
-    GITHUB_CONFIG.REPO,
-    ALBUMS_FILE_PATH,
-    GITHUB_CONFIG.BRANCH
-  )
-  if (!content) return []
+
+  // 从内容仓库的独立 YAML 文件中加载相册
+  let files: string[] = []
   try {
-    const data = JSON.parse(content)
-    if (Array.isArray(data)) return data as AlbumItem[]
-    return []
+    files = await listRepoFilesRecursive(
+      token,
+      GITHUB_CONFIG.OWNER,
+      GITHUB_CONFIG.REPO,
+      CONTENT_PATHS.albumCategories,
+      GITHUB_CONFIG.BRANCH,
+    )
   } catch {
     return []
   }
+
+  const yamlFiles = files.filter((f) => f.endsWith('.yaml')).sort()
+  const albums: AlbumItem[] = []
+
+  for (const filePath of yamlFiles) {
+    const content = await readTextFileFromRepo(
+      token,
+      GITHUB_CONFIG.OWNER,
+      GITHUB_CONFIG.REPO,
+      filePath,
+      GITHUB_CONFIG.BRANCH,
+    )
+    if (!content) continue
+    try {
+      const data = yaml.load(content) as any
+      if (data) {
+        albums.push({
+          id: data.id || filePath.split('/').pop()?.replace('.yaml', '') || '',
+          date: data.date || '',
+          event: data.event || data.title || '',
+          title: data.title || '',
+          description: data.description || '',
+          icon: data.icon || '',
+          photos: data.photos || [],
+        })
+      }
+    } catch {
+      // skip malformed
+    }
+  }
+
+  return albums
 }
 
 /**
- * Save albums data to GitHub.
+ * Save albums data to GitHub content repo.
  * Handles pending photo file uploads (newly added local files).
  * Photos with regular paths or external URLs are left unchanged.
  */
 export async function saveAlbumsToGitHub(
   albums: AlbumItem[],
-  pendingPhotos?: Record<string, { file: File; previewUrl: string }>
+  pendingPhotos?: Record<string, { file: File; previewUrl: string }>,
 ): Promise<AlbumItem[]> {
   const token = await getAuthToken()
   const toastId = toast.loading('🚀 正在保存相册数据...')
@@ -73,7 +104,7 @@ export async function saveAlbumsToGitHub(
         const ext = file.name.split('.').pop()?.toLowerCase() || 'png'
         const timestamp = Date.now()
         const fileName = `${albumId}-${photoIdx}-${timestamp}.${ext}`
-        const imagePath = `${IMAGES_DIR}/${fileName}`
+        const imagePath = `${CONTENT_PATHS.albumImages}/${fileName}`
 
         uploadCount++
         toast.loading(`正在上传照片 ${uploadCount}...`, { id: toastId })
@@ -84,14 +115,14 @@ export async function saveAlbumsToGitHub(
           GITHUB_CONFIG.OWNER,
           GITHUB_CONFIG.REPO,
           base64Content,
-          'base64'
+          'base64',
         )
 
         treeItems.push({
           path: imagePath,
           mode: '100644',
           type: 'blob',
-          sha: blobSha
+          sha: blobSha,
         })
 
         // Update the photo src in the save copy
@@ -114,13 +145,13 @@ export async function saveAlbumsToGitHub(
 
         const ext = match[1] === 'jpeg' ? 'jpg' : match[1]
         const fileName = `${album.event}-${i}-${Date.now()}.${ext}`
-        const imagePath = `${IMAGES_DIR}/${fileName}`
+        const imagePath = `${CONTENT_PATHS.albumImages}/${fileName}`
 
         toast.loading('正在上传照片...', { id: toastId })
 
         const { sha: blobSha } = await createBlob(
           token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO,
-          match[2], 'base64'
+          match[2], 'base64',
         )
 
         treeItems.push({ path: imagePath, mode: '100644', type: 'blob', sha: blobSha })
@@ -128,23 +159,25 @@ export async function saveAlbumsToGitHub(
       }
     }
 
-    // Serialize albums to JSON and create blob
-    const jsonContent = JSON.stringify(albumsToSave, null, 2)
-    const base64Content = toBase64Utf8(jsonContent)
-
-    toast.loading('正在创建文件 Blob...', { id: toastId })
-    const { sha: jsonBlobSha } = await createBlob(
-      token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO,
-      base64Content, 'base64'
+    // Replace all individual album category YAML files
+    toast.loading('正在生成相册文件...', { id: toastId })
+    const fileTreeItems = await replaceIndividualFiles(
+      token,
+      CONTENT_PATHS.albumCategories,
+      albumsToSave,
+      (album: AlbumItem) => ({
+        id: album.id,
+        date: album.date,
+        event: album.event,
+        title: album.title,
+        description: album.description,
+        icon: album.icon,
+        photos: album.photos,
+      }),
     )
+    treeItems.push(...fileTreeItems)
 
-    treeItems.push({
-      path: ALBUMS_FILE_PATH,
-      mode: '100644',
-      type: 'blob',
-      sha: jsonBlobSha
-    })
-
+    // Get current branch state
     toast.loading('正在获取分支信息...', { id: toastId })
     const refName = `heads/${GITHUB_CONFIG.BRANCH}`
     const ref = await getRef(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, refName)
@@ -153,7 +186,7 @@ export async function saveAlbumsToGitHub(
     const commit = await getCommit(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, currentCommitSha)
     const baseTreeSha = commit.tree.sha
 
-    // Detect orphaned photo files — paths under IMAGES_DIR that are no longer
+    // Detect orphaned photo files — paths under albumImages that are no longer
     // referenced by the current albums data. We add sha:null items to remove
     // them from the tree when they were deleted in this edit session.
     toast.loading('🔍 正在检查已删除的照片...', { id: toastId })
@@ -171,13 +204,13 @@ export async function saveAlbumsToGitHub(
     let removedCount = 0
     for (const item of currentTreeItems) {
       if (item.type !== 'blob') continue
-      if (!item.path.startsWith(IMAGES_DIR + '/')) continue
+      if (!item.path.startsWith(CONTENT_PATHS.albumImages + '/')) continue
       if (referencedImagePaths.has(item.path)) continue
       treeItems.push({
         path: item.path,
         mode: '100644',
         type: 'blob',
-        sha: null
+        sha: null,
       })
       removedCount++
     }
@@ -188,7 +221,7 @@ export async function saveAlbumsToGitHub(
     toast.loading('🌳 正在构建文件树...', { id: toastId })
     const { sha: newTreeSha } = await createTree(
       token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO,
-      treeItems, baseTreeSha
+      treeItems, baseTreeSha,
     )
 
     toast.loading('💾 正在提交更改...', { id: toastId })
@@ -196,7 +229,7 @@ export async function saveAlbumsToGitHub(
       token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO,
       'chore(albums): update albums data',
       newTreeSha,
-      [currentCommitSha]
+      [currentCommitSha],
     )
 
     toast.loading('🔄 正在同步远程分支...', { id: toastId })
@@ -204,7 +237,7 @@ export async function saveAlbumsToGitHub(
 
     toast.success('🎉 相册数据更新成功！', {
       id: toastId,
-      description: '更改已推送到仓库，重新部署后即可生效。'
+      description: '更改已推送到内容仓库，重新部署后即可生效。',
     })
 
     return albumsToSave
@@ -212,7 +245,7 @@ export async function saveAlbumsToGitHub(
     console.error(error)
     toast.error('❌ 保存失败', {
       id: toastId,
-      description: error.message || '发生了未知错误，请重试'
+      description: error.message || '发生了未知错误，请重试',
     })
     throw error
   }

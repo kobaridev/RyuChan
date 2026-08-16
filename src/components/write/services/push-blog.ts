@@ -2,6 +2,7 @@ import { toBase64Utf8, getRef, createTree, createCommit, updateRef, createBlob, 
 import { fileToBase64NoPrefix, hashFileSHA256 } from '@/lib/file-utils'
 import { getAuthToken } from '@/lib/auth'
 import { GITHUB_CONFIG } from '@/consts'
+import { CONTENT_PATHS } from '@/lib/content-paths'
 import type { ImageItem, PublishForm } from '../types'
 import { getFileExt, formatDateTimeLocal } from '@/lib/utils'
 import { toast } from 'sonner'
@@ -62,7 +63,7 @@ export async function pushBlog(params: PushBlogParams): Promise<void> {
                 const publicPath = `/images/${form.slug}/${filename}`
 
                 if (!uploadedHashes.has(hash)) {
-                    const path = `public/images/${form.slug}/${filename}`
+                    const path = `${CONTENT_PATHS.blogImages}/${form.slug}/${filename}`
                     const contentBase64 = await fileToBase64NoPrefix(img.file)
                     const blobData = await createBlob(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, contentBase64, 'base64')
                     treeItems.push({
@@ -110,7 +111,7 @@ export async function pushBlog(params: PushBlogParams): Promise<void> {
         toast.loading('📝 正在生成文章内容...', { id: toastId })
         const mdBlob = await createBlob(token, GITHUB_CONFIG.OWNER, GITHUB_CONFIG.REPO, toBase64Utf8(finalContent), 'base64')
         treeItems.push({
-            path: `src/content/blog/${form.slug}.${form.fileFormat}`,
+            path: `${CONTENT_PATHS.blogSrc}/${form.slug}.${form.fileFormat}`,
             mode: '100644',
             type: 'blob',
             sha: mdBlob.sha
@@ -120,7 +121,7 @@ export async function pushBlog(params: PushBlogParams): Promise<void> {
         if (mode === 'edit' && originalFileFormat && originalFileFormat !== form.fileFormat) {
             // 在Git中，删除文件是通过添加一个sha为null的条目来实现的
             treeItems.push({
-                path: `src/content/blog/${form.slug}.${originalFileFormat}`,
+                path: `${CONTENT_PATHS.blogSrc}/${form.slug}.${originalFileFormat}`,
                 mode: '100644',
                 type: 'blob',
                 sha: null // 空sha表示删除文件

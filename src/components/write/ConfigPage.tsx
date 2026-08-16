@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { toast, Toaster } from 'sonner'
 import { getAuthToken } from '@/lib/auth'
 import { GITHUB_CONFIG } from '@/consts'
+import { CONTENT_PATHS } from '@/lib/content-paths'
 import {
     readTextFileFromRepo,
     putFile,
@@ -581,23 +582,23 @@ export function ConfigPage() {
 
                     // 处理favicon和profile.png，直接覆盖原文件
                     if (target === 'site.favicon') {
-                        path = 'public/favicon.ico'
+                        path = 'assets/brand/favicon.ico'
                         filename = 'favicon.ico'
                         publicPath = '/favicon.ico'
                     } else if (target === 'user.avatar') {
-                        path = 'public/profile.png'
+                        path = 'assets/brand/profile.png'
                         filename = 'profile.png'
                         publicPath = '/profile.png'
                     } else if (target === 'user.title_image') {
-                        path = 'public/logo.png'
+                        path = 'assets/brand/logo.png'
                         filename = 'logo.png'
                         publicPath = '/logo.png'
                     } else if (target === 'user.qr_wechat') {
-                        path = 'public/WeChat.jpg'
+                        path = 'assets/brand/WeChat.jpg'
                         filename = 'WeChat.jpg'
                         publicPath = '/WeChat.jpg'
                     } else if (target === 'user.qr_alipay') {
-                        path = 'public/Alipay.jpg'
+                        path = 'assets/brand/Alipay.jpg'
                         filename = 'Alipay.jpg'
                         publicPath = '/Alipay.jpg'
                     } else {
