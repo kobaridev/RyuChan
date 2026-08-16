@@ -110,3 +110,17 @@ export async function getAuthToken(): Promise<string> {
 		throw error
 	}
 }
+
+/**
+ * 获取指定仓库的认证 Token
+ * 用于需要写入不同仓库的场景（如 about-service 写入前端仓）
+ */
+export async function getRepoAuthToken(owner: string, repo: string): Promise<string> {
+	const privateKey = useAuthStore.getState().privateKey
+	if (!privateKey) {
+		throw new Error('需要先设置私钥')
+	}
+	const jwt = signAppJwt(GITHUB_CONFIG.APP_ID, privateKey)
+	const installationId = await getInstallationId(jwt, owner, repo)
+	return await createInstallationToken(jwt, installationId)
+}

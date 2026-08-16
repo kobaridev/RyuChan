@@ -1,5 +1,5 @@
 import { putFile } from '@/lib/github-client'
-import { getAuthToken } from '@/lib/auth'
+import { getAuthToken, getRepoAuthToken } from '@/lib/auth'
 import { GITHUB_CONFIG, FRONTEND_REPO } from '@/consts'
 import { toBase64Utf8 } from '@/lib/github-client'
 import { toast } from 'sonner'
@@ -9,7 +9,7 @@ import { toast } from 'sonner'
 const ABOUT_FILE_PATH = 'src/pages/about.astro'
 
 export async function saveAboutCodeToGitHub(code: string): Promise<void> {
-  const token = await getAuthToken()
+  const token = await getRepoAuthToken(GITHUB_CONFIG.OWNER, FRONTEND_REPO)
   const toastId = toast.loading('🚀 正在保存关于页代码...')
 
   try {
