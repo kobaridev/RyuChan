@@ -582,6 +582,7 @@ const initialSong = musicList[0] || {};
             this.updateUI();
             this.loadLyrics();
             this.scrollActivePlaylistItemIntoView();
+            window.dispatchEvent(new CustomEvent('ryuchan:music:songchange'));
             
              if('mediaSession' in navigator) {
                 navigator.mediaSession.metadata = new MediaMetadata({
@@ -598,46 +599,32 @@ const initialSong = musicList[0] || {};
             } else {
                 this.audio.pause();
             }
+            window.dispatchEvent(new CustomEvent('ryuchan:music:playchange'));
         }
         
         prevSong() {
-            let newIndex;
-            if (this.isShuffle) {
-                newIndex = Math.floor(Math.random() * this.playlist.length);
-                 if (this.playlist.length > 1) {
-                     while(newIndex === this.currentIndex) {
-                         newIndex = Math.floor(Math.random() * this.playlist.length);
-                     }
-                }
-            } else {
-                newIndex = this.currentIndex - 1;
-                if(newIndex < 0) {
-                     // If loop is off, stop or wrap? Typically prev always wraps or goes to 0
-                     newIndex = this.playlist.length - 1; 
-                }
+            // this.playlist 就是当前播放顺序（随机播放时已在 toggleShuffle 里打乱），
+            // 所以上一首 = 列表中的前一首，不再二次随机，保证与实际列表一致
+            let newIndex = this.currentIndex - 1;
+            if (newIndex < 0) {
+                newIndex = this.playlist.length - 1;
             }
             this.loadSong(newIndex, true);
         }
         
         nextSong(isAuto = false) {
-             let newIndex;
+            let newIndex;
             if (this.repeatMode === 'one' && isAuto) {
-                 newIndex = this.currentIndex;
-            } else if (this.isShuffle) {
-                newIndex = Math.floor(Math.random() * this.playlist.length);
-                 if (this.playlist.length > 1) {
-                     while(newIndex === this.currentIndex) {
-                         newIndex = Math.floor(Math.random() * this.playlist.length);
-                     }
-                }
+                newIndex = this.currentIndex;
             } else {
+                // 同上：随机播放顺序已写入 this.playlist，按列表顺序取下一首
                 newIndex = this.currentIndex + 1;
-                if(newIndex >= this.playlist.length) {
+                if (newIndex >= this.playlist.length) {
                     if (this.repeatMode === 'off' && isAuto) {
-                         // Stop playback if mode is off and end of list reached automatically
-                         this.isPlaying = false;
-                         this.updateUI();
-                         return; 
+                        // 自动播放到列表末尾且不循环时停止
+                        this.isPlaying = false;
+                        this.updateUI();
+                        return;
                     }
                     newIndex = 0;
                 }
@@ -650,13 +637,41 @@ const initialSong = musicList[0] || {};
             this.isShuffle = !this.isShuffle;
             
             if (this.isShuffle) {
-                // Shuffle ON: Visually disable repeat preference (technically internal logic handles skip)
+                const currentSong = this.playlist[this.currentIndex];
+                const remaining = this.playlist.filter((_, index) => index !== this.currentIndex);
+                for (let index = remaining.length - 1; index > 0; index -= 1) {
+                    const randomIndex = Math.floor(Math.random() * (index + 1));
+                    [remaining[index], remaining[randomIndex]] = [remaining[randomIndex], remaining[index]];
+                }
+                this.playlist = currentSong ? [currentSong, ...remaining] : remaining;
+                this.currentIndex = 0;
                 this.repeatMode = 'off';
             } else {
                 // Shuffle OFF: Restore to default Sequence Loop
                 this.repeatMode = 'all';
             }
+            // 播放顺序已改变：重新渲染列表，保证列表项的 data-index 与 this.playlist 顺序一致，
+            // 否则点击列表项会播到错误的歌曲
+            this.renderPlaylistList();
             this.updateUI();
+            window.dispatchEvent(new CustomEvent('ryuchan:music:controlchange'));
+        }
+
+        reorderPlaylist(fromIndex, toIndex) {
+            if (fromIndex < 0 || toIndex < 0 || fromIndex >= this.playlist.length || toIndex >= this.playlist.length) return;
+            const [song] = this.playlist.splice(fromIndex, 1);
+            this.playlist.splice(toIndex, 0, song);
+            if (this.currentIndex === fromIndex) {
+                this.currentIndex = toIndex;
+            } else if (fromIndex < this.currentIndex && toIndex >= this.currentIndex) {
+                this.currentIndex -= 1;
+            } else if (fromIndex > this.currentIndex && toIndex <= this.currentIndex) {
+                this.currentIndex += 1;
+            }
+            // 播放顺序已改变：同上，重渲染列表以保持 data-index 与 this.playlist 一致
+            this.renderPlaylistList();
+            this.updateUI();
+            window.dispatchEvent(new CustomEvent('ryuchan:music:controlchange'));
         }
 
         toggleRepeat() {
@@ -675,6 +690,7 @@ const initialSong = musicList[0] || {};
                  }
              }
              this.updateUI();
+               window.dispatchEvent(new CustomEvent('ryuchan:music:controlchange'));
         }
 
         toggleMiniPlayer() {

@@ -1,0 +1,12 @@
+--- a/dist/style.css
++++ b/dist/style.css
+@@ -267,7 +267,8 @@
+     --lyric-line-padding-x: 20px;
+   }
+ 
+-  &:hover .FmKaba_lyricLine, &:hover .FmKaba_lyricLineWrapper {
++  & .FmKaba_lyricLineWrapper:hover,
++  & .FmKaba_lyricLineWrapper:hover .FmKaba_lyricLine {
+     filter: unset !important;
+   }
+ 

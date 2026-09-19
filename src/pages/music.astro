@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import MusicPlayer from "@/components/widgets/MusicPlayer.astro";
+import MusicFullscreenLauncher from "@/components/music/MusicFullscreenLauncher";
 import { musicList, playlistCounts, playlistSongs } from "@/data/music";
 import { MUSIC_CONFIG } from "@/config";
 
@@ -17,6 +18,13 @@ const songs = { ...playlistSongs, "all": musicList };
 <BaseLayout title="音乐" showSidebar={true} showTOC={false} isIndexed={false}>
   <div class="py-8 px-4">
     <MusicPlayer
+      list={musicList}
+      playlists={playlists}
+      playlistCounts={counts}
+      playlistSongs={songs}
+    />
+    <MusicFullscreenLauncher
+      client:only="react"
       list={musicList}
       playlists={playlists}
       playlistCounts={counts}

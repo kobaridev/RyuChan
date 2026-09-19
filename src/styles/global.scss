@@ -137,8 +137,7 @@
 
   /* Make components semi-transparent in background mode */
   /* General rule for card-like elements */
-  .bg-base-100, .card-base, .card, 
-  .music-player-widget > .bg-neu-base {
+  .bg-base-100, .card-base, .card {
     background-color: oklch(var(--b1) / 0.7) !important;
     backdrop-filter: blur(10px);
     border: 1px solid oklch(var(--bc) / 0.1); /* 增加边框以增强轮廓 */
@@ -158,13 +157,6 @@
 
   /* Increase visibility of muted text in background mode - maximize contrast */
   --neu-text-muted: oklch(var(--bc)) !important;
-
-  /* Fix flickering line issue in background mode */
-  .music-player-widget > .bg-neu-base {
-    transform: translate3d(0, 0, 0); /* Force GPU acceleration to prevent repaint glitches */
-    backface-visibility: hidden;
-    will-change: transform; /* Hint to browser to keep this layer stable */
-  }
 
   .bg-base-200 {
     background-color: oklch(var(--b2) / 0.7) !important;
@@ -959,4 +951,718 @@ code {
     0px 16px 16px -8px rgba(0,0,0,0.08),
     0px 32px 32px -16px rgba(0,0,0,0.06),
     0px 64px 64px -32px rgba(0,0,0,0.04);
+}
+
+/* =========================================================
+ * Apple Music 风格播放页 (am-player)
+ * ========================================================= */
+
+/* 全屏播放：占满整个视口，隐藏站点导航等浏览器外壳 */
+body.am-fullscreen-open {
+  overflow: hidden;
+}
+body.am-fullscreen-open #navbar-desktop,
+body.am-fullscreen-open #navbar-mobile,
+body.am-fullscreen-open #mini-player-container,
+body.am-fullscreen-open footer {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.am-player-root {
+  color: var(--am-fg, #fff);
+  --am-fg: #fff;
+  --am-fg-inv: #0a0a0a;
+  --am-overlay-a: rgba(0, 0, 0, 0.3);
+  --am-lp-fg: #ffffff;
+  /* 封面及封面下各组件的统一宽度（移动端） */
+  --am-art-size: min(64vw, 400px);
+}
+
+@media (min-width: 1024px) {
+  .am-player-root {
+    /* 桌面：与封面同源（34vw / 62vh / 720px 三约束） */
+    --am-art-size: min(34vw, 62vh, 720px);
+  }
+}
+
+/* 全屏播放页始终使用白色前景（用户要求控制组件为白色，不随站点主题变黑） */
+[data-theme-type="light"] .am-player-root {
+  --am-fg: #ffffff;
+  --am-fg-inv: #0a0a0a;
+  color: #ffffff;
+}
+
+/* =========================================================
+ * Apple Music 全屏歌词弹层布局
+ * 参考：歌单页内嵌的全屏歌词（lyrics__container）
+ *   两列网格：controls | lyrics，无任何可见盒子
+ * ========================================================= */
+
+/* 主网格：移动端上下堆叠，桌面两列（31vw | 38vw，padding 0 10vw） */
+.am-player-grid {
+  display: grid;
+  justify-content: center;
+  grid-template-areas: "controls" "lyrics";
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, auto) minmax(0, 1fr);
+  gap: 24px;
+  width: 100%;
+  max-width: 2560px;
+  padding: 56px 24px 16px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@media (min-width: 1024px) {
+  .am-player-grid {
+    grid-template-areas: "controls lyrics";
+    grid-template-columns: minmax(0, 31vw) minmax(0, 38vw);
+    /* 行高 = 两列内容的最大高度：歌词视口与封面列等高，二者底部对齐（歌词下缘 = 音量控制下缘） */
+    grid-template-rows: auto;
+    column-gap: 7vw;
+    padding: 40px 6vw 12px;
+    /* 两列作为一个整体水平/垂直居中，而不是钉在底部 */
+    align-content: center;
+    align-items: stretch;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .am-player-grid .am-controls-col {
+    align-self: stretch;
+  }
+
+  .am-player-grid .am-lyrics-col {
+    align-self: stretch;
+    height: auto;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .am-player-grid .am-queue-col {
+    align-self: stretch;
+    height: auto;
+    min-height: 0;
+    max-height: 100%;
+    overflow: hidden;
+  }
+}
+
+/* 关闭歌词：只保留 controls 一列，封面与控件整体居中 */
+.am-player-grid.am-player-no-lyrics {
+  grid-template-areas: "controls";
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  align-content: center;
+}
+
+@media (min-width: 1024px) {
+  .am-player-grid.am-player-no-lyrics {
+    grid-template-rows: minmax(0, 1fr);
+    column-gap: 0;
+  }
+}
+
+/* 左列：artwork / metadata / scrubber / transport / volume（Apple 的 controls 列） */
+.am-controls-col {
+  grid-area: controls;
+  display: grid;
+  grid-template-areas: "artwork" "meta" "scrubber" "transport" "volume";
+  place-items: center;
+  align-content: safe center;
+  row-gap: 8px;
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+}
+
+.am-controls-col .am-artwork { grid-area: artwork; }
+.am-controls-col .am-meta { grid-area: meta; }
+.am-controls-col .am-scrubber { grid-area: scrubber; }
+.am-controls-col .am-transport { grid-area: transport; }
+.am-controls-col .am-volume { grid-area: volume; }
+
+/* 封面下方的组件与封面等宽 */
+.am-controls-col .am-meta,
+.am-controls-col .am-scrubber,
+.am-controls-col .am-transport,
+.am-controls-col .am-volume {
+  width: var(--am-art-size);
+}
+
+/* 控制按钮行：等宽盒子内保持水平居中（flex 默认靠左，会显得不居中） */
+.am-controls-col .am-transport {
+  justify-content: center;
+}
+
+.am-artwork {
+  width: var(--am-art-size);
+}
+
+/* 封面圆角（固定写死，避免依赖任意值工具类是否被生成） */
+.am-artwork img {
+  border-radius: 20px;
+}
+
+/* 播放/暂停封面缩放：暂停时缩小，播放时恢复原尺寸。
+ * 只用 transform，不参与布局，因此其它任何组件的位置都不会改变 */
+.am-artwork-cover {
+  transform: scale(1);
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.am-artwork-cover[data-paused="true"] {
+  transform: scale(0.88);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .am-artwork-cover {
+    transition: none;
+  }
+}
+
+/* 右列：歌词（Apple 风格：居中、随音乐滚动）
+ * 注意：不用 plus-lighter 混合——它会把歌词层提升为独立合成层，
+ * 与下方 30fps 的流体 canvas 叠加时每帧都在重新合成，导致歌词疯狂抖动 */
+.am-lyrics-col {
+  grid-area: lyrics;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 44vh;
+  width: 100%;
+}
+
+/* 右列：待播列表与播放控制并排，沿用歌词列的高度与网格位置 */
+.am-queue-col {
+  grid-area: lyrics;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 44vh;
+  min-width: 0;
+  max-height: 100%;
+  width: 100%;
+}
+
+.am-queue-panel {
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+  min-width: 0;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+.am-queue-list {
+  min-height: 0;
+  max-height: 100%;
+  overflow-x: hidden;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black calc(100% - 5em),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black calc(100% - 5em),
+    transparent 100%
+  );
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.am-queue-list::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .am-player-root {
+    --am-mobile-control-gap: 70px;
+  }
+
+  .am-player-grid {
+    grid-template-areas:
+      "artwork"
+      "meta"
+      "lyrics"
+      "scrubber"
+      "transport"
+      "volume";
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto minmax(0, 1fr) auto auto auto;
+    row-gap: 12px;
+    min-height: 0;
+    padding: clamp(88px, 13vh, 150px) 20px calc(126px + env(safe-area-inset-bottom));
+    overflow: hidden;
+    align-content: center;
+    justify-items: center;
+  }
+
+  .am-player-grid .am-controls-col {
+    grid-area: unset;
+    display: contents;
+  }
+
+  .am-player-grid .am-artwork {
+    grid-area: artwork;
+    align-self: center;
+    width: min(72vw, 300px);
+    max-width: 100%;
+  }
+
+  .am-player-grid .am-artwork img {
+    border-radius: 20px;
+  }
+
+  .am-player-grid .am-meta {
+    grid-area: meta;
+    align-self: center;
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+  }
+
+  .am-player-grid .am-meta h2 {
+    font-size: clamp(0.95rem, 2vw, 1.25rem);
+    line-height: 1.25;
+  }
+
+  .am-player-grid .am-meta p {
+    font-size: clamp(0.7rem, 1.6vw, 0.8rem);
+  }
+
+  .am-player-grid .am-scrubber {
+    grid-area: scrubber;
+    width: min(100%, 360px);
+    margin-inline: auto;
+  }
+
+  .am-player-grid .am-transport {
+    grid-area: transport;
+    justify-content: center;
+    gap: 14px;
+    width: min(100%, 360px);
+    margin-inline: auto;
+  }
+
+  .am-player-grid .am-volume {
+    grid-area: volume;
+    width: min(100%, 360px);
+    margin-inline: auto;
+  }
+
+  .am-player-grid .am-lyrics-col,
+  .am-player-grid .am-queue-col {
+    grid-area: lyrics;
+    align-self: center;
+    justify-self: center;
+    width: min(100%, 420px);
+    min-height: 0;
+    max-height: none;
+    overflow: hidden;
+  }
+
+  .am-player-grid .am-lyrics-inner {
+    min-height: 0;
+    height: 100%;
+    margin-inline: auto;
+  }
+
+  .am-queue-col {
+    min-height: 0;
+  }
+
+  .am-player-grid.am-player-no-lyrics {
+    grid-template-areas:
+      "artwork"
+      "meta"
+      "scrubber"
+      "transport"
+      "volume";
+    grid-template-rows: auto auto auto auto auto;
+    max-width: 420px;
+    margin: 0 auto;
+    padding-top: clamp(128px, 17vh, 194px);
+    padding-bottom: calc(126px + env(safe-area-inset-bottom));
+    align-content: start;
+    row-gap: 6px;
+  }
+
+  .am-player-grid.am-player-no-lyrics .am-controls-col {
+    display: contents;
+  }
+
+  .am-player-grid.am-player-no-lyrics .am-scrubber {
+    position: fixed;
+    left: 50%;
+    bottom: calc(96px + (var(--am-mobile-control-gap) * 2) + env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    width: min(100%, 360px);
+    z-index: 30;
+  }
+
+  .am-player-grid.am-player-no-lyrics .am-transport {
+    position: fixed;
+    left: 50%;
+    bottom: calc(80px + var(--am-mobile-control-gap) + env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    width: min(100%, 360px);
+    justify-content: center;
+    gap: 20px;
+    z-index: 30;
+  }
+
+  .am-player-grid.am-player-no-lyrics .am-volume {
+    position: fixed;
+    left: 50%;
+    bottom: calc(80px + env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    width: min(100%, 360px);
+    z-index: 30;
+  }
+
+  .am-player-grid.am-player-no-lyrics .am-meta {
+    margin-top: 18px;
+    line-height: 1.1;
+  }
+
+  .am-player-grid.am-player-no-lyrics .am-meta h2 {
+    font-size: clamp(1.1rem, 4.8vw, 1.45rem);
+    font-weight: 800;
+  }
+
+  .am-player-grid.am-player-no-lyrics .am-meta p {
+    margin-top: 5px;
+    font-size: clamp(0.85rem, 3.4vw, 1rem);
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .am-player-grid.am-player-no-lyrics .am-transport {
+    gap: 20px;
+  }
+
+  .am-player-grid.am-player-no-lyrics .am-transport > button {
+    transform: scale(2);
+  }
+
+  .am-player-grid.am-player-no-lyrics .am-transport > button:first-child,
+  .am-player-grid.am-player-no-lyrics .am-transport > button:last-child {
+    transform: scale(1.35);
+  }
+
+  .am-player-grid.am-player-no-lyrics .am-transport > button:nth-child(2),
+  .am-player-grid.am-player-no-lyrics .am-transport > button:nth-child(4) {
+    margin-inline: 10px;
+  }
+
+  /* 歌词打开：顶部紧凑信息栏，中间歌词，底部固定播放控制 */
+  .am-player-grid.am-player-with-lyrics {
+    grid-template-areas:
+      "artwork meta"
+      "lyrics lyrics";
+    grid-template-columns: 72px minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    column-gap: 14px;
+    row-gap: 14px;
+    align-content: stretch;
+    padding-top: 76px;
+    padding-bottom: calc(126px + env(safe-area-inset-bottom));
+  }
+
+  .am-player-grid.am-player-with-lyrics .am-controls-col {
+    display: contents;
+  }
+
+  .am-player-grid.am-player-with-lyrics .am-artwork {
+    grid-area: artwork;
+    align-self: center;
+    width: 72px;
+  }
+
+  .am-player-grid.am-player-with-lyrics .am-artwork img {
+    border-radius: 10px;
+  }
+
+  .am-player-grid.am-player-with-lyrics .am-meta {
+    grid-area: meta;
+    align-self: center;
+    min-width: 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  .am-player-grid.am-player-with-lyrics .am-meta h2 {
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+
+  .am-player-grid.am-player-with-lyrics .am-meta p {
+    margin-top: 2px;
+    font-size: 0.75rem;
+  }
+
+  .am-player-grid.am-player-with-lyrics .am-lyrics-col {
+    grid-area: lyrics;
+    align-self: stretch;
+    justify-self: stretch;
+    width: 100%;
+    min-height: 0;
+    height: 100%;
+    transform: translateY(-12vh);
+  }
+
+  .am-player-grid.am-player-with-lyrics .am-scrubber {
+    position: fixed;
+    left: 50%;
+    bottom: calc(96px + (var(--am-mobile-control-gap) * 2) + env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    width: min(100% - 40px, 360px);
+    z-index: 30;
+  }
+
+  .am-player-grid.am-player-with-lyrics .am-transport {
+    position: fixed;
+    left: 50%;
+    bottom: calc(80px + var(--am-mobile-control-gap) + env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    width: min(100% - 40px, 360px);
+    justify-content: center;
+    gap: 20px;
+    z-index: 30;
+  }
+
+  .am-player-grid.am-player-with-lyrics .am-volume {
+    position: fixed;
+    left: 50%;
+    bottom: calc(80px + env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    width: min(100% - 40px, 360px);
+    z-index: 30;
+  }
+
+  /* 播放列表打开：顶部紧凑信息栏，中间列表，底部固定播放控制 */
+  .am-player-grid.am-player-with-queue {
+    grid-template-areas:
+      "artwork meta"
+      "lyrics lyrics";
+    grid-template-columns: 72px minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    column-gap: 14px;
+    row-gap: 14px;
+    align-content: stretch;
+    padding-top: 76px;
+    /* 列表区域止于进度条上方：底部固定控制区（进度条 / 按钮 / 音量）高约 264px，之上再留 16px 间距，
+     * 这样列表永远不会与进度条、播放按钮重叠。
+     * clamp 的下限为原来的 126px：视口过矮（如横屏）时按可用高度收缩，退化为旧行为，
+     * 而不是把列表行压成 0 高度 */
+    padding-bottom: clamp(
+      calc(126px + env(safe-area-inset-bottom)),
+      calc(100dvh - 302px),
+      calc(96px + (var(--am-mobile-control-gap) * 2) + 44px + env(safe-area-inset-bottom))
+    );
+  }
+
+  .am-player-grid.am-player-with-queue .am-controls-col {
+    display: contents;
+  }
+
+  .am-player-grid.am-player-with-queue .am-artwork {
+    grid-area: artwork;
+    align-self: center;
+    width: 72px;
+  }
+
+  .am-player-grid.am-player-with-queue .am-artwork img {
+    border-radius: 10px;
+  }
+
+  .am-player-grid.am-player-with-queue .am-meta {
+    grid-area: meta;
+    align-self: center;
+    min-width: 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  .am-player-grid.am-player-with-queue .am-meta h2 {
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+
+  .am-player-grid.am-player-with-queue .am-meta p {
+    margin-top: 2px;
+    font-size: 0.75rem;
+  }
+
+  .am-player-grid.am-player-with-queue .am-queue-col {
+    grid-area: lyrics;
+    align-self: stretch;
+    justify-self: stretch;
+    width: 100%;
+    min-height: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .am-player-grid.am-player-with-queue .am-queue-panel {
+    min-height: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .am-player-grid.am-player-with-queue .am-queue-list {
+    /* 列表区域已经在进度条之上，无需再为底部固定控件预留大块内边距，
+     * 只留下与底部蒙版渐变（5em）等高的余量，保证最后一项可以完整滚动出来 */
+    padding-bottom: 5em;
+  }
+
+  .am-player-grid.am-player-with-queue .am-scrubber {
+    position: fixed;
+    left: 50%;
+    bottom: calc(96px + (var(--am-mobile-control-gap) * 2) + env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    width: min(100% - 40px, 360px);
+    z-index: 30;
+  }
+
+  .am-player-grid.am-player-with-queue .am-transport {
+    position: fixed;
+    left: 50%;
+    bottom: calc(80px + var(--am-mobile-control-gap) + env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    width: min(100% - 40px, 360px);
+    justify-content: center;
+    gap: 20px;
+    z-index: 30;
+  }
+
+  .am-player-grid.am-player-with-queue .am-transport > button {
+    transform: scale(2);
+  }
+
+  .am-player-grid.am-player-with-queue .am-transport > button:first-child,
+  .am-player-grid.am-player-with-queue .am-transport > button:last-child {
+    transform: scale(1.35);
+  }
+
+  .am-player-grid.am-player-with-queue .am-transport > button:nth-child(2),
+  .am-player-grid.am-player-with-queue .am-transport > button:nth-child(4) {
+    margin-inline: 10px;
+  }
+
+  .am-player-grid.am-player-with-queue .am-volume {
+    position: fixed;
+    left: 50%;
+    bottom: calc(80px + env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    width: min(100% - 40px, 360px);
+    z-index: 30;
+  }
+
+  .am-view-toggle {
+    gap: 24px;
+  }
+
+  .am-player-grid.am-player-with-lyrics .am-transport {
+    gap: 20px;
+  }
+
+  .am-player-grid.am-player-with-lyrics .am-transport > button {
+    transform: scale(2);
+  }
+
+  .am-player-grid.am-player-with-lyrics .am-transport > button:first-child,
+  .am-player-grid.am-player-with-lyrics .am-transport > button:last-child {
+    transform: scale(1.35);
+  }
+
+  .am-player-grid.am-player-with-lyrics .am-transport > button:nth-child(2),
+  .am-player-grid.am-player-with-lyrics .am-transport > button:nth-child(4) {
+    margin-inline: 10px;
+  }
+}
+
+.am-lyrics-inner {
+  position: relative;
+  width: 100%;
+  max-width: 972px;
+  height: 100%;
+  min-height: inherit;
+  /* 歌词从底部（音量条水平线处）平滑淡入，而不是被硬裁切 */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black calc(100% - 5em),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black calc(100% - 5em),
+    transparent 100%
+  );
+}
+
+/* 关键：AMLL 自带 .amll-lyric-player 默认 mix-blend-mode: plus-lighter，
+ * 与底下 30fps 的流体 canvas 叠加，会导致歌词文字每帧被强制重排/重新合成，产生疯狂抖动。
+ * 在播放页范围内覆盖为 normal（普通 alpha 合成，文字纹理会被缓存，不再抖动）。 */
+.am-player-root .amll-lyric-player {
+  mix-blend-mode: normal;
+  font-weight: 600;
+}
+
+/* 已唱行两段式淡出：
+ * 第一段（变暗 + 上滑到位）由 AMLL core 用行内 opacity 原生驱动，切换立即可见；
+ * 第二段（停顿后渐渐消失）由 .am-lyric-fade-out 类触发，
+ * opacity: 0 !important 压过每帧写入的行内 opacity */
+.am-player-root .amll-lyric-player .FmKaba_lyricLineWrapper.am-lyric-fade-out {
+  opacity: 0 !important;
+  transition: opacity 0.6s ease 0.15s !important;
+}
+
+/* 队列中「正在播放」的均衡器小条 */
+@keyframes am-eq {
+  0%, 100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+.am-eq-bar {
+  transform-origin: bottom;
+  animation: am-eq 1.1s ease-in-out infinite;
+}
+
+/* 歌词面板滚动条 */
+.custom-music-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-music-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+}
+.custom-music-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 顶部歌单选择横向滚动条隐藏 */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

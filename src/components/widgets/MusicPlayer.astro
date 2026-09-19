@@ -157,6 +157,19 @@ const playlistSongsData = JSON.stringify(playlistSongs);
                   <circle cx="16" cy="7" r="5"></circle>
                 </svg> 歌词
               </button>
+              <button
+                type="button"
+                data-open-fullscreen-current
+                title="全屏播放"
+                class="px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 text-neu-text-muted hover:text-neu-btn-text"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-expand">
+                  <path d="m21 21-6-6m6 6v-4.8m0 4.8h-4.8"></path>
+                  <path d="M3 16.2V21m0 0h4.8M3 21l6-6"></path>
+                  <path d="M21 7.8V3m0 0h-4.8M21 3l-6 6"></path>
+                  <path d="M3 7.8V3m0 0h4.8M3 3l6 6"></path>
+                </svg> 全屏
+              </button>
             </div>
             <!-- Status Indicator -->
             <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/5 dark:bg-black/40 border border-black/5 dark:border-white/10">
@@ -253,15 +266,15 @@ const playlistSongsData = JSON.stringify(playlistSongs);
                 <line x1="19" x2="19" y1="5" y2="19"></line>
               </svg>
             </button>
-            <button id="repeat-btn" class="w-8 h-8 rounded-full flex items-center justify-center transition-all text-neu-text-muted hover:text-neu-text">
-              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-repeat">
-                <path d="m17 2 4 4-4 4"></path>
-                <path d="M3 11v-1a4 4 0 0 1 4-4h14"></path>
-                <path d="m7 22-4-4 4-4"></path>
-                <path d="M21 13v1a4 4 0 0 1-4 4H3"></path>
-              </svg>
-            </button>
-          </div>
+<button id="repeat-btn" class="w-8 h-8 rounded-full flex items-center justify-center transition-all text-neu-text-muted hover:text-neu-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-repeat">
+                  <path d="m17 2 4 4-4 4"></path>
+                  <path d="M3 11v-1a4 4 0 0 1 4-4h14"></path>
+                  <path d="m7 22-4-4 4-4"></path>
+                  <path d="M21 13v1a4 4 0 0 1-4 4H3"></path>
+                </svg>
+              </button>
+            </div>
           <div class="flex items-center gap-1.5 pt-1">
             <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-400 shrink-0">
               <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"></path>
@@ -310,3 +323,22 @@ const playlistSongsData = JSON.stringify(playlistSongs);
     }
   </style>
 </div>
+
+<script is:inline>
+  document.addEventListener('click', (e) => {
+    const target = e.target instanceof Element ? e.target.closest('[data-open-fullscreen]') : null;
+    if (target) {
+      e.preventDefault();
+      e.stopPropagation();
+      const index = Number(target.dataset.openFullscreen);
+      window.dispatchEvent(new CustomEvent('ryuchan:music:open-fullscreen', { detail: { index } }));
+      return;
+    }
+    const current = e.target instanceof Element ? e.target.closest('[data-open-fullscreen-current]') : null;
+    if (current) {
+      e.preventDefault();
+      e.stopPropagation();
+      window.dispatchEvent(new CustomEvent('ryuchan:music:open-fullscreen'));
+    }
+  });
+</script>

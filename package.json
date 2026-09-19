@@ -3,6 +3,9 @@
   "type": "module",
   "version": "2.0.0",
   "packageManager": "pnpm@11.15.0",
+  "patchedDependencies": {
+    "@applemusic-like-lyrics/core@0.5.2": "patches/@applemusic-like-lyrics__core.patch"
+  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -21,6 +24,8 @@
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@applemusic-like-lyrics/core": "^0.5.2",
+    "@applemusic-like-lyrics/react": "^0.5.2",
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.3.0",
     "@astrojs/react": "^4.4.2",
@@ -29,6 +34,13 @@
     "@astrojs/tailwind": "^6.0.2",
     "@fancyapps/ui": "^6.0.21",
     "@iconify/react": "^6.0.2",
+    "@pixi/app": "^7.4.3",
+    "@pixi/core": "^7.4.3",
+    "@pixi/display": "^7.4.3",
+    "@pixi/filter-blur": "^7.4.3",
+    "@pixi/filter-bulge-pinch": "^5.1.1",
+    "@pixi/filter-color-matrix": "^7.4.3",
+    "@pixi/sprite": "^7.4.3",
     "@playform/compress": "^0.1.9",
     "@tailwindcss/typography": "^0.5.16",
     "astro": "^5.9.0",
