@@ -16,6 +16,7 @@ import {
   coverForTexture,
   durationMsOf,
   fetchLyricLines,
+  highResCoverOf,
   type AppleMusicPlaylist,
   type AppleMusicSong,
 } from "./lrc";
@@ -414,6 +415,9 @@ export default function AppleMusicPlayer({
     ?? playlists.find((playlist) => playlist.id === "all")?.name
     ?? "全部音乐";
 
+  /* QQ 音乐 CDN 存的封面是 300x300，全屏下会被放大到数百像素而发糊，这里换成高清源 */
+  const coverHi = highResCoverOf(song.cover) || FALLBACK_COVER;
+
   const restoreLyricsAfterQueue = useCallback(() => {
     setQueueOpen(false);
     setShowLyrics(lyricsBeforeQueueRef.current);
@@ -427,7 +431,7 @@ export default function AppleMusicPlayer({
       {/* ====== 背景层：Apple「转盘」流体画布 ====== */}
       <div className="dt-platter pointer-events-none absolute inset-0">
         <BackgroundRender
-          album={coverForTexture(song.cover || FALLBACK_COVER)}
+          album={coverForTexture(coverHi)}
           playing={playing}
           flowSpeed={2}
           fps={20}
@@ -563,7 +567,7 @@ export default function AppleMusicPlayer({
               />
             </div>
             <img
-              src={song.cover || FALLBACK_COVER}
+              src={coverHi}
               alt={song.title || "cover"}
               data-paused={!playing}
               className="am-artwork-cover relative aspect-square w-full object-cover ring-1 ring-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.7)]"

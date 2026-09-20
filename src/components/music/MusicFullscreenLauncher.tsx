@@ -37,12 +37,15 @@ export default function MusicFullscreenLauncher({
       let index = typeof detail?.index === "number" ? detail.index : -1;
       const eng = getEngine();
       if (eng) {
-        if (index < 0 || index >= list.length) {
-          const current = eng.playlist[eng.currentIndex];
-          const match = current ? list.findIndex((s) => s.url === current.url) : -1;
+        // 全屏播放沿用引擎当前歌单（可能是用户选中的某个歌单，或随机后的顺序），
+        // 而不是一律替换成「全部音乐」，否则歌单标题对上了列表却是全部歌曲
+        const target = eng.playlist.length > 0 ? eng.playlist : list;
+        if (index < 0 || index >= target.length) {
+          const current = target[eng.currentIndex] ?? target[0];
+          const match = current ? target.findIndex((s) => s.url === current.url) : -1;
           index = match >= 0 ? match : 0;
         }
-        eng.playlist = list;
+        eng.playlist = target;
         eng.loadSong(index, true);
         // 列表顺序被替换，页面内列表需要同步，否则点击列表项会播到错误的歌曲
         eng.renderPlaylistList?.();

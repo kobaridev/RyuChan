@@ -1018,10 +1018,10 @@ body.am-fullscreen-open footer {
 @media (min-width: 1024px) {
   .am-player-grid {
     grid-template-areas: "controls lyrics";
-    grid-template-columns: minmax(0, 31vw) minmax(0, 38vw);
+    grid-template-columns: minmax(0, 30vw) minmax(0, 46vw);
     /* 行高 = 两列内容的最大高度：歌词视口与封面列等高，二者底部对齐（歌词下缘 = 音量控制下缘） */
     grid-template-rows: auto;
-    column-gap: 7vw;
+    column-gap: 6vw;
     padding: 40px 6vw 12px;
     /* 两列作为一个整体水平/垂直居中，而不是钉在底部 */
     align-content: center;
@@ -1597,7 +1597,7 @@ body.am-fullscreen-open footer {
 .am-lyrics-inner {
   position: relative;
   width: 100%;
-  max-width: 972px;
+  max-width: 1200px;
   height: 100%;
   min-height: inherit;
   /* 歌词从底部（音量条水平线处）平滑淡入，而不是被硬裁切 */
@@ -1621,6 +1621,12 @@ body.am-fullscreen-open footer {
 .am-player-root .amll-lyric-player {
   mix-blend-mode: normal;
   font-weight: 600;
+}
+
+/* 加大歌词行上下行距：AMLL 默认每行 wrapper 纵向 padding 为 .4em，这里放大到 .75em */
+.am-player-root .amll-lyric-player .FmKaba_lyricLineWrapper {
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
 }
 
 /* 已唱行两段式淡出：

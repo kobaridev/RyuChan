@@ -58,15 +58,23 @@ export function lyricsUrlOf(song: AppleMusicSong): string {
  * 但 QQ 音乐封面（y.gtimg.cn）不带 CORS 头，浏览器禁止将其上传到 WebGL 纹理，
  * 导致动态背景渲不出画面（纯黑）。这类封面改走带 CORS 的 images.weserv.nl 代理。
  */
+function hostOfUrl(url: string): string {
+  try {
+    return new URL(url, globalThis.location?.href ?? "http://localhost").hostname;
+  } catch {
+    return "";
+  }
+}
+
+/** 将 QQ 音乐封面 URL 的尺寸 token 放大（T002R300x300 → T003R800x800） */
+export function highResCoverOf(url: string, size = 800): string {
+  if (!url || !/(^|\.)y\.gtimg\.cn$/i.test(hostOfUrl(url))) return url;
+  return url.replace(/(T\d{3}R)\d+x\d+(?=[^/]*$)/i, `$1${size}x${size}`);
+}
+
 export function coverForTexture(url: string): string {
   if (!url) return url;
-  let host = "";
-  try {
-    host = new URL(url, globalThis.location?.href ?? "http://localhost").hostname;
-  } catch {
-    return url;
-  }
-  if (/(^|\.)y\.gtimg\.cn$/i.test(host)) {
+  if (/(^|\.)y\.gtimg\.cn$/i.test(hostOfUrl(url))) {
     return `https://images.weserv.nl/?url=${encodeURIComponent(url)}`;
   }
   return url;
